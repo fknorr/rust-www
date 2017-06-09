@@ -1,43 +1,43 @@
 ---
 layout: de-DE/faq
-title: Frequently Asked Questions &middot; The Rust Programming Language
+title: Häufig gestellte Fragen &middot; Die Programmiersprache Rust
 ---
 
-# Frequently Asked Questions
+# Häufig gestellte Fragen
 
 <p class="faq-intro">
-This page exists to answer common questions about the Rust programming language. It is not a complete guide to the language, nor is it a tool for teaching the language. It is a reference to answer oft-repeated questions people in the Rust community encounter, and to clarify the reasoning behind some of Rust's design decisions.
+Auf dieser Seite werden häufig gestellte Fragen über die Programmiersprache Rust beantwortet. Die Seite ist keine vollständige Anleitung und zum Lernen der Sprache ungeeignet. Sie versucht, Antworten auf Fragen zu geben, welche in der Rust Community immer wieder aufgetreten sind, und verdeutlicht einige Überlegungen hinter Rust's Design-Entscheidungen.
 </p>
 
 <p class="faq-intro">
-If there is some common or important question you feel is wrongly left unanswered here, feel free to <a href="https://github.com/rust-lang/rust-www/blob/master/CONTRIBUTING.md">help us fix it</a>.
+Wenn dir auffällt, dass hier eine wichtige oder verbreitete Frage fehlt, dann <a href="https://github.com/rust-lang/rust-www/blob/master/CONTRIBUTING.md">hilf uns, das zu ändern</a>.
 </p>
 
 <div id="toc">
-    <h2>Table of Contents</h2><a href="#toggle-toc"></a>
+    <h2>Inhaltsverzeichnis</h2><a href="#toggle-toc"></a>
     <div class="contents">
         <ol id="toc-contents">
-            <li><a href="#project">The Rust Project</a></li>
+            <li><a href="#project">Das Rust Projekt</a></li>
             <li><a href="#performance">Performance</a></li>
             <li><a href="#syntax">Syntax</a></li>
-            <li><a href="#numerics">Numerics</a></li>
+            <li><a href="#numerics">Arithmetik</a></li>
             <li><a href="#strings">Strings</a></li>
             <li><a href="#collections">Collections</a></li>
             <li><a href="#ownership">Ownership</a></li>
             <li><a href="#lifetimes">Lifetimes</a></li>
             <li><a href="#generics">Generics</a></li>
-            <li><a href="#input-output">Input / Output</a></li>
-            <li><a href="#error-handling">Error Handling</a></li>
-            <li><a href="#concurrency">Concurrency</a></li>
-            <li><a href="#macros">Macros</a></li>
-            <li><a href="#debugging">Debugging and Tooling</a></li>
+            <li><a href="#input-output">Eingabe / Ausgabe</a></li>
+            <li><a href="#error-handling">Fehlerbehandlung</a></li>
+            <li><a href="#concurrency">Nebenläufigkeit</a></li>
+            <li><a href="#macros">Makros</a></li>
+            <li><a href="#debugging">Debugging und Tooling</a></li>
             <li><a href="#low-level">Low-Level</a></li>
             <li><a href="#cross-platform">Cross-Platform</a></li>
-            <li><a href="#modules-and-crates">Modules and Crates</a></li>
-            <li><a href="#libraries">Libraries</a></li>
-            <li><a href="#design-patterns">Design Patterns</a></li>
-            <li><a href="#other-languages">Other Languages</a></li>
-            <li><a href="#documentation">Documentation</a></li>
+            <li><a href="#modules-and-crates">Module und Crates</a></li>
+            <li><a href="#libraries">Bibliotheken</a></li>
+            <li><a href="#design-patterns">Entwurfsmuster</a></li>
+            <li><a href="#other-languages">Andere Sprachen</a></li>
+            <li><a href="#documentation">Dokumentation</a></li>
         </ol>
     </div>
 </div>
