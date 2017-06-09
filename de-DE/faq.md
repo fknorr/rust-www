@@ -43,59 +43,58 @@ Wenn dir auffällt, dass hier eine wichtige oder verbreitete Frage fehlt, dann <
 </div>
 
 
-<h2 id="project">The Rust Project</h2>
+<h2 id="project">Das Rust Projekt</h2>
 
-<h3><a href="#what-is-this-projects-goal" name="what-is-this-projects-goal">
-What is this project's goal?
+<h3><a href="#what-is-this-projects-goal" name="Was ist das Ziel des Rust Projektes?">
+Was ist das Ziel des Rust Projektes?
 </a></h3>
 
-To design and implement a safe, concurrent, practical systems language.
+Das Ziel des Rust Projektes ist es, eine sichere, nebenläufige und praktikable Systemsprache zu implementieren.
 
-Rust exists because other languages at this level of abstraction and efficiency are unsatisfactory. In particular:
+Rust existiert, weil andere, ähnlich abstrakte und effiziente Sprachen folgende Erwartungen nicht erfüllen:
 
-1. There is too little attention paid to safety.
-2. They have poor concurrency support.
-3. There is a lack of practical affordances.
-4. They offer limited control over resources.
+1. Es wird zu wenig auf Sicherheit geachtet.
+2. Die Unterstützung für Nebenläufigkeit ist mangelhaft.
+3. Für manche Sprachmerkmale gibt es keine praktische, einleuchtende Benutzung.
+4. Es gibt nur eingeschränkte Kontrolle über Ressourcen.
 
-Rust exists as an alternative that provides both efficient code and a comfortable level of abstraction, while improving on all four of these points.
+Rust existiert als eine Alternative, welche sowohl effizienten Code als auch ein komfortables Abstraktionsniveau bietet, und dabei für jeden dieser vier Punkte Verbesserungen vorschlägt.
 
-<h3><a href="#is-this-project-controlled-by-mozilla" name="is-this-project-controlled-by-mozilla">
-Is this project controlled by Mozilla?
+<h3><a href="#is-this-project-controlled-by-mozilla" name="Wird dieses Projekt von Mozilla kontrolliert?">
+Wird dieses Projekt von Mozilla kontrolliert?
 </a></h3>
 
-No. Rust started as Graydon Hoare's part-time side project in 2006 and remained so for over 3 years. Mozilla got involved in 2009 once the language was mature enough to run basic tests and demonstrate its core concepts. Though it remains sponsored by Mozilla, Rust is developed by a diverse community of enthusiasts from many different places around the world. The [Rust Team](https://www.rust-lang.org/team.html) is composed of both Mozilla and non-Mozilla members, and `rust` on GitHub has had over [1,500 unique contributors](https://github.com/rust-lang/rust/) so far.
+Nein. Im Jahr 2006 startete Graydon Hoare Rust als Teilzeitprojekt, und so blieb es für 3 Jahre. Erst als Rust 2009 die nötige Reife erreichte, um Kernkonzepte anhand einfacher Tests zu demonstrieren, beteiligte sich Mozilla. Rust wird vorrangig von Mozilla unterstützt, aber eine vielfältige, enthusiastische Community in der ganzen Welt arbeitet daran. Das [Rust Team](https://www.rust-lang.org/team.html) besteht sowohl aus Mitarbeitern von Mozilla als auch aus unabhängigen Mitgliedern, und `rust` auf GitHub hatte bisher schon über [1,500 verschiedene Mitwirkende](https://github.com/rust-lang/rust/).
 
-As far as [project governance](https://github.com/rust-lang/rfcs/blob/master/text/1068-rust-governance.md) goes, Rust is managed by a core team that sets the vision and priorities for the project,
-guiding it from a global perspective. There are also subteams to guide and foster development of particular areas of interest, including the core language, the compiler, Rust libraries, Rust tools, and moderation of the official Rust communities. Designs in each these areas are advanced through an [RFC process](https://github.com/rust-lang/rfcs). For changes which do not require an RFC, decisions are made through pull requests on the [`rustc` repository](https://github.com/rust-lang/rust).
+Die [Führung des Projektes](https://github.com/rust-lang/rfcs/blob/master/text/1068-rust-governance.md) besteht aus einem Kernteam, welches die Vision und die Prioritäten festlegt und das Projekt von einer globalen Perspektive aus leitet. Es gibt auch kleinere Teams, welche sich um die Entwicklung bestimmter Interessenbereiche kümmern. Das können zum Beispiel der Kern der Sprache, der Compiler, Rust Bibliotheken, Tooling oder die Moderation der offiziellen Rust Communities sein. Fortschritt in jedem dieser Bereiche wird über einen [RFC-Prozess](https://github.com/rust-lang/rfcs) erreicht. Änderungen, für welche kein RFC notwendig ist, werden normalerweise in einer Pull Request im [`rustc` Repository](https://github.com/rust-lang/rust) diskutiert.
 
-<h3><a href="#what-are-some-non-goals" name="what-are-some-non-goals">
-What are some non-goals of Rust?
+<h3><a href="#what-are-some-non-goals" name="Welche Ziele werden nicht angestrebt?">
+Welche Ziele werden nicht angestrebt?
 </a></h3>
 
-1. We do not employ any particularly cutting-edge technologies. Old, established techniques are better.
-2. We do not prize expressiveness, minimalism or elegance above other goals. These are desirable but subordinate goals.
-3. We do not intend to cover the complete feature-set of C++, or any other language. Rust should provide majority-case features.
-4. We do not intend to be 100% static, 100% safe, 100% reflective, or too dogmatic in any other sense. Trade-offs exist.
-5. We do not demand that Rust run on "every possible platform". It must eventually work without unnecessary compromises on widely-used hardware and software platforms.
+1. Wir verwenden keine besonders modernen Technologien. Alte, etablierte Technologien sind besser.
+2. Expressivität, Minimalismus oder Eleganz sind wünschenswerte, aber untergeordnete Ziele.
+3. Wir beabsichtigen nicht, alle Eigenschaften und Möglicheiten von C++ oder anderen Sprachen abzudecken. Rust sollte die häufigsten Fälle abdecken.
+4. Wir beabsichtigen nicht, 100% statisch, 100% sicher, 100% reflektiv oder zu dogmatisch in irgendeiner anderen Hinsicht zu sein. Es gibt Kompromisse.
+5. Wir zielen nicht darauf ab, dass Rust auf jeder möglichen Plattform läuft. Rust soll ohne unnötige Kompromisse auf üblichen, verbreiteten Hardware- und Softwareplattformen laufen.
 
-<h3><a href="#how-does-mozilla-use-rust" name="how-does-mozilla-use-rust">
-In which projects is Mozilla using Rust?
+<h3><a href="#how-does-mozilla-use-rust" name="Wie nutzt Mozilla Rust?">
+In welchen Projekten nutzt Mozilla Rust?
 </a></h3>
 
-The main project is [Servo](https://github.com/servo/servo), an experimental browser engine Mozilla is working on. They are also working to [integrate Rust components](https://bugzilla.mozilla.org/show_bug.cgi?id=1135640) into Firefox.
+Hauptsächlich wird Rust in [Servo](https://github.com/servo/servo), einer experimentellen Browser Engine, an welcher Mozilla arbeitet, verwendet. Mozilla arbeitet auch daran, weitere Rust Komponenten [in Firefox zu integrieren](https://bugzilla.mozilla.org/show_bug.cgi?id=1135640).
 
-<h3><a href="#what-examples-are-there-of-large-rust-projects" name="what-examples-are-there-of-large-rust-projects">
-What examples are there of large Rust projects?
+<h3><a href="#what-examples-are-there-of-large-rust-projects" name="Welche großen Rust-Projekte gibt es?">
+Welche großen Rust-Projekte gibt es?
 </a></h3>
 
-The two biggest open source Rust projects right now are [Servo](https://github.com/servo/servo) and the [Rust compiler](https://github.com/rust-lang/rust) itself.
+Die zwei im Moment größten quelloffenen Rust-Projekte sind [Servo](https://github.com/servo/servo) und der [Rust Compiler](https://github.com/rust-lang/rust) selbst.
 
-<h3><a href="#who-else-is-using-rust" name="who-else-is-using-rust">
-Who else is using Rust?
+<h3><a href="#who-else-is-using-rust" name="Wer benutzt sonst noch Rust?">
+Wer benutzt sonst noch Rust?
 </a></h3>
 
-[A growing number of organizations!](friends.html)
+[Eine wachsende Zahl von Organisationen!](friends.html)
 
 <!--
 ### What projects are good examples of idiomatic Rust code?
@@ -103,34 +102,35 @@ Who else is using Rust?
 TODO: Write this answer.
 -->
 
-<h3><a href="#how-can-i-try-rust-easily" name="how-can-i-try-rust-easily">
-How can I try Rust easily?
+<h3><a href="#how-can-i-try-rust-easily" name="Wie kann ich Rust einfach ausprobieren?">
+Wie kann ich Rust einfach ausprobieren?
 </a></h3>
 
-The easiest way to try Rust is through the [playpen](https://play.rust-lang.org/), an online app for writing and running Rust code. If you want to try Rust on your system, [install it](https://www.rust-lang.org/install.html) and go through the [Guessing Game](https://doc.rust-lang.org/stable/book/guessing-game.html) tutorial in the book.
+Der einfachste Weg, Rust auszuprobieren, ist der [Playpen](https://play.rust-lang.org/) - eine Online-Applikation, in welcher man einfach Rust Code schreiben und Ausführen kann. Wenn du Rust auf deinem eigenen System ausprobieren willst, [installiere es](https://www.rust-lang.org/install.html) und gehe das [Guessing Game](https://doc.rust-lang.org/stable/book/guessing-game.html) Tutorial im Buch durch.
 
-<h3><a href="#how-do-i-get-help-with-rust-issues" name="how-do-i-get-help-with-rust-issues">
-How do I get help with Rust issues?
+<h3><a href="#how-do-i-get-help-with-rust-issues" name="Wie bekomme ich bei Problemen mit Rust Hilfe?">
+Wie bekomme ich bei Problemen mit Rust Hilfe?
 </a></h3>
 
-There are several ways. You can:
+Es gibt viele Wege. Du kannst:
 
-- Post in [users.rust-lang.org](https://users.rust-lang.org/), the official Rust users forum
-- Ask in the official [Rust IRC channel](https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust) (#rust on irc.mozilla.org)
-- Ask on [Stack Overflow](https://stackoverflow.com/questions/tagged/rust) with the "rust" tag
-- Post in [/r/rust](https://www.reddit.com/r/rust), the unofficial Rust subreddit
+- Einen Forenpost im offiziellen Rust User Forum [users.rust-lang.org](https://nsers.rust-lang.org/) absetzen.
+- Im offiziellen [Rust IRC Kanal](https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust) (#rust on irc.mozilla.org) eine Frage stellen.
+- Auf [Stack Overflow](https://stackoverflow.com/questions/tagged/rust) eine Frage stellen (markiere sie mit dem "rust" tag!).
+- Im inoffiziellen Rust Subreddit [/r/rust](https://www.reddit.com/r/rust) posten.
 
-<h3><a href="#why-has-rust-changed-so-much" name="why-has-rust-changed-so-much">
-Why has Rust changed so much over time?
+<h3><a href="#why-has-rust-changed-so-much" name="Warum hat sich Rust so stark verändert?">
+Warum hat sich Rust über die Zeit so stark verändert?
 </a></h3>
 
-Rust started with a goal of creating a safe but usable systems programming language. In pursuit of this goal it explored a lot of ideas, some of which it kept (lifetimes, traits) while others were discarded (the typestate system, green threading). Also, in the run up to 1.0 a lot of the standard library was rewritten as early designs were updated to best use Rust's features and provide quality, consistent cross-platform APIs. Now that Rust has reached 1.0, the language is guaranteed to be "stable"; and while it may continue to evolve, code which works on current Rust should continue to work on future releases.
+Das ursprüngliche Ziel von Rust war es, eine sichere, aber einfach zu benutzende Systemprogrammiersprache zu erstellen.
+Um dieses Ziel zu erreichen, verfolgte Rust eine Vielzahl von Ideen, von denen es manche behielt (lifetimes, traits) und andere wieder verwarf (das typestate-System oder green threading). Außerdem wurde ein großer Teil der Rust Standardbibliotheken vor der Veröffentlichung der Version 1.0 neu geschrieben, um mithilfe der Features von Rust eine qualitativ hochwertige, konsistente, Plattformübergreifende API anzubieten. Jetzt, wo Rust die Version 1.0 erreicht hat, wird garantiert, dass die Sprache stabil ist; obwohl die Sprache sich weiter entwickelt, wird Code, welcher auf aktuellen Versionen von Rust funktioniert, auch in zukünftigen Versionen des Compilers gültiger Rust Code sein.
 
-<h3><a href="#how-does-rust-language-versioning-work" name="how-does-rust-language-versioning-work">
-How does Rust language versioning work?
+<h3><a href="#how-does-rust-language-versioning-work" name="Wie funktioniert Versionierung in Rust?">
+Wie funktioniert Versionierung in Rust?
 </a></h3>
 
-Rust's language versioning follows [SemVer](http://semver.org/), with backwards incompatible changes of stable APIs only allowed in minor versions if those changes fix compiler bugs, patch safety holes, or change dispatch or type inference to require additional annotation. More detailed guidelines for minor version changes are available as approved RFCs for both the [language](https://github.com/rust-lang/rfcs/blob/master/text/1122-language-semver.md) and [standard library](https://github.com/rust-lang/rfcs/blob/master/text/1105-api-evolution.md).
+Die Sprachversionierung von Rust folgt [SemVer](http://semver.org/). Rückwärts-inkompatible Änderungen von stabilen API's sind in 'minor' Versionen nur erlaubt, wenn diese Änderungen Fehler oder Sicherheitslücken im Compiler beheben, oder wenn die Änderungen weitere Annotationen für Dispatch oder Typinferenz erforderlich machen. Weitere, detailreichere Richtlinien für 'minor' Versionsänderungen sind als genehmigte RFC's sowohl für die [Sprache](https://github.com/rust-lang/rfcs/blob/master/text/1122-language-semver.md) als auch die [Standardbibliotheken](https://github.com/rust-lang/rfcs/blob/master/text/1105-api-evolution.md) zu finden.
 
 Rust maintains three "release channels": stable, beta, and nightly. Stable and beta are updated every six weeks, with the current nightly becoming the new beta, and the current beta becoming the new stable. Language and standard library features marked unstable or hidden behind feature gates may only be used on the nightly release channel. New features land as unstable, and are "ungated" once approved by the core team and relevant subteams. This approach allows for experimentation while providing strong backwards-compatibility guarantees for the stable channel.
 
