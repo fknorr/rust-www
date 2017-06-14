@@ -130,37 +130,37 @@ Um dieses Ziel zu erreichen, verfolgte Rust eine Vielzahl von Ideen, von denen e
 Wie funktioniert Versionierung in Rust?
 </a></h3>
 
-Die Sprachversionierung von Rust folgt [SemVer](http://semver.org/). Rückwärts-inkompatible Änderungen von stabilen API's sind in 'minor' Versionen nur erlaubt, wenn diese Änderungen Fehler oder Sicherheitslücken im Compiler beheben, oder wenn die Änderungen weitere Annotationen für Dispatch oder Typinferenz erforderlich machen. Weitere, detailreichere Richtlinien für 'minor' Versionsänderungen sind als genehmigte RFC's sowohl für die [Sprache](https://github.com/rust-lang/rfcs/blob/master/text/1122-language-semver.md) als auch die [Standardbibliotheken](https://github.com/rust-lang/rfcs/blob/master/text/1105-api-evolution.md) zu finden.
+Die Sprachversionierung von Rust folgt [SemVer](http://semver.org/). Änderungen an stabilen API's, welche die Abwärtskompatibilitätnicht gewährleisten, sind in 'minor' Versionen nur erlaubt, wenn sie Fehler oder Sicherheitslücken im Compiler beheben, oder wenn die Änderungen weitere Annotationen für Dispatch oder Typinferenz erforderlich machen. Weitere, detailreichere Richtlinien für 'minor' Versionsänderungen sind als genehmigte RFC's sowohl für die [Sprache](https://github.com/rust-lang/rfcs/blob/master/text/1122-language-semver.md) als auch die [Standardbibliotheken](https://github.com/rust-lang/rfcs/blob/master/text/1105-api-evolution.md) zu finden.
 
-Rust maintains three "release channels": stable, beta, and nightly. Stable and beta are updated every six weeks, with the current nightly becoming the new beta, and the current beta becoming the new stable. Language and standard library features marked unstable or hidden behind feature gates may only be used on the nightly release channel. New features land as unstable, and are "ungated" once approved by the core team and relevant subteams. This approach allows for experimentation while providing strong backwards-compatibility guarantees for the stable channel.
+Es gibt drei Veröffentlichungskanäle für Rust: Stable, Beta, und Nightly. Die Kanäle Stable und Beta werden alle sechs Wochen aktualisiert, wobei der aktuelle Nightly zur neuen Beta und die aktuelle Beta das neue Stable wird. Teile der Standardbibliotheken sind als 'unstable' markiert oder durch 'Feature Gates' abgeschirmt. Diese können ausschließlich im Nightly-Kanal verwendet werden. Neue Features sind solange als 'unstable' markiert, bis das Kernteam und zuständige Unterteams ihre Zustimmung zur Freigabe gegeben haben. Diese Herangehensweise erlaubt es Entwicklern, zu experimentieren, ohne die Garantie auf Abwärtskompatibilität zu gefährden.
 
-For additional details, read the Rust blog post ["Stability as a Deliverable."](http://blog.rust-lang.org/2014/10/30/Stability.html)
+Mehr Details finden sich im Blogpost ["Stability as a Deliverable"](http://blog.rust-lang.org/2014/10/30/Stability.html).
 
-<h3><a href="#can-i-use-unstable-features-on-the-beta-or-stable-channel" name="can-i-use-unstable-features-on-the-beta-or-stable-channel">
-Can I use unstable features on the beta or stable channel?
+<h3><a href="#can-i-use-unstable-features-on-the-beta-or-stable-channel" name="Kann ich auf dem Beta- oder Stable Channel Features aus dem Unstable Channel verwenden?">
+Kann ich auf dem Beta- oder Stable Channel Features aus dem Unstable Channel verwenden?
 </a></h3>
 
-No, you cannot. Rust works hard to provide strong guarantees about the stability of the features provided on the beta and stable channels. When something is unstable, it means that we can't provide those guarantees for it yet, and don't want people relying on it staying the same. This gives us the opportunity to try changes in the wild on the nightly release channel, while still maintaining strong guarantees for people seeking stability.
+Nein, das ist unmöglich. An Rust wird hart gearbeitet, um die Stabilität der Beta- und Stable Kanäle zu gewährleisten. Wir wollen nicht, dass sich jemand auf unstabile Features verlässt, für welche wir keine Stabilität gewährleisten und welche sich jederzeit ändern könnten. Das gibt uns auch die Möglichkeit, Änderungen im Nightly-Kanal realistisch auszutesten, während der Beta- und Stable Kanal stabil und unverändert bleiben.
 
-Things stabilize all the time, and the beta and stable channels update every six weeks, with occasional fixes accepted into beta at other times. If you're waiting for a feature to be available without using the nightly release channel, you can locate its tracking issue by checking the [`B-unstable`](https://github.com/rust-lang/rust/issues?q=is%3Aissue+is%3Aopen+tracking+label%3AB-unstable) tag on the issue tracker.
+Alle sechs Wochen werden die Beta- und Stable Kanäle mit den stabilisierten Features aktualisiert. Im Nightly-Kanal gibt es häufig stabilisierende Updates, während die anderen Kanäle seltener Fixes akzeptieren. Wenn du darauf wartest, dass ein Feature im Beta- oder Stable Kanal bereitgestellt wird, dann kannst du die zugehörige Issue mit dem Tag [`B-unstable`](https://github.com/rust-lang/rust/issues?q=is%3Aissue+is%3Aopen+tracking+label%3AB-unstable) auf dem Issue Tracker finden.
 
-<h3><a href="#what-are-feature-gates" name="what-are-feature-gates">
-What are "Feature Gates"?
+<h3><a href="#what-are-feature-gates" name="Was sind 'Feature Gates'?">
+Was sind 'Feature Gates'?
 </a></h3>
 
-"Feature gates" are the mechanism Rust uses to stabilize features of the compiler, language, and standard library. A feature that is "gated" is accessible only on the nightly release channel, and then only when it has been explicitly enabled through `#[feature]` attributes or the `-Z unstable-options` command line argument. When a feature is stabilized it becomes available on the stable release channel, and does not need to be explicitly enabled. At that point the feature is considered "ungated". Feature gates allow developers to test experimental features while they are under development, before they are available in the stable language.
+"Feature Gates" sind der Sprachmechanismus, den Rust verwendet, um Features des Compilers, der Sprache und der Standardbibliotheken zu stabilisieren. Ein Feature hinter einer 'gate' ist nur im Nightly-Kanal verfügbar, und auch nur dann, wenn es explizit durch ein `#[feature]`-Attribut oder das Kommandozeilenargument `-Z unstable-options` angefordert wurde. Wenn ein Feature stabilisiert und in den Stable-Kanal übernommen wird, muss es nicht mehr explizit angefordert werden. Dann wird dieses Feature als "ungated" bezeichnet. Feature Gates erlauben es den Entwicklern, zu experimentieren, während sie in der Entwicklung sind. Erst wenn die Entwickler sich auf eine Implementierung festlegen, halten die Features in der stabilen Sprache Einzug.
 
-<h3><a href="#why-a-dual-mit-asl2-license" name="why-a-dual-mit-asl2-license">
-Why a dual MIT/ASL2 License?
+<h3><a href="#why-a-dual-mit-asl2-license" name="Warum eine MIT-ASL2 Doppellizenz?">
+Warum eine MIT-ASL2 Doppellizenz?
 </a></h3>
 
-The Apache license includes important protection against patent aggression, but it is not compatible with the GPL, version 2. To avoid problems using Rust with GPL2, it is alternately MIT licensed.
+Die Apache-Lizenz enthält wichtigen Schutz gegen Patentaggressoren, aber ist mit der GPLv2 inkompatibel. Um Probleme bei der Verwendung von Rust mit der GPLv2-Lizenz zu vermeiden, ist es alternativ MIT-lizenziert.
 
-<h3><a href="#why-a-permissive-license" name="why-a-permissive-license">
-Why a BSD-style permissive license rather than MPL or tri-license?
+<h3><a href="#why-a-permissive-license" name="Warum eine permissive Lizenz?">
+Warum eine BSD-artige Freizügige Lizenz anstelle von MPL oder einer dreifachen Lizenz?
 </a></h3>
 
-This is partly due to preference of the original developer (Graydon), and partly due to the fact that languages tend to have a wider audience and more diverse set of possible embeddings and end-uses than products such as web browsers. We'd like to appeal to as many of those potential contributors as possible.
+Das liegt zu einem Teil an einer persönlichen Vorliebe des originalen Entwicklers Graydon Hoare, zum anderen daran, dass Programmiersprachen im Gegensatz zu Produkten wie Webbrowsern normalerweise einen weiter gefächerten Einflussbereich und ein vielseitigeres Einsatzzgebiet haben. Wir würden gerne möglichst viele dieser potenziellen Mitwirkenden anziehen.
 
 <h2 id="performance">Performance</h2>
 
