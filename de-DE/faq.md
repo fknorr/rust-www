@@ -164,63 +164,60 @@ Das liegt zu einem Teil an einer persönlichen Vorliebe des originalen Entwickle
 
 <h2 id="performance">Performance</h2>
 
-<h3><a href="#how-fast-is-rust" name="how-fast-is-rust">
-How fast is Rust?
+<h3><a href="#how-fast-is-rust" name="Wie schnell ist Rust?">
+Wie schnell ist Rust?
 </a></h3>
 
-Fast! Rust is already competitive with idiomatic C and C++ in a number of benchmarks (like the [Benchmarks Game](https://benchmarksgame.alioth.debian.org/u64q/compare.php?lang=rust&lang2=gpp) and [others](https://github.com/kostya/benchmarks)).
+Sehr Schnell! Rust kann sich bereits in einigen Benchmarks (zu Beispiel dem [Benchmarks Game](https://benchmarksgame.alioth.debian.org/u64q/compare.php?lang=rust&lang2=gpp) und [anderen](https://github.com/kostya/benchmarks)) mit idiomatischem C und C++ Code messen.
 
-Like C++, Rust takes [zero-cost abstractions](http://blog.rust-lang.org/2015/05/11/traits.html) as one of its core principles: none of Rust's abstractions impose a global performance penalty, nor is there overhead from any runtime system.
+Eins der wichtigsten Prinzipien in Rust (wie auch in C++) sind [Zero-Cost Abstractions](http://blog.rust-lang.org/2015/05/11/traits.html): Keine der Abstraktionen in Rust verursachen Programmweite Verlangsamungen, und es gibt keinen Mehraufwand zur Laufzeit des Programms.
 
-Given that Rust is built on LLVM and strives to resemble Clang from LLVM's perspective, any LLVM performance improvements also help Rust. In the long run, the richer information in Rust's type system should also enable optimizations that are difficult or impossible for C/C++ code.
+Da Rust auf LLVM aufbaut und deshalb auch versucht, Clang-kompatiblen Code zu generieren, sind Leistungsverbesserungen in LLVM auch für Rust vorteilhaft. Langfristig sollten die detaillierten Informationen des Typsystems Optimisationen ermöglichen, welche in C/C++ unmöglich wären.
 
-<h3><a href="#is-rust-garbage-collected" name="is-rust-garbage-collected">
-Is Rust garbage collected?
+<h3><a href="#is-rust-garbage-collected" name="Gibt es in Rust einen Garbage Collector?">
+Gibt es in Rust einen Garbage Collector?
 </a></h3>
 
-No. One of Rust's key innovations is guaranteeing memory safety (no segfaults) *without* requiring garbage collection.
+Nein. Eine der Schlüsselinnovationen von Rust ist es, *ohne* Garbage Collection Speichersicherheit (keine Segfaults) zu garantieren. 
 
-By avoiding GC, Rust can offer numerous benefits: predictable cleanup of resources, lower overhead for memory management, and essentially no runtime system. All of these traits make Rust lean and easy to embed into arbitrary contexts, and make it much easier to [integrate Rust code with languages that have a GC](http://calculist.org/blog/2015/12/23/neon-node-rust/).
+Rust erlangt dadurch einige Vorteile: Vorhersagbare Bereinigung von Ressourcen, niedrige Mehrkosten für Speichermanagement, und ein minimales Laufzeitsystem. Diese Eigenschaften ermöglichen es, Rust in beliebige Umgebungen einzubinden, und vereinfachen die [Integration von Rust in Sprachen mit GC](http://calculist.org/blog/2015/12/23/neon-node-rust/).
 
-Rust avoids the need for GC through its system of ownership and borrowing, but that same system helps with a host of other problems, including
-[resource management in general](http://blog.skylight.io/rust-means-never-having-to-close-a-socket/) and [concurrency](http://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html).
+Das Ownership und Borrowing System ermöglicht nicht nur Speichersicherheit ohne einen GC sondern ist auch in anderen Zusammenhängen nützlich, zum Beispiel [allgemeines Ressourcenmanagement](http://blog.skylight.io/rust-means-never-having-to-close-a-socket/) und [Nebenläufigkeit](http://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html).
 
-For when single ownership does not suffice, Rust programs rely on the standard reference-counting smart pointer type, [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html), and its thread-safe counterpart, [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html), instead of GC.
+In Fällen, in denen einfache Ownership nicht genügt, nutzen Rust Programme den üblichen Referenzzähler/Smart Pointer Typ [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html) und sein Thread-sicheres Gegenstück, [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html).
 
-We are however investigating *optional* garbage collection as a future
-extension. The goal is to enable smooth integration with
-garbage-collected runtimes, such as those offered by the
-[Spidermonkey](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey)
-and [V8](https://developers.google.com/v8/?hl=en) JavaScript engines.
-Finally, some people have investigated implementing
-[pure Rust garbage collectors](https://manishearth.github.io/blog/2015/09/01/designing-a-gc-in-rust/)
-without compiler support.
+Allerdings wird daran gearbeitet, in Zukunft einen *optionalen* Garbage Collector als Erweiterung anzubieten, um eine gute Integration mit Laufzeitumgebungen wie [Spidermonkey](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey)
+und [V8](https://developers.google.com/v8/?hl=en) zu ermöglichen, welche Garbage Collection verwenden.
 
-<h3><a href="#why-is-my-program-slow" name="why-is-my-program-slow">
-Why is my program slow?
+Es gibt auch experimentelle, in [purem Rust implementierte Freispeichersammler](https://manishearth.github.io/blog/2015/09/01/designing-a-gc-in-rust/), welche ohne Unterstützung des Compilers funktionieren.
+
+<h3><a href="#why-is-my-program-slow" name="Warum ist mein Programm langsam?">
+Warum ist mein Programm langsam?
 </a></h3>
 
-The Rust compiler doesn't compile with optimizations unless asked to, [as optimizations slow down compilation and are usually undesirable during development](https://users.rust-lang.org/t/why-does-cargo-build-not-optimise-by-default/4150/3).
+Der Rust Compiler optimiert Programme nur dann, wenn man das explizit anfordert, da [Optimisationen die Kompiliergeschwindigkeit verringern und allgemein während der Entwicklung unerwünscht sind](https://users.rust-lang.org/t/why-does-cargo-build-not-optimise-by-default/4150/3).
 
-If you compile with `cargo`, use the `--release` flag. If you compile with `rustc` directly, use the `-O` flag. Either of these will turn on optimizations.
+Wenn du mit `cargo` kompilierst, nutze die `--release` option. Wenn du dein Program direkt mit `rustc` erstellst, nutze die Option `-0`. Beide Optionen schalten Optimisationen ein.
 
-<h3><a href="#why-is-rustc-slow" name="why-is-rustc-slow">
-Rust compilation seems slow. Why is that?
+<h3><a href="#why-is-rustc-slow" name="Warum ist Rustc langsam?">
+Warum ist die Erstellung meines Programmes zeitaufwändig?
 </a></h3>
 
-Code translation and optimizations. Rust provides high level abstractions that compile down into efficient machine code, and those translations take time to run, especially when optimizing.
+Rustc übersetzt und optimiert Code. Die hochwertigen Abstraktionen in Rust kompilieren zu effizientem Maschinencode, und um diese Übersetzungen durchzuführen, wird Zeit benötigt - insbesondere beim Optimieren.
 
-But Rust's compilation time is not as bad as it may seem, and there is reason to believe it will improve. When comparing projects of similar size between C++ and Rust, compilation time of the entire project is generally believed to be comparable. The common perception that Rust compilation is slow is in large part due to the differences in the *compilation model* between C++ and Rust: C++'s compilation unit is the file, while Rust's is the crate, composed of many files. Thus, during development, modifying a single C++ file can result in much less recompilation than in Rust. There is a major effort underway to refactor the compiler to introduce [incremental compilation](https://github.com/rust-lang/rfcs/blob/master/text/1298-incremental-compilation.md), which will provide Rust the compile time benefits of C++'s model.
+Rust's kompilierzeit ist nicht so schlecht wie sie vielleicht scheint, und es gibt Anlass zur Hoffnung auf Verbesserung. Kompilierzeiten von ähnlich umfangreichen Rust- und C++ Projekten sind allgemein miteinander vergleichbar.
 
-Aside from the compilation model, there are several other aspects of Rust's language design and compiler implementation that affect compile-time performance.
+Die häufige Auffassung, dass Rust langsam kompiliert, kommt zum Großteil aus dem Unterschied zwischen dem *Kompiliermodell* von C++ und Rust: Eine Kompiliereinheit in C++ ist eine Datei, während in Rust eine gesamte Crate kompiliert wird, welche aus vielen Dateien bestehen kann. Eine einzelne Datei während der Entwicklung zu verändern führt in C++ normalerweise zu weniger Rekompilation als in Rust. Es wird derzeit viel Arbeit in [inkrementelle Programmerstellung](https://github.com/rust-lang/rfcs/blob/master/text/1298-incremental-compilation.md) investiert, welche die Vorteile des Modells von C++ in Rust einführt.
 
-First, Rust has a moderately-complex type system, and must spend a non-negligible amount of compile time enforcing the constraints that make Rust safe at runtime.
+Neben dem Kompilationsmodell gibt es andere Aspekte des Sprachdesigns und der Compilerimplementation, welche die Kompilierleistung beeinflussen.
 
-Secondly, the Rust compiler suffers from long-standing technical debt, and notably generates poor-quality LLVM IR which LLVM must spend time "fixing". There is hope that future [MIR-based](https://github.com/rust-lang/rfcs/blob/master/text/1211-mir.md) optimization and translation passes will ease the burden the Rust compiler places on LLVM.
+Rust hat zunächst ein relativ komplexes Typsystem, und der Compiler muss einige Zeit darauf verwenden, die Typbeschränkungen zu überprüfen, welche Rust zur Laufzeit absichern.
 
-Thirdly, Rust's use of LLVM for code generation is a double-edged sword: while it enables Rust to have world-class runtime performance, LLVM is a large framework that is not focused on compile-time performance, particularly when working with poor-quality inputs.
+Außerdem sind einige Teile des Rust Compilers ziemlich veraltet. Diese generieren insbesondere LLVM IR niedriger Qualität, welche LLVM erst "reparieren" muss. Es gibt Hoffnung, dass zukünftige, [MIR-basierte](https://github.com/rust-lang/rfcs/blob/master/text/1211-mir.md) Übersetzungs- und Optimierungsdurchläufe LLVM die Arbeit einfacher machen.
 
-Finally, while Rust's preferred strategy of monomorphising generics (ala C++) produces fast code, it demands that significantly more code be generated than other translation strategies. Rust programmers can use trait objects to trade away this code bloat by using dynamic dispatch instead.
+Drittens hat die Nutzung von LLVM auch ihre Kosten: Rust hat dadurch hohe Leistung zur Laufzeit, aber LLVM ist ein großes Framework welches nicht auf hohe Leistung zur Kompilation fokussiert ist, insbesondere bei Eingaben mit mangelhafter Qualität.
+
+Letztlich führt auch die übliche Strategie der Monomorphisierung von Generics (wie in C++) zwar zu schnellem Code zur Laufzeit, aber sie erfordert die Erzeugung von Signifikant mehr Code als andere Strategien. Durch die Verwendung von Trait-Objekten können Rust-Programmierer diese Aufblähung vermeiden, müssen dann aber Dynamic Dispatch verwenden.
 
 <h3><a href="#why-are-rusts-hashmaps-slow" name="why-are-rusts-hashmaps-slow">
 Why are Rust's <code>HashMap</code>s slow?
