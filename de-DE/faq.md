@@ -1544,40 +1544,40 @@ Rust and Go have substantially different design goals. The following differences
 - Rust has strong influences from the world of functional programming, including a type system which draws from Haskell's typeclasses. Go has a simpler type system, using interfaces for basic generic programming.
 
 <h3><a href="#how-do-rust-traits-compare-to-haskell-typeclasses" name="how-do-rust-traits-compare-to-haskell-typeclasses">
-How do Rust traits compare to Haskell typeclasses?
+Wie lassen sich Traits in Rust mit den Typklassen von Haskell vergleichen?
 </a></h3>
 
-Rust traits are similar to Haskell typeclasses, but are currently not as powerful, as Rust cannot express higher-kinded types. Rust's associated types are equivalent to Haskell type families.
+Rust-Traits sind ähnlich, aber weniger mächtig als Haskell-Typklassen, da Rust keine typen höherer Ordnung unterstützt. Assoziierte Typen in Rust entsprechen Typfamilien in Haskell.
 
-Some specific difference between Haskell typeclasses and Rust traits include:
+Einige spezifische Unterschiede zwischen Haskell und Rust:
 
-- Rust traits have an implicit first parameter called `Self`. `trait Bar` in Rust corresponds to `class Bar self` in Haskell, and `trait Bar<Foo>` in Rust corresponds to `class Bar foo self` in Haskell.
-- "Supertraits" or "superclass constraints" in Rust are written `trait Sub: Super`, compared to `class Super self => Sub self` in Haskell.
-- Rust forbids orphan instances, resulting in different coherence rules in Rust compared to Haskell.
-- Rust's `impl` resolution considers the relevant `where` clauses and trait bounds when deciding whether two `impl`s overlap, or choosing between potential `impl`s. Haskell only considers the constraints in the `instance` declaration, disregarding any constraints provided elsewhere.
-- A subset of Rust's traits (the ["object safe"](https://github.com/rust-lang/rfcs/blob/master/text/0255-object-safety.md) ones) can be used for dynamic dispatch via trait objects. The same feature is available in Haskell via GHC's `ExistentialQuantification`.
+- Rust-Traits haben einen impliziten ersten Parameter `Self`. `trait Bar` in Rust entspicht damit `class Bar self` in Haskell, und `trait Bar<Foo>` entspricht `class Bar foo self`.
+- "Supertraits" oder "Superklassen-Constraints" werden in Rust `trait Sub: Super` geschrieben, in Haskell `class Super self => Sub self`.
+- Rust erlaubt keine verwaisten Instanzen (orphan instances), d.h. Trait-Implementierungen, die weder im Modul des Traits noch im Modul des Typs liegen. Haskell erlaubt dies, was zu abweichenden Kohärenzregeln führt.
+- Die Auflösung von `impl`-Blöcken berücksichtigt die relevanten `where`-Klauseln, um zwischen `impl`-Instanzen zu wählen oder Überlappungen festzustellen. Haskell berücksichtigt dabei nur die Bedingungen der `instance`-Deklaration und vernachlässigt Einschränkungen, die an anderen Stellen angegeben wurden.
+- Eine Teilmenge der Traits in Rust ([Object Safe Traits](https://github.com/rust-lang/rfcs/blob/master/text/0255-object-safety.md)) können für späte Bindung mittels Traitobjekten benutzt werden. Das selbe ist in Haskell mit dem `ExistentialQuantification`-Feature von GHC verfügbar.
 
-<h2 id="documentation">Documentation</h2>
+<h2 id="documentation">Dokumentation</h2>
 
 <h3><a href="#why-are-so-many-rust-answers-on-stackoverflow-wrong" name="why-are-so-many-rust-answers-on-stackoverflow-wrong">
-Why are so many Rust answers on Stack Overflow wrong?
+Warum gibt es so viele falsche Antworten zu Rust auf Stack Overflow?
 </a></h3>
 
-The Rust language has been around for a number of years, and only reached version 1.0 in May of 2015. In the time before then the language changed significantly, and a number of Stack Overflow answers were given at the time of older versions of the language.
+Rust hatte bis zur Veröffentlichung von Version 1.0 im Mai 2015 eine lange Entwicklungsgeschichte hinter sich. Währenddessen hat sich die Sprache signifikant geändert, und einige Antworten auf Stack Overflow beziehen sich auf Sprach- und Bibliothekskonstrukte, die sich mittlerweile geändert haben.
 
-Over time more and more answers will be offered for the current version, thus improving this issue as the proportion of out-of-date answers is reduced.
+Mit der Zeit werden immer mehr Antworten für die aktuelle Version von Rust enstehen, sodass der Anteil der veralteten Antworten abnehmen wird.
 
 <h3><a href="#where-do-i-report-issues-in-the-rust-documentation" name="where-do-i-report-issues-in-the-rust-documentation">
-Where do I report issues in the Rust documentation?
+Wie kann ich die Entwickler auf Fehler in der Rust-Dokumentation hinweisen?
 </a></h3>
 
-You can report issues in the Rust documentation on the Rust compiler [issue tracker](https://github.com/rust-lang/rust/issues). Make sure to read the [contributing guidelines](https://github.com/rust-lang/rust/blob/master/CONTRIBUTING.md#writing-documentation) first.
+Probleme in der Dokumentation kannst du im Rust Compiler [Issue Tracker](https://github.com/rust-lang/rust/issues) melden. Lies vorab unsere [Richtlinien](https://github.com/rust-lang/rust/blob/master/CONTRIBUTING.md#writing-documentation), um effektiv mitwirken zu können.
 
 <h3><a href="#how-do-i-view-rustdoc-documentation-for-a-library-my-project-depends-on" name="how-do-i-view-rustdoc-documentation-for-a-library-my-project-depends-on">
-How do I view rustdoc documentation for a library my project depends on?
+Wo finde ich die rustdoc-Dokumentation für eine Bibliothek, von der mein Projekt abhängt?
 </a></h3>
 
-When you use `cargo doc` to generate documentation for your own project, it also generates docs for the active dependency versions. These are put into the `target/doc` directory of your project. Use `cargo doc --open` to open the docs after building them, or just open up `target/doc/index.html` yourself.
+Wenn du `cargo doc` aufrufst, um Dokumentation für dein Projekt zu generieren, wird automatisch auch die Dokumentation für aktiven Versionen aller Abhängigkeiten erzeugt. Diese landet im Unterverzeichnis `target/doc` deines Projekts. Um die Dokumentation nach der Erstellung zu öffnen, kannst du `cargo doc --open` benutzen oder einfach direkt `target/doc/index.html` in deinem Browser öffnen.
 
 [Vec]: https://doc.rust-lang.org/stable/std/vec/struct.Vec.html
 [HashMap]: https://doc.rust-lang.org/stable/std/collections/struct.HashMap.html
