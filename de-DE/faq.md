@@ -1420,57 +1420,40 @@ Can C code call Rust code?
 Yes. The Rust code has to be exposed via an `extern` declaration, which makes it C-ABI compatible. Such a function can be passed to C code as a function pointer or, if given the `#[no_mangle]` attribute to disable symbol mangling, can be called directly from C code.
 
 <h3><a href="#why-rust-vs-cxx" name="why-rust-vs-cxx">
-I already write perfect C++. What does Rust give me?
+Ich kann bereits perfektes C++ schreiben. Welche Vorteile bietet mir Rust?
 </a></h3>
 
-Modern C++ includes many features that make writing safe and correct code less error-prone, but it's not perfect, and it's still easy to introduce unsafety. This is something the C++ core developers are working to overcome, but C++ is limited by a long history that predates a lot of the ideas they are now trying to implement.
+Modernes C++ implementiert viele Features, die das Schreiben sicheren und korrekten Codes weniger Fehleranfällig macht. Es ist jedoch immer noch sehr einfach, Speicherfehler zu verursachen. Die C++-Hauptentwickler arbeiten daran die Prävalenz dieser Problematik zu verringern, die Sprache lässt aber durch ihre lange Geschichte und die notwendige Rückwärtskompatibilität nur eingeschränkt Änderungen zu.
 
-Rust was designed from day one to be a safe systems programming language, which means it's not limited by historic design decisions that make getting safety right in C++ so complicated. In C++, safety is achieved by careful personal discipline, and is very easy to get wrong. In Rust, safety is the default. It gives you the ability to work in a team that includes people less perfect than you are, without having to spend your time double-checking their code for safety bugs.
+Rust wurde vom ersten Tag an mit dem Ziel entworfen, eine sichere Systemprogrammiersprache zu sein. Sie ist damit nicht von historischen Entscheidungen belastet, die das Entwickeln sicheren Codes in C++ so kompliziert machen. In C++ wird Sicherheit durch strenge Selbstdisziplin erreicht und kann leicht verletzt werden. In Rust ist Sicherheit die Vorgabe. Die Sprache eröffnet so die Möglichkeit, mit weniger erfahrenen Entwiklern zusammenzuarbeiten, ohne den Code wieder und wieder auf Sicherheitslücken prüfen zu müssen.
 
 <h3><a href="#how-to-get-cxx-style-template-specialization" name="how-to-get-cxx-style-template-specialization">
-How do I do the equivalent of C++ template specialization in Rust?
+Wie lässt sich die Templatespezialisierung aus C++ in Rust umsetzen?
 </a></h3>
 
-Rust doesn't currently have an exact equivalent to template specialization, but it is [being worked on](https://github.com/rust-lang/rfcs/pull/1210) and will hopefully be added soon. However, similar effects can be achieved via [associated types](https://doc.rust-lang.org/stable/book/associated-types.html).
+Rust hat zur Zeit noch kein Äquivalent zu Templatespezialisierung, daran [wird jedoch gearbeitet](https://github.com/rust-lang/rfcs/pull/1210). Ähnliche Effekte können aber mittels [Assoziierter Typen](https://doc.rust-lang.org/stable/book/associated-types.html) erzielt werden.
 
 <h3><a href="#how-does-ownership-relate-to-cxx-move-semantics" name="how-does-ownership-relate-to-cxx-move-semantics">
-How does Rust's ownership system relate to move semantics in C++?
+Was hat das Ownership-System von Rust mit Move Semantics aus C++ zu tun?
 </a></h3>
 
-The underlying concepts are similar, but the two systems work very
-differently in practice. In both systems, "moving" a value is a way to
-transfer ownership of its underlying resources. For example, moving a
-string would transfer the string's buffer rather than copying it.
+Die zugrundeliegenden Konzepte sind ähnlich, in der Praxis funktionieren die beiden Systeme jedoch grundsätzlich verschieden. In beiden Fällen fungiert das Verschieben (Move) eines Werts als Möglichkeit, den Besitz zugrundeliegender Ressourcen zu übertragen. So überträgt der Move eines Strings etwa den Stringpuffer, anstatt ihn zu kopieren.
 
-In Rust, ownership transfer is the default behavior. For example, if I
-write a function that takes a `String` as argument, this function will
-take ownership of the `String` value supplied by its caller:
+In Rust ist Ownership Transfer das Standardverhalten. So wird eine Funktion, die einen `String` als Argument nimmt, den Besitz am übergebenen String-Wert übernehmen:
 
 ```rust
 fn process(s: String) { }
 
 fn caller() {
     let s = String::from("Hello, world!");
-    process(s); // Transfers ownership of `s` to `process`
-    process(s); // Error! ownership already transferred.
+    process(s); // Überträgt den Besitz von `s` an `process`
+    process(s); // Fehler: `caller` besitzt `s` an dieser Stelle nicht mehr
 }
 ```
 
-As you can see in the snippet above, in the function `caller`, the
-first call to `process` transfers ownership of the variable `s`. The
-compiler tracks ownership, so the second call to `process` results in
-an error, because it is illegal to give away ownership of the same
-value twice. Rust will also prevent you from moving a value if there
-is an outstanding reference into that value.
+Wie im Codebeispiel oben zu sehen, überträgt der erste Aufruf an `process` den Besitz an der Variablen `s`. Der Compiler führt über den Besitz von Werten Buch, sodass der zweite Aufruf an `process` einen Fehler zur Folge hat - ein gültiges Programm darf den Besitz eines Werts nicht zweimal aufgeben. Rust wird das Verschieben eines Werts auch verhindern, solange noch eine aktive Referenz darauf existiert.
 
-C++ takes a different approach. In C++, the default is to copy a value
-(to invoke the copy constructor, more specifically). However, callees
-can declare their arguments using an "rvalue reference", like
-`string&&`, to indicate that they will take ownership of some of the
-resources owned by that argument (in this case, the string's internal
-buffer). The caller then must either pass a temporary expression or
-make an explicit move using `std::move`. The rough equivalent to the
-function `process` above, then, would be:
+C++ verfolgt einen anderen Ansatz. In C++ werden Werte per Vorgabe kopiert, in dem ihr Kopierkonstruktor aufgerufen wird. Es ist allerdings möglich, Funktionen zu deklarieren, die ihre Argumente als "rvalue-Referenz", wie etwa `string&&` übernehmen. Dies deutet darauf hin, dass die aufgerufene Funktion den Besitz an Ressourcen des Werts übernimmt. Der Aufrufer muss dazu entweder einen temporären Wert übergeben oder einen gebundenen Wert explizit mit `std::move` verschieben. Das obige Beispiel würde in C++ etwa wie folgt ausssehen:
 
 ```
 void process(string&& s) { }
@@ -1482,25 +1465,19 @@ void caller() {
 }
 ```
 
-C++ compilers are not obligated to track moves. For example, the code
-above compiles without a warning or error, at least using the default
-settings on clang. Moreover, in C++ ownership of the string `s` itself
-(if not its internal buffer) remains with `caller`, and so the
-destructor for `s` will run when `caller` returns, even though it has
-been moved (in Rust, in contrast, moved values are dropped only by
-their new owners).
+C++-Compiler müssen über Ownership nicht Buch führen, sodass der obige Code ohne Warnungen oder Fehler übersetzt. In C++ bleibt der Besitz der Variablen `s` weiterhin bei `caller` (nicht aber der interne Puffer des Strings), sodass trotzdem der Destruktor von `s` ausgeführt wird, sobald `caller` zurückkehrt. In Rust wird `drop` dagegen nur durch den neuen Besitzer des Werts aufgerufen. 
 
 <h3><a href="#how-to-interoperate-with-cxx" name="how-to-interoperate-with-cxx">
-How can I interoperate with C++ from Rust, or with Rust from C++?
+Wie kann ich aus Rust C++-Funktionen aufrufen und umgekehrt?
 </a></h3>
 
-Rust and C++ can interoperate through C. Both Rust and C++ provide a [foreign function interface](https://doc.rust-lang.org/book/ffi.html) for C, and can use that to communicate between each other. If writing C bindings is too tedious, you can always use [rust-bindgen](https://github.com/servo/rust-bindgen) to help automatically generate workable C bindings.
+Rust und C++ können C als gemeinsame Schnittstelle benutzen. Sowohl Rust als auch C++ besitzen ein [Foreign Function Interface](https://doc.rust-lang.org/book/ffi.html) nach C über das sie miteinander kommunizieren können. Falls das Schreiben von C-Bindings zu langwierig wird, kannst du jederzeit auf [rust-bindgen](https://github.com/servo/rust-bindgen) zurückgreifen, ein Tool, das dir hilft automatisch funktionierende C-Bindings für Rust zu bauen.
 
 <h3><a href="#does-rust-have-cxx-style-constructors" name="does-rust-have-cxx-style-constructors">
-Does Rust have C++-style constructors?
+Hat Rust Konstruktoren, wie sie aus C++ bekannt sind?
 </a></h3>
 
-No. Functions serve the same purpose as constructors without adding language complexity. The usual name for the constructor-equivalent function in Rust is `new()`, although this is just a convention rather than a language rule. The `new()` function in fact is just like any other function. An example of it looks like so:
+Nein. Funktionen erfüllen den gleichen Zweck wie Konstruktoren, ohne die Sprachkomplexität zu erhöhen. Der übliche Name für eine Konstrukorfunktion in Rust ist `new()`, dabei handelt es sich aber lediglich um eine Namenskonvention. `new()` ist tatsächlich eine Funktion wie jede andere. Hier ein Beispiel:
 
 ```rust
 struct Foo {
@@ -1520,28 +1497,28 @@ impl Foo {
 }
 ```
 
-<h3><a href="#does-rust-have-copy-constructors" name="does-rust-have-copy-constructors">
-Does Rust have copy constructors?
+<h3><a href="#does-rustCopy-K-have-copy-constructors" name="does-rust-have-copy-constructors">
+Hat Rust Kopierkonstruktoren?
 </a></h3>
 
-Not exactly. Types which implement `Copy` will do a standard C-like "shallow copy" with no extra work (similar to trivially copyable types in C++). It is impossible to implement `Copy` types that require custom copy behavior. Instead, in Rust "copy constructors" are created by implementing the `Clone` trait, and explicitly calling the `clone` method. Making user-defined copy operators explicit surfaces the underlying complexity, making it easier for the developer to identify potentially expensive operations.
+Nicht direkt. Typen, die den `Copy`-Trait implementieren, führen eine C-artige, "flache Kopie" ohne zusätzliche Arbeit oder Funktionsaufrufe durch. Das entspricht dem Konzept der *trivially copyable types* aus C++. Es ist nicht möglich, `Copy` mit abweichendem Verhalten zu implementieren. Dazu dient der `Clone`-Trait, dessen Funktionalität durch einen expliziten Aufruf an die `clone`-Methode angesprochen wird. Die benutzerdefininerte Kopieroperation wird absichtlich explizit gehalten um die zugrundeliegende Komplexität und potentiell teure Operationen sichtbar zu machen.
 
 <h3><a href="#does-rust-have-move-constructors" name="does-rust-have-move-constructors">
-Does Rust have move constructors?
+Hat Rust Move-Konstruktoren?
 </a></h3>
 
-No. Values of all types are moved via `memcpy`. This makes writing generic unsafe code much simpler since assignment, passing and returning are known to never have a side effect like unwinding.
+Nein. Die Werte aller Typen werden Byte für Byte via `memcpy` verschoben. Das macht das Schreiben generischen `unsafe`-Codes deutlich einfacher, da das Zuweisen, Übergeben und Zurückgeben eines Werts nie Seiteneffekte wie Unwinding zur Folge haben kann.
 
 <h3><a href="#compare-go-and-rust" name="compare-go-and-rust">
-How are Go and Rust similar, and how are they different?
+Was haben Go und Rust gemeinsam, und wo unterscheiden sich die Sprachen?
 </a></h3>
 
-Rust and Go have substantially different design goals. The following differences are not the only ones (which are too numerous to list), but are a few of the more important ones:
+Rust und Go haben grundsätzlich verschiendene Designziele. Alle Unterschiede aufzuzählen wäre zu umfangreich, im Folgenden werden einige der wichtigsten genannt.
 
-- Rust is lower level than Go. For example, Rust does not require a garbage collector, whereas Go does. In general, Rust affords a level of control that is comparable to C or C++.
-- Rust's focus is on ensuring safety and efficiency while also providing high-level affordances, while Go's is on being a small, simple language which compiles quickly and can work nicely with a variety of tools.
-- Rust has strong support for generics, which Go does not.
-- Rust has strong influences from the world of functional programming, including a type system which draws from Haskell's typeclasses. Go has a simpler type system, using interfaces for basic generic programming.
+- Rust arbeitet auf einer niedrigeren Ebene als Go. So setzt Rust im Gegensaz zu Go beispielsweise keinen Garbage Collector voraus. Allgemein bietet Rust ähnlich viel Kontrolle über das Verhalten eines Programms wie C oder C++.
+- Der Fokus von Rust liegt darin, Sicherheit und Effizienz zu gewährleisten, gleichzeitig aber für High-Level-Abstraktionen zugänglich zu sein. Go konzentriert sich daruaf, eine kleine, einfache Sprache zu sein, die schnell kompiliert und gut mit einer großen Auswahl an Tools zusammenzuarbeitet.
+- Rust hat im Gegensatz zu Go gute Unterstützung für Generics.
+- Rust ist stark von der Welt der Funktionalprogrammierung beeinflusst, was sich etwa im Typsystem äußert, das die Typklassen aus Haskell in der Form von Traits übernimmt. Go hat ein einfacheres Typsystem, das mit Interfaces einfache generische Programmierung ermöglicht.
 
 <h3><a href="#how-do-rust-traits-compare-to-haskell-typeclasses" name="how-do-rust-traits-compare-to-haskell-typeclasses">
 Wie lassen sich Traits in Rust mit den Typklassen von Haskell vergleichen?
