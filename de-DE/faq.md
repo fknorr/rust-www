@@ -247,22 +247,22 @@ Nach üblichem Sprachgebrauch, wie er in Sprachen wie Java verwendet wird, hat R
 
 <h2 id="syntax">Syntax</h2>
 
-<h3><a href="#why-curly-braces" name="why-curly-braces">
-Why curly braces? Why can't Rust's syntax be like Haskell's or Python's?
+<h3><a href="#why-curly-braces" name="Warum geschwungene Klammern?">
+Warum geschwungene Klammern? Warum kann Rust's Syntax nicht mehr wie der von Haskell oder Python sein?
 </a></h3>
 
-Use of curly braces to denote blocks is a common design choice in a variety of programming languages, and Rust's consistency is useful for people already familiar with the style.
+Die Benutzung geschweifter Klammern ist eine Entwurfsentscheidung, welche eine Vielzahl von Programmiersprachen getroffen haben, und da Rust hier konsistent bleibt, ist es für in anderen Sprachen erfahrene Programmierer einfacher zu lernen.
 
-Curly braces also allow for more flexible syntax for the programmer and a simpler parser in the compiler.
+Geschweifte Klammern ermöglichen dem Programmierer eine flexible Syntax und dem Kompilierer einen einfacheren Parser.
 
-<h3><a href="#why-brackets-around-blocks" name="why-brackets-around-blocks">
-I can leave out parentheses on <code>if</code> conditions, so why do I have to put brackets around single line blocks? Why is the C style not allowed?
+<h3><a href="#why-brackets-around-blocks" name="Warum Klammern um Blöcke?">
+Ich kann die Klammern um <code>if</code>-Bedingungen weglassen, warum muss ich sie dann um einzeilige Blöcke setzen? Warum ist der C-Stil nicht erlaubt?
 </a></h3>
 
-Whereas C requires mandatory parentheses for `if`-statement conditionals but leaves brackets optional, Rust makes the opposite choice for its `if`-expressions. This keeps the conditional clearly separate from the body and avoids the hazard of optional brackets, which can lead to easy-to-miss errors during refactoring, like Apple's [goto fail](https://gotofail.com/) bug.
+Während C Klammerung um ein `if`-Statement, aber keine Klammern für einzeilige Blöcke erfordert, trifft Rust die genau entgegengesetzte Wahl. Das trennt die Bedingung klar vom Block und vermeidet die Gefahren der optionalen Klammern, welche zu leicht übersehbaren Fehlern wie Apple's [goto fail Bug](https://gotofail.com/) führen können.
 
-<h3><a href="#why-no-literal-syntax-for-dictionaries" name="why-no-literal-syntax-for-dictionaries">
-Why is there no literal syntax for dictionaries?
+<h3><a href="#why-no-literal-syntax-for-dictionaries" name="Warum kein literaler Syntax für Dictionaries?">
+Warum kein literaler Syntax für Dictionaries?
 </a></h3>
 
 Rust's overall design preference is for limiting the size of the *language* while enabling powerful *libraries*. While Rust does provide initialization syntax for arrays and string literals, these are the only collection types built into the language. Other library-defined types, including the ubiquitous [`Vec`][Vec] collection type, use macros for initialization like the [`vec!`][VecMacro] macro.
