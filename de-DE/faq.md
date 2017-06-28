@@ -205,7 +205,7 @@ Warum ist die Erstellung meines Programmes zeitaufwändig?
 
 Rustc übersetzt und optimiert Code. Die hochwertigen Abstraktionen in Rust kompilieren zu effizientem Maschinencode, und um diese Übersetzungen durchzuführen, wird Zeit benötigt - insbesondere beim Optimieren.
 
-Rust's kompilierzeit ist nicht so schlecht wie sie vielleicht scheint, und es gibt Anlass zur Hoffnung auf Verbesserung. Kompilierzeiten von ähnlich umfangreichen Rust- und C++ Projekten sind allgemein miteinander vergleichbar.
+Die Zeit, welche Rust zum Kompilieren benötigt, ist besser als sie scheint, und es gibt Anlass zur Hoffnung, dass sie sich verbessern wird. Kompilierzeiten von ähnlich umfangreichen Rust- und C++ Projekten sind im Allgemeinen miteinander vergleichbar.
 
 Die häufige Auffassung, dass Rust langsam kompiliert, kommt zum Großteil aus dem Unterschied zwischen dem *Kompiliermodell* von C++ und Rust: Eine Kompiliereinheit in C++ ist eine Datei, während in Rust eine gesamte Crate kompiliert wird, welche aus vielen Dateien bestehen kann. Eine einzelne Datei während der Entwicklung zu verändern führt in C++ normalerweise zu weniger Rekompilation als in Rust. Es wird derzeit viel Arbeit in [inkrementelle Programmerstellung](https://github.com/rust-lang/rfcs/blob/master/text/1298-incremental-compilation.md) investiert, welche die Vorteile des Modells von C++ in Rust einführt.
 
@@ -219,31 +219,31 @@ Drittens hat die Nutzung von LLVM auch ihre Kosten: Rust hat dadurch hohe Leistu
 
 Letztlich führt auch die übliche Strategie der Monomorphisierung von Generics (wie in C++) zwar zu schnellem Code zur Laufzeit, aber sie erfordert die Erzeugung von Signifikant mehr Code als andere Strategien. Durch die Verwendung von Trait-Objekten können Rust-Programmierer diese Aufblähung vermeiden, müssen dann aber Dynamic Dispatch verwenden.
 
-<h3><a href="#why-are-rusts-hashmaps-slow" name="why-are-rusts-hashmaps-slow">
-Why are Rust's <code>HashMap</code>s slow?
+<h3><a href="#why-are-rusts-hashmaps-slow" name="Warum ist die HashMap in Rust so langsam?">
+Warum ist die <code>HashMap</code> in Rust so langsam?
 </a></h3>
 
-By default, Rust's [`HashMap`][HashMap] uses the [SipHash](https://131002.net/siphash/) hashing algorithm, which is designed to prevent [hash table collision attacks](http://programmingisterrible.com/post/40620375793/hash-table-denial-of-service-attacks-revisited) while providing [reasonable performance on a variety of workloads](https://www.reddit.com/r/rust/comments/3hw9zf/rust_hasher_comparisons/cub4oh6).
+Standardmäßig nutzt Rust's [`HashMap`][HashMap] den [SipHash](https://131002.net/siphash/) Algorithmus, welcher entworfen wurde, um [Kollisionsattacken auf Hash-Tabellen](http://programmingisterrible.com/post/40620375793/hash-table-denial-of-service-attacks-revisited) zu verhindern und dabei dennoch [für die häufigsten Anwendungsfälle gute Leistung](https://www.reddit.com/r/rust/comments/3hw9zf/rust_hasher_comparisons/cub4oh6) zu erzielen.
 
-While SipHash [demonstrates competitive performance](http://cglab.ca/%7Eabeinges/blah/hash-rs/) in many cases, one case where it is notably slower than other hashing algorithms is with short keys, such as integers. This is why Rust programmers often observe slow performance with [`HashMap`][HashMap]. The [FNV hasher](https://crates.io/crates/fnv) is frequently recommended for these cases, but be aware that it does not have the same collision-resistance properties as SipHash.
+Obwohl SipHash [in vielen Fällen hohe Leistung vorweisen kann](http://cglab.ca/%7Eabeinges/blah/hash-rs/), ist der Algorithmus für Anwendungsfälle mit kurzen Schlüsseln wie Ganzzahlen merklich langsamer. Deshalb wird von Rust-Programmierern häufig niedrige Leistung bei der Verwendung einer [`HashMap`][HashMap] beobachtet. In solchen Fällen wird häufig der [FNV hasher](https://crates.io/crates/fnv) empfohlen, welcher aber nicht die Kollisionsresistenz von SipHash vorweisen kann.
 
-<h3><a href="#why-is-there-no-integrated-benchmarking" name="why-is-there-no-integrated-benchmarking">
-Why is there no integrated benchmarking infrastructure?
+<h3><a href="#why-is-there-no-integrated-benchmarking" name="Warum gibt es kein integriertes Benchmarking?">
+Warum gibt es keine integrierte Benchmarking-Infrastruktur?
 </a></h3>
 
-There is, but it's only available on the nightly release channel. We ultimately plan to build a pluggable system for integrated benchmarks, but in the meantime, the current system is [considered unstable](https://github.com/rust-lang/rust/issues/29553).
+Es gibt eine, welche aber nur im Nightly-Kanal verfügbar ist. Wir planen ein modulares System, welches integrierte Leistungstests ermöglicht. In der Zwischenzeit wird das System als [unstabil](https://github.com/rust-lang/rust/issues/29553) eingeschätzt.
 
-<h3><a href="#does-rust-do-tail-call-optimization" name="does-rust-do-tail-call-optimization">
-Does Rust do tail-call optimization?
+<h3><a href="#does-rust-do-tail-call-optimization" name="Unterstützt Rust Tail Call Elimination?">
+Unterstützt Rust Tail Call Elimination?
 </a></h3>
 
-Not generally, no. Tail-call optimization may be done in [limited circumstances](http://llvm.org/docs/CodeGenerator.html#sibling-call-optimization), but is [not guaranteed](https://mail.mozilla.org/pipermail/rust-dev/2013-April/003557.html). As the feature has always been desired, Rust has a keyword (`become`) reserved, though it is not clear yet whether it is technically possible, nor whether it will be implemented. There was a [proposed extension](https://github.com/rust-lang/rfcs/pull/81) that would allow tail-call elimination in certain contexts, but it is currently postponed.
+Im Allgemeinen nicht. Tail-call Optimierung kann unter [bestimmten Vorraussetzungen](http://llvm.org/docs/CodeGenerator.html#sibling-call-optimization) erfolgen, aber ist [nicht gewährleistet](https://mail.mozilla.org/pipermail/rust-dev/2013-April/003557.html). Da die Optimisierung ein vielfach erwünschtes Sprachmerkmal ist, wurde das Schlüsselwort (`become`) dafür reserviert, wobei allerdings die technische Umsetzbarkeit noch nicht geklärt ist. Eine [vorgeschlagene Erweiterung](https://github.com/rust-lang/rfcs/pull/81), welche Tail-Call Optimisation ermöglichen würde, wurde vorgeschlagen, wurde aber zunächst verschoben.
 
-<h3><a href="#does-rust-have-a-runtime" name="does-rust-have-a-runtime">
-Does Rust have a runtime?
+<h3><a href="#does-rust-have-a-runtime" name="Hat Rust ein Laufzeitsystem?">
+Hat Rust ein Laufzeitsystem?
 </a></h3>
 
-Not in the typical sense used by languages such as Java, but parts of the Rust standard library can be considered a "runtime", providing a heap, backtraces, unwinding, and stack guards. There is a [small amount of initialization code](https://github.com/rust-lang/rust/blob/33916307780495fe311fe9c080b330d266f35bfb/src/libstd/rt.rs#L43) that runs before the user's `main` function. The Rust standard library additionally links to the C standard library, which does similar [runtime initialization](http://www.embecosm.com/appnotes/ean9/html/ch05s02.html). Rust code can be compiled without the standard library, in which case the runtime is roughly equivalent to C's.
+Nach üblichem Sprachgebrauch, wie er in Sprachen wie Java verwendet wird, hat Rust kein Laufzeitsystem. Teile der Standardbibliotheken könnte man als "Laufzeitsystem" bezeichnen, welches einen Heap, Backtraces, Unwinding, und Stack Guards anbietet. Eine relativ [kleine Menge Code zur Initialisierung](https://github.com/rust-lang/rust/blob/33916307780495fe311fe9c080b330d266f35bfb/src/libstd/rt.rs#L43) läuft vor der `main`-Funktion des Benutzers. Die Standardbibliotheken linken außerdem in die C-Standardbibliotheken, welche ebenfalls eine ähnliche [Laufzeitinitialisierung](http://www.embecosm.com/appnotes/ean9/html/ch05s02.html) vornehmen. Rust kann ohne die Standardbibliotheken kompiliert werden, dann ist die Laufzeitumgebung äquivalent zu der von C.
 
 <h2 id="syntax">Syntax</h2>
 
