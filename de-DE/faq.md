@@ -1334,38 +1334,38 @@ __Link-time optimization__
 
 Rust does not do link-time optimization by default, but can be instructed to do so. This increases the amount of optimization that the Rust compiler can potentially do, and can have a small effect on binary size. This effect is likely larger in combination with the previously mentioned size optimizing mode.
 
-__Standard library__
+__Standardbibliothek__
 
-The Rust standard library includes libbacktrace and libunwind, which may be undesirable in some programs. Using `#![no_std]` can thus result in smaller binaries, but will also usually result in substantial changes to the sort of Rust code you're writing. Note that using Rust without the standard library is often functionally closer to the equivalent C code.
+Die Standardbibliothek von Rust beinhaltet libbacktrace und libunwind, die in manchen Programmen unerwünscht sein können. Mit dem Crate-Attribut `#![no_std]` können ohne diese Bibliotheken kleinere Binaries erzeugt werden, die aber üblicherweise wesentliche Änderungen am Code nach sich ziehen. Rust-Code, der ohne die Standardbibliothek geschrieben wurde, ist funktionell äquivalentem C-Code ähnlich.
 
-As an example, the following C program reads in a name and says "hello" to the person with that name.
+Als Beispiel liest das folgende C-Programm einen Namen ein und begrüßt den Benutzer mit diesem Namen.
 
 ```c
 #include <stdio.h>
 
 int main(void) {
-    printf("What's your name?\n");
+    printf("Wie heißt du?\n");
     char input[100] = {0};
     scanf("%s", input);
-    printf("Hello %s!\n", input);
+    printf("Hallo %s!\n", input);
     return 0;
 }
 ```
 
-Rewriting this in Rust, you may get something like the following:
+In Rust würde man dieses Programm womöglich wie folgt schreiben:
 
 ```rust
 use std::io;
 
 fn main() {
-    println!("What's your name?");
+    println!("Wie heißt du?");
     let mut input = String::new();
     io::stdin().read_line(&mut input).unwrap();
-    println!("Hello {}!", input);
+    println!("Hallo {}!", input);
 }
 ```
 
-This program, when compiled and compared against the C program, will have a larger binary and use more memory. But this program is not exactly equivalent to the above C code. The equivalent Rust code would instead look something like this:
+Dieses Programm wird übersetzt ein größeres Binary produzieren und mehr Speicher in Anspruch nehmen als das C-Programm. Es ist aber nicht wirklich gleichwertig zum obigen C-Code. Das äquivalente Rust-Programm würde eher so ausehen:
 
 ```rust
 #![feature(lang_items)]
@@ -1384,10 +1384,10 @@ extern "C" {
 #[start]
 fn start(_argc: isize, _argv: *const *const u8) -> isize {
     unsafe {
-        printf(b"What's your name?\n\0".as_ptr());
+        printf(b"Wie heißt du?\n\0".as_ptr());
         let mut input = [0u8; 100];
         scanf(b"%s\0".as_ptr(), &mut input);
-        printf(b"Hello %s!\n\0".as_ptr(), &input);
+        printf(b"Hallo %s!\n\0".as_ptr(), &input);
         0
     }
 }
@@ -1397,21 +1397,23 @@ fn start(_argc: isize, _argv: *const *const u8) -> isize {
 #[lang="stack_exhausted"] extern fn stack_exhausted() {}
 ```
 
-Which should indeed roughly match C in memory usage, at the expense of more programmer complexity, and a lack of static guarantees usually provided by Rust (avoided here with the use of `unsafe`).
+Dieser Code sollte in seinem Speicherverbrauch grob der C-Version entsprechen. Diese Reduktion wird mit zusätzlicher Komplexität und dem Fehlen statischer Garantien erkauft, die Rust üblicherweise gewährt (und die hier mit dem Schlüsselwort `unsafe` umgangen wurden).
 
 <h3><a href="#why-no-stable-abi" name="why-no-stable-abi">
-Why does Rust not have a stable ABI like C does, and why do I have to annotate things with extern?
+Warum hat Rust keine stabile ABI wie C, und warum muss ich Symbole mit extern annotieren?
 </a></h3>
+
+Das Festlegen einer ABI ist eine große Entscheidung, die zukünftige Änderungen an der Sprache behindern könnte. Da Rust erst im Mai 2015 Version 1.0 erreicht hat, ist es noch zu früh, sich an dieser Stelle festzulegen. Das bedeutet nicht, dass es nie eine stabile ABI geben wird (auch wenn C++ es viele Jahre ohne Spezifikation einer ABI geschafft hat).
 
 Committing to an ABI is a big decision that can limit potentially advantageous language changes in the future. Given that Rust only hit 1.0 in May of 2015, it is still too early to make a commitment as big as a stable ABI. This does not mean that one won't happen in the future, though. (Though C++ has managed to go for many years without specifying a stable ABI.)
 
 The `extern` keyword allows Rust to use specific ABI's, such as the well-defined C ABI, for interop with other languages.
 
 <h3><a href="#can-rust-code-call-c-code" name="can-rust-code-call-c-code">
-Can Rust code call C code?
+Kann Rust-Code C-Code aufrufen?
 </a></h3>
 
-Yes. Calling C code from Rust is designed to be as efficient as calling C code from C++.
+Ja. Rust wurde so entworfen, dass C-Code genauso effizient aufgerufen kann wie aus C++.
 
 <h3><a href="#can-c-code-call-rust-code" name="can-c-code-call-rust-code">
 Can C code call Rust code?
