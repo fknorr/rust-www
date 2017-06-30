@@ -1153,26 +1153,26 @@ TODO: Write this answer.
 -->
 
 <h3><a href="#how-do-i-do-dynamic-rust-library-loading" name="how-do-i-do-dynamic-rust-library-loading">
-How do I do dynamic Rust library loading?
+Wie kann ich in Rust dynamische Bibliotheken laden?
 </a></h3>
 
-Import dynamic libraries in Rust with [libloading](https://crates.io/crates/libloading), which provides a cross-platform system for dynamic linking.
+Dynamische Bibliotheken können mit [libloading](https://crates.io/crates/libloading) importiert werden, das ein plattformübergreifendes System für dynamisches Linken bereitstellt.
 
 <h3><a href="#why-doesnt-crates-io-have-namespaces" name="why-doesnt-crates-io-have-namespaces">
-Why doesn't crates.io have namespaces?
+Warum hat crates.io keine Namensräume?
 </a></h3>
 
-Quoting the [official explanation](https://internals.rust-lang.org/t/crates-io-package-policies/1041) of [https://crates.io](https://crates.io)'s design:
+Übersetzung der [offiziellen Erklärung](https://internals.rust-lang.org/t/crates-io-package-policies/1041) zum Design von [https://crates.io](https://crates.io):
 
-> In the first month with crates.io, a number of people have asked us about the possibility of introducing [namespaced packages](https://github.com/rust-lang/crates.io/issues/58).<br><br>
+> Im ersten Monat nach der Veröffentlichung von crates.io wurden wir von mehreren Nutzern nach der Möglichkeit gefragt, [Pakete mit Namensräumen](https://github.com/rust-lang/crates.io/issues/58) einzuführen.<br><br>
 >
-> While namespaced packages allow multiple authors to use a single, generic name, they add complexity to how packages are referenced in Rust code and in human communication about packages. At first glance, they allow multiple authors to claim names like `http`, but that simply means that people will need to refer to those packages as `wycats' http` or `reem's http`, offering little benefit over package names like `wycats-http` or `reem-http`.<br><br>
+> Auch wenn Namensräume es Autoren einfacher macht, generische Namen für Pakete zu wählen, erhöhen sie die Komplexität, mit der Crates im Rust-Code und in der Kommunikation zwischen Entwicklern referenziert werden. Auf den ersten Blick erlauben sie mehreren Entwicklern, Namen wie `http` zu wählen, das sorgt aber nur dafür, dass diese Pakete als `wycats' http` oder `reem's http` bekannt werden, was keine wirkliche Verbesserung gegenüber längeren Namen wie `wycats-http` oder `reem-http` bringt.<br><br>
 >
-> When we looked at package ecosystems without namespacing, we found that people tended to go with more creative names (like `nokogiri` instead of "tenderlove's libxml2"). These creative names tend to be short and memorable, in part because of the lack of any hierarchy. They make it easier to communicate concisely and unambiguously about packages. They create exciting brands. And we've seen the success of several 10,000+ package ecosystems like NPM and RubyGems whose communities are prospering within a single namespace.<br><br>
+> Es hat sich herausgestellt, dass Entwickler in Ökosystemen ohne Namensräume dazu tendieren, kreativere Namen (wie `nokogiri` statt `tenderlove's libxml2`) zu wählen. Diese Namen sind meist kurz und gut zu merken, gerade aufgrund der fehlenden Hierarchie. Das macht es einfacher, unmissverständlich über Pakete zu sprechen und erschafft spannende Markennamen. Auch haben wir den Erfolg von Umgebungen mit zigtausenden Paketen wie NPM und RubyGems gesehen, die wunderbar mit einem einheitlichen Namensraum zurechtkommen.<br><br>
 >
-> In short, we don't think the Cargo ecosystem would be better off if Piston chose a name like `bvssvni/game-engine` (allowing other users to choose `wycats/game-engine`) instead of simply `piston`.<br><br>
+> Kurz gesagt sind wir nicht der Meinung, dass das das Cargo-Ökosystem davon profitieren würde, wenn Piston einen Namen wie `bvssvni/game-engine` statt dem einfach zu merkenden `piston` bekommen hätte (mit der Möglichkeit, dass ein Anderer Entwickler `wycats/game-engine` veröffentlicht).
 >
-> Because namespaces are strictly more complicated in a number of ways, and because they can be added compatibly in the future should they become necessary, we're going to stick with a single shared namespace.
+> Da Namensräume auf verschiedene Arten strikt komplexer ist und sie bei bedarf später hinzugefügt werden können, sollten sie irgendwann nötig werden, werden wir vorerst bei einem gemeinsamen Namensraum bleiben.<br><br>
 
 <h2 id="libraries">Bibliotheken</h2>
 
