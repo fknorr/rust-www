@@ -1174,86 +1174,86 @@ Quoting the [official explanation](https://internals.rust-lang.org/t/crates-io-p
 >
 > Because namespaces are strictly more complicated in a number of ways, and because they can be added compatibly in the future should they become necessary, we're going to stick with a single shared namespace.
 
-<h2 id="libraries">Libraries</h2>
+<h2 id="libraries">Bibliotheken</h2>
 
 <h3><a href="#how-can-i-make-an-http-request" name="how-can-i-make-an-http-request">
-How can I make an HTTP request?
+Wie kann ich eine HTTP-Anfrage absetzen?
 </a></h3>
 
-The standard library does not include an implementation of HTTP, so you will want to use an external crate.
-[reqwest](http://docs.rs/reqwest) is the simplest.
-It is built on [hyper](https://github.com/hyperium/hyper), and written in Rust, but there are [a number of others as well](https://crates.io/keywords/http).
-The [curl](https://docs.rs/curl) crate is widely used and provides bindings to the curl library.
+Die Standardbibliothek stellt keine HTTP-Implementierung zur Verfüguing, deshalb musst du dafür einen externen Crate bemühen.
+[reqwest](http://docs.rs/reqwest) ist einer der einfachsten.  Er setzt auf [hyper](https://github.com/hyperium/hyper) auf und ist in Rust geschrieben,
+es gibt jedoch [eine Vielzahl an Alternativen](https://crates.io/keywords/http).
+Der [curl](https://docs.rs/curl)-Crate ist beispielsweise weit verbreitet und bildet eine Anbindung an die curl-Biblitothek.
 
 <h3><a href="#how-can-i-write-a-gui-application" name="how-can-i-write-a-gui-application">
-How can I write a GUI application in Rust?
+Wie kann ich in Rust eine grafische Benutzeroberfläche schreiben?
 </a></h3>
 
-There are a variety of ways to write GUI applications in Rust. Just check out [this list of GUI frameworks](https://github.com/kud1ing/awesome-rust#gui).
+Es gibt eine große Auswahl von [GUI-Frameworks](https://github.com/kud1ing/awesome-rust#gui) für Rust.
 
 <h3><a href="#how-can-i-parse-json-xml" name="how-can-i-parse-json-xml">
-How can I parse JSON/XML?
+Wie kann ich JSON oder XML parsen?
 </a></h3>
 
-[Serde](https://github.com/serde-rs/serde) is the recommended library for serialization and deserialization of Rust data to and from a number of different formats.
+[Serde](https://github.com/serde-rs/serde) ist die empfohlene Bibliothek für (De-)Serialisierung von Rust-Datenstrukturen von und in eine Reihe von Datenformaten.
 
 <h3><a href="#is-there-a-standard-2d-vector-crate" name="is-there-a-standard-2d-vector-crate">
-Is there a standard 2D+ vector and shape crate?
+Gibt es einen Standard-Crate für 2D-Vektorgrafik?
 </a></h3>
 
-Not yet! Want to write one?
+Noch nicht! Lust einen zu bauen?
 
 <h3><a href="#how-do-i-write-an-opengl-app" name="how-do-i-write-an-opengl-app">
-How do I write an OpenGL app in Rust?
+Wie kann ich in Rust ein OpenGL-Programm schreiben?
 </a></h3>
 
-[Glium](https://github.com/tomaka/glium) is the major library for OpenGL programming in Rust. [GLFW](https://github.com/bjz/glfw-rs) is also a solid option.
+[Glium](https://github.com/tomaka/glium) ist die größte Bibliothek für OpenGL-Programmierung in Rust. [GLFW](https://github.com/bjz/glfw-rs) ist auch eine solide Option.
 
 <h3><a href="#can-i-write-a-video-game-in-rust" name="can-i-write-a-video-game-in-rust">
-Can I write a video game in Rust?
+Kann ich in Rust ein Computerspiel schreiben?
 </a></h3>
 
-Yes you can! The major game programming library for Rust is [Piston](http://www.piston.rs/), and there's both a [subreddit for game programming in Rust](https://www.reddit.com/r/rust_gamedev/) and an IRC channel (`#rust-gamedev` on [Mozilla IRC](https://wiki.mozilla.org/IRC))  as well.
+Ja! Die wichtigste Bibliothek für Spieleprogrammierung in Rust ist [Piston](http://www.piston.rs/), und es gibt sowohl ein [Subreddit für Spieleprogrammierung in Rust](https://www.reddit.com/r/rust_gamedev/), als auch einen IRC-Kanal (`#rust-gamedev` im [Mozilla-IRC](https://wiki.mozilla.org/IRC)) zu diesem Thema.
 
 <h2 id="design-patterns">Design Patterns</h2>
 
 <h3><a href="#is-rust-object-oriented" name="is-rust-object-oriented">
-Is Rust object oriented?
+Ist Rust objektorientiert?
 </a></h3>
 
-It is multi-paradigm. Many things you can do in OO languages you can do in Rust, but not everything, and not always using the same abstraction you're accustomed to.
+Rust ist eine Mehrparadigmensprache. Viele Konzepte aus OOP-Sprachen können nach Rust übernommen werden, aber nicht alle, und nicht immer mit dem gewohnten Abstraktionsmechanismus.
 
 <h3><a href="#how-do-i-map-object-oriented-concepts-to-rust" name="how-do-i-map-object-oriented-concepts-to-rust">
-How do I map object-oriented concepts to Rust?
+Wie kann ich objektorientierte Konzepte in Rust abbilden?
 </a></h3>
 
-That depends. There _are_ ways of translating object-oriented concepts like [multiple inheritance](https://www.reddit.com/r/rust/comments/2sryuw/ideaquestion_about_multiple_inheritence/) to Rust, but as Rust is not object-oriented the result of the translation may look substantially different from its appearance in an OO language.
+Kommt darauf an. Es _gibt_ Möglichkeiten, um objektorientierte Konzepte wie [Mehrfachvererbung](https://www.reddit.com/r/rust/comments/2sryuw/ideaquestion_about_multiple_inheritence/) nach Rust zu übersetzen, das Ergebnis kann aber aufgrund der nicht objektorientierten Natur von Rust deutlich von seinem Äquivalent in einer OOP-Sprache abweichen.
 
 <h3><a href="#how-do-i-configure-a-struct-with-optional-parameters" name="how-do-i-configure-a-struct-with-optional-parameters">
-How do I handle configuration of a struct with optional parameters?
+Wie kann ich einen Struct mit optionalen Parametern konfigurieren?
 </a></h3>
 
-The easiest way is to use the [`Option`][Option] type in whatever function you're using to construct instances of the struct (usually `new()`). Another way is to use the [builder pattern](https://aturon.github.io/ownership/builders.html), where only certain functions instantiating member variables must be called before the construction of the built type.
+Die einfachste Möglichkeit ist es, den Typ [`Option`][Option] als Parameter für Funktionen wie `new` zu verwenden. Alternativ kannst du das [Builder Pattern](https://aturon.github.io/ownership/builders.html) implementieren, mit dem einzelne Attribute durch Funktionsaufrufe an einen Builder belegt werden, bevor der eigentliche Struct konstruiert wird.
 
 <h3><a href="#how-do-i-do-global-variables" name="how-do-i-do-global-variables">
-How do I do global variables in Rust?
+Wie benutze ich globale Variablen in Rust?
 </a></h3>
 
-Globals in Rust can be done using `const` declarations for compile-time computed global constants, while `static` can be used for mutable globals. Note that modifying a `static mut` variable requires the use of `unsafe`, as it allows for data races, one of the things guaranteed not to happen in safe Rust. One important distinction between `const` and `static` values is that you can take references to `static` values, but not references to `const` values, which don't have a specified memory location. For more information on `const` vs. `static`, read [the Rust book](https://doc.rust-lang.org/book/const-and-static.html).
+Globale Konstanten werden mit dem Schlüsselwort `const` deklariert, globale Variablen mit `static`. Beachte, dass das Verändern einer `static mut`-Variablen `unsafe`-Code erfordert, da es Data Races erlaubt, deren Absenz von Safe Rust garantiert wird. Ein wichtiger Unterschied zwischen `const` und `static` ist, dass auf `static`-Variablen Referenzen gebildet werden können - `const`-Werte haben keine definierte Speicheradresse. Für weitere Informationen zum Thema `const` vs. `static` sei auf das [Rust Book](https://doc.rust-lang.org/book/const-and-static.html) verwiesen.
 
 <h3><a href="#how-can-i-set-compile-time-constants-that-are-defined-procedurally" name="how-can-i-set-compile-time-constants-that-are-defined-procedurally">
-How can I set compile-time constants that are defined procedurally?
+Wie kann ich Compilezeit-Konstanten definieren, die prozedural berechnet werden?
 </a></h3>
 
-Rust currently has limited support for compile time constants. You can define primitives using `const` declarations (similar to `static`, but immutable and without a specified location in memory) as well as define `const` functions and inherent methods.
+Rust hat momentan nur eingeschränkte Unterstützung für Compilezeit-Konstanten. Du kannst Werte eines primitiven Typs mittels `const`-Deklarationen definieren (ähnlich zu `static`, aber unveränderlich und ohne eine feste Speicheradresse). Funktionen können ebenfalls `const` sein.
 
-To define procedural constants that can't be defined via these mechanisms, use the [`lazy-static`](https://github.com/rust-lang-nursery/lazy-static.rs) crate, which emulates compile-time evaluation by automatically evaluating the constant at first use.
+Konstanten, die sich mit diesen Mechanismen nicht beschreiben lassen, können mit dem [`lazy-static`](https://github.com/rust-lang-nursery/lazy-static.rs)-Crate erzeugt werden, der Compilezeit-Berechnung durch Auswertung bei der ersten Benutzung einer globalen Variablen emuliert.
 
 <h3><a href="#can-i-run-code-before-main" name="can-i-run-code-before-main">
-Can I run initialization code that happens before main?
+Kann ich vor Bereten der `main`-Funktion Initialisierungscode ausführen?
 </a></h3>
 
-Rust has no concept of "life before `main`". The closest you'll see can be done through the [`lazy-static`](https://github.com/Kimundi/lazy-static.rs) crate, which simulates a "before main" by lazily initializing static variables at their first usage.
+Rust kennt keine Programmausführung vor `main`. Am nächsten kommt dem Konzept der [`lazy-static`](https://github.com/Kimundi/lazy-static.rs)-Crate, der dieses Verhalten nachbildet, indem globale Variablen bei ihrer ersten Benutzung initialisiert werden.
 
 <!--
 
@@ -1274,44 +1274,44 @@ Rust has consistently worked to avoid having features with overlapping purposes,
 -->
 
 <h3><a href="#does-rust-allow-non-constant-expression-values-for-globals" name="does-rust-allow-non-constant-expression-values-for-globals">
-Does Rust allow non-constant-expression values for globals?
+Erlaubt Rust Werte für globale Variablen, die keine Compilezeit-Konstanten sind?
 </a></h3>
 
-No. Globals cannot have a non-constant-expression constructor and cannot have a destructor at all. Static constructors are undesirable because portably ensuring a static initialization order is difficult. Life before main is often considered a misfeature, so Rust does not allow it.
+Nein. Globale Variablen können keine nicht-compilezeit-konstanten Konstruktoren und überhaupt keine Destruktoren besitzen. Statische Konstruktoren sind unerwünscht, da bei gegenseitigen Abhängigkeiten eine Initialisierungsreihenfolge nicht ohne weiteres garantiert werden kann. Codeausführung vor Beginn der `main`-Funktion wird weithin als Misfeature gesehen, weswegen es in Rust nicht umgesetzt ist.
 
-See the [C++ FQA](http://yosefk.com/c++fqa/ctors.html#fqa-10.12) about the "static initialization order fiasco", and [Eric Lippert's blog](https://ericlippert.com/2013/02/06/static-constructors-part-one/) for the challenges in C#, which also has this feature.
+Das [C++ FQA](http://yosefk.com/c++fqa/ctors.html#fqa-10.12) hat einen Eintrag zum "static initialization order fiasco", und [Eric Lipperts Blog](https://ericlippert.com/2013/02/06/static-constructors-part-one/) schreibt über die Herausforderungen, die das Feature in C# mit sich gebracht hat.
 
-You can approximate non-constant-expression globals with the [lazy-static](https://crates.io/crates/lazy_static/) crate.
+Nicht-konstante Initialisierer in globalen Variablen können mit dem [lazy-static](https://crates.io/crates/lazy_static/) nachgebildet werden.
 
-<h2 id="other-languages">Other Languages</h2>
+<h2 id="other-languages">Andere Sprachen</h2>
 
 <h3><a href="#how-can-i-use-static-fields" name="how-can-i-use-static-fields">
-How can I implement something like C's <code>struct X { static int X; };</code> in Rust?
+Wie kann ich ein C-Konstrukt wie <code>struct X { static int X; }</code> in Rust implementieren?
 </a></h3>
 
-Rust does not have `static` fields as shown in the code snippet above. Instead, you can declare a `static` variable in a given module, which is kept private to that module.
+Rust kennt keine `static`-Attribute wie im obigen Programmausschnitt. Stattdessen kannst du eine `static`-Variable auf Modulebene deklarieren, die nur im umgebenden Modul sichtbar ist.
 
 <h3><a href="#how-can-i-convert-a-c-style-enum-to-an-integer" name="how-can-i-convert-a-c-style-enum-to-an-integer">
-How can I convert a C-style enum to an integer, or vice-versa?
+Wie kann ich einen C-ähnlichen Enum in einen Integer konvertieren und umgekehrt?
 </a></h3>
 
-Converting a C-style enum to an integer can be done with an `as` expression, like `e as i64` (where `e` is some enum).
+Ein Enum kann mit einem `as`-Cast in einen Integer überführt werden, wie etwa `e as i64` (wobei `e` ein Enum ist). 
 
-Converting in the other direction can be done with a `match` statement, which maps different numeric values to different potential values for the enum.
+Die Gegenrichtung kann mit einem `match`-Statement erreicht werden, das Zahlenwerte auf Enum-Werte abbildet.
 
 <h3><a href="#why-do-rust-programs-have-larger-binary-sizes-than-C-programs" name="why-do-rust-programs-have-larger-binary-sizes-than-C-programs">
-Why do Rust programs have larger binary sizes than C programs?
+Warum erzeugen Rust-Programme größere Binaries als C?
 </a></h3>
 
-There are several factors that contribute to Rust programs having, by default, larger binary sizes than functionally-equivalent C programs. In general, Rust's preference is to optimize for the performance of real-world programs, not the size of small programs.
+Mehrere Faktoren tragen dazu bei, dass Rust-Programme standardmäßig größere Binaries erzeugen als funktionell äquivalente C-Programme. Grundsätzlich optimiert Rust die Performance komplexer Anwendungen, nicht die Größe kleiner Beispielprogramme.
 
-__Monomorphization__
+__Monomorphisierung__
 
-Rust monomorphizes generics, meaning that a new version of a generic function or type is generated for each concrete type it's used with in the program. This is similar to how templates work in C++. For example, in the following program:
+Rust monomorphisiert seine Generics, was bedeutet, dass eine generische Funktion oder ein generischer Typ für jeden konkreten Typ, mit dem er instanziiert wird, neu übersetzt wird. Das ist ählich zum Verhalten von Templates in C++. Zum Beispiel werden im folgenden Programm
 
 ```rust
 fn foo<T>(t: T) {
-    // ... do something
+    // ... tu irgendwas
 }
 
 fn main() {
@@ -1320,19 +1320,19 @@ fn main() {
 }
 ```
 
-Two distinct versions of `foo` will be in the final binary, one specialized to an `i32` input, one specialized to a `&str` input. This enables efficient static dispatch of the generic function, but at the cost of a larger binary.
+zwei unabhängige Versionen von `foo` im fertigen Programm auftauchen, jeweils für `i32` und `&str` spezialisiert. Das erlaubt effiziente frühe Bindung der generischen Funktion, sorgt aber für größere Binaries.
 
-__Debug symbols__
+__Debug-Symbole__
 
-Rust programs compile with some debug symbols retained, even when compiling in release mode. These are used for providing backtraces on panics, and can be removed with `strip`, or another debug symbol removal tool. It is also useful to note that compiling in release mode with Cargo is equivalent to setting optimization level 3 with rustc. An alternative optimization level (called `s` or `z`) [has recently landed](https://github.com/rust-lang/rust/pull/32386) and tells the compiler to optimize for size rather than performance.
+Rust-Programme beinhalten auch im Release-Modus einige Debug-Symbole. Diese ermöglichen Backtraces bei Panics und können mit `strip` oder einem ähnlichen Tool aus dem Binary entfernt werden. Der Release-Modus in Cargo ist zum Optimierungslevel 3 in rustc äquivalent. [Mittlerweile](https://github.com/rust-lang/rust/pull/32386) kennt Rust eine alternative Optimierungsstrategie (Level `s` oder `z`),  mit der der Compiler versucht, die Größe statt der Performance des Programms zu optimieren.
 
 __Jemalloc__
 
-Rust uses jemalloc as the default allocator, which adds some size to compiled Rust binaries. Jemalloc is chosen because it is a consistent, quality allocator that has preferable performance characteristics compared to a number of common system-provided allocators. There is work being done to [make it easier to use custom allocators](https://github.com/rust-lang/rust/issues/32838), but that work is not yet finished.
+Rust benutzt standardmäßig jemalloc als Allokator, was die erzeugten Binaries etwas vergrößert. Jemalloc bietet einen konsistentere Allokation mit günstigerer Performance als viele systemeigenen Allokatoren. In Zukunft wird es auch einfacher sein, [benutzerdefinierte Allokatoren](https://github.com/rust-lang/rust/issues/32838) in Rust einzubinden.
 
-__Link-time optimization__
+__Link-Time Optimization__
 
-Rust does not do link-time optimization by default, but can be instructed to do so. This increases the amount of optimization that the Rust compiler can potentially do, and can have a small effect on binary size. This effect is likely larger in combination with the previously mentioned size optimizing mode.
+Rust benutzt standardmäßig keine Link-Time-Optimization, kann aber so eingerichtet werden. Das erhöht das Optimierungspotential des Rust-Compilers und kann einen kleinen Effekt auf die Größe der Binaries haben. Dieser Effekt wird vor allem in Kombination mit den oben genannten Optimierungsstrategien sichtbar.
 
 __Standardbibliothek__
 
