@@ -265,15 +265,15 @@ Während C Klammerung um ein `if`-Statement, aber keine Klammern für einzeilige
 Warum kein literaler Syntax für Dictionaries?
 </a></h3>
 
-Rust's overall design preference is for limiting the size of the *language* while enabling powerful *libraries*. While Rust does provide initialization syntax for arrays and string literals, these are the only collection types built into the language. Other library-defined types, including the ubiquitous [`Vec`][Vec] collection type, use macros for initialization like the [`vec!`][VecMacro] macro.
+Die bevorzugte Vorgehensweise beim Eintwurf von Rust war es, die *Sprache* selbst relativ klein zu halten und dafür mächtige *Bibliotheken* anzubieten. Rust bietet zwar Syntax zur Initialisierung von Arrays und literalen Strings an, aber diese sind die einzigen in die Sprache eingebauten Kollektions-Datentypen. Andere, in Bibliotheken definierte Typen, wie zum Beispiel der häufig genutzte [`Vec`][Vec] Kollektionstyp, nutzen für die Initialisierung Makros wie zum Beispiel [`vec!`][VecMacro].
 
-This design choice of using Rust's macro facilities to initialize collections will likely be extended generically to other collections in the future, enabling simple initialization of not only [`HashMap`][HashMap] and [`Vec`][Vec], but also other collection types such as [`BTreeMap`][BTreeMap]. In the meantime, if you want a more convenient syntax for initializing collections, you can [create your own macro](https://stackoverflow.com/questions/27582739/how-do-i-create-a-hashmap-literal) to provide it.
+In der Zukunft wird diese Design-Entscheidung, Makros zum Initialisieren von Datenstrukturen zu verwenden, wahrscheinlich auf weitere Datentypen erweitert werden. Zusätzlich zu [`HashMap`][HashMap] und [`Vec`][Vec] sollen Typen wie [`BTreeMap`][BTreeMap] unterstützt werden. Wenn du jetzt schon komfortablere Syntax zur Initialisierung von Datenstrukturen benötigst, kannst du dafür [dein eigenes Makro definieren](https://stackoverflow.com/questions/27582739/how-do-i-create-a-hashmap-literal).
 
-<h3><a href="#when-should-i-use-an-implicit-return" name="when-should-i-use-an-implicit-return">
-When should I use an implicit return?
+<h3><a href="#when-should-i-use-an-implicit-return" name="Wann sollte ich ein implizites Return verwenden?">
+Wann sollte ich ein implizites Return verwenden?
 </a></h3>
-
-Rust is a very expression-oriented language, and "implicit returns" are part of that design. Constructs like `if`s, `match`es, and normal blocks are all expressions in Rust. For example, the following code checks if an [`i64`][i64] is odd, returning the result by simply yielding it as a value:
+[comment]: <> (Ich finde, hier wird zu wenig auf den Unterschied, den ein Semikolon macht (insbesondere im Ggs. zu anderen Sprachen) eingegangen. Allgemein könnte man hier den Unterschied zwischen Ausdruck und Statement erklären. Upstream?)
+Rust ist eine stark Ausdruck-orientierte Sprache, und "implizite Returns" gehören zu diesem Design. Konstrukte wie `if`, `match`, oder normale Blöcke sind in Rust Ausdrücke. Der folgende Programmcode testet zum Beispiel, ob ein [`i64`][i64] ungerade ist und liefert das Ergebnis mit einem impliziten Return zurück.
 
 ```rust
 fn is_odd(x: i64) -> bool {
@@ -281,7 +281,7 @@ fn is_odd(x: i64) -> bool {
 }
 ```
 
-Although it can be simplified even further like so:
+Das kann natürlich weiter vereinfacht werden:
 
 ```rust
 fn is_odd(x: i64) -> bool {
@@ -289,31 +289,31 @@ fn is_odd(x: i64) -> bool {
 }
 ```
 
-In each example, the last line of the function is the return value of that function. It is important to note that if a function ends in a semicolon, its return type will be `()`, indicating no returned value. Implicit returns must omit the semicolon to work.
+In beiden Beispielen ist die letzte Zeile der Rückgabewert der Funktion. Ein wichtiges Detail ist, dass der Rückgabetyp einer Funktion, welche mit einem Semikolon endet, `()` ist. Dies deutet an, dass kein Wert zurückgegeben wird. Implizite Rückgaben gehen nur ohne Semikolon, da sonst der Wert des Ausdrucks unterdrückt wird.
 
-Explicit returns are only used if an implicit return is impossible because you are returning before the end of the function's body. While each of the above functions could have been written with a `return` keyword and semicolon, doing so would be unnecessarily verbose, and inconsistent with the conventions of Rust code.
+Explizite Rückgaben müssen dann benutzt werden, wenn implizite unmöglich sind, zum Beispiel wenn man vor dem Ende des Funktionskörpers einen Wert zurückgeben will. Beide Funktionen im obigen Beispiel hätten mit einem `return` und einem Semikolon geschrieben werden können, aber das wäre unnötig ausführlich und gegen die Konventionen von Code in Rust.
 
-<h3><a href="#why-arent-function-signatures-inferred" name="why-arent-function-signatures-inferred">
-Why aren't function signatures inferred?
+<h3><a href="#why-arent-function-signatures-inferred" name="Warum werden Funktionssignaturtypen nicht inferiert?">
+Warum werden Funktionssignaturtypen nicht inferiert?
 </a></h3>
 
-In Rust, declarations tend to come with explicit types, while actual code has its types inferred. There are several reasons for this design:
+Deklarationen in Rust werden normalerweise mit expliziten Typannotationen versehen, während der eigentliche Programmcode mit inferierten Typen arbeitet. Diese Entscheidung ist folgendermaßen begründet:
 
-- Mandatory declaration signatures help enforce interface stability at both the module and crate level.
-- Signatures improve code comprehension for the programmer, eliminating the need for an IDE running an inference algorithm across an entire crate to be able to guess at a function's argument types; it's always explicit and nearby.
-- Mechanically, it simplifies the inference algorithm, as inference only requires looking at one function at a time.
+- Erforderliche Signaturdeklarationen helfen, die Stabilität von Schnittstellen in Modulen und Crates zu gewährleisten.
+- Signaturtypen erleichtern dem Programmierer das Verständnis des Programms. Dadurch, dass die Signaturtypen immer explizit lokal im Programm definiert sind, muss eine IDE keinen Inferenzalgorithmus über die gesamte Crate laufen lassen, um den Typ eines Argumentes herauszufinden.
+- Da die Argumenttypen auf Funktionsebene festgelegt sind, kann der Inferenzalgorithmus stark vereinfacht werden.
 
-<h3><a href="#why-does-match-have-to-be-exhaustive" name="why-does-match-have-to-be-exhaustive">
-Why does <code>match</code> have to be exhaustive?
+<h3><a href="#why-does-match-have-to-be-exhaustive" name="Warum muss ein match alle Fälle abdecken?">
+Warum muss ein <code>match</code> alle Fälle abdecken?
 </a></h3>
 
-To aid in refactoring and clarity.
+Um Klarheit zu schaffen und die Refakturisierung zu vereinfachen.
 
-First, if every possibility is covered by the `match`, adding variants to the `enum` in the future will cause a compilation failure, rather than an error at runtime. This type of compiler assistance makes fearless refactoring possible in Rust.
+Erstens: wenn ein `match` jeden Fall eines `enum`s abdeckt, führt das zukünftige Hinzufügen einer Variante zu einem Kompilierfehler und nicht einem Fehler zur Laufzeit. Diese Hilfe durch den Kompilierer ermöglicht es dem Rust-Programmierer, zu Refakturisieren, ohne neue Fehler befürchten zu müssen.
 
-Second, exhaustive checking makes the semantics of the default case explicit: in general, the only safe way to have a non-exhaustive `match` would be to panic the thread if nothing is matched. Early versions of Rust did not require `match` cases to be exhaustive and it was found to be a great source of bugs.
+Zweitens: abdeckende Prüfung aller Fälle expliziert die Semantik des default-Falles. Allgemein wäre ein nicht-abdeckendes `match` nur sicher, wenn der Thread im Fall einer unvorhergesehenen Variante ein `panic` auslösen würde. In frühen Versionen von Rust, in denen `match` nicht zwingend alle Fälle abdecken musste, wurde dies als Ursache für viele Fehler befunden.
 
-It is easy to ignore all unspecified cases by using the `_` wildcard:
+Es ist mit `_` einfach, alle weiteren, unspezifizierten Fälle zu ignorieren:
 
 ```rust
 match val.do_something() {
