@@ -1053,38 +1053,38 @@ Cross compilation is possible in Rust, but it requires [a bit of work](https://g
 
 Rust does distribute [copies of the standard library](https://static.rust-lang.org/dist/index.html) for each of the supported platforms, which are contained in the `rust-std-*` files for each of the build directories found on the distribution page, but there are not yet automated ways to install them.
 
-<h2 id="modules-and-crates">Modules and Crates</h2>
+<h2 id="modules-and-crates">Module und Crates</h2>
 
 <h3><a href="#what-is-the-relationship-between-a-module-and-a-crate" name="what-is-the-relationship-between-a-module-and-a-crate">
-What is the relationship between a module and a crate?
+Wie verhalten sich Crates und Module zueinander?
 </a></h3>
 
-- A crate is a compilation unit, which is the smallest amount of code that the Rust compiler can operate on.
-- A module is a (possibly nested) unit of code organization inside a crate.
-- A crate contains an implicit, un-named top-level module.
-- Recursive definitions can span modules, but not crates.
+- Ein Crate ist eine Übersetzungseinheit, also die kleinste Einheit, auf der der Rust-Compiler arbeiten kann.
+- Ein Modul ist eine (möglicherweise verschachtelte) Organisationseinheit innerhalb eines Crates.
+- Ein Crate enthält ein implizites, unbenanntes Modul auf Wurzelebene.
+- Rekursive Definitionen können sich über mehrere Module erstrecken, nicht aber über mehrere Crates.
 
 <h3><a href="#why-cant-the-rust-compiler-find-a-library-im-using" name="why-cant-the-rust-compiler-find-a-library-im-using">
-Why can't the Rust compiler find this library I'm <code>use</code>ing?
+Warum kann der Rust-Compiler die Bibliothek nicht finden, die ich eingebunden habe?
 </a></h3>
 
-There are a number of possible answers, but a common mistake is not realizing that `use` declarations are relative to the crate root. Try rewriting your declarations to use the paths they would use if defined in the root file of your project and see if that fixes the problem.
+Hier gibt es eine Reihe von Möglichkeiten, aber ein häufiger Grund ist, dass die `use`-Deklaration nicht relativ zur Crate-Wurzel angegben wurde. Versuche deine Deklarationen so zu schreiben, dass sie den gleichen Pfad haben wie wenn sie in der Wurzeldatei deines Projekts importiert würden.
 
-There are also `self` and `super`, which disambiguate `use` paths as being relative to the current module or parent module, respectively.
+Es gibt außerdem noch die Schlüsselwörter `self` und `super`, die es erlauben, Pfade relativ zum akutellen oder zum Elternmodul anzugeben.
 
-For complete information on `use`ing libraries, read the Rust book's chapter ["Crates and Modules"](https://doc.rust-lang.org/stable/book/crates-and-modules.html).
+Mehr Informationen findest du im Kapitel ["Crates and Modules"](https://doc.rust-lang.org/stable/book/crates-and-modules.html) des Rust Book.
 
 <h3><a href="#why-do-i-have-to-declare-modules-with-mod" name="why-do-i-have-to-declare-modules-with-mod">
-Why do I have to declare module files with <code>mod</code> at the top level of the crate, instead of just <code>use</code>ing them?
+Warum muss ich Moduldateien mit <code>mod</code> im Crate deklarieren, anstatt sie einfach mit <code>use</code> einzubinden?
 </a></h3>
 
-There are two ways to declare modules in Rust, inline or in another file. Here is an example of each:
+Module können in Rust auf zwei Arten deklariert werden: Direkt im Code, oder in einer separaten Datei. Hier ein Beispiel beider Varianten:
 
 ```rust
 // In main.rs
 mod hello {
     pub fn f() {
-        println!("hello!");
+        println!("Hallo!");
     }
 }
 
@@ -1103,48 +1103,48 @@ fn main() {
 
 // In hello.rs
 pub fn f() {
-    println!("hello!");
+    println!("Hallo!");
 }
 ```
 
-In the first example, the module is defined in the same file it's used. In the second example, the module declaration in the main file tells the compiler to look for either `hello.rs` or `hello/mod.rs`, and to load that file.
+Im ersten Beispiel wird das Modul in der Datei definiert, in der es auch benutzt wird. Im zweiten Beispiel weist die Moduldeklaration den Compiler darauf hin, die Definition aus `hello.rs` oder `hello/mod.rs` zu laden.
 
-Note the difference between `mod` and `use`: `mod` declares that a module exists, whereas `use` references a module declared elsewhere, bringing its contents into scope within the current module.
+`mod` deklariert also ein neues Modul, wogegen sich `use` auf ein anderswo existierendes Modul bezieht und dessen Inhalte in den aktuellen Gültigkeitsberich übernimmt.
 
 <h3><a href="#how-do-i-configure-cargo-to-use-a-proxy" name="how-do-i-configure-cargo-to-use-a-proxy">
-How do I configure Cargo to use a proxy?
+Wie kann ich Cargo dazu bringen, einen Proxy zu verwenden?
 </a></h3>
 
-As explained on the Cargo [configuration documentation](http://doc.crates.io/config.html), you can set Cargo to use a proxy by setting the "proxy" variable under `[http]` in the configuration file.
+Wie in der [Cargo-Dokumentation](http://doc.crates.io/config.html) (englisch) beschrieben, kann ein Proxyserver eingerichtet werden, indem die `proxy`-Variable in der `[http]`-Sektion der Konfigurationsdatei gesetzt wird.
 
 <h3><a href="#why-cant-the-compile-find-method-implementations" name="why-cant-the-compile-find-method-implementations">
-Why can't the compiler find the method implementation even though I'm already <code>use</code>ing the crate?
+Warum kann der Compiler eine Implementierung nicht finden, obwohl ich das Modul des Typs bereits importiert habe?
 </a></h3>
 
-For methods defined on a trait, you have to explicitly import the trait declaration. This means it's not enough to import a module where a struct implements the trait, you must also import the trait itself.
+Für Methoden, die über einen Trait definiert werden, muss die Trait-Deklaration explizit mit importiert werden. Es genügt also nicht, das Modul zu importieren, in dem der Trait für den Struct imlplementiert wird, sondern der Trait selbst muss zusätzlich eingebunden werden.
 
 <h3><a href="#why-cant-the-compiler-infer-use-statements" name="why-cant-the-compiler-infer-use-statements">
-Why can't the compiler infer <code>use</code> declarations for me?
+Warum kann der Compiler <code>use</code>-Deklarationen nicht einfach herleiten?
 </a></h3>
 
-It probably could, but you also don't want it to. While in many cases it is likely that the compiler could determine the correct module to import by simply looking for where a given identifier is defined, this may not be the case in general. Any decision rule in `rustc` for choosing between competing options would likely cause surprise and confusion in some cases, and Rust prefers to be explicit about where names are coming from.
+Er könnte wahrscheinlich, aber das willst du wahrscheinlich gar nicht. In einfachen Fällen könnte der Compiler wohl das korrekte Modul finden, indem er nach passenden Deklarationen zu einem Bezeichner sucht, das klappt im Allgemeinen aber nicht. Jede Entscheidungsregel bei Namenskonflikten würde in einigen Fällen für Überraschung sorgen, und Rust zieht es vor die Herkunft von Symbolen explizit zu benennen.
 
-For example, the compiler could say that in the case of competing identifier definitions the definition from the earliest imported module is chosen. So if both module `foo` and module `bar` define the identifier `baz`, but `foo` is the first registered module, the compiler would insert `use foo::baz;`.
+So könnte der Compiler etwa festlegen, dass bei einem Namenskonflikt das erste importierte Modul Vorrang hat. Definieren also die beiden Module `foo` und `bar` jeweils den Bezeichner `baz`, `foo` ist aber das erste registrierte Modul, so würde der Compiler ein `use foo::baz;` einfügen.
 
 ```rust
 mod foo;
 mod bar;
 
-// use foo::baz  // to be inserted by the compiler.
+// use foo::baz  // wird vom Compiler eingefügt
 
 fn main() {
   baz();
 }
 ```
 
-If you know this is going to happen, perhaps it saves a small number of keystrokes, but it also greatly increases the possibility for surprising error messages when you actually meant for `baz()` to be `bar::baz()`, and it decreases the readability of the code by making the meaning of a function call dependent on module declaration. These are not tradeoffs we are willing to make.
+Wenn du sicher weißt, dass das passieren wird, kann das einige wenige Tastenanschläge einsparen. Dieser Gewinn wird aber mit deutlich höheren Wahrscheinlichkeit an überraschenden Fehlermeldungen erkauft, falls mit `baz()` eigentlich `bar::baz` gemeint war. Auch reduziert diese Logik die Lesbarkeit des Codes, weil ein Funktionsaufruf plötzlich von der Importreihenfolge abhängt. Diesen Trade-Off wollen wir nicht eingehen.
 
-However, in the future, an IDE could help manage declarations, which gives you the best of both worlds: machine assistance for pulling in names, but explicit declarations about where those names are coming from.
+Zukünftig könnten jedoch IDEs die Auflösung von Deklarationen erleichtern: Hilfestellung beim Finden des richtigen Imports, aber explizite Modulpfade im Code.
 
 <!--
 ### How do I package and archive crates from [https://crates.io](https://crates.io)?
