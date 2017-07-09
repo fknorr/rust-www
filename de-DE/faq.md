@@ -907,96 +907,96 @@ What's the deal with <code>unwrap()</code> everywhere?
 It's also useful for quick prototypes where you don't want to handle an error yet, or blog posts where error handling would distract from the main point.
 
 <h3><a href="#why-do-i-get-errors-with-try" name="why-do-i-get-errors-with-try">
-Why do I get an error when I try to run example code that uses the <code>try!</code> macro?
+Warum bekomme ich einen Compilerfehler in Besipielcode, der das <code>try!</code>-Makro benutzt?
 </a></h3>
 
-It's probably an issue with the function's return type. The [`try!`][TryMacro] macro either extracts the value from a [`Result`][Result], or returns early with the error [`Result`][Result] is carrying. This means that [`try`][TryMacro] only works for functions that return [`Result`][Result] themselves, where the `Err`-constructed type implements `From::from(err)`. In particular, this means that the [`try!`][TryMacro] macro cannot work inside the `main` function.
+Das liegt wahrscheinlich am Rückgabetyp der Funktion. Das [`try!`][TryMacro]-Makro entpackt im Erfolgsfall den Wert aus einem [`Result`][Result] oder kehrt aus der aufrufenden Funktion mit dem Fehler zurück, den das [`Result`][Result] beschreibt. Damit funktioniert `try!` nur in Funktionen die ihrerseits ein `Result` zurückgeben. Dessen `Err`-Wert muss außerdem mit `From::from(err)` aus dem Fehlertyp des `try!`-Arguments konstruiert werden können. Insbesondere kann `try!` somit auch nicht in der `main`-Funktion verwendet werden.
 
 <h3><a href="#error-handling-without-result" name="error-handling-without-result">
-Is there an easier way to do error handling than having <code>Result</code>s everywhere?
+Gibt es einen einfacheren Fehlerbehandlungsmechanismus, als überall <code>Result</code> zu verwenden?
 </a></h3>
 
-If you're looking for a way to avoid handling [`Result`s][Result] in other people's code, there's always [`unwrap()`][unwrap], but it's probably not what you want. [`Result`][Result] is an indicator that some computation may or may not complete successfully. Requiring you to handle these failures explicitly is one of the ways that Rust encourages robustness. Rust provides tools like the [`try!` macro][TryMacro] to make handling failures ergonomic.
+[`Result`s][Result]-Werte wirst du immer mit einem [`unwrap()`][unwrap] los, nur ist das meistens nicht das was du möchtest. [`Result`][Result] ist ein Anzeichen dafür, dass eine Operation möglicherweise fehlschlagen kann. Rust zwingt dich diese Fehlerpfade explizit zu behandeln, um die Robustheit von Programmen gegenüber Fehlersituationen zu fördern. Es gibt Helfer wie das [`try!`-Makro][TryMacro], das das Propagieren von Fehlern angenehmer macht.
 
-If you really don't want to handle an error, use [`unwrap()`][unwrap], but know that doing so means that the code panics on failure, which usually results in a shutting down the process.
+Wenn du einen Fehler wirklich nicht behandeln möchtest kannst du auf [`unwrap()`][unwrap] zurückgreifen. Das bedeutet aber, dass dein Code im Fehlerfall eine Panic erzeugt, die im Normalfall den Prozess hart beendet.
 
-<h2 id="concurrency">Concurrency</h2>
+<h2 id="concurrency">Nebenläufigkeit</h2>
 
 <h3><a href="#can-i-use-static-values-across-threads-without-an-unsafe-block" name="can-i-use-static-values-across-threads-without-an-unsafe-block">
-Can I use static values across threads without an <code>unsafe</code> block?
+Kann ich statische Werte in mehreren Threads benutzen, ohne auf <code>unsafe</code>-Code zurückzugreifen?
 </a></h3>
 
-Mutation is safe if it's synchronized. Mutating a static [`Mutex`][Mutex] (lazily initialized via the [lazy-static](https://crates.io/crates/lazy_static/) crate) does not require an `unsafe` block, nor does mutating a static [`AtomicUsize`][AtomicUsize] (which can be initialized without lazy_static).
+Schreibende Zugriffe sind sicher, solange sie synchronisiert erfolgen. Dazu kann etwa ein [`Mutex`][Mutex] (spät initialisiert über [lazy-static](https://crates.io/crates/lazy_static/)) oder ein [`AtomicUsize`][AtomicUsize] (regulär initialisiert) verwendet werden.
 
-More generally, if a type implements [`Sync`][Sync] and does not implement [`Drop`][Drop], it [can be used in a `static`](https://doc.rust-lang.org/book/const-and-static.html#static).
+Allgemein gesprochen können all die Typen in einer [statischen Variablen benutzt werden](https://doc.rust-lang.org/book/const-and-static.html#static), die [`Sync`][Sync] aber nicht [`Drop`][Drop] implementieren.
 
-<h2 id="macros">Macros</h2>
+<h2 id="macros">Makros</h2>
 
 <h3><a href="#can-i-write-a-macro-to-generate-identifiers" name="can-i-write-a-macro-to-generate-identifiers">
-Can I write a macro to generate identifiers?
+Kann ich ein Makro schreiben, das neue Bezeichner erzeugt?
 </a></h3>
 
-Not currently. Rust macros are ["hygienic macros"](https://en.wikipedia.org/wiki/Hygienic_macro), which intentionally avoid capturing or creating identifiers that may cause unexpected collisions with other identifiers. Their capabilities are significantly different than the style of macros commonly associated with the C preprocessor. Macro invocations can only appear in places where they are explicitly supported: items, method declarations, statements, expressions, and patterns. Here, "method declarations" means a blank space where a method can be put. They can't be used to complete a partial method declaration. By the same logic, they can't be used to complete a partial variable declaration.
+Momentan nicht. Rust-Makros sind ["hygiensich"](https://en.wikipedia.org/wiki/Hygienic_macro) und vermeiden damit absichtlich das Reservieren oder Erzeugen von Bezeichnern, die unerwartete Kollisionen mit anderem Code auslösen können. Ihre Fähigkeiten unterscheiden sich grundsätzlich von Makros, wie sie vom C-Präprozessor bekannt sind. Makro-Aufrufe können nur an explizit erlaubten Positionen im Code auftauchen, das sind: An Stelle von Definitionen (_items_) auf Modulebene, Methodendeklarationen, Statements, Ausdrücken, und Pattern. Sie können nicht benutzt werden, um eine partielle Methodendeklaration oder Variablendeklaration zu vevollständigen.
 
-<h2 id="debugging">Debugging and Tooling</h2>
+<h2 id="debugging">Fehlersuche und Werkzeuge</h2>
 
 <h3><a href="#how-do-i-debug-rust-programs" name="how-do-i-debug-rust-programs">
-How do I debug Rust programs?
+Wie finde ich Fehler in meinem Rust-Programm?
 </a></h3>
 
-Rust programs can be debugged using [gdb](https://sourceware.org/gdb/current/onlinedocs/gdb/) or [lldb](http://lldb.llvm.org/tutorial.html), the same as C and C++. In fact, every Rust installation comes with one or both of rust-gdb and rust-lldb (depending on platform support). These are wrappers over gdb and lldb with Rust pretty-printing enabled.
+Rust-Programme können mit [gdb](https://sourceware.org/gdb/current/onlinedocs/gdb/) oder [lldb](http://lldb.llvm.org/tutorial.html) debuggt werden - genau wie C und C++. Jede Rust-Installation kommt mit rust-gdb, rust-lldb oder beidem, jenachdem was die Plattform unterstützt. Dabei handelt es sich um Wrapper um gdb und lldb, die Rust-Datenstrukturen lesbar ausgeben können (_pretty printing_).
 
 <h3><a href="#how-do-i-locate-a-panic" name="how-do-i-locate-a-panic">
-<code>rustc</code> said a panic occurred in standard library code. How do I locate the mistake in my code?
+<code>rustc</code> behauptet, dass eine Panic im Code er Standardbibliothek aufgetreten ist. Wie kann ich den Fehler in meinem Code finden?
 </a></h3>
 
-This error is usually caused by [`unwrap()`ing][unwrap] a `None` or `Err` in client code. Enabling backtraces by setting the environment variable `RUST_BACKTRACE=1` helps with getting more information. Compiling in debug mode (the default for `cargo build`) is also helpful. Using a debugger like the provided `rust-gdb` or `rust-lldb` is also helpful.
+Dieser Fehler tritt meistens auf, wenn aus Anwendungscode heraus [`unwrap()`][unwrap] auf einem `None`- oder `Err`-Wert aufgerufen wird. Ist beim Start des Programms die Umgebungsvariable `RUST_BACKTRACE=1` gesetzt, wird zusammen mit der Panic der Aufrufstapel ausgegeben, der zum Fehler geführt hat. Es hilft auch, das Projekt im Debug-Modus zu übersetzen (Standardverhalten für `cargo build`) und einen Debugger wie `rust-gdb` oder `rust-lldb` einzusetzen.
 
 <h3><a href="#what-ide-should-i-use" name="what-ide-should-i-use">
-What IDE should I use?
+Welche IDE sollte ich benutzen?
 </a></h3>
 
-There are a number of options for development environment with Rust, all of which are detailed on the official [IDE support page](https://forge.rust-lang.org/ides.html).
+Es gibt eine ganze Reihe an Entwicklungsumgebungen für Rust, die alle auf der [Seite zu IDEs](https://forge.rust-lang.org/ides.html) vorgestellt werden.
 
 <h3><a href="#wheres-rustfmt" name="wheres-rustfmt">
-<code>gofmt</code> is great. Where's <code>rustfmt</code>?
+<code>gofmt</code> ist toll! Wo ist <code>rustfmt</code>?
 </a></h3>
 
-`rustfmt` is [right here](https://github.com/rust-lang-nursery/rustfmt), and is being actively developed to make reading Rust code as easy and predictable as possible.
+`rustfmt` findest du [hier](https://github.com/rust-lang-nursery/rustfmt). Das Tool wird aktiv weiterentwickelt, um Rust-Code so leserlich und vorhersagbar wie möglich zu gestalten.
 
 <h2 id="low-level">Low-Level</h2>
 
 <h3><a href="#how-do-i-memcpy-bytes" name="how-do-i-memcpy-bytes">
-How do I <code>memcpy</code> bytes?
+Kann ich Bytes wie mit <code>memcpy</code> kopieren?
 </a></h3>
 
-If you want to clone an existing slice safely, you can use [`clone_from_slice`][clone_from_slice].
+Wenn du nur einen Slice klonen möchtest, kannst du dafür [`clone_from_slice`][clone_from_slice] verwenden.
 
-To copy potentially overlapping bytes, use [`copy`][copy]. To copy nonoverlapping bytes, use [`copy_nonoverlapping`][copy_nonoverlapping]. Both of these functions are `unsafe`, as both can be used to subvert the language's safety guarantees. Take care when using them.
+Bytesequenzen, die sich möglicherweise überlappen, können mit [`copy`][copy] kopiert werden. Bist du dir sicher, dass sich Quelle und Ziel nicht überlappen, funktioniert auch das (etwas schnellere) [`copy_nonoverlapping`][copy_nonoverlapping]. Beide Funktionen sind `unsafe`, da sie die Sicherheitsgarantien von Rust verletzen können. Sie sollten nur mit Vorsicht eingesetzt werden.
 
 <h3><a href="#does-rust-work-without-the-standard-library" name="does-rust-work-without-the-standard-library">
-Can Rust function reasonably without the standard library?
+Kann Rust auch ohne Standardbibliothek vernünftig funktionieren?
 </a></h3>
 
-Absolutely. Rust programs can be set to not load the standard library using the `#![no_std]` attribute. With this attribute set, you can continue to use the Rust core library, which is nothing but the platform-agnostic primitives. As such, it doesn't include IO, concurrency, heap allocation, etc.
+Absolut. Rust-Programme können die Standardbibliothek mit dem `#![no_std]`-Attribut abwählen. Damit kann weiterhin die Rust-Core-Bibliothek verwendet werden, die nur die plattformunabhängigen Primitive der Standardbibliothek enthält. Damit enthält sie keine Funktionalität zu I/O, Nebenläufigkeit, Heap-Allokation oder ähnlichem.
 
 <h3><a href="#can-i-write-an-operating-system-in-rust" name="can-i-write-an-operating-system-in-rust">
-Can I write an operating system in Rust?
+Ist es möglich, ein Betriebssystem in Rust schreiben? 
 </a></h3>
 
-Yes! In fact there are [several projects underway doing just that](http://wiki.osdev.org/Rust).
+Ja! Es gibt tatsächlich bereits [mehrere Projekte, die genau dieses Ziel verfolgen](http://wiki.osdev.org/Rust).
 
 <h3><a href="#how-can-i-write-endian-independent-values" name="how-can-i-write-endian-independent-values">
-How can I read or write numeric types like <code>i32</code> or <code>f64</code> in big-endian or little-endian format in a file or other byte stream?
+Wie kann ich numerische Datentypen wie <code>i32</code> oder <code>f64</code> in Little- oder Big-Endian-Kodierung von einem Stream lesen oder in einen Stream schreiben?
 </a></h3>
 
-You should check out the [byteorder crate](http://burntsushi.net/rustdoc/byteorder/), which provides utilities for exactly that.
+Diese Funktionalität wird vom [byteorder-Crate](http://burntsushi.net/rustdoc/byteorder/) zur Verfügung gestellt.
 
 <h3><a href="#does-rust-guarantee-data-layout" name="does-rust-guarantee-data-layout">
-Does Rust guarantee a specific data layout?
+Garantiert Rust ein spezifisches Layout von Datenstrukturen?
 </a></h3>
 
-Not by default. In the general case, `enum` and `struct` layouts are undefined. This allows the compiler to potentially do optimizations like re-using padding for the discriminant, compacting variants of nested `enum`s, reordering fields to remove padding, etc. `enums` which carry no data ("C-like") are eligible to have a defined representation. Such `enums` are easily distinguished in that they are simply a list of names that carry no data:
+Standardmäßig nicht. Allgemein gesprochen ist das Layout von `enum`s und `struct`s undefiniert. Das erlaubt Compileroptimierungen wie das Wiederverwenden von Padding für Enum-Diskriminanten, Kombinieren von Varianten verschachtelter Enums und Umordnen von Struct-Feldern, um Padding zu verringern. C-ähnlichen Enums (solchen ohne Daten innerhalb der Varianten) kann eine definierte Repräsentation zugewiesen werden:
 
 ```rust
 enum CLike {
@@ -1007,9 +1007,9 @@ enum CLike {
 }
 ```
 
-The `#[repr(C)]` attribute can be applied to such `enums` to give them the same representation they would have in equivalent C code. This allows using Rust `enum`s in FFI code where C `enum`s are also used, for most use cases. The attribute can also be applied to `struct`s to get the same layout as a C `struct` would.
+Solche Enums dürfen das Attribut `#[repr(C)]` tragen, um sie auf die Repräsentation festzulegen, die sie in äquivalentem C-Code hätten. Das erlaubt die Verwendung von Rust-Enums in FFI-Code, der nach C-Enums übersetzt. Das Attribut kann auch auf Structs angewendet werden, um ihnen das Layout des entsprechenden C-Structs zu verpassen.
 
-<h2 id="cross-platform">Cross-Platform</h2>
+<h2 id="cross-platform">Plattformübergreifende Programmierung</h2>
 
 <!--
 ### How do I build a Windows binary that doesn't display the console window?
@@ -1024,34 +1024,34 @@ TODO: Write this answer.
 -->
 
 <h3><a href="#how-do-i-express-platform-specific-behavior" name="how-do-i-express-platform-specific-behavior">
-What's the idiomatic way to express platform-specific behavior in Rust?
+Was ist der idiomatische Weg, plattformspezifisches Verhalten in Rust auszudrücken?
 </a></h3>
 
-Platform-specific behavior can be expressed using [conditional compilation attributes](https://doc.rust-lang.org/reference/attributes.html#conditional-compilation) such as `target_os`, `target_family`, `target_endian`, etc.
+Plattformspezifisches Verhalten kann mit [Attributen zur bedingten Übersetzung](https://doc.rust-lang.org/reference/attributes.html#conditional-compilation) wie `target_os`, `target_family` oder `target_endian` beschrieben werden.
 
 <h3><a href="#can-rust-be-used-for-android-ios-programs" name="can-rust-be-used-for-android-ios-programs">
-Can Rust be used for Android/iOS programming?
+Ist Rust für die Android/iOS-Programmierung tauglich?
 </a></h3>
 
-Yes it can! There are already examples of using Rust for both [Android](https://github.com/tomaka/android-rs-glue) and [iOS](https://www.bignerdranch.com/blog/building-an-ios-app-in-rust-part-1/). It does require a bit of work to set up, but Rust functions fine on both platforms.
+Ja! Es gibt bereits einige Beispiele für funktionierende Rust-Programme unter [Android](https://github.com/tomaka/android-rs-glue) und [iOS](https://www.bignerdranch.com/blog/building-an-ios-app-in-rust-part-1/). Das Aufsetzen erfordert etwas Arbeit, Rust kommt mit beiden Plattformen aber wunderbar zurecht.
 
 <h3><a href="#can-i-run-my-rust-program-in-a-web-browser" name="can-i-run-my-rust-program-in-a-web-browser">
-Can I run my Rust program in a web browser?
+Kann ich mein Rust-Programm in einem Webbrowser ausführen?
 </a></h3>
 
-Possibly. Rust has [experimental support][wasm] for both [asm.js] and [WebAssembly].
+Wahrscheinlich. Rust hat [experimentelle Unterstützung][wasm] für [asm.js] und [WebAssembly].
 
 [wasm]: https://davidmcneil.gitbooks.io/the-rusty-web/
 [asm.js]: http://asmjs.org/
 [WebAssembly]: http://webassembly.org/
 
 <h3><a href="#how-do-i-cross-compile-rust" name="how-do-i-cross-compile-rust">
-How do I cross-compile in Rust?
+Wie funktioniert Cross-Compilation in Rust?
 </a></h3>
 
-Cross compilation is possible in Rust, but it requires [a bit of work](https://github.com/japaric/rust-cross/blob/master/README.md) to set up. Every Rust compiler is a cross-compiler, but libraries need to be cross-compiled for the target platform.
+Rust kann Code für andere Systeme übersetzen, erfordert dafür aber [etwas Vorbereitsungsarbeit](https://github.com/japaric/rust-cross/blob/master/README.md). Jeder Rust-Compiler kann als Cross-Complier arbeiten, Bibliotheken müssen aber zunächst für die Zielplattform übersetzt werden.
 
-Rust does distribute [copies of the standard library](https://static.rust-lang.org/dist/index.html) for each of the supported platforms, which are contained in the `rust-std-*` files for each of the build directories found on the distribution page, but there are not yet automated ways to install them.
+Rust vertreibt [Kopien der Standardbibliothek](https://static.rust-lang.org/dist/index.html) für jede unterstützte Plattform; sie liegen in den `rust-std-*`-Dateien der Distribution für die jeweilige Plattform. Es existiert jedoch noch kein Automatismus, um diese Bibliotheken für Cross-Compilation zu installieren.
 
 <h2 id="modules-and-crates">Module und Crates</h2>
 
