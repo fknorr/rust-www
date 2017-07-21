@@ -778,10 +778,10 @@ These are called [associated types](https://doc.rust-lang.org/stable/book/associ
 Associated types exist because generics often involve families of types, where one type determines all of the others in a family. For example, a trait for graphs might have as its `Self` type the graph itself, and have associated types for nodes and for edges. Each graph type uniquely determines the associated types. Using associated types makes it much more concise to work with these families of types, and also provides better type inference in many cases.
 
 <h3><a href="#how-do-i-overload-operators" name="how-do-i-overload-operators">
-Can I overload operators? Which ones and how?
+Kann ich Operatoren überladen? Welche und wie?
 </a></h3>
 
-You can provide custom implementations for a variety of operators using their associated traits: [`Add`][Add] for `+`, [`Mul`][Mul] for `*`, and so on. It looks like this:
+Du kannst eigene Implementierung bestimmte Operatoren über die zugehörigen Traits definieren: [`Add`][Add] für `+`, [`Mul`][Mul] für `*` und so weiter. Das Ganze sieht folgendermaßen aus:
 
 ```rust
 use std::ops::Add;
@@ -791,13 +791,13 @@ struct Foo;
 impl Add for Foo {
     type Output = Foo;
     fn add(self, rhs: Foo) -> Self::Output {
-        println!("Adding!");
+        println!("Addition");
         self
     }
 }
 ```
 
-The following operators can be overloaded:
+Die folgenden Operatoren können überladen werden:
 
 | Operation            | Trait                          |
 |:---------------------|:-------------------------------|
@@ -828,22 +828,22 @@ The following operators can be overloaded:
 | `mut []`             | [`IndexMut`][IndexMut]         |
 
 <h3><a href="#why-the-split-between-eq-partialeq-and-ord-partialord" name="why-the-split-between-eq-partialeq-and-ord-partialord">
-Why the split between <code>Eq</code>/<code>PartialEq</code> and <code>Ord</code>/<code>PartialOrd</code>?
+Warum gibt es die Unterscheidung zwischen <code>Eq</code>/<code>PartialEq</code> und <code>Ord</code>/<code>PartialOrd</code>?
 </a></h3>
 
-There are some types in Rust whose values are only partially ordered, or have only partial equality. Partial ordering means that there may be values of the given type that are neither less than nor greater than each other. Partial equality means that there may be values of the given type that are not equal to themselves.
+Die Werte mancher Typen in Rust sind nur partiell geordnet oder kennen nur partielle Gleicheit. In einer partiellen Ordnung kann es vorkommen, dass bei zwei verschiedenen Werte eines Typs der eine weder kleiner noch größer als der andere ist. Paritelle Gleichheit bedeutet, dass Werte des Typs ungleich sich selbst sein können.
 
-Floating point types ([`f32`][f32] and [`f64`][f64]) are good examples of each. Any floating point type may have the value `NaN` (meaning "not a number"). `NaN` is not equal to itself (`NaN == NaN` is false), and not less than or greater than any other floating point value. As such, both [`f32`][f32] and [`f64`][f64] implement [`PartialOrd`][PartialOrd] and [`PartialEq`][PartialEq] but not [`Ord`][Ord] and not [`Eq`][Eq].
+Gleitkommazahlen ([`f32`][f32] and [`f64`][f64]) sind gute Beispiele für beide Fälle. Gleitkommatypen können den Wert `NaN` ("Not a Number") annehmen. `NaN` ist ungleich sich selbst (`NaN == NaN` ist `false`) und nicht kleiner oder größer als jeder beliebige Gleitkommawert. Deshalb implementieren sowohl [`f32`][f32] als auch [`f64`][f64] [`PartialOrd`][PartialOrd] und [`PartialEq`][PartialEq], nicht aber [`Ord`][Ord] oder [`Eq`][Eq].
 
-As explained in [the earlier question on floats](#why-cant-i-compare-floats), these distinctions are important because some collections rely on total orderings/equality in order to give correct results.
+Wie in der obigen [Frage zu Gleitkommazahlen](#why-cant-i-compare-floats) erklärt, ist diese Unterscheidung wichtig, da manche Collection-Typen eine totale Ordnung oder Vergleichbarkeit benötigen, um korrekt zu funktionieren.
 
-<h2 id="input-output">Input / Output</h2>
+<h2 id="input-output">Ein- und Ausgabe</h2>
 
 <h3><a href="#how-do-i-read-a-file-into-a-string" name="how-do-i-read-a-file-into-a-string">
-How do I read a file into a <code>String</code>?
+Wie lese ich eine Datei in einen <code>String</code> ein?
 </a></h3>
 
-Using the [`read_to_string()`][read__read_to_string] method, which is defined on the [`Read`][Read] trait in [`std::io`][std-io].
+Mit der [`read_to_string()`][read__read_to_string]-Methode, die auf dem [`Read`][Read]-Trait in [`std::io`][std-io] definiert ist.
 
 ```rust
 use std::io::Read;
@@ -852,59 +852,59 @@ use std::fs::File;
 fn read_file(path: &str) -> Result<String, std::io::Error> {
     let mut f = try!(File::open(path));
     let mut s = String::new();
-    try!(f.read_to_string(&mut s));  // `s` contains the contents of "foo.txt"
+    try!(f.read_to_string(&mut s));  // `s` enthält den Inhalt von "foo.txt"
     Ok(s)
 }
 
 fn main() {
     match read_file("foo.txt") {
-        Ok(_) => println!("Got file contents!"),
-        Err(err) => println!("Getting file contents failed with error: {}", err)
+        Ok(_) => println!("Datei gelesen!"),
+        Err(err) => println!("Fehler beim Lesen der Datei: {}", err)
     };
 }
 ```
 
 <h3><a href="#how-do-i-read-file-input-efficiently" name="how-do-i-read-file-input-efficiently">
-How do I read file input efficiently?
+Wie lese ich effektiv aus einer Datei?
 </a></h3>
 
-The [`File`][File] type implements the [`Read`][Read] trait, which has a variety of functions for reading and writing data, including [`read()`][read__read], [`read_to_end()`][read__read_to_end], [`bytes()`][read__bytes], [`chars()`][read__chars], and [`take()`][read__take]. Each of these functions reads a certain amount of input from a given file. [`read()`][read__read] reads as much input as the underlying system will provide in a single call. [`read_to_end()`][read__read_to_end] reads the entire buffer into a vector, allocating as much space as is needed. [`bytes()`][read__bytes] and [`chars()`][read__chars] allow you to iterate over the bytes and characters of the file, respectively. Finally, [`take()`][read__take] allows you to read up to an arbitrary number of bytes from the file. Collectively, these should allow you to efficiently read in any data you need.
+Der Typ [`File`][File] implementiert den [`Read`][Read]-Trait, der eine Reihe an Funktionen zum Lesen und schreiben von Daten bereitstellt, etwa [`read()`][read__read], [`read_to_end()`][read__read_to_end], [`bytes()`][read__bytes], [`chars()`][read__chars], und [`take()`][read__take]. Jede dieser Funktionen liest einen bestimmte Menge an Daten aus der jeweiligen Datei. [`read()`][read__read] liest so viele Daten, wie das Eingabe-Ausgabe-System in einem einzigen Aufruf zur Verfügung stellt. [`read_to_end()`][read__read_to_end] liest den gesamten Puffer in einen Vektor ein und fordert dabei so viel Speicher an wie notwendig. [`bytes()`][read__bytes] und [`chars()`][read__chars] liefern Iteratoren über die Bytes bzw. Zeichen einert Datei. Zu guter Letzt ermöglicht es [`take()`][read__take], eine beliebige Anzahl Bytes aus der Datei zu lesen. Zusammen genommen sollten idese Funktionen ausreichen, um effektiv aus jeder beliebigen Datei zu lesen.
 
-For buffered reads, use the [`BufReader`][BufReader] struct, which helps to reduce the number of system calls when reading.
+Für gepufferte Eingabe gibt es den [`BufReader`][BufReader]-Struct, der hilft, die Anzahl der Systemaufrufe während des Lesens zu verringern.
 
 <h3><a href="#how-do-i-do-asynchronous-input-output-in-rust" name="how-do-i-do-asynchronous-input-output-in-rust">
-How do I do asynchronous input / output in Rust?
+Wie setze ich asynchrone Ein- und Ausgabe in Rust um?
 </a></h3>
 
-There are several libraries providing asynchronous input / output in Rust, including [mio](https://github.com/carllerche/mio), [tokio](https://github.com/tokio-rs/tokio-core), [mioco](https://github.com/dpc/mioco), [coio-rs](https://github.com/zonyitoo/coio-rs), and [rotor](https://github.com/tailhook/rotor).
+Es gibt mehrere aktive Bibliotheken zu asynchronem I/O in Rust, wie etwa [mio](https://github.com/carllerche/mio), [tokio](https://github.com/tokio-rs/tokio-core), [mioco](https://github.com/dpc/mioco), [coio-rs](https://github.com/zonyitoo/coio-rs), und [rotor](https://github.com/tailhook/rotor).
 
 <h3><a href="#how-do-i-get-command-line-arguments" name="how-do-i-get-command-line-arguments">
-How do I get command line arguments in Rust?
+Wie kann ich auf die Kommandozeilenargumente meines Programms zugreifen?
 </a></h3>
 
-The easiest way is to use [`Args`][Args], which provides an iterator over the input arguments.
+Die einfachste Möglichkeit ist [`Args`][Args], das einen Iterator über die Argumente zur Verfügung stellt.
 
-If you're looking for something more powerful, there are a [number of options on crates.io](https://crates.io/keywords/argument).
+Wenn du nach etwas mächtigeren suchst, gibt es eine [Reihe an Optionen auf crates.io](https://crates.io/keywords/argument).
 
-<h2 id="error-handling">Error Handling</h2>
+<h2 id="error-handling">Fehlerbehandlung</h2>
 
 <h3><a href="#why-doesnt-rust-have-exceptions" name="why-doesnt-rust-have-exceptions">
-Why doesn't Rust have exceptions?
+Warum kennt Rust keine Exceptions?
 </a></h3>
 
-Exceptions complicate understanding of control-flow, they express validity/invalidity outside of the type system, and they interoperate poorly with multithreaded code (a major focus of Rust).
+Exception erschweren das Verständnis von Kontrollfluss, drücken Gültigkeit und Ungültigkeit außerhalb des Typsystems aus und spielen schlecht mit Multithreading zusammen (ein wichtiges Ziel von Rust).
 
-Rust prefers a type-based approach to error handling, which is [covered at length in the book](https://doc.rust-lang.org/stable/book/error-handling.html). This fits more nicely with Rust's control flow, concurrency, and everything else.
+Rust zieht einen typbasierten Ansatz zur Fehlerbehandlung vor, der [ausführlich im Rust Book](https://doc.rust-lang.org/stable/book/error-handling.html) beschrieben wird. Dieser passt besser zum Kontrollfluss, der Nebenläufigkeit und dem Rest der Sprache.
 
 <h3><a href="#whats-the-deal-with-unwrap" name="whats-the-deal-with-unwrap">
-What's the deal with <code>unwrap()</code> everywhere?
+Was hat es mit den dauernden <code>unwrap()</code>-Aufrufen auf sich?
 </a></h3>
 
-`unwrap()` is a function that extracts the value inside an [`Option`][Option] or [`Result`][Result] and panics if no value is present.
+`unwrap()` ist eine Funktion, die den Wert aus einer [`Option`][Option] oder einem [`Result`][Result] entpackt und eine Panic auslöst, wenn dieser Wert nicht vorhanden ist.
 
-`unwrap()` shouldn't be your default way to handle errors you expect to arise, such as incorrect user input. In production code, it should be treated like an assertion that the value is non-empty, which will crash the program if violated.
+`unwrap()` ist kein guter Weg, um Fehlersituationen wie falsche Benutzereingaben abzufangen. In Produktionscode dient `unwrap()` eher als Assertion, um das Vorhandensein eines Werts als Invariante sicherzustellen, deren Verletzung einen Bug darstellt und das Programm sofort abbrechen soll.
 
-It's also useful for quick prototypes where you don't want to handle an error yet, or blog posts where error handling would distract from the main point.
+Die Funktion ist auch für Prototypen geeignet, in denen noch keine Fehlerbehandlung implementiert werden soll. Außerdem ist sie für Codebeispiele praktisch, in denen die Fehlerbehandlung vom Ziel des Programms ablenken würde.
 
 <h3><a href="#why-do-i-get-errors-with-try" name="why-do-i-get-errors-with-try">
 Warum bekomme ich einen Compilerfehler in Besipielcode, der das <code>try!</code>-Makro benutzt?
