@@ -45,7 +45,7 @@ Wenn dir auffällt, dass hier eine wichtige oder verbreitete Frage fehlt, dann <
 
 <h2 id="project">Das Rust Projekt</h2>
 
-<h3><a href="#what-is-this-projects-goal" name="Was ist das Ziel des Rust Projektes?">
+<h3><a href="#what-is-this-projects-goal" name="Was-ist-das-Ziel-des-Rust-Projektes?">
 Was ist das Ziel des Rust Projektes?
 </a></h3>
 
@@ -60,7 +60,7 @@ Rust existiert, weil andere, ähnlich abstrakte und effiziente Sprachen folgende
 
 Rust existiert als eine Alternative, welche sowohl effizienten Code als auch ein komfortables Abstraktionsniveau bietet, und dabei für jeden dieser vier Punkte Verbesserungen vorschlägt.
 
-<h3><a href="#is-this-project-controlled-by-mozilla" name="Wird dieses Projekt von Mozilla kontrolliert?">
+<h3><a href="#is-this-project-controlled-by-mozilla" name="Wird-dieses-Projekt-von-Mozilla-kontrolliert?">
 Wird dieses Projekt von Mozilla kontrolliert?
 </a></h3>
 
@@ -68,7 +68,7 @@ Nein. Im Jahr 2006 startete Graydon Hoare Rust als Teilzeitprojekt, und so blieb
 
 Die [Führung des Projektes](https://github.com/rust-lang/rfcs/blob/master/text/1068-rust-governance.md) besteht aus einem Kernteam, welches die Vision und die Prioritäten festlegt und das Projekt von einer globalen Perspektive aus leitet. Es gibt auch kleinere Teams, welche sich um die Entwicklung bestimmter Interessenbereiche kümmern. Das können zum Beispiel der Kern der Sprache, der Compiler, Rust Bibliotheken, Tooling oder die Moderation der offiziellen Rust Communities sein. Fortschritt in jedem dieser Bereiche wird über einen [RFC-Prozess](https://github.com/rust-lang/rfcs) erreicht. Änderungen, für welche kein RFC notwendig ist, werden normalerweise in einer Pull Request im [`rustc` Repository](https://github.com/rust-lang/rust) diskutiert.
 
-<h3><a href="#what-are-some-non-goals" name="Welche Ziele werden nicht angestrebt?">
+<h3><a href="#what-are-some-non-goals" name="Welche-Ziele-werden-nicht-angestrebt?">
 Welche Ziele werden nicht angestrebt?
 </a></h3>
 
@@ -78,19 +78,19 @@ Welche Ziele werden nicht angestrebt?
 4. Wir beabsichtigen nicht, 100% statisch, 100% sicher, 100% reflektiv oder zu dogmatisch in irgendeiner anderen Hinsicht zu sein. Es gibt Kompromisse.
 5. Wir zielen nicht darauf ab, dass Rust auf jeder möglichen Plattform läuft. Rust soll ohne unnötige Kompromisse auf üblichen, verbreiteten Hardware- und Softwareplattformen laufen.
 
-<h3><a href="#how-does-mozilla-use-rust" name="Wie nutzt Mozilla Rust?">
+<h3><a href="#how-does-mozilla-use-rust" name="Wie-nutzt-Mozilla-Rust?">
 In welchen Projekten nutzt Mozilla Rust?
 </a></h3>
 
 Hauptsächlich wird Rust in [Servo](https://github.com/servo/servo), einer experimentellen Browser Engine, an welcher Mozilla arbeitet, verwendet. Mozilla arbeitet auch daran, weitere Rust Komponenten [in Firefox zu integrieren](https://bugzilla.mozilla.org/show_bug.cgi?id=1135640).
 
-<h3><a href="#what-examples-are-there-of-large-rust-projects" name="Welche großen Rust-Projekte gibt es?">
+<h3><a href="#what-examples-are-there-of-large-rust-projects" name="Welche-großen-Rust-Projekte-gibt-es?">
 Welche großen Rust-Projekte gibt es?
 </a></h3>
 
 Die zwei im Moment größten quelloffenen Rust-Projekte sind [Servo](https://github.com/servo/servo) und der [Rust Compiler](https://github.com/rust-lang/rust) selbst.
 
-<h3><a href="#who-else-is-using-rust" name="Wer benutzt sonst noch Rust?">
+<h3><a href="#who-else-is-using-rust" name="Wer-benutzt-sonst-noch-Rust?">
 Wer benutzt sonst noch Rust?
 </a></h3>
 
@@ -102,13 +102,13 @@ Wer benutzt sonst noch Rust?
 TODO: Write this answer.
 -->
 
-<h3><a href="#how-can-i-try-rust-easily" name="Wie kann ich Rust einfach ausprobieren?">
+<h3><a href="#how-can-i-try-rust-easily" name="Wie-kann-ich-Rust-einfach-ausprobieren?">
 Wie kann ich Rust einfach ausprobieren?
 </a></h3>
 
 Der einfachste Weg, Rust auszuprobieren, ist der [Playpen](https://play.rust-lang.org/) - eine Online-Applikation, in welcher man einfach Rust Code schreiben und Ausführen kann. Wenn du Rust auf deinem eigenen System ausprobieren willst, [installiere es](https://www.rust-lang.org/install.html) und gehe das [Guessing Game](https://doc.rust-lang.org/stable/book/guessing-game.html) Tutorial im Buch durch.
 
-<h3><a href="#how-do-i-get-help-with-rust-issues" name="Wie bekomme ich bei Problemen mit Rust Hilfe?">
+<h3><a href="#how-do-i-get-help-with-rust-issues" name="Wie-bekomme-ich-bei-Problemen-mit-Rust-Hilfe?">
 Wie bekomme ich bei Problemen mit Rust Hilfe?
 </a></h3>
 
@@ -119,14 +119,14 @@ Es gibt viele Wege. Du kannst:
 - Auf [Stack Overflow](https://stackoverflow.com/questions/tagged/rust) eine Frage stellen (markiere sie mit dem "rust" tag!).
 - Im inoffiziellen Rust Subreddit [/r/rust](https://www.reddit.com/r/rust) posten.
 
-<h3><a href="#why-has-rust-changed-so-much" name="Warum hat sich Rust so stark verändert?">
+<h3><a href="#why-has-rust-changed-so-much" name="Warum-hat-sich-Rust-so-stark-verändert?">
 Warum hat sich Rust über die Zeit so stark verändert?
 </a></h3>
 
 Das ursprüngliche Ziel von Rust war es, eine sichere, aber einfach zu benutzende Systemprogrammiersprache zu erstellen.
 Um dieses Ziel zu erreichen, verfolgte Rust eine Vielzahl von Ideen, von denen es manche behielt (lifetimes, traits) und andere wieder verwarf (das typestate-System oder green threading). Außerdem wurde ein großer Teil der Rust Standardbibliotheken vor der Veröffentlichung der Version 1.0 neu geschrieben, um mithilfe der Features von Rust eine qualitativ hochwertige, konsistente, Plattformübergreifende API anzubieten. Jetzt, wo Rust die Version 1.0 erreicht hat, wird garantiert, dass die Sprache stabil ist; obwohl die Sprache sich weiter entwickelt, wird Code, welcher auf aktuellen Versionen von Rust funktioniert, auch in zukünftigen Versionen des Compilers gültiger Rust Code sein.
 
-<h3><a href="#how-does-rust-language-versioning-work" name="Wie funktioniert Versionierung in Rust?">
+<h3><a href="#how-does-rust-language-versioning-work" name="Wie-funktioniert-Versionierung-in-Rust?">
 Wie funktioniert Versionierung in Rust?
 </a></h3>
 
@@ -136,7 +136,7 @@ Es gibt drei Veröffentlichungskanäle für Rust: Stable, Beta, und Nightly. Die
 
 Mehr Details finden sich im Blogpost ["Stability as a Deliverable"](http://blog.rust-lang.org/2014/10/30/Stability.html).
 
-<h3><a href="#can-i-use-unstable-features-on-the-beta-or-stable-channel" name="Kann ich auf dem Beta- oder Stable Channel Features aus dem Unstable Channel verwenden?">
+<h3><a href="#can-i-use-unstable-features-on-the-beta-or-stable-channel" name="Kann-ich-auf-dem-Beta-oder-Stable-Channel-Features-aus-dem-Unstable-Channel-verwenden?">
 Kann ich auf dem Beta- oder Stable Channel Features aus dem Unstable Channel verwenden?
 </a></h3>
 
@@ -144,19 +144,19 @@ Nein, das ist unmöglich. An Rust wird hart gearbeitet, um die Stabilität der B
 
 Alle sechs Wochen werden die Beta- und Stable Kanäle mit den stabilisierten Features aktualisiert. Im Nightly-Kanal gibt es häufig stabilisierende Updates, während die anderen Kanäle seltener Fixes akzeptieren. Wenn du darauf wartest, dass ein Feature im Beta- oder Stable Kanal bereitgestellt wird, dann kannst du die zugehörige Issue mit dem Tag [`B-unstable`](https://github.com/rust-lang/rust/issues?q=is%3Aissue+is%3Aopen+tracking+label%3AB-unstable) auf dem Issue Tracker finden.
 
-<h3><a href="#what-are-feature-gates" name="Was sind 'Feature Gates'?">
+<h3><a href="#what-are-feature-gates" name="Was-sind-'Feature-Gates'?">
 Was sind 'Feature Gates'?
 </a></h3>
 
 "Feature Gates" sind der Sprachmechanismus, den Rust verwendet, um Features des Compilers, der Sprache und der Standardbibliotheken zu stabilisieren. Ein Feature hinter einer 'gate' ist nur im Nightly-Kanal verfügbar, und auch nur dann, wenn es explizit durch ein `#[feature]`-Attribut oder das Kommandozeilenargument `-Z unstable-options` angefordert wurde. Wenn ein Feature stabilisiert und in den Stable-Kanal übernommen wird, muss es nicht mehr explizit angefordert werden. Dann wird dieses Feature als "ungated" bezeichnet. Feature Gates erlauben es den Entwicklern, zu experimentieren, während sie in der Entwicklung sind. Erst wenn die Entwickler sich auf eine Implementierung festlegen, halten die Features in der stabilen Sprache Einzug.
 
-<h3><a href="#why-a-dual-mit-asl2-license" name="Warum eine MIT-ASL2 Doppellizenz?">
+<h3><a href="#why-a-dual-mit-asl2-license" name="Warum-eine-MIT-ASL2-Doppellizenz?">
 Warum eine MIT-ASL2 Doppellizenz?
 </a></h3>
 
 Die Apache-Lizenz enthält wichtigen Schutz gegen Patentaggressoren, aber ist mit der GPLv2 inkompatibel. Um Probleme bei der Verwendung von Rust mit der GPLv2-Lizenz zu vermeiden, ist es alternativ MIT-lizenziert.
 
-<h3><a href="#why-a-permissive-license" name="Warum eine permissive Lizenz?">
+<h3><a href="#why-a-permissive-license" name="Warum-eine-permissive-Lizenz?">
 Warum eine BSD-artige Freizügige Lizenz anstelle von MPL oder einer dreifachen Lizenz?
 </a></h3>
 
@@ -164,7 +164,7 @@ Das liegt zu einem Teil an einer persönlichen Vorliebe des originalen Entwickle
 
 <h2 id="performance">Performance</h2>
 
-<h3><a href="#how-fast-is-rust" name="Wie schnell ist Rust?">
+<h3><a href="#how-fast-is-rust" name="Wie-schnell-ist-Rust?">
 Wie schnell ist Rust?
 </a></h3>
 
@@ -174,7 +174,7 @@ Eins der wichtigsten Prinzipien in Rust (wie auch in C++) sind [Zero-Cost Abstra
 
 Da Rust auf LLVM aufbaut und deshalb auch versucht, Clang-kompatiblen Code zu generieren, sind Leistungsverbesserungen in LLVM auch für Rust vorteilhaft. Langfristig sollten die detaillierten Informationen des Typsystems Optimisationen ermöglichen, welche in C/C++ unmöglich wären.
 
-<h3><a href="#is-rust-garbage-collected" name="Gibt es in Rust einen Garbage Collector?">
+<h3><a href="#is-rust-garbage-collected" name="Gibt-es-in-Rust-einen-Garbage-Collector?">
 Gibt es in Rust einen Garbage Collector?
 </a></h3>
 
@@ -191,7 +191,7 @@ und [V8](https://developers.google.com/v8/?hl=en) zu ermöglichen, welche Garbag
 
 Es gibt auch experimentelle, in [purem Rust implementierte Freispeichersammler](https://manishearth.github.io/blog/2015/09/01/designing-a-gc-in-rust/), welche ohne Unterstützung des Compilers funktionieren.
 
-<h3><a href="#why-is-my-program-slow" name="Warum ist mein Programm langsam?">
+<h3><a href="#why-is-my-program-slow" name="Warum-ist-mein-Programm-langsam?">
 Warum ist mein Programm langsam?
 </a></h3>
 
@@ -199,7 +199,7 @@ Der Rust Compiler optimiert Programme nur dann, wenn man das explizit anfordert,
 
 Wenn du mit `cargo` kompilierst, nutze die `--release` option. Wenn du dein Program direkt mit `rustc` erstellst, nutze die Option `-0`. Beide Optionen schalten Optimisationen ein.
 
-<h3><a href="#why-is-rustc-slow" name="Warum ist Rustc langsam?">
+<h3><a href="#why-is-rustc-slow" name="Warum-ist-Rustc-langsam?">
 Warum ist die Erstellung meines Programmes zeitaufwändig?
 </a></h3>
 
@@ -219,7 +219,7 @@ Drittens hat die Nutzung von LLVM auch ihre Kosten: Rust hat dadurch hohe Leistu
 
 Letztlich führt auch die übliche Strategie der Monomorphisierung von Generics (wie in C++) zwar zu schnellem Code zur Laufzeit, aber sie erfordert die Erzeugung von Signifikant mehr Code als andere Strategien. Durch die Verwendung von Trait-Objekten können Rust-Programmierer diese Aufblähung vermeiden, müssen dann aber Dynamic Dispatch verwenden.
 
-<h3><a href="#why-are-rusts-hashmaps-slow" name="Warum ist die HashMap in Rust so langsam?">
+<h3><a href="#why-are-rusts-hashmaps-slow" name="Warum-ist-die-HashMap-in-Rust-so-langsam?">
 Warum ist die <code>HashMap</code> in Rust so langsam?
 </a></h3>
 
@@ -227,19 +227,19 @@ Standardmäßig nutzt Rust's [`HashMap`][HashMap] den [SipHash](https://131002.n
 
 Obwohl SipHash [in vielen Fällen hohe Leistung vorweisen kann](http://cglab.ca/%7Eabeinges/blah/hash-rs/), ist der Algorithmus für Anwendungsfälle mit kurzen Schlüsseln wie Ganzzahlen merklich langsamer. Deshalb wird von Rust-Programmierern häufig niedrige Leistung bei der Verwendung einer [`HashMap`][HashMap] beobachtet. In solchen Fällen wird häufig der [FNV hasher](https://crates.io/crates/fnv) empfohlen, welcher aber nicht die Kollisionsresistenz von SipHash vorweisen kann.
 
-<h3><a href="#why-is-there-no-integrated-benchmarking" name="Warum gibt es kein integriertes Benchmarking?">
+<h3><a href="#why-is-there-no-integrated-benchmarking" name="Warum-gibt-es-kein-integriertes-Benchmarking?">
 Warum gibt es keine integrierte Benchmarking-Infrastruktur?
 </a></h3>
 
 Es gibt eine, welche aber nur im Nightly-Kanal verfügbar ist. Wir planen ein modulares System, welches integrierte Leistungstests ermöglicht. In der Zwischenzeit wird das System als [unstabil](https://github.com/rust-lang/rust/issues/29553) eingeschätzt.
 
-<h3><a href="#does-rust-do-tail-call-optimization" name="Unterstützt Rust Tail Call Elimination?">
+<h3><a href="#does-rust-do-tail-call-optimization" name="Unterstützt-Rust-Tail-Call-Elimination?">
 Unterstützt Rust Tail Call Elimination?
 </a></h3>
 
 Im Allgemeinen nicht. Tail-call Optimierung kann unter [bestimmten Vorraussetzungen](http://llvm.org/docs/CodeGenerator.html#sibling-call-optimization) erfolgen, aber ist [nicht gewährleistet](https://mail.mozilla.org/pipermail/rust-dev/2013-April/003557.html). Da die Optimisierung ein vielfach erwünschtes Sprachmerkmal ist, wurde das Schlüsselwort (`become`) dafür reserviert, wobei allerdings die technische Umsetzbarkeit noch nicht geklärt ist. Eine [vorgeschlagene Erweiterung](https://github.com/rust-lang/rfcs/pull/81), welche Tail-Call Optimisation ermöglichen würde, wurde vorgeschlagen, wurde aber zunächst verschoben.
 
-<h3><a href="#does-rust-have-a-runtime" name="Hat Rust ein Laufzeitsystem?">
+<h3><a href="#does-rust-have-a-runtime" name="Hat-Rust-ein-Laufzeitsystem?">
 Hat Rust ein Laufzeitsystem?
 </a></h3>
 
@@ -247,7 +247,7 @@ Nach üblichem Sprachgebrauch, wie er in Sprachen wie Java verwendet wird, hat R
 
 <h2 id="syntax">Syntax</h2>
 
-<h3><a href="#why-curly-braces" name="Warum geschwungene Klammern?">
+<h3><a href="#why-curly-braces" name="Warum-geschwungene-Klammern?">
 Warum geschwungene Klammern? Warum kann Rust's Syntax nicht mehr wie der von Haskell oder Python sein?
 </a></h3>
 
@@ -255,13 +255,13 @@ Die Benutzung geschweifter Klammern ist eine Entwurfsentscheidung, welche eine V
 
 Geschweifte Klammern ermöglichen dem Programmierer eine flexible Syntax und dem Kompilierer einen einfacheren Parser.
 
-<h3><a href="#why-brackets-around-blocks" name="Warum Klammern um Blöcke?">
+<h3><a href="#why-brackets-around-blocks" name="Warum-Klammern-um-Blöcke?">
 Ich kann die Klammern um <code>if</code>-Bedingungen weglassen, warum muss ich sie dann um einzeilige Blöcke setzen? Warum ist der C-Stil nicht erlaubt?
 </a></h3>
 
 Während C Klammerung um ein `if`-Statement, aber keine Klammern für einzeilige Blöcke erfordert, trifft Rust die genau entgegengesetzte Wahl. Das trennt die Bedingung klar vom Block und vermeidet die Gefahren der optionalen Klammern, welche zu leicht übersehbaren Fehlern wie Apple's [goto fail Bug](https://gotofail.com/) führen können.
 
-<h3><a href="#why-no-literal-syntax-for-dictionaries" name="Warum kein literaler Syntax für Dictionaries?">
+<h3><a href="#why-no-literal-syntax-for-dictionaries" name="Warum-kein-literaler-Syntax-für-Dictionaries?">
 Warum kein literaler Syntax für Dictionaries?
 </a></h3>
 
@@ -269,7 +269,7 @@ Die bevorzugte Vorgehensweise beim Eintwurf von Rust war es, die *Sprache* selbs
 
 In der Zukunft wird diese Design-Entscheidung, Makros zum Initialisieren von Datenstrukturen zu verwenden, wahrscheinlich auf weitere Datentypen erweitert werden. Zusätzlich zu [`HashMap`][HashMap] und [`Vec`][Vec] sollen Typen wie [`BTreeMap`][BTreeMap] unterstützt werden. Wenn du jetzt schon komfortablere Syntax zur Initialisierung von Datenstrukturen benötigst, kannst du dafür [dein eigenes Makro definieren](https://stackoverflow.com/questions/27582739/how-do-i-create-a-hashmap-literal).
 
-<h3><a href="#when-should-i-use-an-implicit-return" name="Wann sollte ich ein implizites Return verwenden?">
+<h3><a href="#when-should-i-use-an-implicit-return" name="Wann-sollte-ich-ein-implizites-Return-verwenden?">
 Wann sollte ich ein implizites Return verwenden?
 </a></h3>
 [comment]: <> (Ich finde, hier wird zu wenig auf den Unterschied, den ein Semikolon macht (insbesondere im Ggs. zu anderen Sprachen) eingegangen. Allgemein könnte man hier den Unterschied zwischen Ausdruck und Statement erklären. Upstream?)
@@ -293,7 +293,7 @@ In beiden Beispielen ist die letzte Zeile der Rückgabewert der Funktion. Ein wi
 
 Explizite Rückgaben müssen dann benutzt werden, wenn implizite unmöglich sind, zum Beispiel wenn man vor dem Ende des Funktionskörpers einen Wert zurückgeben will. Beide Funktionen im obigen Beispiel hätten mit einem `return` und einem Semikolon geschrieben werden können, aber das wäre unnötig ausführlich und gegen die Konventionen von Code in Rust.
 
-<h3><a href="#why-arent-function-signatures-inferred" name="Warum werden Funktionssignaturtypen nicht inferiert?">
+<h3><a href="#why-arent-function-signatures-inferred" name="Warum-werden-Funktionssignaturtypen-nicht-inferiert?">
 Warum werden Funktionssignaturtypen nicht inferiert?
 </a></h3>
 
@@ -303,7 +303,7 @@ Deklarationen in Rust werden normalerweise mit expliziten Typannotationen verseh
 - Signaturtypen erleichtern dem Programmierer das Verständnis des Programms. Dadurch, dass die Signaturtypen immer explizit lokal im Programm definiert sind, muss eine IDE keinen Inferenzalgorithmus über die gesamte Crate laufen lassen, um den Typ eines Argumentes herauszufinden.
 - Da die Argumenttypen auf Funktionsebene festgelegt sind, kann der Inferenzalgorithmus stark vereinfacht werden.
 
-<h3><a href="#why-does-match-have-to-be-exhaustive" name="Warum muss ein match alle Fälle abdecken?">
+<h3><a href="#why-does-match-have-to-be-exhaustive" name="Warum-muss-ein-match-alle-Fälle-abdecken?">
 Warum muss ein <code>match</code> alle Fälle abdecken?
 </a></h3>
 
@@ -324,7 +324,7 @@ match val.do_something() {
 
 <h2 id="numerics">Arithmetik</h2>
 
-<h3><a href="#which-type-of-float-should-i-use" name="Welchen Fließkommazahl-Typ soll ich verwenden?">
+<h3><a href="#which-type-of-float-should-i-use" name="Welchen-Fließkommazahl-Typ-soll-ich-verwenden?">
 Soll ich für mathematische Operationen mit Fließkommazahlen <code>f32</code> oder <code>f64</code> verwenden?
 </a></h3>
 
@@ -334,7 +334,7 @@ Wenn du für deine Fließkommazahlen die größtmögliche Genauigkeit benötigst
 
 Wähle im Zweifel [`f64`][f64], um bessere Präzision zu erreichen.
 
-<h3><a href="#why-cant-i-compare-floats" name="Warum kann ich keine Fließkommazahlen vergleichen?">
+<h3><a href="#why-cant-i-compare-floats" name="Warum-kann-ich-keine-Fließkommazahlen-vergleichen?">
 Warum kann ich keine Fließkommazahlen vergleichen oder sie als Schlüsseltypen für <code>HashMap</code> oder <code>BTreeMap</code> verwenden?
 </a></h3>
 
@@ -348,14 +348,14 @@ Da Fließkommazahlen nicht [`Eq`][Eq] oder [`Ord`][Ord] implementieren, können 
 
 [Es gibt eine Crate](https://crates.io/crates/ordered-float), welche [`f32`][f32] und [`f64`][f64] um eine Implementierung von [`Ord`][Ord] und [`Eq`][Eq] erweitert, welche in manchen Fällen nützlich sein kann.
 
-<h3><a href="#how-can-i-convert-between-numeric-types" name="Wie kann ich zwischen Numerischen Typen umwandeln?">
+<h3><a href="#how-can-i-convert-between-numeric-types" name="Wie-kann-ich-zwischen-Numerischen-Typen-umwandeln?">
 Wie kann ich zwischen Numerischen Typen umwandeln?
 </a></h3>
 
 [comment]: <> (primitive typen? Was ist das, Java?)
 Es gibt zwei Möglichkeiten: das `as` Schlüsselwort, welches einfache Typumwandlung für primitive Typen vollzieht, und die [`Into`][Into] und [`From`][From] Traits, welche für einige Typkonversionen implementiert sind (und welche du für eigene Typen selbst implementieren kannst). Die [`Into`][Into] und [`From`][From] Traits sind nur in Fällen implementiert, in denen eine Verlustfreie Umwandlung möglich ist. Zum Beispiel wird `f64::from(0f32)` kompilieren, `f32::from(0f64)` aber nicht. Das Schlüsselwort `as` hingegen wandelt alle primitiven Typen untereinander um und trunkiert wenn nötig deren Werte.
 
-<h3><a href="#why-doesnt-rust-have-increment-and-decrement-operators" name="Warum hat Rust keine Operatoren für inkrement und dekrement?">
+<h3><a href="#why-doesnt-rust-have-increment-and-decrement-operators" name="Warum-hat-Rust-keine-Operatoren-für-inkrement-und-dekrement?">
 Why doesn't Rust have increment and decrement operators?
 </a></h3>
 [comment]: <> (Unterschied Expression/Statement?)
@@ -363,8 +363,8 @@ Präinkrement und Postinkrement, sowie ihre Gegenstücke für Dekrement, sind zw
 
 <h2 id="strings">Strings</h2>
 
-<h3><a href="#how-to-convert-string-or-vec-to-slice" name="how-to-convert-string-or-vec-to-slice">
-How can I convert a <code>String</code> or <code>Vec&lt;T&gt;</code> to a slice (<code>&amp;str</code> and <code>&amp;[T]</code>)?
+<h3><a href="#how-to-convert-string-or-vec-to-slice" name="Wie-kann-man-String-oder-Vec-zu-Slices-konvertieren?">
+Wie kann man <code>String</code> oder <code>Vec&lt;T&gt;</code> zu Slices konvertieren (<code>&amp;str</code> und <code>&amp;[T]</code>)?
 </a></h3>
 
 Usually, you can pass a reference to a `String` or `Vec<T>` wherever a slice is expected.
@@ -392,7 +392,7 @@ fn say_hello(name: &str) {
 ```
 
 <h3><a href="#what-are-the-differences-between-str-and-string" name="what-are-the-differences-between-str-and-string">
-What are the differences between the two different string types?
+Worin unterscheiden sich die beiden String Typen?
 </a></h3>
 
 [`String`][String] is an owned buffer of UTF-8 bytes allocated on the heap. Mutable [`String`s][String] can be modified, growing their capacity as needed. [`&str`][str] is a fixed-capacity "view" into a [`String`][String] allocated elsewhere, commonly on the heap, in the case of slices dereferenced from [`String`s][String], or in static memory, in the case of string literals.
