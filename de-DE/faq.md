@@ -74,7 +74,7 @@ Welche Ziele werden nicht angestrebt?
 
 1. Wir verwenden keine besonders modernen Technologien. Alte, etablierte Technologien sind besser.
 2. Expressivität, Minimalismus oder Eleganz sind wünschenswerte, aber untergeordnete Ziele.
-3. Wir beabsichtigen nicht, alle Eigenschaften und Möglicheiten von C++ oder anderen Sprachen abzudecken. Rust sollte die häufigsten Fälle abdecken.
+3. Wir beabsichtigen nicht, alle Eigenschaften und Möglichkeiten von C++ oder anderen Sprachen abzudecken. Rust sollte die häufigsten Fälle abdecken.
 4. Wir beabsichtigen nicht, 100% statisch, 100% sicher, 100% reflektiv oder zu dogmatisch in irgendeiner anderen Hinsicht zu sein. Es gibt Kompromisse.
 5. Wir zielen nicht darauf ab, dass Rust auf jeder möglichen Plattform läuft. Rust soll ohne unnötige Kompromisse auf üblichen, verbreiteten Hardware- und Softwareplattformen laufen.
 
@@ -124,7 +124,7 @@ Warum hat sich Rust über die Zeit so stark verändert?
 </a></h3>
 
 Das ursprüngliche Ziel von Rust war es, eine sichere, aber einfach zu benutzende Systemprogrammiersprache zu erstellen.
-Um dieses Ziel zu erreichen, verfolgte Rust eine Vielzahl von Ideen, von denen es manche behielt (lifetimes, traits) und andere wieder verwarf (das typestate-System oder green threading). Außerdem wurde ein großer Teil der Rust Standardbibliotheken vor der Veröffentlichung der Version 1.0 neu geschrieben, um mithilfe der Features von Rust eine qualitativ hochwertige, konsistente, Plattformübergreifende API anzubieten. Jetzt, wo Rust die Version 1.0 erreicht hat, wird garantiert, dass die Sprache stabil ist; obwohl die Sprache sich weiter entwickelt, wird Code, welcher auf aktuellen Versionen von Rust funktioniert, auch in zukünftigen Versionen des Compilers gültiger Rust Code sein.
+Um dieses Ziel zu erreichen, verfolgte Rust eine Vielzahl von Ideen, von denen es manche behielt (lifetimes, traits) und andere wieder verwarf (das Typestate-System oder Green Threading). Außerdem wurde ein großer Teil der Rust Standardbibliotheken vor der Veröffentlichung der Version 1.0 neu geschrieben, um mithilfe der Features von Rust eine qualitativ hochwertige, konsistente, Plattformübergreifende API anzubieten. Jetzt, wo Rust die Version 1.0 erreicht hat, wird garantiert, dass die Sprache stabil ist; obwohl die Sprache sich weiter entwickelt, wird Code, welcher auf aktuellen Versionen von Rust funktioniert, auch in zukünftigen Versionen des Compilers gültiger Rust Code sein.
 
 <h3><a href="#how-does-rust-language-versioning-work" name="Wie-funktioniert-Versionierung-in-Rust?">
 Wie funktioniert Versionierung in Rust?
@@ -160,7 +160,7 @@ Die Apache-Lizenz enthält wichtigen Schutz gegen Patentaggressoren, aber ist mi
 Warum eine BSD-artige Freizügige Lizenz anstelle von MPL oder einer dreifachen Lizenz?
 </a></h3>
 
-Das liegt zu einem Teil an einer persönlichen Vorliebe des originalen Entwicklers Graydon Hoare, zum anderen daran, dass Programmiersprachen im Gegensatz zu Produkten wie Webbrowsern normalerweise einen weiter gefächerten Einflussbereich und ein vielseitigeres Einsatzzgebiet haben. Wir würden gerne möglichst viele dieser potenziellen Mitwirkenden anziehen.
+Das liegt zu einem Teil an einer persönlichen Vorliebe des originalen Entwicklers Graydon Hoare, zum anderen daran, dass Programmiersprachen im Gegensatz zu Produkten wie Webbrowsern normalerweise einen weiter gefächerten Einflussbereich und ein vielseitigeres Einsatzgebiet haben. Wir würden gerne möglichst viele dieser potenziellen Mitwirkenden anziehen.
 
 <h2 id="performance">Performance</h2>
 
@@ -172,7 +172,7 @@ Sehr Schnell! Rust kann sich bereits in einigen Benchmarks (zu Beispiel dem [Ben
 
 Eins der wichtigsten Prinzipien in Rust (wie auch in C++) sind [Zero-Cost Abstractions](http://blog.rust-lang.org/2015/05/11/traits.html): Keine der Abstraktionen in Rust verursachen Programmweite Verlangsamungen, und es gibt keinen Mehraufwand zur Laufzeit des Programms.
 
-Da Rust auf LLVM aufbaut und deshalb auch versucht, Clang-kompatiblen Code zu generieren, sind Leistungsverbesserungen in LLVM auch für Rust vorteilhaft. Langfristig sollten die detaillierten Informationen des Typsystems Optimisationen ermöglichen, welche in C/C++ unmöglich wären.
+Da Rust auf LLVM aufbaut und deshalb auch versucht, Clang-kompatiblen Code zu generieren, sind Leistungsverbesserungen in LLVM auch für Rust vorteilhaft. Langfristig sollten die detaillierten Informationen des Typsystems Optimierungen ermöglichen, welche in C/C++ unmöglich wären.
 
 <h3><a href="#is-rust-garbage-collected" name="Gibt-es-in-Rust-einen-Garbage-Collector?">
 Gibt es in Rust einen Garbage Collector?
@@ -182,7 +182,7 @@ Nein. Eine der Schlüsselinnovationen von Rust ist es, *ohne* Garbage Collection
 
 Rust erlangt dadurch einige Vorteile: Vorhersagbare Bereinigung von Ressourcen, niedrige Mehrkosten für Speichermanagement, und ein minimales Laufzeitsystem. Diese Eigenschaften ermöglichen es, Rust in beliebige Umgebungen einzubinden, und vereinfachen die [Integration von Rust in Sprachen mit GC](http://calculist.org/blog/2015/12/23/neon-node-rust/).
 
-Das Ownership und Borrowing System ermöglicht nicht nur Speichersicherheit ohne einen GC sondern ist auch in anderen Zusammenhängen nützlich, zum Beispiel [allgemeines Ressourcenmanagement](http://blog.skylight.io/rust-means-never-having-to-close-a-socket/) und [Nebenläufigkeit](http://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html).
+Das Ownership und Borrowing System ermöglicht nicht nur Speichersicherheit ohne einen GC, sondern ist auch in anderen Zusammenhängen nützlich, zum Beispiel [allgemeines Ressourcenmanagement](http://blog.skylight.io/rust-means-never-having-to-close-a-socket/) und [Nebenläufigkeit](http://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html).
 
 In Fällen, in denen einfache Ownership nicht genügt, nutzen Rust Programme den üblichen Referenzzähler/Smart Pointer Typ [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html) und sein Thread-sicheres Gegenstück, [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html).
 
@@ -195,9 +195,9 @@ Es gibt auch experimentelle, in [purem Rust implementierte Freispeichersammler](
 Warum ist mein Programm langsam?
 </a></h3>
 
-Der Rust Compiler optimiert Programme nur dann, wenn man das explizit anfordert, da [Optimisationen die Kompiliergeschwindigkeit verringern und allgemein während der Entwicklung unerwünscht sind](https://users.rust-lang.org/t/why-does-cargo-build-not-optimise-by-default/4150/3).
+Der Rust Compiler optimiert Programme nur dann, wenn man das explizit anfordert, da [Optimierungen die Kompiliergeschwindigkeit verringern und allgemein während der Entwicklung unerwünscht sind](https://users.rust-lang.org/t/why-does-cargo-build-not-optimise-by-default/4150/3).
 
-Wenn du mit `cargo` kompilierst, nutze die `--release` option. Wenn du dein Program direkt mit `rustc` erstellst, nutze die Option `-0`. Beide Optionen schalten Optimisationen ein.
+Wenn du mit `cargo` kompilierst, nutze die `--release` option. Wenn du dein Program direkt mit `rustc` erstellst, nutze die Option `-0`. Beide Optionen schalten Optimierungen ein.
 
 <h3><a href="#why-is-rustc-slow" name="Warum-ist-Rustc-langsam?">
 Warum ist die Erstellung meines Programmes zeitaufwändig?
@@ -237,7 +237,7 @@ Es gibt eine, welche aber nur im Nightly-Kanal verfügbar ist. Wir planen ein mo
 Unterstützt Rust Tail Call Elimination?
 </a></h3>
 
-Im Allgemeinen nicht. Tail-call Optimierung kann unter [bestimmten Vorraussetzungen](http://llvm.org/docs/CodeGenerator.html#sibling-call-optimization) erfolgen, aber ist [nicht gewährleistet](https://mail.mozilla.org/pipermail/rust-dev/2013-April/003557.html). Da die Optimisierung ein vielfach erwünschtes Sprachmerkmal ist, wurde das Schlüsselwort (`become`) dafür reserviert, wobei allerdings die technische Umsetzbarkeit noch nicht geklärt ist. Eine [vorgeschlagene Erweiterung](https://github.com/rust-lang/rfcs/pull/81), welche Tail-Call Optimisation ermöglichen würde, wurde vorgeschlagen, wurde aber zunächst verschoben.
+Im Allgemeinen nicht. Tail-call Optimierung kann unter [bestimmten Vorraussetzungen](http://llvm.org/docs/CodeGenerator.html#sibling-call-optimization) erfolgen, aber ist [nicht gewährleistet](https://mail.mozilla.org/pipermail/rust-dev/2013-April/003557.html). Da die Optimierung ein vielfach erwünschtes Sprachmerkmal ist, wurde das Schlüsselwort (`become`) dafür reserviert, wobei allerdings die technische Umsetzbarkeit noch nicht geklärt ist. Eine [vorgeschlagene Erweiterung](https://github.com/rust-lang/rfcs/pull/81), welche Tail-Call Optimierung ermöglichen würde, wurde vorgeschlagen, aber zunächst verschoben.
 
 <h3><a href="#does-rust-have-a-runtime" name="Hat-Rust-ein-Laufzeitsystem?">
 Hat Rust ein Laufzeitsystem?
@@ -265,7 +265,7 @@ Während C Klammerung um ein `if`-Statement, aber keine Klammern für einzeilige
 Warum kein literaler Syntax für Dictionaries?
 </a></h3>
 
-Die bevorzugte Vorgehensweise beim Eintwurf von Rust war es, die *Sprache* selbst relativ klein zu halten und dafür mächtige *Bibliotheken* anzubieten. Rust bietet zwar Syntax zur Initialisierung von Arrays und literalen Strings an, aber diese sind die einzigen in die Sprache eingebauten Kollektions-Datentypen. Andere, in Bibliotheken definierte Typen, wie zum Beispiel der häufig genutzte [`Vec`][Vec] Kollektionstyp, nutzen für die Initialisierung Makros wie zum Beispiel [`vec!`][VecMacro].
+Die bevorzugte Vorgehensweise beim Eintwurf von Rust war es, die *Sprache* selbst relativ klein zu halten und dafür mächtige *Bibliotheken* anzubieten. Rust bietet zwar Syntax zur Initialisierung von Arrays und literalen Strings an, aber diese sind die einzigen in die Sprache eingebauten Collection-Typen. Andere, in Bibliotheken definierte Typen, wie zum Beispiel der häufig genutzte [`Vec`][Vec] Collection-Typ erlauben die Initialisierung durch Makros wie zum Beispiel [`vec!`][VecMacro].
 
 In der Zukunft wird diese Design-Entscheidung, Makros zum Initialisieren von Datenstrukturen zu verwenden, wahrscheinlich auf weitere Datentypen erweitert werden. Zusätzlich zu [`HashMap`][HashMap] und [`Vec`][Vec] sollen Typen wie [`BTreeMap`][BTreeMap] unterstützt werden. Wenn du jetzt schon komfortablere Syntax zur Initialisierung von Datenstrukturen benötigst, kannst du dafür [dein eigenes Makro definieren](https://stackoverflow.com/questions/27582739/how-do-i-create-a-hashmap-literal).
 
@@ -338,7 +338,7 @@ Wähle im Zweifel [`f64`][f64], um bessere Präzision zu erreichen.
 Warum kann ich keine Fließkommazahlen vergleichen oder sie als Schlüsseltypen für <code>HashMap</code> oder <code>BTreeMap</code> verwenden?
 </a></h3>
 
-Fileßkommazahlen können mit den `==`, `!=`, `<`, `<=`, `>`, und `>=` Operatoren, sowie mit der `partial_cmp()` Funktion verglichen werden. `==` and `!=` sind Teil des [`PartialEq`][PartialEq] Traits, während `<`, `<=`, `>`, `>=`, und `partial_cmp()` Teil des [`PartialOrd`][PartialOrd] Traits sind.
+Fließkommazahlen können mit den `==`, `!=`, `<`, `<=`, `>`, und `>=` Operatoren, sowie mit der `partial_cmp()` Funktion verglichen werden. `==` and `!=` sind Teil des [`PartialEq`][PartialEq] Traits, während `<`, `<=`, `>`, `>=`, und `partial_cmp()` Teil des [`PartialOrd`][PartialOrd] Traits sind.
 
 Fließkommazahlen können mit der Funktion `cmp()` nicht verglichen werden, welche Teil des [`Ord`][Ord] Traits ist, da es für Fließkommazahlen keine totale Ordnung gibt. Weiterhin gibt es auch keine totale Gleichheitsrelation, und deshalb implementieren Fließkommazahlen nicht den [`Eq`][Eq] Trait.
 
@@ -367,18 +367,18 @@ Präinkrement und Postinkrement, sowie ihre Gegenstücke für Dekrement, sind zw
 Wie kann man <code>String</code> oder <code>Vec&lt;T&gt;</code> zu Slices konvertieren (<code>&amp;str</code> und <code>&amp;[T]</code>)?
 </a></h3>
 
-Usually, you can pass a reference to a `String` or `Vec<T>` wherever a slice is expected.
-Using [Deref coercions](https://doc.rust-lang.org/stable/book/deref-coercions.html), [`String`s][String] and [`Vec`s][Vec] will automatically coerce to their respective slices when passed by reference with `&` or `& mut`.
+Normalerweise kannst du eine Referenz zu einem `String` oder `Vec<T>` immer übergeben, wenn eine Slice gültig wäre.
+Mithilfe von [Deref coercions](https://doc.rust-lang.org/stable/book/deref-coercions.html) können [`String`s][String] and [`Vec`s][Vec] automatisch zu ihren jeweiligen Slice-Typen "zerfallen", wenn man eine Referenz zu ihnen mit `&` oder `& mut` übergibt.
 
-Methods implemented on `&str` and `&[T]` can be accessed directly on `String` and `Vec<T>`. For example, `some_string.char_at(0)` will work even though `char_at` is a method on `&str` and `some_string` is a `String`.
+Methoden, welche auf `&str` oder `&[T]` implementiert wurden, können auf `String` und `Vec<T>` direkt aufgerufen werden. Der Aufruf `some_string.char_at(0)` zum Beispiel funktioniert, obwohl `char_at` eine Methode von `&str` ist und `some_string` ein `String`.
 
-In some cases, such as generic code, it's necessary to convert manually. Manual conversions can be achieved using the slicing operator, like so: `&my_vec[..]`.
+Manchmal, zum Beispiel in generischem Code, ist es notwendig, manuell zu konvertieren. Diese manuelle Konversion kann man mit dem "slicing operator" `&my_vec[..]` erreichen.
 
 <h3><a href="#how-to-convert-between-str-and-string" name="how-to-convert-between-str-and-string">
-How can I convert from <code>&amp;str</code> to <code>String</code> or the other way around?
+Wie kann man von <code>&amp;str</code> zu <code>String</code> oder andersherum umwandeln?
 </a></h3>
 
-The [`to_string()`][to_string] method converts from a [`&str`][str] into a [`String`][String], and [`String`s][String] are automatically converted into [`&str`][str] when you borrow a reference to them. Both are demonstrated in the following example:
+Die Methode [`to_string()`][to_string] wandelt einen [`&str`][str] zu einem [`String`][String] um, und [`String`s][String] werden automatisch zu [`&str`][str] umgewandelt, wenn man per "Borrowing" eine Referenz auf sie vergibt. Folgendes Beispiel soll beide Fälle veranschaulichen:
 
 ```rust
 fn main() {
@@ -395,43 +395,45 @@ fn say_hello(name: &str) {
 Worin unterscheiden sich die beiden String Typen?
 </a></h3>
 
-[`String`][String] is an owned buffer of UTF-8 bytes allocated on the heap. Mutable [`String`s][String] can be modified, growing their capacity as needed. [`&str`][str] is a fixed-capacity "view" into a [`String`][String] allocated elsewhere, commonly on the heap, in the case of slices dereferenced from [`String`s][String], or in static memory, in the case of string literals.
+[`String`][String] ist ein auf dem Heap allokierter Buffer von UTF-8 Bytes, welcher durch eine 'owned'-Referenz gebunden ist. Veränderbare (mutable) [`String`s][String] können modifiziert werden, wobei ihre Kapazität angepasst wird. [`&str`][str] ist lediglich eine "Einsicht" mit fester Größe in einen [`String`][String]. Dieser [`String`][String] ist normalerweise auf dem Heap allokiert, wenn die Slice durch Dereferenzierung eines [`String`s][String] entstanden ist. Er kann auch im statischen Speicher liegen, wenn der String ein Literal aus dem Programmcode ist.
 
-[`&str`][str] is a primitive type implemented by the Rust language, while [`String`][String] is implemented in the standard library.
+[`&str`][str] ist ein primitiver Typ der Sprache Rust, während [`String`][String] in der Standardbibliothek definiert ist.
 
 <h3><a href="#how-do-i-do-o1-character-access-in-a-string" name="how-do-i-do-o1-character-access-in-a-string">
-How do I do O(1) character access in a <code>String</code>?
+Wie kann ich in O(1) auf ein Zeichen in einem <code>String</code> zugreifen?
 </a></h3>
 
-You cannot. At least not without a firm understanding of what you mean by "character", and preprocessing the string to find the index of the desired character.
+Das ist unmöglich, außer wenn über den String im Vornherein so viel bekannt ist, dass der Index eines Zeichens genau berechnet werden kann.
+[comment] <> (You cannot. At least not without a firm understanding of what you mean by "character", and preprocessing the string to find the index of the desired character)
 
-Rust strings are UTF-8 encoded. A single visual character in UTF-8 is not necessarily a single byte as it would be in an ASCII-encoded string. Each byte is called a "code unit" (in UTF-16, code units are 2 bytes; in UTF-32 they are 4 bytes). "Code points" are composed of one or more code units, and combine in "grapheme clusters" which most closely approximate characters.
+In Rust sind Strings in UTF-8 encoded. In ASCII wäre ein einzelnes Zeichen auch genau ein Byte, aber dies ist in UTF-8 nicht zwingend der Fall. Ein Byte wird "Code Unit" genannt (in UTF-16 sind Code Units 2 Bytes lang; in UTF-32 sind es 4 Bytes). Ein "Code Point" besteht aus einem oder mehreren Code Units, und mehrere Code Points formen "Grapheme Cluster", welche am ehesten als Zeichen interpretiert werden können.
 
-Thus, even though you may index on bytes in a UTF-8 string, you can't access the `i`th code point or grapheme cluster in constant time. However, if you know at which byte that desired code point or grapheme cluster begins, then you _can_ access it in constant time. Functions including [`str::find()`][str__find] and regex matches return byte indices, facilitating this sort of access.
+Obwohl man einfach auf den Bytes eines UTF-8 Strings indexieren könnte, kann man nicht in konstanter Zeit den `i`ten Code Point oder Grapheme Cluster erreichen, da sie alle verschieden lang sein können. Es ist allerdings möglich, einen konkreten Grapheme Cluster oder Code Point zu erreichen, wenn man genau weiß, wo er beginnt.
+Funktionen wie [`str::find()`][str__find] und Regex-Matches geben Byte-Indexe an, wodurch dieser Byte-level Zugriff ermöglicht wird.
 
-<h3><a href="#why-are-strings-utf-8" name="why-are-strings-utf-8">
-Why are strings UTF-8 by default?
+<h3><a href="#why-are-strings-utf-8" name="Warum-sind-strings-utf-8">
+Warum sind Strings standardmäßig UTF-8?
 </a></h3>
 
-The [`str`][str] type is UTF-8 because we observe more text in the wild in this encoding – particularly in network transmissions, which are endian-agnostic – and we think it's best that the default treatment of I/O not involve having to recode codepoints in each direction.
+Der [`str`][str]-Typ ist in UTF-8 encoded, weil Text sehr häufig, vor allem in Endian-agnostischen Netzwerkübertragungen, in dieser Form vorkommt. Wir finden, dass Eingabe/Ausgabe standardmäßig nicht das Reenkodieren von Enkodierungen erfordern sollte.
 
-This does mean that locating a particular Unicode codepoint inside a string is an O(n) operation, although if the starting byte index is already known then they can be accessed in O(1) as expected. On the one hand, this is clearly undesirable; on the other hand, this problem is full of trade-offs and we'd like to point out a few important qualifications:
+Das bedeutet zwar, dass auf einen spezifischen Code Point in einem String nur durch eine O(n)-Operation zugegriffen werden kann (wobei ein Byte an bekannter Position natürlich weiterhin nur O(1) kostet). Einerseits ist das ein unerwünschter Nachteil; Andererseits ist dieses Problem voller Abwägungen. Ein paar wichtige Merkmale:
 
-Scanning a [`str`][str] for ASCII-range codepoints can still be done safely byte-at-a-time. If you use [`.as_bytes()`][str__as_bytes], pulling out a [`u8`][u8] costs only `O(1)` and produces a value that can be cast and compared to an ASCII-range [`char`][char]. So if you're (say) line-breaking on `'\n'`, byte-based treatment still works. UTF-8 was well-designed this way.
+Einen [`str`][str] nach ASCII-Codepoints zu scannen kann immernoch sicher Byte für Byte geschehen. Mit [`.as_bytes()`][str__as_bytes] kann man mit O(1)-Kosten einen [`u8`][u8] gewinnen, welcher zu einer ASCII-[`char`][char] umgewandelt oder mit einer ASCII-[`char`][char] verglichen werden kann. Durch das gute Design von UTF-8 kann man zum Beispiel einen `'\n'` weiterhin als Zeilenumbruch interpretieren.
 
-Most "character oriented" operations on text only work under very restricted language assumptions such as "ASCII-range codepoints only". Outside ASCII-range, you tend to have to use a complex (non-constant-time) algorithm for determining linguistic-unit (glyph, word, paragraph) boundaries anyway. We recommend using an "honest" linguistically-aware, Unicode-approved algorithm.
+Die meisten "Zeichenorientierten" Operationen auf Text funktionieren nur bei sehr einschränkenden Annahmen wie "Nur ASCII Bytes". Außerhalb des ASCII-Bereiches wird häufig sowieso ein komplexerer (nicht Laufzeitkonstanter) Algorithmus zur Ermittlung der linguistischen Einheit (Glyph, Wort, Abschnitt) verwendet. Wir empfehlen, einen "ehrlichen", linguistisch korrekten, Unicode-anerkannten Algorithmus zu verwenden.
 
-The [`char`][char] type is UTF-32. If you are sure you need to do a codepoint-at-a-time algorithm, it's trivial to write a `type wstr = [char]`, and unpack a [`str`][str] into it in a single pass, then work with the `wstr`. In other words: the fact that the language is not "decoding to UTF32 by default" shouldn't stop you from decoding (or re-encoding any other way) if you need to work with that encoding.
+Der [`char`][char]-Typ ist UTF-32. Wenn du sicher bist, dass du einen Algorithmus verwenden musst, welcher jeden Codepoint einzeln betrachtet, kannst du einfach einen `type wstr = [char]` definieren. Dann kannst du in einem single-pass einen [`str`][str] in ihn entpacken, mit welchem du dann als `wstr` arbeiten kannst. In anderen Worten: Die Tatsache, das die Sprache standardmäßig nicht in UTF-32 enkodiert, soll dich nicht daran hindern, Strings in irgendeinem anderen Enkoding zu verarbeiten.
 
-For a more in-depth explanation of why UTF-8 is usually preferable over UTF-16 or UTF-32, read the [UTF-8 Everywhere manifesto](http://utf8everywhere.org/).
+Eine detailliertere Erklärung, warum UTF-8 normalerweise UTF-16 oder UTF-32 vorgezogen werden sollte, findet sich im [UTF-8 Everywhere manifesto](http://utf8everywhere.org/).
 
-<h3><a href="#what-string-type-should-i-use" name="what-string-type-should-i-use">
-What string type should I use?
+<h3><a href="#what-string-type-should-i-use" name="Welchen-String-Typ-sollte-ich-verwenden?">
+Welchen String-Typ sollte ich verwenden?
 </a></h3>
 
-Rust has four pairs of string types, [each serving a distinct purpose](http://www.suspectsemantics.com/blog/2016/03/27/string-types-in-rust/). In each pair, there is an "owned" string type, and a "slice" string type. The organization looks like this:
+Rust hat vier Paare von Stringtypen, von welchen [jeder einen bestimmten Sinn hat](http://www.suspectsemantics.com/blog/2016/03/27/string-types-in-rust/). In jedem dieser Paare befindet sich ein "owned"-Typ sowie ein "slice"-Type. Die Typen sind folgendermaßen organisiert:
 
-|               | "Slice" type | "Owned" type |
+|               | "Slice"-Typ | "Owned"-Typ |
 |:--------------|:-------------|:-------------|
 | UTF-8         | `str`        | `String`     |
 | OS-compatible | `OsStr`      | `OsString`   |
