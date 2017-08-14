@@ -486,21 +486,21 @@ fn accepts_cow(s: Cow<str>) {
 
 <h2 id="collections">Collections</h2>
 
-<h3><a href="#can-i-implement-linked-lists-in-rust" name="can-i-implement-linked-lists-in-rust">
-Can I implement data structures like vectors and linked lists efficiently in Rust?
+<h3><a href="#can-i-implement-linked-lists-in-rust" name="kann-man-in-rust-linked-lists-implementieren">
+Ist es möglich, Datenstrukturen wie Vektoren oder gelinkte Listen in Rust effizient zu implementieren?
 </a></h3>
 
-If your reason for implementing these data structures is to use them for other programs, there's no need, as efficient implementations of these data structures are provided by the standard library.
+Es ist unnötig, diese Datenstrukturen zu Nutzung in deinem eigenen Programm selber zu schreiben, da effiziente Implementierungen durch die Standardbibliotheken angeboten werden.
 
-If, however, [your reason is simply to learn](http://cglab.ca/~abeinges/blah/too-many-lists/book/), then you will likely need to dip into unsafe code. While these data structures _can_ be implemented entirely in safe Rust, the performance is likely to be worse than it would be with the use of unsafe code. The simple reason for this is that data structures like vectors and linked lists rely on pointer and memory operations that are disallowed in safe Rust.
+Wenn du aber [einfach nur lernen willst](http://cglab.ca/~abeinges/blah/too-many-lists/book/), dann wirst du wahrscheinlich 'unsafe' Code verwenden müssen. Diese Datenstrukturen _können_ zwar direkt in sicherem Rust implementiert werden, aber die Leistung einer 'unsafe'-Implementierung wird wahrscheinlich besser sein. Der einfache Grund dafür ist, dass die Implementierung von Vektoren und gelinkten Listen Pointermanipulationen und Speicherzugriffe erfordert, welche in sicherem Rust verboten sind.
 
-For example, a doubly-linked list requires that there be two mutable references to each node, but this violates Rust's mutable reference aliasing rules. You can solve this using [`Weak<T>`][Weak], but the performance will be poorer than you likely want. With unsafe code you can bypass the mutable reference aliasing rule restriction, but must manually verify that your code introduces no memory safety violations.
+Doppelt gelinkte Listen zum Beispiel erfordern, dass auf jeden Knoten zwei 'mutable' Referenzen verweisen. Dies verletzt aber die Aliasing-Regeln für veränderbare Referenzen (es darf nur eine veränderbare ('mutable') Referenz auf ein Objekt bestehen). Du kannst dieses Problem lösen, indem du [`Weak<T>`][Weak] nutzt, aber darunter wird die Leistung stark leiden. Mit unsicherem Code kannst du die 'mutable alias'-Regel umgehen, aber dann musst du manuell sicherstellen, dass dein Code die Speichersicherheit nicht verletzt.
 
-<h3><a href="#how-can-i-iterate-over-a-collection-without-consuming-it" name="how-can-i-iterate-over-a-collection-without-consuming-it">
-How can I iterate over a collection without moving/consuming it?
+<h3><a href="#how-can-i-iterate-over-a-collection-without-consuming-it" name="wie-kann-ich-über-eine-collection-iterieren-ohne-sie-zu-konsumieren">
+wie kann ich über eine Collection iterieren ohne sie zu konsumieren/moven?
 </a></h3>
 
-The easiest way is by using the collection's [`IntoIterator`][IntoIterator] implementation. Here is an example for [`&Vec`][Vec]:
+Die einfachste Art ist, die [`IntoIterator`][IntoIterator]-Implementierung der Collection zu nutzen. Zum Beispiel für [`&Vec`][Vec]:
 
 ```rust
 let v = vec![1,2,3,4,5];
@@ -510,19 +510,19 @@ for item in &v {
 println!("\nLength: {}", v.len());
 ```
 
-Rust `for` loops call `into_iter()` (defined on the [`IntoIterator`][IntoIterator] trait) for whatever they're iterating over. Anything implementing the [`IntoIterator`][IntoIterator] trait may be looped over with a `for` loop. [`IntoIterator`][IntoIterator] is implemented for [`&Vec`][Vec] and [`&mut Vec`][Vec], causing the iterator from `into_iter()` to borrow the contents of the collection, rather than moving/consuming them. The same is true for other standard collections as well.
+In Rust nutzen die `for`-Loops die `into_iter()` Funktion aus dem [`IntoIterator`][IntoIterator] Trait der zu iterierenden Collection. Über alles, was den [`IntoIterator`][IntoIterator]-Trait anbietet, kann mit einem `for`-Loop iteriert werden. Für [`&Vec`][Vec] und [`&mut Vec`][Vec] ist [`IntoIterator`][IntoIterator] implementiert. Das bedeutet, dass ein Iterator durch `into_iter()` den Inhalt der Collection als Referenz betrachtet, statt ihn durch einen 'move' zu konsumieren. Dies gilt auch für die anderen Standard-Collections.
 
-If a moving/consuming iterator is desired, write the `for` loop without `&` or `&mut` in the iteration.
+Wenn du einen konsumierenden Iterator benötigst, dann schreibe den `for`-Loop ohne `&` oder `&mut` in der Iteration.
 
-If you need direct access to a borrowing iterator, you can usually get it by calling the `iter()` method.
+Direkten Zugriff auf einen Iterator, welcher Referenzen auf den Inhalt anbietet, erhälst du normalerweise durch den Aufruf der `iter()`-Methode.
 
-<h3><a href="#why-do-i-need-to-type-the-array-size-in-the-array-declaration" name="why-do-i-need-to-type-the-array-size-in-the-array-declaration">
-Why do I need to type the array size in the array declaration?
+<h3><a href="#why-do-i-need-to-type-the-array-size-in-the-array-declaration" name="warum-muss-ich-die-größe-eines-arrays-in-der-deklaration-angeben">
+Warum muss ich die Größe eines Arrays in der Deklaration angeben?
 </a></h3>
 
-You don't necessarily have to. If you're declaring an array directly, the size is inferred based on the number of elements. But if you're declaring a function that takes a fixed-size array, the compiler has to know how big that array will be.
+Du musst das nicht zwingend tun. Wenn du ein Array direkt deklarierst, wird die Größe durch die Anzahl der Elemente bestimmt. Aber wenn du eine Funktion deklarierst, welche ein Array fester Größe annimmt, muss der Compiler wissen wie groß dieses Array sein wird.
 
-One thing to note is that currently Rust doesn't offer generics over arrays of different size. If you'd like to accept a contiguous container of a variable number of values, use a [`Vec`][Vec] or slice (depending on whether you need ownership).
+Anzumerken ist, dass Rust momentan keine Generics für Arrays verschiedener Größe anbietet. Wenn du einen zusammenhängenden Container einer Variablen Anzahl von Werten annehmen willst, nutze einen [`Vec`][Vec] oder Slice (abhängig davon, ob du Ownership benötigst).
 
 <h2 id="ownership">Ownership</h2>
 
