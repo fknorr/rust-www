@@ -526,24 +526,24 @@ Anzumerken ist, dass Rust momentan keine Generics für Arrays verschiedener Grö
 
 <h2 id="ownership">Ownership</h2>
 
-<h3><a href="#how-can-i-implement-a-data-structure-that-contains-cycles" name="how-can-i-implement-a-data-structure-that-contains-cycles">
-How can I implement a graph or other data structure that contains cycles?
+<h3><a href="#how-can-i-implement-a-data-structure-that-contains-cycles" name="wie-kann-ich-eine-datenstruktur-mit-zyklen-implementieren">
+Wie kann ich eine Datenstruktur mit Zyklen implementieren?
 </a></h3>
 
-There are at least four options (discussed at length in [Too Many Linked Lists](http://cglab.ca/~abeinges/blah/too-many-lists/book/)):
+Es gibt mindestens vier Möglichkeiten, welche ausführlich in [Too Many Linked Lists](http://cglab.ca/~abeinges/blah/too-many-lists/book/)) beschrieben werden:
 
-- You can implement it using [`Rc`][Rc] and [`Weak`][Weak] to allow shared ownership of nodes,
-although this approach pays the cost of memory management.
-- You can implement it using `unsafe` code using raw pointers. This will be
-more efficient, but bypasses Rust's safety guarantees.
-- Using vectors and indices into those vectors. There are [several](http://smallcultfollowing.com/babysteps/blog/2015/04/06/modeling-graphs-in-rust-using-vector-indices/) [available](https://featherweightmusings.blogspot.com/2015/04/graphs-in-rust.html) examples and explanations of this approach.
-- Using borrowed references with [`UnsafeCell`][UnsafeCell]. There are [explanations and code](https://github.com/nrc/r4cppp/blob/master/graphs/README.md#node-and-unsafecell) available for this approach.
+- Du kannst [`Rc`][Rc] und [`Weak`][Weak] nutzen, um geteilte Ownership zu Knoten zu erhalten.
+Dann musst du die Kosten von Memory Management in Kauf nehmen.
+- Du kannst `unsafe`-Code mit rohen Pointern nutzen.
+Dies wird effizient sein, aber es umgeht die Sicherheitsgarantien.
+- Du kannst Vektoren und Indexe in diese Vektoren benuzten. Hier sind einige Beispiele und Erklärungen für diese Herangehensweise: [several](http://smallcultfollowing.com/babysteps/blog/2015/04/06/modeling-graphs-in-rust-using-vector-indices/) [available](https://featherweightmusings.blogspot.com/2015/04/graphs-in-rust.html).
+- Du kannst 'borrowed' Referenzen mit [`UnsafeCell`][UnsafeCell] nutzen. Es gibt für diese Herangehensweise [Erklärungen und Beispielcode](https://github.com/nrc/r4cppp/blob/master/graphs/README.md#node-and-unsafecell).
 
-<h3><a href="#how-can-i-define-a-struct-that-contains-a-reference-to-one-of-its-own-fields" name="how-can-i-define-a-struct-that-contains-a-reference-to-one-of-its-own-fields">
-How can I define a struct that contains a reference to one of its own fields?
+<h3><a href="#how-can-i-define-a-struct-that-contains-a-reference-to-one-of-its-own-fields" name="wie-kann-ich-ein-struct-mit-referenzen-zu-eigenen-feldern-definieren">
+Wie kann ich ein Struct mit Referenzen zu seinen eigenen Feldern definieren?
 </a></h3>
 
-It's possible, but useless to do so. The struct becomes permanently borrowed by itself and therefore can't be moved. Here is some code illustrating this:
+Es ist möglich, aber nutzlos, dies zu tun. Das Struct ist dann permanent von sich selbst 'ausgeliehen' und kann nicht bewegt werden. Hier ein Beispiel:
 
 ```rust
 use std::cell::Cell;
@@ -563,27 +563,28 @@ fn main() {
 }
 ```
 
-<h3><a href="#what-is-the-difference-between-consuming-and-moving" name="what-is-the-difference-between-consuming-and-moving">
-What is the difference between passing by value, consuming, moving, and transferring ownership?
+<h3><a href="#what-is-the-difference-between-consuming-and-moving" name="was-ist-der-unterschied-zwischen-consume-und-move">
+Was ist der Unterschied zwischen Pass-By-Value, consuming, moving, und der Übertragung der Ownership?
 </a></h3>
 
-These are different terms for the same thing. In all cases, it means the value has been moved to another owner, and moved out of the possession of the original owner, who can no longer use it. If a type implements the `Copy` trait, the original owner's value won't be invalidated, and can still be used.
+Alle diese Begriffe sind äquivalent. In jedem Fall bedeuten sie, dass der Wert zu einem neuen Besitzer übertragen und aus dem Besitz des vorherigen entfernt wurde. Der vorherige Besitzer kann den Wert nicht mehr nutzen. Wenn ein Typ den `Copy`-Trait anbietet, dann wird der Wert des ursprünglichen Besitzers nicht invalidiert und kann immer noch benutzt werden.
 
-<h3><a href="#why-can-values-of-some-types-by-reused-while-others-are-consumed" name="why-can-values-of-some-types-by-reused-while-others-are-consumed">
-Why can values of some types be used after passing them to a function, while reuse of values of other types results in an error?
+<h3><a href="#why-can-values-of-some-types-by-reused-while-others-are-consumed" name="warum-können-werte-eines-typs-wiederverwendet-werden-während-andere-konsumiert-werden">
+Warum können Werte eines Typs nach dem übergeben an eine Funktion wiederverwendet werden während die Wiederverwendung von Werten anderen Typs zu einem Fehler führt?
 </a></h3>
 
-If a type implements the [`Copy`][Copy] trait, then it will be copied when passed to a function. All numeric types in Rust implement [`Copy`][Copy], but struct types do not implement [`Copy`][Copy] by default, so they are moved instead. This means that the struct can no longer be used elsewhere, unless it is moved back out of the function via the return.
+Wenn ein Typ den [`Copy`][Copy]-Trait anbietet, dann wird ein Wert diesen Typs bei der Übergabe an eine Funktion kopiert werden. Alle numerischen Typen in Rust implementieren [`Copy`][Copy], aber Struct-Typen implementieren den Trait nicht standardmäßig. Sie werden also standardmäßig mit 'Besitz' übergeben. Das bedeutet, dass ein Struct nach der Übergabe nicht mehr benutzt werden kann, wenn es nicht (samt Ownership) am Ende der aufgerufenen Funktion wieder zurückgegeben wird. 
 
-<h3><a href="#how-do-you-deal-with-a-use-of-moved-value-error" name="how-do-you-deal-with-a-use-of-moved-value-error">
-How do you deal with a "use of moved value" error?
+<h3><a href="#how-do-you-deal-with-a-use-of-moved-value-error" name="wie-gehe-ich-mit-einem-use-of-moved-value-error-um">
+Wie gehe ich mit einem "use of moved value" error um?
 </a></h3>
 
-This error means that the value you're trying to use has been moved to a new owner. The first thing to check is whether the move in question was necessary: if it moved into a function, it may be possible to rewrite the function to use a reference, rather than moving. Otherwise if the type being moved implements [`Clone`][Clone], then calling `clone()` on it before moving will move a copy of it, leaving the original still available for further use. Note though that cloning a value should typically be the last resort since cloning can be expensive, causing further allocations.
+Dieser Error bedeutet, dass du versuchst, auf einen Wert zuzugreifen, welcher zu einem neuen Besitzer gewechselt ist. Die erste Frage ist, ob die Übergabe der Ownership nötig war: wenn der Wert einer Funktion übergeben wurde, dann könnte es möglich sein, die Funktion so umzuschreiben, dass sie nur eine Referenz entgegennimmt.
+Wenn der übergebene Typ den [`Clone`][Clone]-Trait implementiert, dann wird ein Aufruf zu `clone()` vor der Übergabe eine Kopie des Wertes erstellen und das Original zur weiteren Verwendung freigeben. Da durch Klonen weitere Allokationen notwendig werden, sollte dies der letzte Ausweg sein.
 
-If the moved value is of your own custom type, consider implementing [`Copy`][Copy] (for implicit copying, rather than moving) or [`Clone`][Clone] (explicit copying). [`Copy`][Copy] is most commonly implemented with `#[derive(Copy, Clone)]` ([`Copy`][Copy] requires [`Clone`][Clone]), and [`Clone`][Clone] with `#[derive(Clone)]`.
+Wenn der Übergebene Wert dein eigener Typ ist, dann könntest du [`Copy`][Copy] (für implizites Kopieren anstelle von Klonen) oder [`Clone`][Clone] (explizite Kopie) selber implementieren. [`Copy`][Copy] kann häufig durch `#[derive(Copy, Clone)]` erhalten werden ([`Copy`][Copy] erfordert [`Clone`][Clone]), und [`Clone`][Clone] mit `#[derive(Clone)]`.
 
-If none of these are possible, you may want to modify the function that acquired ownership to return ownership of the value when the function exits.
+Wenn diese Möglichkeiten nicht gegeben sind, dann könntest du die Funktion, welche den Besitz des Wertes erfordert, so modifizieren, dass sie den Besitz am Ende wieder mit zurückgibt.
 
 <h3><a href="#what-are-the-rules-for-different-self-types-in-methods" name="what-are-the-rules-for-different-self-types-in-methods">
 What are the rules for using <code>self</code>, <code>&amp;self</code>, or <code>&amp;mut self</code> in a method declaration?
