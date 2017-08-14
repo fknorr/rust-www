@@ -409,15 +409,15 @@ Das ist unmöglich, außer wenn über den String im Vornherein so viel bekannt i
 In Rust sind Strings in UTF-8 encoded. In ASCII wäre ein einzelnes Zeichen auch genau ein Byte, aber dies ist in UTF-8 nicht zwingend der Fall. Ein Byte wird "Code Unit" genannt (in UTF-16 sind Code Units 2 Bytes lang; in UTF-32 sind es 4 Bytes). Ein "Code Point" besteht aus einem oder mehreren Code Units, und mehrere Code Points formen "Grapheme Cluster", welche am ehesten als Zeichen interpretiert werden können.
 
 Obwohl man einfach auf den Bytes eines UTF-8 Strings indexieren könnte, kann man nicht in konstanter Zeit den `i`ten Code Point oder Grapheme Cluster erreichen, da sie alle verschieden lang sein können. Es ist allerdings möglich, einen konkreten Grapheme Cluster oder Code Point zu erreichen, wenn man genau weiß, wo er beginnt.
-Funktionen wie [`str::find()`][str__find] und Regex-Matches geben Byte-Indexe an, wodurch dieser Byte-level Zugriff ermöglicht wird.
+Funktionen wie [`str::find()`][str__find] und Regex-Matches geben Byte-Indexe an, wodurch dieser Zugriff auf Byte-Level ermöglicht wird.
 
 <h3><a href="#why-are-strings-utf-8" name="Warum-sind-strings-utf-8">
 Warum sind Strings standardmäßig UTF-8?
 </a></h3>
 
-Der [`str`][str]-Typ ist in UTF-8 encoded, weil Text sehr häufig, vor allem in Endian-agnostischen Netzwerkübertragungen, in dieser Form vorkommt. Wir finden, dass Eingabe/Ausgabe standardmäßig nicht das Reenkodieren von Enkodierungen erfordern sollte.
+Der [`str`][str]-Typ ist in UTF-8 enkodiert, weil Text (vor allem in Endian-agnostischen Netzwerkübertragungen) sehr häufig in dieser Form vorkommt. Wir finden, dass Eingabe/Ausgabe standardmäßig nicht das Reenkodieren von Enkodierungen erfordern sollte.
 
-Das bedeutet zwar, dass auf einen spezifischen Code Point in einem String nur durch eine O(n)-Operation zugegriffen werden kann (wobei ein Byte an bekannter Position natürlich weiterhin nur O(1) kostet). Einerseits ist das ein unerwünschter Nachteil; Andererseits ist dieses Problem voller Abwägungen. Ein paar wichtige Merkmale:
+Das bedeutet, dass auf einen spezifischen Code Point in einem String nur durch eine O(n)-Operation zugegriffen werden kann (wobei ein Byte an bekannter Position natürlich weiterhin nur O(1) kostet). Einerseits ist das ein unerwünschter Nachteil; Andererseits ist dieses Problem voller Abwägungen und Trade-Offs. Ein paar wichtige Merkmale:
 
 Einen [`str`][str] nach ASCII-Codepoints zu scannen kann immernoch sicher Byte für Byte geschehen. Mit [`.as_bytes()`][str__as_bytes] kann man mit O(1)-Kosten einen [`u8`][u8] gewinnen, welcher zu einer ASCII-[`char`][char] umgewandelt oder mit einer ASCII-[`char`][char] verglichen werden kann. Durch das gute Design von UTF-8 kann man zum Beispiel einen `'\n'` weiterhin als Zeilenumbruch interpretieren.
 
@@ -440,21 +440,21 @@ Rust hat vier Paare von Stringtypen, von welchen [jeder einen bestimmten Sinn ha
 | C-compatible  | `CStr`       | `CString`    |
 | System path   | `Path`       | `PathBuf`    |
 
-Rust's different string types serve different purposes. `String` and `str` are UTF-8 encoded general-purpose strings. `OsString` and `OsStr` are encoded according to the current platform, and are used when interacting with the operating system. `CString` and `CStr` are the Rust equivalent of strings in C, and are used in FFI code, and `PathBuf` and `Path` are convenience wrappers around `OsString` and `OsStr`, providing methods specific to path manipulation.
+Alle String-Typen dienen verschiedenen Zwecken. `String` und `str` sind UTF-8 enkodierte, allgemein verwendbare Strings. `OsString` und `OsStr` sind nach den Vorgaben der jeweiligen Plattform enkodiert und sollten benutzt werden, um mit dem Betriebssystem zu interagieren. `CString` und `CStr` sind Rusts Gegenstück zu C-Strings und werden in FFI(Foreign Function Interface)-Code genutzt. `PathBuf` and `Path` sind bequeme Wrapper um `OsString` und `OsStr`, welche Methoden zur Dateipfadmanipulation anbieten.
 
-<h3><a href="#why-are-there-multiple-types-of-strings" name="why-are-there-multiple-types-of-strings">
-How can I write a function that accepts both <code>&str</code> and <code>String</code>?
+<h3><a href="#why-are-there-multiple-types-of-strings" name="warum-gibt-es-verschiedene-string-typen">
+Wie kann ich eine Funktion schreiben, welche sowohl <code>&str</code> als auch <code>String</code> annimmt?
 </a></h3>
 
-There are several options, depending on the needs of the function:
+Es gibt je nach Verwendung der Funktion verschiedene Möglichkeiten:
 
-- If the function needs an owned string, but wants to accept any type of string, use an `Into<String>` bound.
-- If the function needs a string slice, but wants to accept any type of string, use an `AsRef<str>` bound.
-- If the function does not care about the string type, and wants to handle the two possibilities uniformly, use `Cow<str>` as the input type.
+- Wenn die Funktion einen 'owned' String benötigt, aber jede Art von String empfangen soll, dann nutze einen `Into<String>` bound.
+- Wenn die Funktion einen String-Slice benötigt, aber jede Art von String empfangen soll, dann nutze einen `AsRef<str>` bound.
+- Wenn es keine Rolle spielt, welchen String-Typ die Funktion bekommt, und du mit beiden Möglichkeiten einheitlich umgehen willst, dann nutze als Parametertyp `Cow<str>`
 
-__Using `Into<String>`__
+__Nutzung von `Into<String>`__
 
-In this example, the function will accept both owned strings and string slices, either doing nothing or converting the input into an owned string within the function body. Note that the conversion needs to be done explicitly, and will not happen otherwise.
+in diesem Beispiel wird die Funktion sowohl 'owned' Strings als auch String-Slices akzeptieren und dann entweder nix tun oder die Eingabe innerhalb des Funktionskörpers zu einem 'owned' String umwandeln. Diese Konversion muss explizit geschehen und wird ansonsten nicht stattfinden.
 
 ```rust
 fn accepts_both<S: Into<String>>(s: S) {
@@ -463,9 +463,9 @@ fn accepts_both<S: Into<String>>(s: S) {
 }
 ```
 
-__Using `AsRef<str>`__
+__Nutzung von `AsRef<str>`__
 
-In this example, the function will accept both owned strings and string slices, either doing nothing or converting the input into a string slice. This can be done automatically by taking the input by reference, like so:
+In diesem Beispiel wird die Funktion sowohl 'owned' Strings als auch String-Slices akzeptieren und dann entweder nix tun oder die Eingabe innerhalb der Funktion zu einem String-Slice umwandeln. Dies kann automatisch geschehen, indem die Eingabe als Referenz betrachtet wird:
 
 ```rust
 fn accepts_both<S: AsRef<str>>(s: &S) {
@@ -473,9 +473,9 @@ fn accepts_both<S: AsRef<str>>(s: &S) {
 }
 ```
 
-__Using `Cow<str>`__
+__Nutzung von `Cow<str>`__
 
-In this example, the function takes in a `Cow<str>`, which is not a generic type but a container, containing either an owned string or string slice as needed.
+In diesem Beispiel akzeptiert die Funktion einen `Cow<str>, welcher nicht ein generischer Typ ist, sondern ein Container, welcher je nach Nutzung einen 'owned' String oder String-Slice enthält.
 
 ```rust
 fn accepts_cow(s: Cow<str>) {
