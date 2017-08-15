@@ -586,70 +586,69 @@ Wenn der Übergebene Wert dein eigener Typ ist, dann könntest du [`Copy`][Copy]
 
 Wenn diese Möglichkeiten nicht gegeben sind, dann könntest du die Funktion, welche den Besitz des Wertes erfordert, so modifizieren, dass sie den Besitz am Ende wieder mit zurückgibt.
 
-<h3><a href="#what-are-the-rules-for-different-self-types-in-methods" name="what-are-the-rules-for-different-self-types-in-methods">
-What are the rules for using <code>self</code>, <code>&amp;self</code>, or <code>&amp;mut self</code> in a method declaration?
+<h3><a href="#what-are-the-rules-for-different-self-types-in-methods" name="was-sind-die-regeln-für-verschiedene-self-typen-in-methodendeklarationen">
+Nach welchen Regeln richtet sich die Verwendung von <code>self</code>, <code>&amp;self</code>, oder <code>&amp;mut self</code> in Methodendeklarationen?
 </a></h3>
 
-- Use `self` when a function needs to consume the value
-- Use `&self` when a function only needs a read-only reference to the value
-- Use `&mut self` when a function needs to mutate the value without consuming it
+- Nutze `self`, wenn eine Methode die 'Ownership' des Wertes bekommen soll.
+- Nutze `&self`, wenn eine Methode lediglich eine Nur-Lese-Referenz auf den Wert benötigt.
+- Nutze `&mut self`, wenn eine Methode den Wert verändern, aber nicht davon Besitz ergreifen soll.
 
-<h3><a href="#how-can-i-understand-the-borrow-checker" name="how-can-i-understand-the-borrow-checker">
-How can I understand the borrow checker?
+<h3><a href="#how-can-i-understand-the-borrow-checker" name="wie-kann-ich-den-borrow-checker-verstehen">
+Wie kann ich den Borrow-Checker verstehen?
 </a></h3>
 
-The borrow checker applies only a few rules, which can be found in the Rust book's [section on borrowing](https://doc.rust-lang.org/stable/book/references-and-borrowing.html#the-rules), when evaluating Rust code. These rules are:
+Zum Evaluieren von Rust-Code nutzt der Borrow Checker nur ein paar wenige Regeln, welche im [Abschnitt über Borrowing](https://doc.rust-lang.org/stable/book/references-and-borrowing.html#the-rules) erklärt werden. Diese Rgeeln sind:
 
-> First, any borrow must last for a scope no greater than that of the owner. Second, you may have one or the other of these two kinds of borrows, but not both at the same time:
+> Erstens, ein Borrow darf höchstens so lange bestehen wie der eigentliche Besitzer besteht. Zweitens darfst du zu jedem Zeitpunnkt nur eine dieser beiden Arten von Borrow haben:
 >
-> - one or more references (&T) to a resource.
-> - exactly one mutable reference (&mut T)
+> - Eine oder mehr Referenzen (&T) zu einer Ressource.
+> - Genau eine veränderbare Referenz (&mut T).
 
-While the rules themselves are simple, following them consistently is not, particularly for those unaccustomed to reasoning about lifetimes and ownership.
+Diese Regeln sind zwar einfach, sie aber konsistent zu befolgen ist es nicht, vor allem wenn man es nicht gewöhnt ist, über Lifetimes und Ownership nachzudenken.
 
-The first step in understanding the borrow checker is reading the errors it produces. A lot of work has been put into making sure the borrow checker provides quality assistance in resolving the issues it identifies. When you encounter a borrow checker problem, the first step is to slowly and carefully read the error reported, and to only approach the code after you understand the error being described.
+Der erste Schritt zum Verständnis des Borrow Checkers ist es, seine Fehlermeldungen zu studieren. Sehr viel Arbeit wurde investiert, um die Qualität der Hilfestellungen des Borrow Checkers zu erhöhen. Wenn du ein Problem mit dem Borrow Checker hast, ist der erste Schritt, langsam und vorsichtig die Fehlermeldung zu lesen. Verändere deinen Code erst, nachdem du den Fehler verstanden hast.
 
-The second step is to become familiar with the ownership and mutability-related container types provided by the Rust standard library, including [`Cell`][Cell], [`RefCell`][RefCell], and [`Cow`][Cow]. These are useful and necessary tools for expressing certain ownership and mutability situations, and have been written to be of minimal performance cost.
+Der zweite Schritt ist, die Container-Typen der Standardbibliothek, welche mit Ownership und Mutability  zu tun haben, kennenzulernen. Dies sind zum Beispiel [`Cell`][Cell], [`RefCell`][RefCell], und [`Cow`][Cow]. Diese Typen sind nützliche und notwendige Werkzeuge, um bestimmte Ownership- und Mutabilityverhältnisse auszudrücken, und wurden für minimale Leistungskosten entworfen. 
 
-The single most important part of understanding the borrow checker is practice. Rust's strong static analyses guarantees are strict and quite different from what many programmers have worked with before. It will take some time to become completely comfortable with everything.
+Der wichtigste Bestandteil, um den Borrow Checker zu verstehen, ist Übung. Rust's starke Garantien der statischen Analyse sind streng und ziemlich verschieden von anderen Programmiersprachen. Es wird einige Zeit dauern, mit allem vollständig zurechtzukommen.
 
-If you find yourself struggling with the borrow checker, or running out of patience, always feel free to reach out to the [Rust community](community.html) for help.
+Wenn du dich mit dem Borrow Checker allzu sehr abmühst und dir die Geduld ausgeht, ist die [Rust Community](community.html) jederzeit für dich da.
 
-<h3><a href="#when-is-rc-useful" name="when-is-rc-useful">
-When is <code>Rc</code> useful?
+<h3><a href="#when-is-rc-useful" name="wann-sollte-ich-rc-verwenden">
+Wann sollte ich <code>Rc</code> verwenden?
 </a></h3>
 
-This is covered in the official documentation for [`Rc`][Rc], Rust's non-atomically reference-counted pointer type. In short, [`Rc`][Rc] and its thread-safe cousin [`Arc`][Arc] are useful to express shared ownership, and have the system automatically deallocate the associated memory when no one has access to it.
+Die Funktion des non-atomischen, Referenzzählenden Referenztyps [`Rc`][Rc] wird in der offiziellen Dokumentation erläutert. Kurz gesagt, kann man [`Rc`][Rc] und seinen Thread-sicheren Cousin [`Arc`][Arc] verwenden, um geteilten Besitz einer Ressource auszudrücken, und um diese Ressource automatisch zu deallokieren, wenn kein Besitzer mehr Zugriff auf sie hat.
 
-<h3><a href="#how-do-i-return-a-closure-from-a-function" name="how-do-i-return-a-closure-from-a-function">
-How do I return a closure from a function?
+<h3><a href="#how-do-i-return-a-closure-from-a-function" name="wie-gebe-ich-aus-einer-funktion-eine-closure-zurück">
+Wie gebe ich aus einer Funktion eine Closure zurück?
 </a></h3>
 
-To return a closure from a function, it must be a "move closure", meaning that the closure is declared with the `move` keyword. As [explained in the Rust book](https://doc.rust-lang.org/book/closures.html#move-closures), this gives the closure its own copy of the captured variables, independent of its parent stack frame. Otherwise, returning a closure would be unsafe, as it would allow access to variables that are no longer valid; put another way: it would allow reading potentially invalid memory. The closure must also be wrapped in a [`Box`][Box], so that it is allocated on the heap. Read more about this [in the book](https://doc.rust-lang.org/book/closures.html#returning-closures).
+Um eine Closure aus einer Funktion herausgeben zu können, muss es eine "move closure" sein, welche mit dem Schlüsselwort `move` deklariert wird. Wie [im Buch zu Rust erklärt](https://doc.rust-lang.org/book/closures.html#move-closures), gibt dies der Closure eine eigene Kopie ihrer Eingangsvariablen, welche vom Stack Frame der Elterfunktion unabhängig sind. Eine anders geartete Rückgabe von Closures wäre unsicher, da dies Zugriff auf nicht mehr gültige Variablen gewähren würde; in anderen Worten: es würde das Auslesen potentiell ungültigen Speichers ermöglichen. Die Closure muss auch von einer [`Box`][Box] umgeben werden, damit sie auf dem Heap allokiert wird. [Im Buch](https://doc.rust-lang.org/book/closures.html#returning-closures) kannst du mehr darüber lesen.
 
-<h3><a href="#what-are-deref-coercions" name="what-are-deref-coercions">
-What is a deref coercion and how does it work?
+<h3><a href="#what-are-deref-coercions" name="was-sind-deref-coercions">
+Was sind Deref Coercions und wie funktionieren sie?
 </a></h3>
 
-A [deref coercion](https://doc.rust-lang.org/book/deref-coercions.html) is a handy coercion
-that automatically converts references to pointers (e.g., `&Rc<T>` or `&Box<T>`) into references
-to their contents (e.g., `&T`). Deref coercions exist to make using Rust more ergonomic, and are implemented via the [`Deref`][Deref] trait.
+Eine [Deref Coercion](https://doc.rust-lang.org/book/deref-coercions.html) ist eine nützliche Coercion, welche automatisch Referenzen auf Pointer (also zum Beispiel `&Rc<T>` or `&Box<T>`) zu Referenzen auf ihren Inhalt konvertiert.
+Deref Coercions existieren, um einen ergonomischeren Umgang mit Rust zu ermöglichen, und werden durch den [`Deref`][Deref]-Trait implementiert.
 
-A Deref implementation indicates that the implementing type may be converted into a target by a call to the `deref` method, which takes an immutable reference to the calling type and returns a reference (of the same lifetime) to the target type. The `*` prefix operator is shorthand for the `deref` method.
+Eine Implementation von Deref gibt an, dass der implementierende Typ durch den Aufruf der `deref`-Methode zu einem Zieltyp konvertiert werden kann. Dabei nimmt die Methode eine unveränderliche Referenz zum aufrufenden Typ an und gibt eine Referenz mit derselben Lifetime zum Zieltyp zurück. Der `*`-Präfix ist eine Kurznotation für die `deref`-Methode.
 
-They're called "coercions" because of the following rule, quoted here [from the Rust book](https://doc.rust-lang.org/stable/book/deref-coercions.html):
+Der Name "coercion" kommt aus der [hier im Buch erklärten Regel](https://doc.rust-lang.org/stable/book/deref-coercions.html):
 
-> If you have a type `U`, and it implements `Deref<Target=T>`, values of `&U` will automatically coerce to a `&T`.
+> Wenn du einen Typ `U` hast, welcher `Deref<Target=T>` implementiert, dann können Werte von `&U` automatisch als `&T` ausgewertet werden.
 
-For example, if you have a `&Rc<String>`, it will coerce via this rule into a `&String`, which then coerces to a `&str` in the same way. So if a function takes a `&str` parameter, you can pass in a `&Rc<String>` directly, with all coercions handled automatically via the `Deref` trait.
+Wenn du beispielsweise einen `&Rc<String>` hast, wird er nach dieser Regel automatisch zu einem `&String`, welcher dann auf die gleiche Weise zu einem `&str` wird. Wenn also eine Funktion einen `&str`-Parameter entgegennimmt, kannst du einen `&Rc<String>` direkt übergeben, woraufhin alle Umwandlungen automatisch durch den `Deref`-Trait geschehen.
 
-The most common sorts of deref coercions are:
+Die häufigsten Arten der Deref Coercion sind:
 
-- `&Rc<T>` to `&T`
-- `&Box<T>` to `&T`
-- `&Arc<T>` to `&T`
-- `&Vec<T>` to `&[T]`
-- `&String` to `&str`
+- `&Rc<T>` zu `&T`
+- `&Box<T>` zu `&T`
+- `&Arc<T>` zu `&T`
+- `&Vec<T>` zu `&[T]`
+- `&String` zu `&str`
 
 <h2 id="lifetimes">Lifetimes</h2>
 
