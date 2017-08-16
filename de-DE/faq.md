@@ -777,9 +777,10 @@ Bisher hat Rust keine Typen höherer Art, weil ihnen gegenüber anderen Verbesse
 Was bedeuten benannte Parameter wie <code>&lt;T=Foo&gt;</code> in generischen Typen?
 </a></h3>
 
-These are called [associated types](https://doc.rust-lang.org/stable/book/associated-types.html), and they allow for the expression of trait bounds that can't be expressed with a `where` clause. For example, a generic bound `X: Bar<T=Foo>` means "`X` must implement the trait `Bar`, and in that implementation of `Bar`, `X` must choose `Foo` for `Bar`'s associated type, `T`." Examples of where such a constraint cannot be expressed via a `where` clause include trait objects like `Box<Bar<T=Foo>>`.
+Diese werden [associated types](https://doc.rust-lang.org/stable/book/associated-types.html) genannt und erlauben es, Trait Bounds auszudrücken, für welche eine `where`-Klausel nicht ausreicht.
+Eine generische Einschränkung `X: Bar<T=Foo>` bedeutet: "`X` muss den Trait `Bar` implementieren, und die Implementierung von `Bar` muss für den assoziierten Typ `T` den Typ `Foo` annehmen.". Beispiele für Typ-Einschränkungen, welche nicht mit einer `where`-Klausel ausgedrückt werden können, sind zum Beispiel Trait-Objekte wie `Box<Bar<T=Foo>>`.
 
-Associated types exist because generics often involve families of types, where one type determines all of the others in a family. For example, a trait for graphs might have as its `Self` type the graph itself, and have associated types for nodes and for edges. Each graph type uniquely determines the associated types. Using associated types makes it much more concise to work with these families of types, and also provides better type inference in many cases.
+Assoziierte Typen existieren, weil Generics oft mit Familien von Typen umgehen müssen, wobei ein Typ alle anderen in der Familie bestimmt. Ein Trait eines Graphen zum Beispiel könnte als `Self`-Typ den Graphen selber haben, sowie assoziierte Typen für Knoten und Kanten. Jeder Graph-Typ bestimmt dann eindeutig die assoziierten Typen. Die Verwendung von assoziierten Typen vereinfacht die Arbeit mit solchen Typfamilien stark und bietet in vielen Fällen auch bessere Typinferenz.
 
 <h3><a href="#how-do-i-overload-operators" name="how-do-i-overload-operators">
 Kann ich Operatoren überladen? Welche und wie?
