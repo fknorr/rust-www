@@ -1,35 +1,37 @@
 ---
 layout: de-DE/default
-title: Contributing to Rust &mdash; tooling, IDEs and infrastructure &middot; The Rust Programming Language
+title: Zu Rust beitragen &mdash; tooling, IDEs und Infrastruktur &middot; Die Rust Programmiersprache
 ---
 
-# Contributing to Rust &mdash; tooling, IDEs and infrastructure
+# Zu Rust beitragen &mdash; tooling, IDEs und Infrastruktur
 
-Tools play a huge part in the success of a language, and there is a
-great deal left to implement. ***A major focus of Rust development now
-is [improving the IDE experience][ides]***. This involves work
-throughout the Rust stack, from the compiler itself through your
-favorite IDE. Follow the link for more information.
+Werkzeuge spielen im Erfolg einer Sprache eine große Rolle,
+und es gibt in diesem Bereich noch eine Menge Arbeit.
+***Ein großer Schwerpunkt der aktuellen Entwicklung von Rust
+ist, [die IDE_Experience zu verbessern][ides]***.
+Dies beinhaltet Arbeit am gesamten Rust-Stack, vom Compiler selbst
+bis zu deiner Lieblings-IDE. Folge für mehr Information dem Link.
 
-Both Cargo, the Rust package manager, and rustdoc,
-the Rust documentation generator, while full-featured and functional,
-suffer from a lack of developers. Rustdoc has many open issues, under
-the main repository's [A-rustdoc] label. They are mostly bugs and
-contributing is a matter of fixing the bug and submitting a pull
-request. Cargo has [its own repository and issues][Cargo], and those
-interested in contributing might want to introduce themselves in
-[#cargo].
+Sowohl Cargo, der Paketmanager, als auch rustdoc, der Dokumentationsgenerator,
+sind zwar voll funktionsfähig, aber leiden an einem Mangel an Entwicklern.
+Rustdoc hat viele offene Probleme, im Main-Repository unter dem Label
+[A-rustdoc] gelistet. Es sind hauptsächlich Bugs und Mitarbeit würde
+lediglich einen Bugfix und eine Pull-Request erfordern.
+Cargo hat [sein eigenes Repository und Issue-Tracker][Cargo], und
+wer beitragen möchte, sollte sich in [#cargo] melden.
 
-Although Rust can be run under both the gdb and lldb debuggers with
-limited success, there are still many cases where debugging does not
-work as expected.  The [A-debuginfo] issue tracks these.
+Obwohl Rust-Programme sowohl mit dem gdb als auch mit dem lldb Debugger eingeschränkt
+untersucht werden kann, gibt es noch immer viele Fälle, in denen debugging
+unerwartete Ergebnisse liefert oder auf unerwartete Weise funktioniert.
+Diese Fälle werden im [A-debuginfo]-Label verwaltet.
 
-For ideas for more tooling projects to contribute to see
+Ideen für weitere tooling-Projekte zum Mithelfen finden sich in
 [awesome-rust].
 
-There are often other tooling projects of interest just waiting for
-the right people to come along and implement them. Discuss with other
-Rust tooling enthusiasts in [#rust-tools].
+Es gibt häufig andere interessante Tooling-Projekte, welche nur auf
+die richtigen Leute warten, um implementiert zu werden.
+Diese können mit anderen Tooling-Enthusiasten in
+[#rust-tools] diskutiert werden.
 
 [#cargo]: https://client00.chat.mibbit.com/?server=irc.mozilla.org&channel=%23rustc
 [#rust-tools]: https://client00.chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust-tools
