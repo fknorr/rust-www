@@ -1,21 +1,18 @@
 ---
 layout: de-DE/default
-title: The Rust Team &middot; The Rust Programming Language
+title: Das Rust Team &middot; Die Rust Programmiersprache
 extra_css:
   - team.css
 ---
 
 # The Rust Team
 
-The Rust project is
-[governed](https://github.com/rust-lang/rfcs/blob/master/text/1068-rust-governance.md)
-by a number of teams, each focused on a specific area of concern. Below are
-the rosters, in alphabetical order.
+Das Projekt Rust wird von mehreren Teams [verwaltet](https://github.com/rust-lang/rfcs/blob/master/text/1068-rust-governance.md), welche sich auf verschiedene Themengebiete spezialisiert haben.
+Unten werden in alphabetischer Reihenfolge die Teams aufgelistet.
 
-To contact a team, post your question or comment to [the Internals
-forum](https://internals.rust-lang.org/) and tag your post with the category
-corresponding to the team name. Note that security disclosures should follow
-the [Rust security disclosure process](security.html). 
+Um ein Team zu kontaktieren, poste deine Frage oder deinen Kommentar im [Internals
+Forum](https://internals.rust-lang.org/) und tagge deinen Post mit der zum Teamnamen korrespondierenden Kategorie.
+Sicherheitsmeldungen sollten dem [Rust security disclosure process](security.html) folgen.
 
 {% for team in site.data.team.teams %}
 <section id="{{ team.name | replace:' ','-' }}">
