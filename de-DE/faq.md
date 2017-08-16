@@ -652,30 +652,30 @@ Die häufigsten Arten der Deref Coercion sind:
 
 <h2 id="lifetimes">Lifetimes</h2>
 
-<h3><a href="#why-lifetimes" name="why-lifetimes">
-Why lifetimes?
+<h3><a href="#why-lifetimes" name="warum-lifetimes">
+Warum Lifetimes?
 </a></h3>
 
-Lifetimes are Rust's answer to the question of memory safety. They allow Rust to ensure memory safety without the performance costs of garbage collection. They are based on a variety of academic work, which can be found in the [Rust book](https://doc.rust-lang.org/stable/book/bibliography.html#type-system).
+Lifetimes sind Rust's Antwort auf die Frage nach Speichersicherheit. Sie erlauben es Rust, Speichersicherheit ohne die Leistungskosten von Garbage-Collection zu erlangen. Sie basieren auf einer Vielzahl akademischer Arbeit, welche im [Rust book](https://doc.rust-lang.org/stable/book/bibliography.html#type-system) gefunden werden kann.
 
-<h3><a href="#why-is-the-lifetime-syntax-the-way-it-is" name="why-is-the-lifetime-syntax-the-way-it-is">
-Why is the lifetime syntax the way it is?
+<h3><a href="#why-is-the-lifetime-syntax-the-way-it-is" name="warum-sind-lifetime-syntax-so-wie-er-ist">
+Warum ist der Syntax für Lifetimes so wie er ist?
 </a></h3>
 
-The `'a` syntax comes from the ML family of programming languages, where `'a` is used to indicate a generic type parameter. For Rust, the syntax had to be something that was unambiguous, noticeable, and fit nicely in a type declaration right alongside traits and references. Alternative syntaxes have been discussed, but no alternative syntax has been demonstrated to be clearly better.
+Der `'a`-Syntax kommt aus der ML-Familie der Programmiersprachen, wo `'a` benutzt wird, um einen generischen Parameter zu markieren. In Rust sollte der Syntax eindeutig und auffällig sein, sowie neben Traits und Referenzen in eine Typdeklaraion (Signatur) passen. Alternative Syntaktische Repräsentationen wurden diskutiert, aber für keine dieser Alternativen konnte man demonstrierbare Vorteile finden.
 
-<h3><a href="#how-do-i-return-a-borrow-to-something-i-created-from-a-function" name="how-do-i-return-a-borrow-to-something-i-created-from-a-function">
-How do I return a borrow to something I created from a function?
+<h3><a href="#how-do-i-return-a-borrow-to-something-i-created-from-a-function" name="wie-kann-ich-in-einer-funktion-etwas-allokieren-und-dann-eine-referenz-darauf-zurückgeben">
+Wie kann ich in einer Funktion etwas allokieren und dann eine Referenz darauf zurückgeben?
 </a></h3>
 
-You need to ensure that the borrowed item will outlive the function. This can be done by binding the output lifetime to some input lifetime like so:
+Du musst sicherstellen, dass das allokierte Objekt länger als die Funktion lebt. Das kannst du erreichen, indem du die Ausgabe-Lifetime an eine Eingabe-Lifetime bindest:
 
 ```rust
 type Pool = TypedArena<Thing>;
 
-// (the lifetime below is only written explicitly for
-// expository purposes; it can be omitted via the
-// elision rules described in a later FAQ entry)
+// (Die Lifetime 'a ist nur zur Erklärung explizit angegeben.
+// Du kannst sie nach den in einem späteren FAQ-Eintrag
+// erklärten Elision-Regeln weglassen.)
 fn create_borrowed<'a>(pool: &'a Pool,
                        x: i32,
                        y: i32) -> &'a Thing {
@@ -683,7 +683,7 @@ fn create_borrowed<'a>(pool: &'a Pool,
 }
 ```
 
-An alternative is to eliminate the references entirely by returning an owning type like [`String`][String]:
+Eine Alternative Vorgehensweise wäre, die Referenzen vollständig wegzulassen und einen Typ mit Besitz wie zum Beispiel [`String`][String] zurückzugeben:
 
 ```rust
 fn happy_birthday(name: &str, age: i64) -> String {
@@ -691,44 +691,45 @@ fn happy_birthday(name: &str, age: i64) -> String {
 }
 ```
 
-This approach is simpler, but often results in unnecessary allocations.
+Diese Vorgehensweise ist einfacher, aber hat oft unnötige Allokationen zufolge.
 
-<h3><a href="#when-are-lifetimes-required-to-be-explicit" name="when-are-lifetimes-required-to-be-explicit">
-Why do some references have lifetimes, like <code>&amp;'a T</code>, and some do not, like <code>&amp;T</code>?
+<h3><a href="#when-are-lifetimes-required-to-be-explicit" name="wann-sind-lifetimes-explizit-erforderlich">
+Warum haben manche Referenzen Lifetimes, wie <code>&amp;'a T</code>, und manche anderen wie <code>&amp;T</code> nicht?
 </a></h3>
 
-In fact, *all* reference types have a lifetime, but most of the time you do not have to write
-it explicitly. The rules are as follows:
+Eigentlich haben *alle* Referenzen eine Lifetime, aber meistens musst du sie nicht explizit hinschreiben.
+Die Regeln sind folgendermaßen:
 
-1. Within a function body, you never have to write a lifetime explicitly; the correct value
-   should always be inferred.
-2. Within a function *signature* (for example, in the types of its
-   arguments, or its return type), you *may* have to write a lifetime
-   explicitly. Lifetimes there use a simple defaulting scheme called
+1. Innerhalb eines Funktionskörpers musst du nie explizit
+   eine Lifetime angeben;
+   der korrekte Wert sollte immer inferiert werden.
+2. Innerhalb einer Funktions*signatur* (zum Beispiel für die Typen der
+   Parameter oder den Rückgabetyp), sind explizite Lifetimes manchmal notwendig.
+   Hier nutzen Lifetimes ein einfaches defaulting-Schema namens
    ["lifetime elision"](https://doc.rust-lang.org/book/lifetimes.html#lifetime-elision),
-   which consists of the following three rules:
-  - Each elided lifetime in a function’s arguments becomes a distinct lifetime parameter.
-  - If there is exactly one input lifetime, elided or not, that
-    lifetime is assigned to all elided lifetimes in the return values
-    of that function.
-  - If there are multiple input lifetimes, but one of them is &self
-    or &mut self, the lifetime of self is assigned to all elided
-    output lifetimes.
-3. Finally, in a `struct` or `enum` definition, all lifetimes must be explicitly declared.
+   welches aus den drei folgenden Regeln besteht:
+  - Jede ausgelassene Lifetime in den Funktionsparametern wird ein eigener Lifetime-Parameter.
+  - Wenn es genau eine explizite oder ausgelassene Eingabe-Lifetime gibt, dann
+    wird diese Lifetime allen ausgelassenen Lifetimes der Rückgabetypen
+    dieser Funktion zugewiesen.
+  - Wenn es mehrere Eingabe-Lifetimes gibt, von denen eine `&self` oder `&mut self` ist,
+    dann wird die Lifetime von `self` allen ausgelassenen Rückgabe-Lifetimes zugeordnet.
+3. In einer `struct`- oder `enum`-Definition müssen alle Lifetimes explizit erklärt werden.
 
-If these rules result in compilation errors, the Rust compiler will provide an error message indicating the error caused, and suggesting a potential solution based on which step of the inference process caused the error.
+Wenn diese Regeln Kompilierabbrüche herbeiführen, wird der Rust Compiler eine Fehlermeldung ausgeben, welche den Fehler beschreibt und eine potenzielle Lösung vorschlägt. Diese Lösung hängt vom konkreten Schritt des Inferenzvorganges ab,
+in welchem der Fehler aufgetreten ist.
 
-<h3><a href="#how-can-rust-guarantee-no-null-pointers" name="how-can-rust-guarantee-no-null-pointers">
-How can Rust guarantee "no null pointers" and "no dangling pointers"?
+<h3><a href="#how-can-rust-guarantee-no-null-pointers" name="wie-kann-rust-freiheit-von-nullpointern-garantieren">
+Wie kann Rust Freiheit von Nullpointern und "dangling pointern" garantieren?
 </a></h3>
 
-The only way to construct a value of type `&Foo` or `&mut Foo` is to specify an existing value of type `Foo` that the reference points to. The reference "borrows" the original value for a given region of code (the lifetime of the reference), and the value being borrowed from cannot be moved or destroyed for the duration of the borrow.
+Der einzige Weg, einen Wert vom Typ `&Foo` oder `&mut Foo` zu konstruieren, ist, einen existierenden Wert vom Typ `Foo` anzugeben, auf welchen die Referenz zeigen kann. Die Referenz "borgt" sich den originalen Wert für einen gegeben Abschnitt des Codes (nämlich der Lifetime der Referenz) aus. Während der Dauer der "Ausborgung" kann der Wert nicht an einen neuen Besitzer übergehen oder zerstört werden.
 
-<h3><a href="#how-do-i-express-the-absense-of-a-value-without-null" name="how-do-i-express-the-absense-of-a-value-without-null">
-How do I express the absence of a value without <code>null</code>?
+<h3><a href="#how-do-i-express-the-absense-of-a-value-without-null" name="wie-drücke-ich-die-abwesenheit-eines-wertes-aus-ohne-null-zu-verwenden">
+Wie drücke ich die Abwesenheit eines Wertes aus, ohne <code>null</code> zu verwenden?
 </a></h3>
 
-You can do that with the [`Option`][Option] type, which can either be `Some(T)` or `None`. `Some(T)` indicates that a value of type `T` is contained within, while `None` indicates the absence of a value.
+Das kannst du mit dem [`Option`][Option]-Typ erreichen, welcher entweder ein `Some(T)` oder `None` sein kann. `Some(T)` zeigt an, dass ein Wert vom Typ `T` in der Option vorhanden ist, während `None` die Abwesenheit anzeigt.
 
 <h2 id="generics">Generics</h2>
 
