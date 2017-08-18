@@ -3,73 +3,77 @@ layout: de-DE/default
 title: Other Installation Methods &middot; The Rust Programming Language
 ---
 
-# Other Rust Installation Methods
+# Andere Installationsmethoden für Rust
 
-- [Which installer should you use?](#which)
-- [Other ways to install `rustup`](#more-rustup)
-- [Standalone installers](#standalone)
-- [Source code](#source)
+- [Welchen Installer sollte ich benutzen?](#which)
+- [Andere Wege, `rustup` zu installieren](#more-rustup)
+- [Standalone Installer](#standalone)
+- [Quellcode](#source)
 
-## Which installer should you use?
+## Welchen Installer sollte ich benutzen?
 <span id="which"></span>
 
-Rust runs on many platforms, and there are many ways to install Rust. If you
-want to install Rust in the most straightforward, recommended way, then follow
-the instructions on the main [installation page].
+Rust läuft auf vielen Plattformen, und es gibt viele Wege, es zu installieren.
+Wenn du Rust möglichst einfach installieren willst, dann folge den Schritten
+auf der [Installations-Hauptseite].
 
-That page describes installation via [`rustup`], a tool that manages multiple
-Rust toolchains in a consistent way across all platforms Rust supports. Why
-might one _not_ want to install using those instructions?
+Diese Seite beschreibt Installation via [`rustup`], einem Werkzeug, welches
+mehrere Rust-Toolchains auf konsistente Art für alle von Rust unterstützten
+Plattformen verwaltet. Warum sollte man Rust _nicht_ mit [`rustup`]
+installieren wollen?
 
-- Offline installation. `rustup` downloads components from the internet on
-  demand. If you need to install Rust without access to the internet, `rustup`
-  is not suitable.
-- Preference for the system package manager. On Linux in particular, but also on
-  macOS with [Homebrew], and Windows with [Chocolatey], developers sometimes
-  prefer to install Rust with their platform's package manager.
-- Preference against `curl | sh`. On Unix, we usually install `rustup` by
-  running a shell script via `curl`. Some have concerns about the security of
-  this arrangement and would prefer to download and run the installer
-  themselves.
-- Validating signatures. Although `rustup` performs its downloads over HTTPS,
-  the only way to verify the signatures of Rust installers today is to do so
-  manually with the standalone installers.
-- GUI installation and integration with "Add/Remove Programs" on
-  Windows. `rustup` runs in the console and does not register its installation
-  like typical Windows programs. If you prefer a more typical GUI installation
-  on Windows there are standalone `.msi` installers. In the future
-  `rustup` will also have a GUI installer on Windows.
+- Offline-Installation. `rustup` lädt Komponenten je nach Bedarf aus dem
+  Internet nach. Wenn du Rust ohne Internetzugriff installieren willst, dann
+  ist `rustup` ungeeignet.
+- Vorzug des Paketmanagers. Insbesondere auf Linux, aber mit [Homebrew] auch
+  auf macOS, und auf Windows mit [Chocolatey], wollen manche Entwickler Rust
+  lieber mit dem jeweiligen Paketmanager installieren.
+- Vermeidung von `curl | sh`. Auf Unix installieren wir `rustup` normalerweise,
+  indem wir per `curl` ein Shell-Skript ausführen. Manche haben Bedenken
+  zur Sicherheit dieser Methode und würden den Installer lieber selber laden
+  und ausführen.
+- Validierung von Signaturen. Auch wenn `rustup` alle Downloads mit HTTPS
+  durchführt, können die Signaturen des Installers momentan nur über die
+  Verwendung der alleinstehenden Installer durchgeführt werden.
+- GUI-Installation und Integration mit "Programme hinzufügen/entfernen" auf
+  Windows. `rustup` läuft in der Konsole und registriert seine Installation
+  nicht wie andere Windows-Programme. Wenn du Rust lieber mithilfe einer typische
+  GUI installieren willst, nutze die für Windows erhältlichen standalone
+  `.msi`-Installer. Zukünftig wird `rustup` für Windows einen GUI-Installer
+  anbieten.
 
-Rust's platform support is defined in [three tiers], which correspond closely
-with the installation methods available: in general, the Rust project provides
-binary builds for all tier 1 and tier 2 platforms, and they are all installable
-via `rustup`. Some tier 2 platforms though have only the standard library
-available, not the compiler itself; that is, they are cross-compilation targets
-only; Rust code can run on those platforms, but they do not run the compiler
-itself. Such targets can be installed with the `rustup target add` command.
+Die Plattformunterstützung von Rust ist in [drei Stufen] unterteilt, welche
+eng mit den verfügbaren Installationsmethoden korrespondieren:
+im allgemeinen bietet das Rust Projekt ausführbare Dateien für Plattformen mit
+Stufen 1 und 2, und alle sind über `rustup` installierbar. Manche Plattformen
+zweiter Stufe bieten allerdings nur die Standardbibliotheken und nicht den
+Compiler an; das bedeutet, dass diese Plattformen lediglich Ziele für die
+Cross-Compilation sind. Rust läuft auf diesen Plattformen, obwohl der
+Compiler selbst nicht auf ihnen läuft.
+Diese Ziele können mit dem Befehl `rustup target add` installiert werden.
 
-## Other ways to install `rustup`
+## Andere Wege, `rustup` zu installieren
 <span id="rustup"></span>
 
-The way to install `rustup` differs by platform:
+Dies hängt stark von der verwendeten Plattform ab:
 
-* On Unix, run `curl https://sh.rustup.rs -sSf | sh` in your
-  shell. This downloads and runs [`rustup-init.sh`], which in turn
-  downloads and runs the correct version of the `rustup-init`
-  executable for your platform.
-* On Windows, download and run [`rustup-init.exe`].
+* Auf Unix, führe in deiner Shell `curl https://sh.rustup.rs -sSf | sh`
+  aus. Dies wird eine Datei [`rustup-init.sh`] herunterladen und ausführen.
+  Dieses Skript wiederum wird die korrekte Version der ausführbaren
+  Datei `rustup-init` herunterladen und ausführen.
+* Auf Windows, lade [`rustup-init.exe`] herunter und führe die Datei aus.
 
-`rustup-init` can be configured interactively, and all options can additionally
-be controlled by command-line arguments, which can be passed through the shell
-script. Pass `--help` to `rustup-init` as follows to display the arguments
-`rustup-init` accepts:
+`rustup-init` kann interaktiv konfiguriert werden, und alle Optionen können
+zusätzlich mit Kommandozeilenargumenten angegeben werden, welche durch das
+Shellskript übergeben werden können. Gib das Argument `--help` an `rustup-init`
+folgendermaßen weiter, um die unterstützten Befehle anzuzeigen:
 
 ```
 curl https://sh.rustup.rs -sSf | sh -s -- --help
 ```
 
-If you prefer not to use the shell script, you may directly download
-`rustup-init` for the platform of your choice:
+Wenn du lieber kein Shellskript verwenden willst, kannst du direkt
+`rustup-init` für eine Plattform deiner Wahl herunterladen:
 
 <div class="rustup-init-table">
   {% for column in site.data.platforms.rustup %}
@@ -89,27 +93,29 @@ If you prefer not to use the shell script, you may directly download
   {% endfor %}
 </div>
 
-## Standalone installers
+## Standalone Installer
 <span id="standalone"></span>
 
-The official Rust standalone installers contain a single release of Rust, and
-are suitable for offline installation. They come in three forms: tarballs
-(extension `.tar.gz`), that work in any Unix-like environment, Windows
-installers (`.msi`), and Mac installers (`.pkg`). These installers come with
-`rustc`, `cargo`, `rustdoc`, the standard library, and the standard
-documentation, but do not provide access to additional cross-targets like
-`rustup` does.
+Die offiziellen standalone-Installer enthalten eine einzige Version von Rust,
+und sind für eine Installation ohne Internet geeignet. Sie sind als tarball,
+welche in jeder Unix-artigen Umgebung laufen sollten (Erweiterung `.tar.gz`),
+Windows Installer (`.msi`), und Mac-Installer (`.pkg`). Diese Installer
+kommen mit `rustc`, `cargo`, `rustdoc`, der Standardbibliothek, und der
+Standarddokumentation, bieten aber im Gegensatz zu `rustup` keinen Zugriff
+auf weitere cross-targets.
 
-The most common reasons to use these are:
+Die häufigsten Gründe, diese zu benutzen, sind:
 
-- Offline installation
-- Prefering a more platform-integrated, graphical installer on Windows
+- Offline-Installation
+- Vorzug der Nutzung eines Plattform-Integrierten, graphischen Installers
+  auf Windows
 
-Each of these binaries is signed with the [Rust signing key], which is
-[available on keybase.io], by the Rust build infrastructure, with
-[GPG]. In the tables below, the `.asc` files are the signatures.
+Jede dieser Binaries sind mit dem [Rust signing key] signiert, welcher
+auf [keybase.io] verfügbar ist. Die Rust build Infrastruktur signiert
+alle Binaries automatisch mit GPG. In der folgenden Tabelle sind
+die Signaturen als `.asc`-Dateien gelistet.
 
-Past releases can be found in [the archives].
+Vergangene Veröffentlichungen können in [den Archiven] gefunden werden.
 
 {% for channel in site.channels %}
 
@@ -179,7 +185,7 @@ Past releases can be found in [the archives].
 [`rustup-init.sh`]: https://static.rust-lang.org/rustup/rustup-init.sh
 [Homebrew]: http://brew.sh/
 [Chocolatey]: http://chocolatey.org/
-[three tiers]: https://forge.rust-lang.org/platform-support.html
+[drei Stufen]: https://forge.rust-lang.org/platform-support.html
 [Rust signing key]: https://static.rust-lang.org/rust-key.gpg.ascii
 [GPG]: https://gnupg.org/
 [available on keybase.io]: https://keybase.io/rust
