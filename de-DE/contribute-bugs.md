@@ -1,46 +1,21 @@
 ---
 layout: de-DE/default
-title: Contributing to Rust &mdash; finding, triaging and fixing issues &middot; The Rust Programming Language
+title: Bei Rust mithelfen &mdash; Fehler finden, sichten und beheben &middot; Die Programmiersprache Rust
 ---
 
-# Contributing to Rust &mdash; finding, triaging and fixing issues
+# Bei Rust mithelfen &mdash; Fehler finden, sichten und beheben
 
-The day-to-day maintenance of the project revolves around Rust's
-[issue tracker] and [pull requests][PR], and more help is always
-needed. The most basic way to get started contributing to Rust is to
-look for the [E-easy] or [E-mentor] labels. These are meant to be
-approachable for new Rust programmers.
+Die tägliche Pflege des Projekts dreht sich um den [Issue Tracker][issue tracker] und [Pull Requests][pull requests] - Mithilfe wird immer benötigt! Der einfachste Weg um einzusteigen sind Tickets mit den [E-easy] und [E-mentor]-Labels, die für neue Rust-Programmierer geeignet sind.
 
-On `E-mentor` issues an experienced Rust developer has volunteered in
-the comments to mentor you through solving the issue and [submitting
-the fix via GitHub pull request][pull]. Contact them about the issue,
-on the issue tracker by [@mentioning] their name in a comment, on IRC,
-or through email. Note that Rust developers get a lot of notifications
-and it is easy to miss some; don't hesitate to hunt them down by
-whatever means necessary!
+Bei Issues, die mit `E-mentor` gekennzeichnet sind, hat sich ein erfahrener Entwickler bereiterklärt, dich durch den Lösungsprozess und das [Einsenden eines Pull Request][pull] zu begleiten. Kontaktiere den Mentor auf dem Issue Tracker indem du ihn mit [@mentoring] in einem Kommentar erwähnst, oder ihn per Mail oder IRC direkt anschreibst. Denke daran dass Rust-Entwickler täglich viele Benachrichtigungen erhalten und einzelne Nachrichten übersehen werden können, also scheue dich nicht noch einmal nachzuhaken, falls du einmal keine Antwort erhältst.
 
-Other projects in Rust maintain similar entry-level tasks, including
-the web browser [Servo], the HTTP library [hyper], the
-source-formatter [rustfmt], the Unix library bindings [nix],
-and the lint collection [clippy].
+Andere Rust-Projekte bieten ähnliche Einsteigeraufgaben, so etwa der Webbrowser [Servo], die HTTP-Bibliothek [hyper], das Code-Formatierungswerkzeug [rustfmt], die Unix-Bindings [nix] oder der Linter [clippy].
 
-While Rust has an [extensive test suite][test] there is always more to
-test. The [E-needstest] label indicates issues that are thought to be
-fixed but don't have tests. Writing test cases is a great way to
-understand a new project and get started contributing.
+Obwohl Rust bereits eine [ansehnliche Test-Suite][test] besitzt, gibt es immer Testfälle, die noch nicht abgedeckt sind. Das [E-needstest]-Label kennzeichnet Issues, die wahrscheinlich schon gelöst sind, zu deren Problemstellung aber noch ein Unit-Test fehlt. Testfälle zu schreiben ist eine gute Gelegenheit, um mit einer neuen Projektstruktur vertraut zu werden und zum erstem Mal mitzuwirken.
 
-Rust is always in need of people to [triage] issues: reproduce bugs,
-minimize test cases, apply labels, close resolved issues. Note that
-you'll need elevated GitHub permissions to apply labels, but this is
-easy to obtain for somebody with a bit of experience in the
-project. Ask a [team member][team].
+Rust braucht immer Freiwillige, die Issues [sichten][triage], also Bugs reproduzieren, Testfälle minimieren, Labels zuweisen und gelöste Tickets schließen. Um Labels zuzuweisen, brauchst du zusätzliche Berechtigungen auf GitHub, die aber leicht zu bekommen sind, sobald du etwas Erfahrung im Projekt gesammelt hast. Frag einfach ein [Teammitglied][team].
 
-Once you've found your way around the project and have created a few
-pull requests in a particular area, consider reviewing others' pull
-requests: good reviewership is a rare skill and always appreciated. No
-prior permission is needed &mdash; just start constructively and politely
-commenting on pull requests that interest you. If you want training
-on conducting good code reviews [read this guide][reviews].
+Sobald du dich im Projekt zurechtfindest und ein paar Pull Requests zu einem Teilgebiet eingereicht hast, kannst du versuchen Pull Requests anderer Benutzer durchzusehen. Gute Reviewer sind rar und immer gern gesehen. Dazu brauchst du keine besonderen Berechtigungen &mdash; kommentiere einfach Pull Requests, die dich interessieren, konstruktiv und höflich. Wenn du mehr zu guten Code Reviews lernen möchtest, wirf einen Blick in [diese Referenz][reviews].
 
 <!--
 TODO: weekly triage email?

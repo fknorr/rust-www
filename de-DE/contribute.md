@@ -1,5 +1,7 @@
---- layout: de-DE/default title: Bei Rust mithelfen &middot; The Rust
-Programmiersprache ---
+---
+layout: de-DE/default
+title: Bei Rust mithelfen &middot; Die Programmiersprache Rust
+---
 
 # Contributing to Rust
 
