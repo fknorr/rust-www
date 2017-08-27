@@ -1,62 +1,27 @@
 ---
 layout: de-DE/default
-title: Contributing to Rust &mdash; community building &middot; The Rust Programming Language
+title: Bei Rust mithelfen &mdash; Community-Building &middot; Die Programmiersprache Rust
 ---
 
-# Contributing to Rust &mdash; community building
+# Mithelfen, die Rust-Gemeinschaft aufzubauen
 
-Help newbies, spread the word, meet interesting people. Make Rust the
-shining example of open source development that we all want it to be.
+Hilf Einsteigern, erzähle Anderen von Rust, triff interessante Leute, und mache Rust zu einem glänzenden Beispiel für Open-Source-Entwicklung.
 
-Keep an eye on the [#rust-beginners] channel. This is where we direct
-new Rust programmers to ask for help, and it is vital when they do
-that they receive prompt, accurate, and courteous responses. Likewise,
-[Stack Overflow], [users.rust-lang.org], and [/r/rust], are all forums
-where Rust programers commonly look for assistance. If you want
-training on answering programmers' questions [read this
-guide][helpful].
+Behalte [#rust-beginners] im Auge. Auf diesen Channel verweisen wir neue Rust-Programmierer, die Hilfe benötigen. Es ist entscheidend, dass sie dort schnelle, genaue und freundliche Antworten erhalten. Auch auf [Stack Overflow], [users.rust-lang.org] und [/r/rust] suchen Rust-Programmierer häufig nach Unterstützung. [Dieser Leitfaden][helpful] gibt dir Tipps im Umgang mit Fragen anderer Entwickler.
 
-If you are already experienced in some area of the project, please
-look out for potential [E-easy] bugs. When you see an
-easy issue on the bug tracker that you know how to fix, write up a
-description of the fix and tag it with E-easy. Note that what is
-obvious to you is not obvious to a new Rust contributor, and its
-important to describe the problem and the solution clearly. It is
-thus also helpful to triage E-easy bugs for poor descrptions and
-improve them.
+Wenn du bereits in einem Gebiet des Projekts erfahren bist, mach dich auf der Suche nach Bugs, die mit [E-easy] gekennzeichnet werden können. Wenn du so einen einfachen Issue findest, dessen Lösung dir offensichtlich erscheint, kommentiere mit einem Lösungsvorschlag und füge den E-easy-Tag an. Denke daran, dass für dich offensichtliche Zusammenhänge für einen Einsteiger nicht genauso klar sein müssen, deshalb ist eine genaue Beschreibung des Problems und seiner Lösung wichtig. Du kannst also auch beitragen, indem du nach schwachen Beschreibungen einfacher Bugs suchst und sie verbesserst.
 
-Experienced developers who are patient and communicate clearly should
-consider [mentoring new contributors][mentor]. Tag easy issues with
-[E-mentor] and mention in a comment that you will mentor. Expect people
-to contact you about the issue, and attempt to respond promptly.
+Erfahrene Entwickler, die Geduld und Erklärungstalent mitbringen, sollten sich überlegen [Mentoren für neue Helfer][mentor] zu werden. Füge zu einfachen Bugs das [E-mentor]-Tag hinzu und poste einen Kommentar, dass du das Mentoring für dieses Issue übernimmst. Erwarte dass dich neue Entwickler wegen des Probles kontaktieren, und bemühe dich ihnen zeitnah zur Seite zu stehen.
 
-Maintaining entry-level tasks is good not only for The Rust Project
-itself but all projects. If your project has a consistent supply of
-entry-level tasks you might institute such a program
-yourself. ***Curating entry-level tasks is one of the most effective
-methods of bringing new programmers into the project***. If you want
-training on mentoring new contributors [read this
-guide][mentor-guide].
+Aufgaben auf Einsteigerniveau bereitzuhalten ist nicht nur für Rust, sondern für alle Projekte von Vorteil. Falls dein eigenes Projekt eine konstante Menge an Einsteigerproblemen bietet, hast du die Möglichkeit selbst ein solches Mentoring-Programm ins Leben zu rufen. ***Aufgaben für Anfänger bereitzustellen ist eine der effektivsten Möglichkeiten, um neue Programmierer in dein Projekt zu bringen***. Falls du Tipps zum Mentoring neuer Mitglieder brauchst, wirf einen Blick in [diesen Leitfaden][mentor-guide].
 
-Talk about what you are working on in the weekly "what's everyone
-working on this week" threads on [/r/rust] and [users.rust-lang.org],
-and indicate what you need help with. These are great starting points
-for collaboration.
+Rede im "What's everyone working on this week"-Thread in [/r/rust] und in [users.rust-lang.org] über deine aktuellen Projekte und sprich an wo du Unterstützung benötigst. Diese Foren bieten einen guten Startpunkt für Zusammenarbeit.
 
-Advocate Rust in your own local community. Rust [user groups] and [events]
-are a unique and exciting part of the Rust experience: there are so
-many, and they are everywhere! If you haven't been yet, go and enjoy
-new experiences. If there is nothing Rusty going on near you then
-consider organizing something. You can poll for interest and announce
-events on [/r/rust] or [users.rust-lang.org]. Contact the [community
-team] to put events on the calendar, and thus be announced on [This
-Week in Rust].
+Stelle Rust auch deinen Freunden und Kollegen vor. Rust-[Benutzergruppen][user groups] und [-Events][events] sind ein einzigartiger und spannender Teil der Rust-Community, es gibt viele davon, und sie sind überall! Falls du noch nicht dabei warst, geh' hin und erleb' es! Falls in deiner Nähe noch keine Veranstaltungen zu Rust gibt, überlege dir selbst etwas zu organisieren. Frage nach Interessenten und kündige Events auf [/r/rust] und [users.rust-lang.org] an. Kontaktiere das [Community-Team][community team], damit dein Event im offiziellen Kalender landet und bei [This Week in Rust] angekündigt wird.
 
-Remember as you are advocating Rust though to be considerate of
-others' views &mdash; not everybody is going to be receptive to Rust, and
-that's just fine.
+Behalte dabei aber im Hinterkopf, stets auf die Ansichten anderer Rücksicht zu nehmen &mdash; nicht jeder wird Gefallen an Rust finden, und das ist in Ordnung.
 
-Meet other Rust community builders in [#rust-community].
+Andere Interssenten am Community-Building kannst du in [#rust-community] treffen.
 
 <!--
 Other ideas:
