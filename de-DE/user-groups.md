@@ -1,6 +1,6 @@
 ---
 layout: de-DE/default
-title: Rust User Groups &middot; The Rust Programming Language
+title: Rust User Groups &middot; Die Programmiersprache Rust
 ---
 
 # Rust User Groups

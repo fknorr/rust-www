@@ -1,11 +1,11 @@
 ---
 layout: de-DE/default
-title: Das Rust Team &middot; Die Rust Programmiersprache
+title: Das Rust-Team &middot; Die Rust Programmiersprache
 extra_css:
   - team.css
 ---
 
-# The Rust Team
+# Das Rust-Team
 
 Das Projekt Rust wird von mehreren Teams [verwaltet](https://github.com/rust-lang/rfcs/blob/master/text/1068-rust-governance.md), welche sich auf verschiedene Themengebiete spezialisiert haben.
 Unten werden in alphabetischer Reihenfolge die Teams aufgelistet.

@@ -1,6 +1,6 @@
 ---
 layout: de-DE/default
-title: Other Installation Methods &middot; The Rust Programming Language
+title: Andere Installationsmethoden &middot; The Rust Programming Language
 ---
 
 # Andere Installationsmethoden für Rust
