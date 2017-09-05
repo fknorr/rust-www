@@ -1,76 +1,23 @@
 ---
 layout: de-DE/default
-title: Contributing to Rust &mdash; language, compiler, and the standard library &middot; The Rust Programming Language
+title: Bei Rust mirwirken &mdash; Sprache, Compiler und Standardbibliothek &middot; Die Programmiersprache Rust
 ---
 
-# Contributing to Rust &mdash; language, compiler, and the standard library
+# Bei Rust mitwirken &mdash; Sprache, Compiler und Standardbibliothek
 
+Der Quelltext von Compiler und Standardbibliothek liegen im Hauptrepository, und nachdem seine Verwaltung die Hauptaufgabe dieses Repositories ist, beziehen sich auch viele Labels im Issue-Tracker darauf. Ein paar der ergiebigeren Labels sind [A-codegen] für die Übersetzung von Rust in die LLVM-IR; [A-debuginfo] für die Erzeugung von Metadaten für Debugger, [A-diagnostics] für Fehlermeldungen und anderes Feedback des Compliers; [A-libs] für Tickets zur Standardbibliothek [A-macros] und [A-syntaxext] für Syntaxerweiterungen und [A-typesystem] für das Typsystem der Sprache.
 
-The source code to the compiler and standard library are in the main
-repository, and as their maintenance is the primary objective of that
-repository, many labels on the issue tracker relate to it. Some of
-the more fruitful labels include [A-codegen], for translation of
-Rust to LLVM IR; [A-debuginfo], generation of metadata used by debuggers;
-[A-diagnostics], the feedback the compiler provides on errors; [A-libs],
-issues with the standard library; [A-macros] and [A-syntaxext], both
-related to syntax extensions; and [A-typesystem], on the topic of types.
+Es existiert keine regelmäßig gepflegte Dokumentation zur Architektur des Compilers, aber [eine kurze Übersicht findet sich im Repository][rustc-guide]. Die [API-Dokumentation für die Crates des Compilers][internal-docs] kann ebenso wie der Codebrowser [Rust DXR] bei der Navigation im Quelltext helfen. Die [Richtlinien zur Rust-Testsuite][testsuite] und [`make tips`][tips] geben eine Anleitung zum Gebrauch des Buildsystems.
 
-There is no well-maintained guide to the architecture of the compiler,
-but [there is a small overview in-tree][rustc-guide]. The [API
-documentation for the crates that make up the
-compiler][internals-docs] can help with navigating the code, as can
-the source code browser [Rust DXR]. The [guide to the Rust test
-suite][testsuite] will teach you how to exercise the Rust build system
-effectively, as will running [`make tips`][tips] at the command line.
+Eine der größten Entwicklungsziele in absehbarer Zukunft ist, die Interna des Compilers nicht mehr auf dem Syntaxbaum des Quelltexts, sondern auf der [Zwischenrepräsentation MIR][mir] arbeiten zu lassen. Es wird erwartet, dass diese Änderung durch Vereinfachung des Compilers viele neue Möglichkeiten mit sich bringt. Hilfe wird unter anderem bei der Implementierung eines neuen MIR-basierten Übersetzungsschritts, neuer MIR-basierter Optimierungsstrategien und inkrementeller Kompilation benötigt. Es existiert noch keine zentrale Sammelstelle für Aufgaben zu diesem Thema, du kannst aber jederzeit auf [internals.rust-lang.org] oder [#rust-internals] nachfrgen.
 
-For the foreseable future, one of the major thrusts of Rust compiler
-development is converting its internals from operating directly off
-the AST to working with an [intermediate representation called
-MIR][mir]. This work is expected to open up many new possibilities by
-simplifying the compiler and help is needed to e.g. create a MIR-based
-translation pass, add MIR-based optimizations, and implement
-incremental compilation. There is yet no single source for information
-on work needed here, but ask on [internals.rust-lang.org] or
-[#rust-internals] for guidance.
+Es ist peinlich [wenn der Complier einmal abstürzt][ice] &mdash; der gefürchtete Internal Compiler Error (ICE). Das [I-ICE]-Label markiert derartige Fehler auf dem Issue Tracker, und dort gibt es einige davon. Diese Bugs zu beheben sind eine gute Einsteigeraufgabe, da sie oft isoliert auftreten und es einfach ist festzustellen, wenn der Fehler behoben ist.
 
-[It's embarrasing when our compiler crashes][ice] &mdash; the
-dreaded 'internal compiler error' (ICE). The [I-ICE] label
-tracks these, and they are often plentiful. These are usually
-good bugs to start with because it's easy to know when you've fixed
-them, and they're often relatively self-contained.
+Die Performance von Rust-Code ist einer der größten Vorteile der Sprache; die des Compilers dagegen eine ihrer größten Schwächen. Jegliche Verbesserungen an Laufzeit- oder &mdash; noch besser &mdash; Compilezeitperformance werden gefeiert. Die [I-slow] und [A-optimization]-Labels beschäftigen sich mit Laufzeit- und [I-compiletime] mit Compilezeitperformance. Es gibt [eine Seite, die die Übersetzungsgeschwindigkeit][rustc-perf] für einige Szenarien verfolgt. Die Compiler-Performance kann mit Hilfe des `-Z time-passes`-Flags rückverfolgt werden, und Rust-Code kann mit gängigen Profilern, wie `perf` unter Linux, analysiert werden.
 
-The performance of Rust code is one of its great advantages; and the
-performance of the Rust compiler one of its great weaknesses. Any
-improvements to either runtime or &mdash; especially &mdash; compiletime performance
-are widely celebrated. The [I-slow] and [A-optimization] labels deal
-with runtime performance, and [I-compiletime] with compiletime. We have
-a [site that tracks compiletime performance][rustc-perf] on a number
-of workloads. The `-Z time-passes` compiler flag can help debug
-compiler performance, and Rust code can be profiled with standard
-profilers like `perf` on Linux.
+Große Neuerungen an Sprache und Standardbibliothek werden durch den [Request for Comments (RFC)][rfc]-Prozess verabschiedet, in dem das Design ausgearbeitet wird. Obwohl er öffentlich zugänglich ist handelt es sich um einen sozialen Prozess zwischen Entwicklern, die schon Erfahrung in der Zusammenarbeit haben. Wir empfehlen dir, dich dem Prozess langsam vertraut zu machen &mdash; ein vorschnell eingereichter RFC ohne ausreichendes Verständis des historischen, technischen oder sozialen Kontextes hinter dem Problem führt leicht zu einem schlechten ersten Eindruck und Enttäuschung deinerseits. Lies am besten das oben erwähnte Readme, um mit dem Vorgehen vertraut zu werden. In der Geschichte von Rust sind schon viele Ideen diskutiert worden, viele verworfen, manche bis zu einem späteren Termin aufgeschoben, und der [RFC-Issue Tracker][rfc-issues] verwaltet einige Wunschideen die erst noch ihren Weg in die Sprache finden müssen. Kurz bevor ein RFC zur Implementierung freigegeben wird findet die _Final Comment Period_ statt, die durch das [final-comment-period][rfc-fcp]-Label im RFC-Repository gekennzeichnet wird. Ebenso findet nochmals eine [_Final Comment Period_][issue-fcp] statt, bevor ein Feature im stable-Branch des Compilers aktiviert wird (ein Vorgehen, dass als "ungating" bekannt ist). Beide FCPs sind kritische Zeitpunkte, um Meinungen einzubringen und die Entwicklungsrichtung der Sprache zu beeinflusssen. Sie werden im wöchentlichen Teambericht auf [internals.rust-lang.org] angekündigt.
 
-Major new features go through a [Request for Comments (RFC)][rfc]
-process, by which the design is agreed upon. Though it is open to all,
-it is a social process between developers who already have various
-amounts of experience working together, and it is recommended to get
-involved slowly &mdash; submitting a hasty RFC without understanding
-the historical, technical, or social context is an easy way
-to make a poor impression and come away disappointed. Read the
-aforelinked readme file to understand best how it all works. Many
-ideas have been debated in Rust's history, some rejected, some
-postponed until the future, and the RFC [issue tracker][rfc-issues]
-catalogs some wishlist ideas that have yet to make headway into the
-language. Shortly before an RFC is accepted for implementation it
-enters 'final comment period', indicated by the [final-comment-period
-label on the rust-lang/rfcs repository][rfc-fcp]. Likewise, before a
-feature is enabled in the stable compiler (called 'ungating') it
-enters [final-comment-period in the rust-lang/rust
-repository][issue-fcp]. Both FCPs are critical moments to get involved
-and express opinions on the direction of the language, and are
-advertised in the weekly subteam reports on [internals.rust-lang.org].
-
-Meet other Rust compiler engineers in [#rustc], language
-designers in [#rust-lang], and library designers in [#rust-libs].
+Andere Rust-Compilerentwickler kannst du in [#rustc], Sprachdesigner in [#rust-lang] und Bibliotheksentwickler in [#rust-libs] kennenlernen.
 
 <!--
 TODO: guide to compile-time benchmarking
