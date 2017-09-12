@@ -1,51 +1,30 @@
 ---
 layout: de-DE/default
-title: Rust Security Policy &middot; The Rust Programming Language
+title: Rust-Sicherheitsrichtlinien &middot; Die Programmiersprache Rust
 ---
 
-<h1>Rust Security Policy</h1>
+<h1>Rust-Sicherheitsrichtlinien</h1>
 
-<h2>Reporting a Bug</h2>
+<h2>Fehlerberichte</h2>
 
-<p>Safety is one of the core principles of Rust, and to that end, we would
-like to ensure that Rust has a secure implementation. Thank you for taking the
-time to responsibly disclose any issues you find.</p>
+<p>Sicherheit ist einer der Kernaspekte von Rust, und zu diesem Zweck möchten wir sicherstellen, dass der Sprache eine sichere Implementierung zugrundeliegt. Wir sind dankbar, dass du dir die Zeit nimmst, Sicherheitslücken verantwortungsvoll offenzulengen</p>
 
-<p>All security bugs in the Rust distribution should be reported by email to
-<a href="mailto:security@rust-lang.org">security@rust-lang.org</a>. This list
-is delivered to a small security team. Your email will be acknowledged within 24
-hours, and you'll receive a more detailed response to your email within 48
-hours indicating the next steps in handling your report. If you would like, you
-can encrypt your report using <a href="../rust-security-team-key.gpg.ascii">our public key</a>.
-This key is also <a
-href="https://pgp.mit.edu/pks/lookup?op=vindex&amp;search=0xEFB9860AE7520DAC">On
-MIT's keyserver</a> and <a href="#key">reproduced below</a>.
+<p>Alle sicherheitsrelevanten Fehler in Rust und den Rust-Bibliotheken sollten per Mail an <a href="mailto:security@rust-lang.org">security@rust-lang.org</a> gemeldet werden. Diese Mailingliste wird an ein kleines Security-Team weitergeleitet. Deine Nachricht wird innerhalb von 24 Stunden quittiert, und nach spätestens 48 Stunden erhältst du eine detaillierte Antwort mit den nächsten Schritten zur Behandlung der Lücke. Du kannst deine Nachricht mit <a href="../rust-security-team-key.gpg.ascii">unserem PGP-Schlüssel</a> verschlüsseln. Er liegt auch auf
+<a href="https://pgp.mit.edu/pks/lookup?op=vindex&amp;search=0xEFB9860AE7520DAC">dem Schlüsselserver des MIT</a> und ist <a href="#key">weiter unten</a> nochmals aufgeführt.</p>
 
-<p>This email address receives a large amount of spam, so be sure to use a
-descriptive subject line to avoid having your report be missed. After the
-initial reply to your report, the security team will endeavor to keep you
-informed of the progress being made towards a fix and full announcement. As
-recommended by <a href="https://en.wikipedia.org/wiki/RFPolicy">RFPolicy</a>,
-these updates will be sent at least every five days. In reality, this is more
-likely to be every 24-48 hours.</p>
+<p>Diese Mailadresse erhält täglich viele Spamnachrichten, achte daher bitte darauf, dass deine Nachricht einen sprechenden Betreff trägt. Dies verhindert, dass die Mail übersehen wird. Nach der initialen Antwort auf deinen Bericht wird das Security-Team bemühen, dich über den Fortschritt hin zu einer Lösung und Veröffentlichung des Problems auf dem Laufenden zu halten. Wie von <a href="https://en.wikipedia.org/wiki/RFPolicy">RFPolicy</a> vorgeschlagen, bekommst du diese Updates mindestens alle fünf Tage. Tatsächlich wirst du eher alle 24 bis 48 Stunden von uns hören.</p>
 
-<p>If you have not received a reply to your email within 48 hours, or have not
-heard from the security team for the past five days, there are a few steps you
-can take:</p>
+<p>Falls du 48 Stunden nach deinem Bericht noch keine Antwort erhalten hast oder nach fünf Tagen kein Update erhalten hast, kannst du einen der folgenden Schritte unternehmen:</p>
 
 <ul>
-    <li>Contact the current security coordinator (<a href="mailto:steve@steveklabnik.com">Steve Klabnik</a>
-        (<a href="https://pgp.mit.edu/pks/lookup?op=vindex&amp;search=0xDAE717EFE9424541">public key</a>)) directly.</li>
-    <li>Contact the back-up contact (<a href="mailto:andersrb@gmail.com">Brian Anderson</a>
-        (<a href="https://pgp.mit.edu/pks/lookup?op=vindex&amp;search=0x16457A6368CFF26F">public key</a>)) directly.</li>
-    <li>Post on the <a href="https://internals.rust-lang.org/">internals forums</a>
-    or ask in the #rust-internals IRC room on irc.mozilla.org.</li>
+    <li>Kontaktiere den Security Coordinator (<a href="mailto:steve@steveklabnik.com">Steve Klabnik</a>
+        (<a href="https://pgp.mit.edu/pks/lookup?op=vindex&amp;search=0xDAE717EFE9424541">public key</a>)) persönlich.</li>
+    <li>Kontaktiere seinen Stellvertreter (<a href="mailto:andersrb@gmail.com">Brian Anderson</a>
+        (<a href="https://pgp.mit.edu/pks/lookup?op=vindex&amp;search=0x16457A6368CFF26F">public key</a>)) persönlich.</li>
+    <li>Poste im <a href="https://internals.rust-lang.org/">Rust Internals-Forum</a> oder frage im #rust-internals-Kanal auf irc.mozilla.org nach.</li>
 </ul>
 
-<p>Please note that the discussion forums and #rust-internals IRC channel are
-public areas. When escalating in these venues, please do not discuss your
-issue. Simply say that you're trying to get a hold of someone from the security
-team.</p>
+<p>Bitte sei dir bewusst, dass die Diskussionsforen und der #rust-internals-Kanal öffentlich zugänglich sind. Sprich das offene Sicherheitsproblem nicht an, falls du dort hachhakst. Benutze die Plattformen nur, um den Kontakt zu einem Mitglied des Security-Teams zu suchen.</p>
 
 <h2>Disclosure Policy</h2>
 
