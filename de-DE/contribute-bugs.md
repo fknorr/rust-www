@@ -1,9 +1,9 @@
 ---
 layout: de-DE/default
-title: Bei Rust mithelfen &mdash; Fehler finden, sichten und beheben &middot; Die Programmiersprache Rust
+title: Bei Rust mitwirken &mdash; Fehler finden, sichten und beheben &middot; Die Programmiersprache Rust
 ---
 
-# Bei Rust mithelfen &mdash; Fehler finden, sichten und beheben
+# Bei Rust mitwirken &mdash; Fehler finden, sichten und beheben
 
 Die tägliche Pflege des Projekts dreht sich um den [Issue Tracker][issue tracker] und [Pull Requests][pull requests] - Mithilfe wird immer benötigt! Der einfachste Weg um einzusteigen sind Tickets mit den [E-easy] und [E-mentor]-Labels, die für neue Rust-Programmierer geeignet sind.
 

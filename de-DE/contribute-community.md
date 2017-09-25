@@ -1,6 +1,6 @@
 ---
 layout: de-DE/default
-title: Bei Rust mithelfen &mdash; Community-Building &middot; Die Programmiersprache Rust
+title: Bei Rust mitwirken &mdash; Community-Building &middot; Die Programmiersprache Rust
 ---
 
 # Mithelfen, die Rust-Gemeinschaft aufzubauen

@@ -1,9 +1,9 @@
 ---
 layout: de-DE/default
-title: Bei Rust mithelfen &mdash; Bibliotheken &middot; Die Programmiersprache Rust
+title: Bei Rust mitwirken &mdash; Bibliotheken &middot; Die Programmiersprache Rust
 ---
 
-# Bei Rust mithelfen &mdash; Bibliotheken
+# Bei Rust mitwirken &mdash; Bibliotheken
 
 Wenn du mit eigenem Code helfen möchtest, sind Programmbibliotheken die richtige Anlaufstelle: Nachdem Rust noch eine junge Sprache ist, existieren für eine Vielzahl an Problemstellungen noch keine oder nur unvollständige Bibliotheken.
 

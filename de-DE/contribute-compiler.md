@@ -1,6 +1,6 @@
 ---
 layout: de-DE/default
-title: Bei Rust mirwirken &mdash; Sprache, Compiler und Standardbibliothek &middot; Die Programmiersprache Rust
+title: Bei Rust mitwirken &mdash; Sprache, Compiler und Standardbibliothek &middot; Die Programmiersprache Rust
 ---
 
 # Bei Rust mitwirken &mdash; Sprache, Compiler und Standardbibliothek

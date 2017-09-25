@@ -1,9 +1,9 @@
 ---
 layout: de-DE/default
-title: Zu Rust beitragen &mdash; tooling, IDEs und Infrastruktur &middot; Die Rust Programmiersprache
+title: Bei Rust mitwirken &mdash; tooling, IDEs und Infrastruktur &middot; Die Rust Programmiersprache
 ---
 
-# Zu Rust beitragen &mdash; tooling, IDEs und Infrastruktur
+# Bei Rust mitwirken &mdash; tooling, IDEs und Infrastruktur
 
 Werkzeuge spielen im Erfolg einer Sprache eine große Rolle,
 und es gibt in diesem Bereich noch eine Menge Arbeit.

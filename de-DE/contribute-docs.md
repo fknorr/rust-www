@@ -1,9 +1,9 @@
 ---
 layout: de-DE/default
-title: Bei Rust mithelfen &mdash; Dokumentation &middot; Die Programmiersprache Rust
+title: Bei Rust mitwirken &mdash; Dokumentation &middot; Die Programmiersprache Rust
 ---
 
-# Bei Rust mithelfen &mdash; Dokumentation
+# Bei Rust mitwirken &mdash; Dokumentation
 
 Dokumentation ist nie perfekt, und es gibt nie genug davon. Viele Aspekte der Sprache erfordern kein tiefes Verständnis um ihre Dokumentation zu verfassen, zu verbessern oder gegenzulesen. Im Gegenteil bietet das Dokumentieren eine großartige Gelegenheit, Rust zu lernen, und es ist leicht, Verbesserungsmöglichkeiten an den Dokumenten zu finden. Eine Passage ist zu umständlich formuliert? Wichtige Informationen werden nicht erwähnt? Dein Pull Request wird gerne übernommen!
 

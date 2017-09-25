@@ -190,7 +190,7 @@ Dieses Dokument entstammt teilweise aus der [Python Software Foundation Trademar
 Dieses Dokument ist keine offizielle Erklärung der Mozilla Markenzeichenrichtlinien,
 sondern dient dazu, die Mozilla Markenzeichenrichtlinien im Bezug auf Rust zu erklären.
 
-## Helping Out
+## Mithelfen
 
 Als Teil der Rust-Gemeinschaft, halte bitte nach fraglichen Verwendungen des Rust-Logos und der
 "Rust"-Wortmarke Ausschau. Potenzielle fehlerhafte Verwendungen oder Missbrauch kannst du bei
@@ -202,6 +202,6 @@ und seinen Vertretern überlassen werden.
 
 Danke!
 
-## License
+## Lizenz
 
 Interessierte können dieses Dokument frei unter den Bedingungen der [Creative Commons CC0 license](https://creativecommons.org/publicdomain/zero/1.0/) adaptieren und Verändern.

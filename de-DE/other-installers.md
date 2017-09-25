@@ -93,7 +93,7 @@ Wenn du lieber kein Shellskript verwenden willst, kannst du direkt
   {% endfor %}
 </div>
 
-## Standalone Installer
+## Standalone-Installer
 <span id="standalone"></span>
 
 Die offiziellen standalone-Installer enthalten eine einzige Version von Rust,
@@ -151,7 +151,7 @@ Vergangene Veröffentlichungen können in [den Archiven] gefunden werden.
 
 {% endfor %}
 
-## Source code
+## Quelltext
 <span id="source"></span>
 
 <div class="installer-table">

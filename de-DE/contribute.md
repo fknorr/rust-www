@@ -1,13 +1,12 @@
 ---
 layout: de-DE/default
-title: Bei Rust mithelfen &middot; Die Programmiersprache Rust
+title: Bei Rust mitwirken &middot; Die Programmiersprache Rust
 ---
 
-# Contributing to Rust
+# Bei Rust mitwirken
 
-Du hast begonnen, Rust zu lernen und magst es. Jetzt willst du ein Teil
-davon sein.  Wenn du nicht sicher bist wo du beginnen sollst, kann dir
-diese Seite helfen.
+Du hast begonnen, Rust zu lernen und Freude daran gefunden? Du möchtest Teil davon sein?
+Wenn du nicht sicher bist wo du beginnen sollst, kann dir diese Seite helfen.
 
 **Hast du einen Bug gefunden und willst ihn melden?** [Folge dem
 Bug-Reporting Handbuch][bugs].  Danke im Vorraus!
