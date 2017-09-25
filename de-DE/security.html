@@ -26,53 +26,32 @@ title: Rust-Sicherheitsrichtlinien &middot; Die Programmiersprache Rust
 
 <p>Bitte sei dir bewusst, dass die Diskussionsforen und der #rust-internals-Kanal öffentlich zugänglich sind. Sprich das offene Sicherheitsproblem nicht an, falls du dort hachhakst. Benutze die Plattformen nur, um den Kontakt zu einem Mitglied des Security-Teams zu suchen.</p>
 
-<h2>Disclosure Policy</h2>
+<h2>Veröffentlichungsrichtlinien</h2>
 
-<p>The Rust project has a 5 step disclosure process.</p>
+<p>Der Veröffentlichungsprozess von Rust-Sicherheitslücken besteht aus fünf Schritten.</p>
 
 <ol>
-<li>The security report is received and is assigned a primary handler. This
-person will coordinate the fix and release process.</li>
+    <li>Der Sicherheitsbericht wird empfangen und einem Hauptverantwortlichen zugewiesen. Diese Person koordiniert den Korrektur- und Veröffentlichungsprozess.</li>
+    <li>Das Problem wird verifiziert und eine Liste der betroffenen Versionen wird ermittelt</li>
+    <li>Verwandter Code wird auditiert, um ähnliche Probleme aufzudecken</li>
+    <li>Für alle noch gewarteten Versionen werden Patches vorbereitet. Diese erscheinen nicht in den öffentlichen Repositories, sondern werden bis zur Ankündigung zurückgehalten.</li>
+    <li>Am Veröffentlichungstag wird eine Kopie des Ankündigungstextes an die <a href="https://groups.google.com/forum/#!forum/rustlang-security-announcements">Rust-Security-Mailingliste</a> gesendet. Innerhalb der nächsten sechs Stunden wird die Ankündigung auf dem Rust-Blog veröffentlicht.</li>
+</ol>
 
-<li>The problem is confirmed and a list of all affected versions is determined.</li>
+<p>Dieser Prozess kann einige Zeit in Anspruch nehmen, vor allem wenn die Absprache mit Maintainern anderer Projekte notwendig wird. Auch wenn die Bemühung besteht, den Bug in kürzester Zeit zu beseitigen, muss der obige Prozess eingehalten werden um sicherzustellen, dass die Veröffentlichung in konsistenter Art und Weise geschieht.</p>
 
-<li>Code is audited to find any potential similar problems.</li>
+<h2>Sicherheitsupdates erhalten</h2>
 
-<li>Fixes are prepared for all releases which are still under maintenance.
-These fixes are not committed to the public repository but rather held locally
-pending the announcement.</li>
+<p>Die beste Möglichkeit, alle sicherheitsrelevanten Ankündigungen zu erhalten, ist die <a href="https://groups.google.com/forum/#!forum/rustlang-security-announcements">Rust Security Announcements - Mailingliste</a> zu abonnieren. Über die Liste gehen nur sehr wenige Mails, sie erhält jedoch alle Ankündigungen zu Sicherheitslücken, sobald deren Geheimhaltung aufgehoben wurde.</p>
 
-<li>On the embargo date, the <a href="https://groups.google.com/forum/#!forum/rustlang-security-announcements">
-Rust security mailing list</a> is sent a copy of the announcement. The changes
-are pushed to the public repository and new builds are deployed to
-rust-lang.org.  Within 6 hours of the mailing list being notified, a copy of
-the advisory will be published on the Rust blog.</li> </ol>
+<h3>Frühwarnung</h3>
 
-<p>This process can take some time, especially when coordination is required
-with maintainers of other projects. Every effort will be made to handle the bug
-in as timely a manner as possible, however it's important that we follow the
-release process above to ensure that the disclosure is handled in a consistent
-manner.</p>
+<p>Alle Sicherheitslücken werden 72 Stunden vor Aufhebung der Geheimhaltung auf <a href="http://oss-security.openwall.org/wiki/mailing-lists/distros">distros@openwall</a> angekündigt, um Linux-Distributionen das Aktualisieren ihrer Pakete zu ermöglichen.
 
-<h2>Receiving Security Updates</h2>
+<h2>Anmerkungen zu diesen Richtlinien</h2>
 
-<p>The best way to receive all the security announcements is to subscribe to
-the <a
-href="https://groups.google.com/forum/#!forum/rustlang-security-announcements">Rust
-security announcements mailing list</a>. The mailing list is very low traffic,
-and it receives the public notifications the moment the embargo is lifted.</p>
+<p>Falls du Verbesserungsvorschläge zu dieser Richtlinie hast, schreibe eine Mail an <a href="mailto:security@rust-lang.org">security@rust-lang.org</a>.</p>
 
-<h3>Advance notification</h3>
-
-<p>We will announce vulnerabilities 72 hours before the embargo is lifted to
-<a href="http://oss-security.openwall.org/wiki/mailing-lists/distros">distros@openwall</a>,
-so that Linux distributions can update their packages.</p>
-
-<h2>Comments on This Policy</h2>
-
-<p>If you have any suggestions to improve this policy, please send an email to
-<a href="mailto:security@rust-lang.org">security@rust-lang.org</a>.</p>
-
-<h2 id="key">Plaintext PGP Key</h2>
+<h2 id="key">PGP-Schlüssel im Klartext</h2>
 
 <pre><code>{% include rust-security-team-key.gpg.ascii %}</code></pre>
