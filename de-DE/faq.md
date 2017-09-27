@@ -6,7 +6,7 @@ title: Häufig gestellte Fragen &middot; Die Programmiersprache Rust
 # Häufig gestellte Fragen
 
 <p class="faq-intro">
-Auf dieser Seite werden häufig gestellte Fragen über die Programmiersprache Rust beantwortet. Die Seite ist keine vollständige Anleitung und zum Lernen der Sprache ungeeignet. Sie versucht, Antworten auf Fragen zu geben, welche in der Rust Community immer wieder aufgetreten sind, und verdeutlicht einige Überlegungen hinter Rust's Design-Entscheidungen.
+Auf dieser Seite werden häufig gestellte Fragen über die Programmiersprache Rust beantwortet. Die Seite ist keine vollständige Anleitung und zum Lernen der Sprache ungeeignet. Sie versucht, Antworten auf Fragen zu geben, welche in der Rust-Community immer wieder aufgetreten sind, und verdeutlicht einige Überlegungen hinter Rust's Design-Entscheidungen.
 </p>
 
 <p class="faq-intro">
@@ -17,7 +17,7 @@ Wenn dir auffällt, dass hier eine wichtige oder verbreitete Frage fehlt, dann <
     <h2>Inhaltsverzeichnis</h2><a href="#toggle-toc"></a>
     <div class="contents">
         <ol id="toc-contents">
-            <li><a href="#project">Das Rust Projekt</a></li>
+            <li><a href="#project">Das Rust-Projekt</a></li>
             <li><a href="#performance">Performance</a></li>
             <li><a href="#syntax">Syntax</a></li>
             <li><a href="#numerics">Arithmetik</a></li>
@@ -43,13 +43,13 @@ Wenn dir auffällt, dass hier eine wichtige oder verbreitete Frage fehlt, dann <
 </div>
 
 
-<h2 id="project">Das Rust Projekt</h2>
+<h2 id="project">Das Rust-Projekt</h2>
 
 <h3><a href="#what-is-this-projects-goal" name="Was-ist-das-Ziel-des-Rust-Projektes?">
-Was ist das Ziel des Rust Projektes?
+Was ist das Ziel des Rust-Projekts?
 </a></h3>
 
-Das Ziel des Rust Projektes ist es, eine sichere, nebenläufige und praktikable Systemsprache zu implementieren.
+Das Ziel des Rust-Projekts ist es, eine sichere, nebenläufige und praktikable Systemsprache zu implementieren.
 
 Rust existiert, weil andere, ähnlich abstrakte und effiziente Sprachen folgende Erwartungen nicht erfüllen:
 
@@ -64,9 +64,9 @@ Rust existiert als eine Alternative, welche sowohl effizienten Code als auch ein
 Wird dieses Projekt von Mozilla kontrolliert?
 </a></h3>
 
-Nein. Im Jahr 2006 startete Graydon Hoare Rust als Teilzeitprojekt, und so blieb es für 3 Jahre. Erst als Rust 2009 die nötige Reife erreichte, um Kernkonzepte anhand einfacher Tests zu demonstrieren, beteiligte sich Mozilla. Rust wird vorrangig von Mozilla unterstützt, aber eine vielfältige, enthusiastische Community in der ganzen Welt arbeitet daran. Das [Rust Team](https://www.rust-lang.org/team.html) besteht sowohl aus Mitarbeitern von Mozilla als auch aus unabhängigen Mitgliedern, und `rust` auf GitHub hatte bisher schon über [1,500 verschiedene Mitwirkende](https://github.com/rust-lang/rust/).
+Nein. Im Jahr 2006 startete Graydon Hoare Rust als Teilzeitprojekt, und so blieb es für 3 Jahre. Erst als Rust 2009 die nötige Reife erreichte, um Kernkonzepte anhand einfacher Tests zu demonstrieren, beteiligte sich Mozilla. Rust wird vorrangig von Mozilla unterstützt, aber eine vielfältige, enthusiastische Community in der ganzen Welt arbeitet daran. Das [Rust-Team](https://www.rust-lang.org/team.html) besteht sowohl aus Mitarbeitern von Mozilla als auch aus unabhängigen Mitgliedern, und `rust` auf GitHub hatte bisher schon über [1,500 verschiedene Mitwirkende](https://github.com/rust-lang/rust/).
 
-Die [Führung des Projektes](https://github.com/rust-lang/rfcs/blob/master/text/1068-rust-governance.md) besteht aus einem Kernteam, welches die Vision und die Prioritäten festlegt und das Projekt von einer globalen Perspektive aus leitet. Es gibt auch kleinere Teams, welche sich um die Entwicklung bestimmter Interessenbereiche kümmern. Das können zum Beispiel der Kern der Sprache, der Compiler, Rust Bibliotheken, Tooling oder die Moderation der offiziellen Rust Communities sein. Fortschritt in jedem dieser Bereiche wird über einen [RFC-Prozess](https://github.com/rust-lang/rfcs) erreicht. Änderungen, für welche kein RFC notwendig ist, werden normalerweise in einer Pull Request im [`rustc` Repository](https://github.com/rust-lang/rust) diskutiert.
+Die [Führung des Projektes](https://github.com/rust-lang/rfcs/blob/master/text/1068-rust-governance.md) besteht aus einem Kernteam, welches die Vision und die Prioritäten festlegt und das Projekt von einer globalen Perspektive aus leitet. Es gibt auch kleinere Teams, welche sich um die Entwicklung bestimmter Interessenbereiche kümmern. Das können zum Beispiel der Kern der Sprache, der Compiler, Rust-Bibliotheken, Tooling oder die Moderation der offiziellen Rust-Communities sein. Fortschritt in jedem dieser Bereiche wird über einen [RFC-Prozess](https://github.com/rust-lang/rfcs) erreicht. Änderungen, für welche kein RFC notwendig ist, werden normalerweise in einer Pull Request im [`rustc` Repository](https://github.com/rust-lang/rust) diskutiert.
 
 <h3><a href="#what-are-some-non-goals" name="Welche-Ziele-werden-nicht-angestrebt?">
 Welche Ziele werden nicht angestrebt?
@@ -82,13 +82,13 @@ Welche Ziele werden nicht angestrebt?
 In welchen Projekten nutzt Mozilla Rust?
 </a></h3>
 
-Hauptsächlich wird Rust in [Servo](https://github.com/servo/servo), einer experimentellen Browser Engine, an welcher Mozilla arbeitet, verwendet. Mozilla arbeitet auch daran, weitere Rust Komponenten [in Firefox zu integrieren](https://bugzilla.mozilla.org/show_bug.cgi?id=1135640).
+Hauptsächlich wird Rust in [Servo](https://github.com/servo/servo), einer experimentellen Browser Engine, an welcher Mozilla arbeitet, verwendet. Mozilla arbeitet auch daran, weitere Rust-Komponenten [in Firefox zu integrieren](https://bugzilla.mozilla.org/show_bug.cgi?id=1135640).
 
 <h3><a href="#what-examples-are-there-of-large-rust-projects" name="Welche-großen-Rust-Projekte-gibt-es?">
 Welche großen Rust-Projekte gibt es?
 </a></h3>
 
-Die zwei im Moment größten quelloffenen Rust-Projekte sind [Servo](https://github.com/servo/servo) und der [Rust Compiler](https://github.com/rust-lang/rust) selbst.
+Die zwei im Moment größten quelloffenen Rust-Projekte sind [Servo](https://github.com/servo/servo) und der [Rust-Compiler](https://github.com/rust-lang/rust) selbst.
 
 <h3><a href="#who-else-is-using-rust" name="Wer-benutzt-sonst-noch-Rust?">
 Wer benutzt sonst noch Rust?
@@ -106,7 +106,7 @@ TODO: Write this answer.
 Wie kann ich Rust einfach ausprobieren?
 </a></h3>
 
-Der einfachste Weg, Rust auszuprobieren, ist der [Playpen](https://play.rust-lang.org/) - eine Online-Applikation, in welcher man einfach Rust Code schreiben und Ausführen kann. Wenn du Rust auf deinem eigenen System ausprobieren willst, [installiere es](https://www.rust-lang.org/install.html) und gehe das [Guessing Game](https://doc.rust-lang.org/stable/book/guessing-game.html) Tutorial im Buch durch.
+Der einfachste Weg, Rust auszuprobieren, ist der [Playpen](https://play.rust-lang.org/) - eine Online-Applikation, in welcher man einfach Rust-Code schreiben und Ausführen kann. Wenn du Rust auf deinem eigenen System ausprobieren willst, [installiere es](https://www.rust-lang.org/install.html) und gehe das [Guessing Game](https://doc.rust-lang.org/stable/book/guessing-game.html) Tutorial im Buch durch.
 
 <h3><a href="#how-do-i-get-help-with-rust-issues" name="Wie-bekomme-ich-bei-Problemen-mit-Rust-Hilfe?">
 Wie bekomme ich bei Problemen mit Rust Hilfe?
@@ -115,16 +115,16 @@ Wie bekomme ich bei Problemen mit Rust Hilfe?
 Es gibt viele Wege. Du kannst:
 
 - Einen Forenpost im offiziellen Rust User Forum [users.rust-lang.org](https://nsers.rust-lang.org/) absetzen.
-- Im offiziellen [Rust IRC Kanal](https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust) (#rust on irc.mozilla.org) eine Frage stellen.
+- Im offiziellen [Rust-IRC-Kanal](https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust) (#rust on irc.mozilla.org) eine Frage stellen.
 - Auf [Stack Overflow](https://stackoverflow.com/questions/tagged/rust) eine Frage stellen (markiere sie mit dem "rust" tag!).
-- Im inoffiziellen Rust Subreddit [/r/rust](https://www.reddit.com/r/rust) posten.
+- Im inoffiziellen Rust-Subreddit [/r/rust](https://www.reddit.com/r/rust) posten.
 
 <h3><a href="#why-has-rust-changed-so-much" name="Warum-hat-sich-Rust-so-stark-verändert?">
 Warum hat sich Rust über die Zeit so stark verändert?
 </a></h3>
 
 Das ursprüngliche Ziel von Rust war es, eine sichere, aber einfach zu benutzende Systemprogrammiersprache zu erstellen.
-Um dieses Ziel zu erreichen, verfolgte Rust eine Vielzahl von Ideen, von denen es manche behielt (lifetimes, traits) und andere wieder verwarf (das Typestate-System oder Green Threading). Außerdem wurde ein großer Teil der Rust Standardbibliotheken vor der Veröffentlichung der Version 1.0 neu geschrieben, um mithilfe der Features von Rust eine qualitativ hochwertige, konsistente, Plattformübergreifende API anzubieten. Jetzt, wo Rust die Version 1.0 erreicht hat, wird garantiert, dass die Sprache stabil ist; obwohl die Sprache sich weiter entwickelt, wird Code, welcher auf aktuellen Versionen von Rust funktioniert, auch in zukünftigen Versionen des Compilers gültiger Rust Code sein.
+Um dieses Ziel zu erreichen, verfolgte Rust eine Vielzahl von Ideen, von denen es manche behielt (lifetimes, traits) und andere wieder verwarf (das Typestate-System oder Green Threading). Außerdem wurde ein großer Teil der Rust-Standardbibliotheken vor der Veröffentlichung der Version 1.0 neu geschrieben, um mithilfe der Features von Rust eine qualitativ hochwertige, konsistente, Plattformübergreifende API anzubieten. Jetzt, wo Rust die Version 1.0 erreicht hat, wird garantiert, dass die Sprache stabil ist; obwohl die Sprache sich weiter entwickelt, wird Code, welcher auf aktuellen Versionen von Rust funktioniert, auch in zukünftigen Versionen des Compilers gültiger Rust-Code sein.
 
 <h3><a href="#how-does-rust-language-versioning-work" name="Wie-funktioniert-Versionierung-in-Rust?">
 Wie funktioniert Versionierung in Rust?
@@ -184,7 +184,7 @@ Rust erlangt dadurch einige Vorteile: Vorhersagbare Bereinigung von Ressourcen, 
 
 Das Ownership und Borrowing System ermöglicht nicht nur Speichersicherheit ohne einen GC, sondern ist auch in anderen Zusammenhängen nützlich, zum Beispiel [allgemeines Ressourcenmanagement](http://blog.skylight.io/rust-means-never-having-to-close-a-socket/) und [Nebenläufigkeit](http://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html).
 
-In Fällen, in denen einfache Ownership nicht genügt, nutzen Rust Programme den üblichen Referenzzähler/Smart Pointer Typ [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html) und sein Thread-sicheres Gegenstück, [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html).
+In Fällen, in denen einfache Ownership nicht genügt, nutzen Rust-Programme den üblichen Referenzzähler/Smart Pointer Typ [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html) und sein Thread-sicheres Gegenstück, [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html).
 
 Allerdings wird daran gearbeitet, in Zukunft einen *optionalen* Garbage Collector als Erweiterung anzubieten, um eine gute Integration mit Laufzeitumgebungen wie [Spidermonkey](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey)
 und [V8](https://developers.google.com/v8/?hl=en) zu ermöglichen, welche Garbage Collection verwenden.
@@ -195,7 +195,7 @@ Es gibt auch experimentelle, in [purem Rust implementierte Freispeichersammler](
 Warum ist mein Programm langsam?
 </a></h3>
 
-Der Rust Compiler optimiert Programme nur dann, wenn man das explizit anfordert, da [Optimierungen die Kompiliergeschwindigkeit verringern und allgemein während der Entwicklung unerwünscht sind](https://users.rust-lang.org/t/why-does-cargo-build-not-optimise-by-default/4150/3).
+Der Rust-Compiler optimiert Programme nur dann, wenn man das explizit anfordert, da [Optimierungen die Kompiliergeschwindigkeit verringern und allgemein während der Entwicklung unerwünscht sind](https://users.rust-lang.org/t/why-does-cargo-build-not-optimise-by-default/4150/3).
 
 Wenn du mit `cargo` kompilierst, nutze die `--release` option. Wenn du dein Program direkt mit `rustc` erstellst, nutze die Option `-0`. Beide Optionen schalten Optimierungen ein.
 
@@ -213,7 +213,7 @@ Neben dem Kompilationsmodell gibt es andere Aspekte des Sprachdesigns und der Co
 
 Rust hat zunächst ein relativ komplexes Typsystem, und der Compiler muss einige Zeit darauf verwenden, die Typbeschränkungen zu überprüfen, welche Rust zur Laufzeit absichern.
 
-Außerdem sind einige Teile des Rust Compilers ziemlich veraltet. Diese generieren insbesondere LLVM IR niedriger Qualität, welche LLVM erst "reparieren" muss. Es gibt Hoffnung, dass zukünftige, [MIR-basierte](https://github.com/rust-lang/rfcs/blob/master/text/1211-mir.md) Übersetzungs- und Optimierungsdurchläufe LLVM die Arbeit einfacher machen.
+Außerdem sind einige Teile des Rust-Compilers ziemlich veraltet. Diese generieren insbesondere LLVM IR niedriger Qualität, welche LLVM erst "reparieren" muss. Es gibt Hoffnung, dass zukünftige, [MIR-basierte](https://github.com/rust-lang/rfcs/blob/master/text/1211-mir.md) Übersetzungs- und Optimierungsdurchläufe LLVM die Arbeit einfacher machen.
 
 Drittens hat die Nutzung von LLVM auch ihre Kosten: Rust hat dadurch hohe Leistung zur Laufzeit, aber LLVM ist ein großes Framework welches nicht auf hohe Leistung zur Kompilation fokussiert ist, insbesondere bei Eingaben mit mangelhafter Qualität.
 
@@ -613,7 +613,7 @@ Der zweite Schritt ist, die Container-Typen der Standardbibliothek, welche mit O
 
 Der wichtigste Bestandteil, um den Borrow Checker zu verstehen, ist Übung. Rust's starke Garantien der statischen Analyse sind streng und ziemlich verschieden von anderen Programmiersprachen. Es wird einige Zeit dauern, mit allem vollständig zurechtzukommen.
 
-Wenn du dich mit dem Borrow Checker allzu sehr abmühst und dir die Geduld ausgeht, ist die [Rust Community](community.html) jederzeit für dich da.
+Wenn du dich mit dem Borrow Checker allzu sehr abmühst und dir die Geduld ausgeht, ist die [Rust-Community](community.html) jederzeit für dich da.
 
 <h3><a href="#when-is-rc-useful" name="wann-sollte-ich-rc-verwenden">
 Wann sollte ich <code>Rc</code> verwenden?
@@ -716,7 +716,7 @@ Die Regeln sind folgendermaßen:
     dann wird die Lifetime von `self` allen ausgelassenen Rückgabe-Lifetimes zugeordnet.
 3. In einer `struct`- oder `enum`-Definition müssen alle Lifetimes explizit erklärt werden.
 
-Wenn diese Regeln Kompilierabbrüche herbeiführen, wird der Rust Compiler eine Fehlermeldung ausgeben, welche den Fehler beschreibt und eine potenzielle Lösung vorschlägt. Diese Lösung hängt vom konkreten Schritt des Inferenzvorganges ab,
+Wenn diese Regeln Kompilierabbrüche herbeiführen, wird der Rust-Compiler eine Fehlermeldung ausgeben, welche den Fehler beschreibt und eine potenzielle Lösung vorschlägt. Diese Lösung hängt vom konkreten Schritt des Inferenzvorganges ab,
 in welchem der Fehler aufgetreten ist.
 
 <h3><a href="#how-can-rust-guarantee-no-null-pointers" name="wie-kann-rust-freiheit-von-nullpointern-garantieren">
@@ -750,7 +750,7 @@ Was ist der Unterschied zwischen einer Funktion und einer Closure, welche keine 
 
 Funktionen und Closures sind äquivalente Operationen, haben aber zur Laufzeit aufgrund ihrer verschiedenen Implementierungen verschiedene Repräsentationen.
 
-Funktionen sind eingebaute Primitive der Sprache, während Closures eigentlich syntaktischer Zucker für einen von drei Traits sind: [`Fn`][Fn], [`FnMut`][FnMut], und [`FnOnce`][FnOnce]. Beim Kompilieren einer Closure wird der Rust Compiler automatisch ein Struct erstellen, für welches der entsprechende Trait dieser drei implementiert ist und welches die entgegengenommenen Variablen als Member enthält. Er ermöglicht es dann, dieses Struct wie eine Funktion aufzurufen. 'Bare Functions' können nichts aus ihrer Umgebung entgegennehmen.
+Funktionen sind eingebaute Primitive der Sprache, während Closures eigentlich syntaktischer Zucker für einen von drei Traits sind: [`Fn`][Fn], [`FnMut`][FnMut], und [`FnOnce`][FnOnce]. Beim Kompilieren einer Closure wird der Rust-Compiler automatisch ein Struct erstellen, für welches der entsprechende Trait dieser drei implementiert ist und welches die entgegengenommenen Variablen als Member enthält. Er ermöglicht es dann, dieses Struct wie eine Funktion aufzurufen. 'Bare Functions' können nichts aus ihrer Umgebung entgegennehmen.
 
 Der große Unterschied zwischen diesen Traits ist, wie sie mit dem `self`-Parameter umgehen. [`Fn`][Fn] nimmt `&self`, [`FnMut`][FnMut] nimmt `&mut self`, und [`FnOnce`][FnOnce] nimmt `self`.
 
@@ -1555,7 +1555,7 @@ Mit der Zeit werden immer mehr Antworten für die aktuelle Version von Rust enst
 Wie kann ich die Entwickler auf Fehler in der Rust-Dokumentation hinweisen?
 </a></h3>
 
-Probleme in der Dokumentation kannst du im Rust Compiler [Issue Tracker](https://github.com/rust-lang/rust/issues) melden. Lies vorab unsere [Richtlinien](https://github.com/rust-lang/rust/blob/master/CONTRIBUTING.md#writing-documentation), um effektiv mitwirken zu können.
+Probleme in der Dokumentation kannst du im Rust-Compiler [Issue Tracker](https://github.com/rust-lang/rust/issues) melden. Lies vorab unsere [Richtlinien](https://github.com/rust-lang/rust/blob/master/CONTRIBUTING.md#writing-documentation), um effektiv mitwirken zu können.
 
 <h3><a href="#how-do-i-view-rustdoc-documentation-for-a-library-my-project-depends-on" name="how-do-i-view-rustdoc-documentation-for-a-library-my-project-depends-on">
 Wo finde ich die rustdoc-Dokumentation für eine Bibliothek, von der mein Projekt abhängt?

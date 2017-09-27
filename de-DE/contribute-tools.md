@@ -3,29 +3,29 @@ layout: de-DE/default
 title: Bei Rust mitwirken &mdash; tooling, IDEs und Infrastruktur &middot; Die Rust Programmiersprache
 ---
 
-# Bei Rust mitwirken &mdash; tooling, IDEs und Infrastruktur
+# Bei Rust mitwirken &mdash; Tooling, IDEs und Infrastruktur
 
-Werkzeuge spielen im Erfolg einer Sprache eine große Rolle,
+Codewerkzeuge spielen im Erfolg einer Sprache eine große Rolle,
 und es gibt in diesem Bereich noch eine Menge Arbeit.
 ***Ein großer Schwerpunkt der aktuellen Entwicklung von Rust
-ist, [die IDE_Experience zu verbessern][ides]***.
+ist, [die IDE-Experience zu verbessern][ides]***.
 Dies beinhaltet Arbeit am gesamten Rust-Stack, vom Compiler selbst
-bis zu deiner Lieblings-IDE. Folge für mehr Information dem Link.
+bis zu deiner Lieblings-IDE. Folge dem Link für mehr Information.
 
-Sowohl Cargo, der Paketmanager, als auch rustdoc, der Dokumentationsgenerator,
-sind zwar voll funktionsfähig, aber leiden an einem Mangel an Entwicklern.
-Rustdoc hat viele offene Probleme, im Main-Repository unter dem Label
-[A-rustdoc] gelistet. Es sind hauptsächlich Bugs und Mitarbeit würde
-lediglich einen Bugfix und eine Pull-Request erfordern.
-Cargo hat [sein eigenes Repository und Issue-Tracker][Cargo], und
-wer beitragen möchte, sollte sich in [#cargo] melden.
+Sowohl Cargo, der Paketmanager, als auch der Dokumentationsgenerator rustdoc
+sind zwar voll funktionsfähig, leiden aber an einem Entwicklermangel.
+Rustdoc hat viele offene Probleme, die im Main-Repository unter dem Label
+[A-rustdoc] gelistet sind. Es sind hauptsächlich Bugs, die lediglich einen
+Bugfix und einen Pull-Request erfordern.
+Cargo hat [sein eigenes Repository mit Issue-Tracker][Cargo], und
+wer beitragen möchte, kann sich gerne in [#cargo] melden.
 
-Obwohl Rust-Programme sowohl mit dem gdb als auch mit dem lldb Debugger eingeschränkt
-untersucht werden kann, gibt es noch immer viele Fälle, in denen debugging
-unerwartete Ergebnisse liefert oder auf unerwartete Weise funktioniert.
+Obwohl Rust-Programme sowohl mit den bekannten GDB- und LLDB-Debuggern eingeschränkt
+untersucht werden können, gibt es noch immer viele Fälle, in denen Debugging
+unerwartete Ergebnisse liefert oder unerwartetes Verhalten zeigt.
 Diese Fälle werden im [A-debuginfo]-Label verwaltet.
 
-Ideen für weitere tooling-Projekte zum Mithelfen finden sich in
+Ideen für weitere Tooling-Projekte zum Mithelfen finden sich in
 [awesome-rust].
 
 Es gibt häufig andere interessante Tooling-Projekte, welche nur auf

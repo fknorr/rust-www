@@ -1,8 +1,8 @@
 ---
 layout: de-DE/default
-title: Translating rust-lang.org to other languages to adapt internationalization 
+title: Bei Rust mitwirken &mdash; Internationalisierung
 ---
 
-# Rust is universal
+# Bei Rust mitwirken &mdash; Internationalisierung
 
-Some docs on contributing translations!
+_Dokumentation zu Übersetzungen_

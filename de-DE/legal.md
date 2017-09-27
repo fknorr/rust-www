@@ -1,13 +1,13 @@
 ---
 layout: de-DE/default
-title: Rust Legal Policies &middot; The Rust Programming Language
+title: Richtlinien zu Urheber- und Markenrecht &middot; Die Programmiersprache Rust
 ---
 
-# Copyright
+# Urheberrecht
 
 ## Code
 
-Rust's [code](https://github.com/rust-lang/rust) wird primär unter den Bedingungen
+Der [Quelltext][code](https://github.com/rust-lang/rust) von Rust wird primär unter den Bedingungen
 der MIT-Lizenz und der Apache-Lizenz in Version 2.0 verbreitet. Für manche Teile werden
 verschiedene BSD-artige Lizenzen verwendet.
 Details finden sich in [LICENSE-APACHE](https://github.com/rust-lang/rust/blob/master/LICENSE-APACHE),
@@ -16,7 +16,7 @@ und [COPYRIGHT](https://github.com/rust-lang/rust/blob/master/COPYRIGHT).
 
 ## Artwork
 
-Die Logos für Rust und Cargo (als Bitmap- und Vektorgraphiken) gehören Mozilla
+Die Logos für Rust und Cargo (als Bitmap- und Vektorgrafiken) gehören Mozilla
 und werden unter den Bedingungen der
 [Creative Commons Attribution license (CC-BY)](https://creativecommons.org/licenses/by/4.0/) verbreitet.
 Diese Creative-Commons Lizenz lässt sehr viel Freiheit und erlaubt die Wiederverwendung sowie die
@@ -61,10 +61,10 @@ irgendeiner Form Befürwortung durch das Rust-Projekt impliziert.
 
 Die Programmiersprache Rust ist eine quelloffenes, von der Gemeinschaft entwickeltes Projekt,
 welches von einem Kernteam verwaltet wird. Es wird auch von der Mozilla Foundation ("Mozilla")
-gesponsort, welche die Markennamen und Logos von Rust und Cargo ("Die Rust Markenzeichen")
+gesponsort, welche die Markennamen und Logos von Rust und Cargo ("Die Rust-Markenzeichen")
 besitzt und schützt.
-Dieses Dokument bietet Informationen zur Verwendung der Rust Markenzeichen bezüglich der
-Programmiersprache allgemein sowie Beispiele allgemein häufiger Verwendungsfälle der Rust Markenzeichen
+Dieses Dokument bietet Informationen zur Verwendung der Rust-Markenzeichen bezüglich der
+Programmiersprache allgemein sowie Beispiele allgemein häufiger Verwendungsfälle der Rust-Markenzeichen
 und Erklärungen, ob diese Fälle in Ordnung sind oder spezielle Erlaubnis benötigen.
 Es ergänzt die [offizielle Mozilla Markenzeichen-Richtlinie](https://www.mozilla.org/foundation/trademarks/policy/),
 welche die Verwendung aller Mozilla-Markenzeichen bestimmt.
@@ -81,7 +81,7 @@ oder Dienst stammt. Es ist besonders wichtig, Markenzeichen eines quelloffenen
 Projektes zu schützen. Jeder kann den Quelltext ändern und ein weiteres Produkt
 aus diesem Code aufbauen, also ist es wichtig, dass nur das Originalprodukt und
 durch das Projekt anerkannte Variationen davon die Projekt-Markenzeichen verwenden.
-Mozilla und das Rust Projekt erreichen durch die Einschränkung der Verwendung der
+Mozilla und das Rust-Projekt erreichen durch die Einschränkung der Verwendung der
 Markenzeichen, dass Nutzer und Entwickler wissen, dass sie das offizielle,
 vom Rust-Projekt entwickelte Produkt und nicht eine von Dritten
 abgewandelte Form erhalten.
@@ -90,11 +90,11 @@ Sicherheit des Produktes, welches sie nutzen.
 
 ## Verwendung der Markenzeichen
 
-### Offizielles, durch das Rust Projekt befürwortetes oder mit ihm verbundenes Erscheinen
+### Offizielles, durch das Rust-Projekt befürwortetes oder mit ihm verbundenes Erscheinen
 
-Die grundlegenste Regel ist, dass die Rust Markenzeichen nicht auf eine Weise
+Die grundlegenste Regel ist, dass die Rust-Markenzeichen nicht auf eine Weise
 verwendet werden dürfen, welche für einen oberflächlichen Beobachter erscheinen,
-als wären sie offiziell, durch das Rust Projekt oder Mozilla befürwortet oder mit ihm in
+als wären sie offiziell, durch das Rust-Projekt oder Mozilla befürwortet oder mit ihm in
 irgendeiner Weise verbunden (außer wenn du eine schriftliche Zulassung durch das Rust-Kernteam hast).
 Auf diese grundlegende Art und Weise stellen wir sicher, dass Nutzer und Entwickler nicht
 verwirrt werden.
@@ -102,20 +102,20 @@ verwirrt werden.
 Da diese Regel mit Wahrnehmung zu tun hat, ist sie subjektiv und etwas
 schwierig konkret festzulegen. Es gibt ein paar klar ersichtliche Wege,
 Probleme zu vermeiden; zum Beispiel durch die ersichtliche Nutzung des Wortes
-inoffiziell". Wenn du Fragen oder Zweifel hast, dann helfen wir dir sehr gerne
+&ldquot;inoffiziell&udquot;. Wenn du Fragen oder Zweifel hast, dann helfen wir dir sehr gerne
 weiter. Sende eine Mail an [trademark@rust-lang.org](mailto:trademark@rust-lang.org).
 
 ### Die Grundlagen: Erwähnung und Bezug auf Rust oder Cargo
 
 Die Markenwörter Rust und Cargo können wie bei jedem Markenzeichen mit minimaler Einschränkung
 dazu verwendet werden, um sich auf die Programmiersprache Rust und
-den Paketmanager/das Repositorium Cargo zu beziehen.
+den Paketmanager / das Repository Cargo zu beziehen.
 
 Sie dürfen nicht verwendet werden:
 
 - um sich auf irgendeine andere Programmiersprache zu beziehen;
 - auf eine missverständliche Art oder auf eine Art, welche Verbindungen
-  der Rust Programmiersprache zu nicht verwandten Modulen, Werkzeugen,
+  der Rust-Programmiersprache zu nicht verwandten Modulen, Werkzeugen,
   Dokumentation oder anderen Ressourcen impliziert;
 - auf eine Art, welche die Gemeinschaft hinsichtlich der Quelloffenheit oder
   Möglichkeit der kostenlosen Benutzung von Rust und Cargo irreführen kann;
@@ -123,44 +123,44 @@ Sie dürfen nicht verwendet werden:
 ### Verwendungen, welche keine ausdrückliche Genehmigung erfordern
 
 Es gibt eine Vielzahl von Verwendungen, welche keine ausdrückliche Genehmigung erfordern.
-**Es muss allerdings sichergestellt werden, dass die Nutzung der Rust Markenzeichen nicht wie oben beschrieben offiziell erscheint.**
+**Es muss allerdings sichergestellt werden, dass die Nutzung der Rust-Markenzeichen nicht wie oben beschrieben offiziell erscheint.**
 
-* Richtigerweise Aussagen, dass eine Software in der Rust Programmiersprache geschrieben ist, kompatibel mit der Sprache ist,
-  oder dass sie die Sprache enthält, ist erlaubt. In diesen Fällen darfst du die Rust Markenzeichen
+* Richtigerweise Aussagen, dass eine Software in der Rust-Programmiersprache geschrieben ist, kompatibel mit der Sprache ist,
+  oder dass sie die Sprache enthält, ist erlaubt. In diesen Fällen darfst du die Rust-Markenzeichen
   ohne ausdrückliche Genehmigung verwenden, um dies zu unterstreichen.
-  Dies gilt sowohl für kommerzielle als auch für non-kommerzielle Zwecke.
+  Dies gilt sowohl für kommerzielle als auch für nichtkommerzielle Zwecke.
 
-* Verwendung der Rust Markenzeichens in Namen non-kommerzieller Produkte wie
-  RustPostgres oder Rustymine, oder in Namen von Code-Repositorien innerhalb von
+* Verwendung der Rust-Markenzeichens in Namen nichtkommerzieller Produkte wie
+  RustPostgres oder Rustymine, oder in Namen von Code-Repositories innerhalb von
   beispielsweise GitHub, ist erlaubt, wenn die Verwendung sich auf die Nutzung von
-  oder Eignung für die Rust Programmiersprache bezieht. Diese Verwendungen können
+  oder Eignung für die Rust-Programmiersprache bezieht. Diese Verwendungen können
   auch das Rust Logo, sogar in modifizierter Form, enthalten.
   Spreche bitte die Verwendung für kommerzielle Produkte (einschließlich gesponsorte oder durch Crowdfunding
   finanzierte) mit [trademark@rust-lang.org](mailto:trademark@rust-lang.org) ab, um sicherzustellen,
   dass deine Verwendung nicht offiziell erscheint.
 
-* Die Nutzung der Rust Markenzeichen auf T-Shirts, Mützen/Hüten und anderen
+* Die Nutzung der Rust-Markenzeichen auf T-Shirts, Mützen/Hüten und anderen
 Artikeln oder Waren, auch in modifizierter Form, ist für deinen persönlichen
 Gebrauch oder die Nutzung durch eine kleine Gruppe gestattet, solange sie nicht
 verkauft werden. Wenn du Werbeartikel zu Rust bei einem thematisch mit Rust
 verwandtem Veranstaltung vertreiben willst, dann kontaktiere uns für die Erlaubnis:
 [trademark@rust-lang.org](mailto:trademark@rust-lang.org).
 
-* Die Verwendung der Rust Markenzeichen (auch in abgewandelter Form) für
+* Die Verwendung der Rust-Markenzeichen (auch in abgewandelter Form) für
 soziale Veranstaltungen wie Treffen, Tutorials, und ähnlichem, ist erlaubt, wenn die
 Veranstaltungen kostenfrei zugänglich sind. Für kommerzielle Veranstaltungen (auch gesponsorte),
 frage bei [trademark@rust-lang.org](mailto:trademark@rust-lang.org) nach. In jedem Fall sind die
 Worte "RustCamp", "RustCon" oder "RustConf" nicht ohne ausdrückliche Erlaubnis zu verwenden.
 Wie mit allen der oben genannten Verwendungen gilt:
-**eine Veranstaltung darf nicht so erscheinen, als wäre sie offiziell vom Rust Projekt befürwortet oder durch es veranstaltet**,
+**eine Veranstaltung darf nicht so erscheinen, als wäre sie offiziell vom Rust-Projekt befürwortet oder durch es veranstaltet**,
 wenn keine offizielle Erlaubnis vorliegt.
 
-* Die Verwendung der Rust Markenzeichen in Veröffentlichungen wie "Rust Journal"
+* Die Verwendung der Rust-Markenzeichen in Veröffentlichungen wie "Rust Journal"
   oder "Rust Cookbook" ist erlaubt.
 
 * Die Verwendung des Wortes "Rust" auf Webseiten, Broschüren, Dokumentation,
   akademischen Arbeiten, Büchern oder Verpackungen von Produkten im Bezug auf
-  die Rust Programmiersprache oder das Rust Projekt sind gestattet.
+  die Rust Programmiersprache oder das Rust-Projekt sind gestattet.
 
 ### Verwendungen, welche ausdrückliche Genehmigung erfordern
 
@@ -174,21 +174,21 @@ wenn keine offizielle Erlaubnis vorliegt.
   Artikeln oder Waren erfordert die ausdrückliche, schriftliche Genehmigung
   des Rust Kernteams. Wir werden diese Verwendungen normalerweise gestatten,
   wenn (1) klar kommuniziert wird, dass der Vertrieb in keinster Weise
-  Teil des Rust Projektes ist, und (2) wenn es klar erkenntlich ist, ob
-  der Profit Vorteile für das Rust Projekt bringt.
+  Teil des Rust-Projektes ist, und (2) wenn es klar erkenntlich ist, ob
+  der Profit Vorteile für das Rust-Projekt bringt.
 
-* Die Nutzung der Rust Markenzeichen inerhalb/als Teil eines anderen Markenzeichens
+* Die Nutzung der Rust-Markenzeichen inerhalb/als Teil eines anderen Markenzeichens
   erfordert die ausdrückliche schiftliche Genehmigung des Rust Kernteams, wie oben beschrieben.
 
 ## Anmerkungen
 
-Wenn du irgendwelche Zweifel über deine beabsichtigte Verwendung eines Rust Markenzeichens
+Wenn du irgendwelche Zweifel über deine beabsichtigte Verwendung eines Rust-Markenzeichens
 hast, kontaktiere uns einfach bei [trademark@rust-lang.org](mailto:trademark@rust-lang.org).
 
 Dieses Dokument entstammt teilweise aus der [Python Software Foundation Trademark Usage Policy](https://www.python.org/psf/trademarks/).
 
-Dieses Dokument ist keine offizielle Erklärung der Mozilla Markenzeichenrichtlinien,
-sondern dient dazu, die Mozilla Markenzeichenrichtlinien im Bezug auf Rust zu erklären.
+Dieses Dokument ist keine offizielle Erklärung der Mozilla-Markenzeichenrichtlinien,
+sondern dient dazu, die Mozilla-Markenzeichenrichtlinien im Bezug auf Rust zu erklären.
 
 ## Mithelfen
 

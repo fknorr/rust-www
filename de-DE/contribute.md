@@ -21,12 +21,12 @@ interessiert sein, wo die Vorgehensweise zum Beitragen zu
 Es gibt viele Wege, zum Erfolg von Rust beizutragen.  Dieses Handbuch
 listet einige gute Anhaltspunkte auf:
 
-* [Finden, Einschätzen und Fixen von Problemen](contribute-bugs.html).
+* [Fehler finden, sichten und beheben](contribute-bugs.html).
   Die grundlegende Arbeit beim verwalten von großen Projekten wie Rust.
 * [Dokumentation](contribute-docs.html). Nicht nur offizielle
   Dokumentation, sondern auch crates, blog posts, und andere
   inoffizielle Quellen.
-* [Community aufbauen](contribute-community.html). Helfe dem Rustacean
+* [Community-Building](contribute-community.html). Helfe dem Rustacean
   an deiner Seite, und erweitere Rust's Einflussbereich.
 * [Tooling, IDEs und Infrastruktur](contribute-tools.html).  Die
   wichtigen Bestandteile, welche die Nutzung einer Sprache praktisch und
@@ -34,16 +34,15 @@ listet einige gute Anhaltspunkte auf:
 * [Bibliotheken](contribute-libs.html). Rust's Nutzen in einem
   bestimmten Bereich hängt stark von der Verfügbarkeit qualitativ
   hochwertiger Bibliotheken ab.
-* [Sprache, Compiler, und die
-  Standardbibliothek](contribute-compiler.html). Sprachdesign,
+* [Sprache, Compiler, und Standardbibliothek](contribute-compiler.html). Sprachdesign,
   Feature-Implementierung, Leistungsverbesserung.
-* [Internationalisation](contribute-translations.html). Hilf dabei, Rust
+* [Internationalisierung](contribute-translations.html). Hilf dabei, Rust
   in der Welt bekannt zu machen, indem du es in deine Sprache übersetzt.
 
 Für weitere Fragen kannst du dich an [#rust-internals] oder
 [internals.rust-lang.org] wenden.
 
-Wir sind stolz darauf, zivilisierten Umgang miteinander zu erhalten, und
+Wir sind stolz darauf, zivilisierten Umgang miteinander zu erhalten &mdash;
 aus diesem Grund erfordern wir, dass Mithelfer unseren [Code of
 Conduct][coc] befolgen.  Wenn du hierzu Fragen hast, wende dich an das
 [Community Team].

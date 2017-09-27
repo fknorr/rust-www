@@ -10,7 +10,7 @@ Wenn du mit eigenem Code helfen möchtest, sind Programmbibliotheken die richtig
 Es ist oft schwierig, ein Konzept für eine neue Bibliothek zu finden, das Reichweite hat und Freude am Entwickeln bereitet. Hier ein paar Vorschläge für die ersten Schritte:
 
 * Lies den wöchentlichen "What's everyone working on this week"-Thread auf [/r/rust] und [users.rust-lang.org] und streue deine eigenen Ideen ein. Diese Diskussionen sind voller Projektankündigungen anderer Rust-Programmierer, die noch Helfer suchen.
-* Mach' dich mit den besten Rust-Bibliotheken auf [awesome-rust] und [lib.rs] vertraut.
+* Mach' dich mit den besten Rust-Bibliotheken auf [awesome-rust] und [libs.rs] vertraut.
 * Manche größere Projekte wie der Web-Browser [Servo], die HTTP-Bibliothek [hyper], das Code-Formatierungswerkzeug [rustfmt], die Unix-Bindings [nix] und die Lintersammlung [clippy] bieten großartige Möglichkeiten, an existierendem Code mitzuarbeiten.
 * Wirke bei einer der großen Rust-Organisationen auf GitHub wie [PistonDevelopers], [servo], [redox-os], [iron], [contain-rs] oder [hyperium] mit. Es ist leicht in diesen großen Communities Platz zu finden. Diese Projekte haben oft größeren Bedarf an neuen Programmierern als rust-lang und haben erfahrene Entwickler, die dich gerne bei deinen ersten Schritten begleiten.
 * Hilf mit, Bibliotheken von [rust-lang-nursery] nach rust-lang zu bringen. Dazu gibt es leider nicht viel Dokumentation, frag einfach bei [#rust-libs] nach.

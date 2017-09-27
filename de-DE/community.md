@@ -29,7 +29,7 @@ Zu vielen Problemen findest du auch auf der Fragen- und Antwortenseite [Stack Ov
 
 [This Week in Rust][twir] sammelt die neuesten Veränderungen, anstehende Termine sowie eine wöchentliche Auflistung aller Änderungen in der Sprache und ihren Bibliothekten. Im [Rust-Blog][rust_blog] findest du Ankündigungen wichtiger Entwicklungsschritte; und fast alles, was in der Rust-Welt vor sich geht, wird auch im inoffiziellen Subreddit [/r/rust][reddit] diskutiert.
 
-Wir pflegen auch einen [Twitter][twitter] account und ein [Weibo][weibo] für unsere chinesischsprechenden Benutzer.
+Wir pflegen auch einen [Twitter][twitter]-Account und ein [Weibo][weibo] für unsere chinesischsprechenden Benutzer.
 
 [twir]: https://this-week-in-rust.org/
 [rust_blog]: http://blog.rust-lang.org/
@@ -42,7 +42,7 @@ Wir pflegen auch einen [Twitter][twitter] account und ein [Weibo][weibo] für un
 
 Die Rust-Community verwaltet einige freundliche und gut besuchte IRC-Kanäle auf Mozillas IRC-Netzwerk, irc.mozilla.org.
 
-[#rust] ist ein Kanal für allgemeine Diskussionen rund um Rust und ein guter Ort, um nach Hilfe zu fragen. Dort werden gerne alle Fragen zu Rust entgegengenommen und meist schnell beantwortet.
+[#rust][rust_irc] ist ein Kanal für allgemeine Diskussionen rund um Rust und ein guter Ort, um nach Hilfe zu fragen. Dort werden gerne alle Fragen zu Rust entgegengenommen und meist schnell beantwortet.
 
 Das Entwicklerteam von Rust koordiniert sich in [#rust-internals][internals_irc]. Dort finden Diskussionen über die Weiterentwicklung der Sprache und der Infrastruktur statt. Hier hast du die Möglichkeit, fragen zum Mitwirken am Rust-Projekt zu stellen.
 
@@ -53,7 +53,7 @@ Das Entwicklerteam von Rust koordiniert sich in [#rust-internals][internals_irc]
 - [#rust-internals][internals_irc] für Diskussionen um die Entwicklung der Sprache
 - [#rustc][rustc_irc] ist die Heimat des [Compilerteams][compiler_team]
 - [#rust-libs][libs_irc] ist die Heimat des [Bibilotheksteams][library_team]
-- [#rust-tools][tools_irc] ist die Heimat des [Tool- und Infrastrukturteams][tool_team]
+- [#rust-tools][tools_irc] ist die Heimat des [Tool- und Infrastrukturteams][dev_tools_team]
 - [#rust-lang][lang_irc] ist die Heimat des [Sprachteams][language_team]
 - [#rust-community][community_irc] ist die Heimat des [Community Teams][community_team]
 
@@ -112,7 +112,7 @@ Das Entwicklerteam von Rust koordiniert sich in [#rust-internals][internals_irc]
 Es gibt zwei Foren für zeitversetze Diskussionen:
 
 - Das [Users Forum][users_forum], um Fragen zu stellen, Codeschnipsel zu posten, über Rust-Projekte zu sprechen, und so weiter.
-- The [Internals Forum][internals_forum], reserviert für das Design und die Implementierung der Sprache Rust und ihrer Infrastruktur (beispielsweise Cargo, die Standardbibilothek und weitere Interna).
+- Das [Internals Forum][internals_forum], reserviert für das Design und die Implementierung der Sprache Rust und ihrer Infrastruktur (beispielsweise Cargo, die Standardbibilothek und weitere Interna).
 
 [users_forum]: https://users.rust-lang.org/
 [internals_forum]: https://internals.rust-lang.org/
