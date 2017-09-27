@@ -6,7 +6,7 @@ title: Häufig gestellte Fragen &middot; Die Programmiersprache Rust
 # Häufig gestellte Fragen
 
 <p class="faq-intro">
-Auf dieser Seite werden häufig gestellte Fragen über die Programmiersprache Rust beantwortet. Die Seite ist keine vollständige Anleitung und zum Lernen der Sprache ungeeignet. Sie versucht, Antworten auf Fragen zu geben, welche in der Rust-Community immer wieder aufgetreten sind, und verdeutlicht einige Überlegungen hinter Rust's Design-Entscheidungen.
+Auf dieser Seite werden häufig gestellte Fragen über die Programmiersprache Rust beantwortet. Die Seite ist keine vollständige Anleitung und zum Lernen der Sprache ungeeignet. Sie versucht, Antworten auf Fragen zu geben, welche in der Rust-Community immer wieder aufgetreten sind, und verdeutlicht einige Überlegungen hinter den Design-Entscheidungen zu Rust.
 </p>
 
 <p class="faq-intro">
@@ -73,7 +73,7 @@ Welche Ziele werden nicht angestrebt?
 </a></h3>
 
 1. Wir verwenden keine besonders modernen Technologien. Alte, etablierte Technologien sind besser.
-2. Expressivität, Minimalismus oder Eleganz sind wünschenswerte, aber untergeordnete Ziele.
+2. Ausdrucksstärke, Minimalismus oder Eleganz sind wünschenswerte, aber untergeordnete Ziele.
 3. Wir beabsichtigen nicht, alle Eigenschaften und Möglichkeiten von C++ oder anderen Sprachen abzudecken. Rust sollte die häufigsten Fälle abdecken.
 4. Wir beabsichtigen nicht, 100% statisch, 100% sicher, 100% reflektiv oder zu dogmatisch in irgendeiner anderen Hinsicht zu sein. Es gibt Kompromisse.
 5. Wir zielen nicht darauf ab, dass Rust auf jeder möglichen Plattform läuft. Rust soll ohne unnötige Kompromisse auf üblichen, verbreiteten Hardware- und Softwareplattformen laufen.
@@ -106,7 +106,7 @@ TODO: Write this answer.
 Wie kann ich Rust einfach ausprobieren?
 </a></h3>
 
-Der einfachste Weg, Rust auszuprobieren, ist der [Playpen](https://play.rust-lang.org/) - eine Online-Applikation, in welcher man einfach Rust-Code schreiben und Ausführen kann. Wenn du Rust auf deinem eigenen System ausprobieren willst, [installiere es](https://www.rust-lang.org/install.html) und gehe das [Guessing Game](https://doc.rust-lang.org/stable/book/guessing-game.html) Tutorial im Buch durch.
+Der einfachste Weg, Rust auszuprobieren, ist der [Playpen](https://play.rust-lang.org/) - eine Online-Applikation, in welcher man einfach Rust-Code schreiben und Ausführen kann. Wenn du Rust auf deinem eigenen System ausprobieren willst, [installiere es](https://www.rust-lang.org/install.html) und gehe das [Guessing Game](https://doc.rust-lang.org/stable/book/guessing-game.html)-Tutorial im Buch durch.
 
 <h3><a href="#how-do-i-get-help-with-rust-issues" name="Wie-bekomme-ich-bei-Problemen-mit-Rust-Hilfe?">
 Wie bekomme ich bei Problemen mit Rust Hilfe?
@@ -116,7 +116,7 @@ Es gibt viele Wege. Du kannst:
 
 - Einen Forenpost im offiziellen Rust User Forum [users.rust-lang.org](https://nsers.rust-lang.org/) absetzen.
 - Im offiziellen [Rust-IRC-Kanal](https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust) (#rust on irc.mozilla.org) eine Frage stellen.
-- Auf [Stack Overflow](https://stackoverflow.com/questions/tagged/rust) eine Frage stellen (markiere sie mit dem "rust" tag!).
+- Auf [Stack Overflow](https://stackoverflow.com/questions/tagged/rust) eine Frage stellen (denke daran, sie mit dem "rust"-Tag zu markieren!).
 - Im inoffiziellen Rust-Subreddit [/r/rust](https://www.reddit.com/r/rust) posten.
 
 <h3><a href="#why-has-rust-changed-so-much" name="Warum-hat-sich-Rust-so-stark-verändert?">
@@ -124,15 +124,15 @@ Warum hat sich Rust über die Zeit so stark verändert?
 </a></h3>
 
 Das ursprüngliche Ziel von Rust war es, eine sichere, aber einfach zu benutzende Systemprogrammiersprache zu erstellen.
-Um dieses Ziel zu erreichen, verfolgte Rust eine Vielzahl von Ideen, von denen es manche behielt (lifetimes, traits) und andere wieder verwarf (das Typestate-System oder Green Threading). Außerdem wurde ein großer Teil der Rust-Standardbibliotheken vor der Veröffentlichung der Version 1.0 neu geschrieben, um mithilfe der Features von Rust eine qualitativ hochwertige, konsistente, Plattformübergreifende API anzubieten. Jetzt, wo Rust die Version 1.0 erreicht hat, wird garantiert, dass die Sprache stabil ist; obwohl die Sprache sich weiter entwickelt, wird Code, welcher auf aktuellen Versionen von Rust funktioniert, auch in zukünftigen Versionen des Compilers gültiger Rust-Code sein.
+Um dieses Ziel zu erreichen, verfolgte Rust eine Vielzahl von Ideen, von denen es manche behielt (Lifetimes, Traits) und andere wieder verwarf (das Typestate-System oder Green Threading). Außerdem wurde ein großer Teil der Rust-Standardbibliothek vor der Veröffentlichung der Version 1.0 neu geschrieben, um mithilfe der Features von Rust eine qualitativ hochwertige, konsistente, plattformübergreifende API anzubieten. Jetzt, wo Rust die Version 1.0 erreicht hat, wird die Stabilität der Sprache garantiert. Obwohl sich die Sprache weiter entwickelt wird Code, der auf aktuellen Versionen von Rust funktioniert, auch in zukünftigen Versionen des Compilers gültig sein.
 
 <h3><a href="#how-does-rust-language-versioning-work" name="Wie-funktioniert-Versionierung-in-Rust?">
 Wie funktioniert Versionierung in Rust?
 </a></h3>
 
-Die Sprachversionierung von Rust folgt [SemVer](http://semver.org/). Änderungen an stabilen API's, welche die Abwärtskompatibilitätnicht gewährleisten, sind in 'minor' Versionen nur erlaubt, wenn sie Fehler oder Sicherheitslücken im Compiler beheben, oder wenn die Änderungen weitere Annotationen für Dispatch oder Typinferenz erforderlich machen. Weitere, detailreichere Richtlinien für 'minor' Versionsänderungen sind als genehmigte RFC's sowohl für die [Sprache](https://github.com/rust-lang/rfcs/blob/master/text/1122-language-semver.md) als auch die [Standardbibliotheken](https://github.com/rust-lang/rfcs/blob/master/text/1105-api-evolution.md) zu finden.
+Die Sprachversionierung von Rust folgt [SemVer](http://semver.org/). Änderungen an stabilen APIs, welche die Abwärtskompatibilitätnicht gewährleisten, sind in _minor_-Versionen nur erlaubt, wenn sie Fehler oder Sicherheitslücken im Compiler beheben, oder wenn die Änderungen weitere Annotationen für Dispatch oder Typinferenz erforderlich machen. Weitere, detailreichere Richtlinien für _minor_-Versionsänderungen sind als genehmigte RFCs sowohl für die [Sprache](https://github.com/rust-lang/rfcs/blob/master/text/1122-language-semver.md) als auch die [Standardbibliotheken](https://github.com/rust-lang/rfcs/blob/master/text/1105-api-evolution.md) zu finden.
 
-Es gibt drei Veröffentlichungskanäle für Rust: Stable, Beta, und Nightly. Die Kanäle Stable und Beta werden alle sechs Wochen aktualisiert, wobei der aktuelle Nightly zur neuen Beta und die aktuelle Beta das neue Stable wird. Teile der Standardbibliotheken sind als 'unstable' markiert oder durch 'Feature Gates' abgeschirmt. Diese können ausschließlich im Nightly-Kanal verwendet werden. Neue Features sind solange als 'unstable' markiert, bis das Kernteam und zuständige Unterteams ihre Zustimmung zur Freigabe gegeben haben. Diese Herangehensweise erlaubt es Entwicklern, zu experimentieren, ohne die Garantie auf Abwärtskompatibilität zu gefährden.
+Es gibt drei Veröffentlichungskanäle für Rust: Stable, Beta, und Nightly. Die Kanäle Stable und Beta werden alle sechs Wochen aktualisiert, wobei der aktuelle Nightly zur neuen Beta und die aktuelle Beta das neue Stable wird. Teile der Standardbibliotheken sind als _unstable_ markiert oder durch _Feature Gates_ abgeschirmt. Diese können ausschließlich im Nightly-Kanal verwendet werden. Neue Features sind solange als _unstable_ markiert, bis das Kernteam und zuständige Unterteams ihre Zustimmung zur Freigabe gegeben haben. Diese Herangehensweise erlaubt es Entwicklern, zu experimentieren, ohne die Garantie auf Abwärtskompatibilität zu gefährden.
 
 Mehr Details finden sich im Blogpost ["Stability as a Deliverable"](http://blog.rust-lang.org/2014/10/30/Stability.html).
 
@@ -144,11 +144,11 @@ Nein, das ist unmöglich. An Rust wird hart gearbeitet, um die Stabilität der B
 
 Alle sechs Wochen werden die Beta- und Stable Kanäle mit den stabilisierten Features aktualisiert. Im Nightly-Kanal gibt es häufig stabilisierende Updates, während die anderen Kanäle seltener Fixes akzeptieren. Wenn du darauf wartest, dass ein Feature im Beta- oder Stable Kanal bereitgestellt wird, dann kannst du die zugehörige Issue mit dem Tag [`B-unstable`](https://github.com/rust-lang/rust/issues?q=is%3Aissue+is%3Aopen+tracking+label%3AB-unstable) auf dem Issue Tracker finden.
 
-<h3><a href="#what-are-feature-gates" name="Was-sind-'Feature-Gates'?">
-Was sind 'Feature Gates'?
+<h3><a href="#what-are-feature-gates" name="Was-sind-Feature-Gates?">
+Was sind Feature Gates?
 </a></h3>
 
-"Feature Gates" sind der Sprachmechanismus, den Rust verwendet, um Features des Compilers, der Sprache und der Standardbibliotheken zu stabilisieren. Ein Feature hinter einer 'gate' ist nur im Nightly-Kanal verfügbar, und auch nur dann, wenn es explizit durch ein `#[feature]`-Attribut oder das Kommandozeilenargument `-Z unstable-options` angefordert wurde. Wenn ein Feature stabilisiert und in den Stable-Kanal übernommen wird, muss es nicht mehr explizit angefordert werden. Dann wird dieses Feature als "ungated" bezeichnet. Feature Gates erlauben es den Entwicklern, zu experimentieren, während sie in der Entwicklung sind. Erst wenn die Entwickler sich auf eine Implementierung festlegen, halten die Features in der stabilen Sprache Einzug.
+_Feature Gates_ sind der Sprachmechanismus, den Rust verwendet, um Features des Compilers, der Sprache und der Standardbibliotheken zu stabilisieren. Ein Feature hinter einem _Gate_ ist nur im Nightly-Kanal verfügbar, und auch nur dann, wenn es explizit durch ein `#[feature]`-Attribut oder das Kommandozeilenargument `-Z unstable-options` angefordert wurde. Wenn ein Feature stabilisiert und in den Stable-Kanal übernommen wird, muss es nicht mehr explizit angefordert werden. Dann wird dieses Feature als _ungated_ bezeichnet. Feature Gates erlauben es den Entwicklern, zu experimentieren, während sie in der Entwicklung sind. Erst wenn die Entwickler sich auf eine Implementierung festlegen, halten die Features in der stabilen Sprache Einzug.
 
 <h3><a href="#why-a-dual-mit-asl2-license" name="Warum-eine-MIT-ASL2-Doppellizenz?">
 Warum eine MIT-ASL2 Doppellizenz?
@@ -168,9 +168,9 @@ Das liegt zu einem Teil an einer persönlichen Vorliebe des originalen Entwickle
 Wie schnell ist Rust?
 </a></h3>
 
-Sehr Schnell! Rust kann sich bereits in einigen Benchmarks (zu Beispiel dem [Benchmarks Game](https://benchmarksgame.alioth.debian.org/u64q/compare.php?lang=rust&lang2=gpp) und [anderen](https://github.com/kostya/benchmarks)) mit idiomatischem C und C++ Code messen.
+Sehr schnell! Rust kann sich bereits in einigen Benchmarks (zu Beispiel dem [Benchmarks Game](https://benchmarksgame.alioth.debian.org/u64q/compare.php?lang=rust&lang2=gpp) und [anderen](https://github.com/kostya/benchmarks)) mit idiomatischem C und C++ Code messen.
 
-Eins der wichtigsten Prinzipien in Rust (wie auch in C++) sind [Zero-Cost Abstractions](http://blog.rust-lang.org/2015/05/11/traits.html): Keine der Abstraktionen in Rust verursachen Programmweite Verlangsamungen, und es gibt keinen Mehraufwand zur Laufzeit des Programms.
+Eins der wichtigsten Prinzipien in Rust (wie auch in C++) sind [Zero-Cost Abstractions](http://blog.rust-lang.org/2015/05/11/traits.html): Keine der Abstraktionen in Rust verursachen programmweite Verlangsamungen oder einen Mehraufwand zur Laufzeit.
 
 Da Rust auf LLVM aufbaut und deshalb auch versucht, Clang-kompatiblen Code zu generieren, sind Leistungsverbesserungen in LLVM auch für Rust vorteilhaft. Langfristig sollten die detaillierten Informationen des Typsystems Optimierungen ermöglichen, welche in C/C++ unmöglich wären.
 
@@ -180,13 +180,13 @@ Gibt es in Rust einen Garbage Collector?
 
 Nein. Eine der Schlüsselinnovationen von Rust ist es, *ohne* Garbage Collection Speichersicherheit (keine Segfaults) zu garantieren. 
 
-Rust erlangt dadurch einige Vorteile: Vorhersagbare Bereinigung von Ressourcen, niedrige Mehrkosten für Speichermanagement, und ein minimales Laufzeitsystem. Diese Eigenschaften ermöglichen es, Rust in beliebige Umgebungen einzubinden, und vereinfachen die [Integration von Rust in Sprachen mit GC](http://calculist.org/blog/2015/12/23/neon-node-rust/).
+Rust erlangt dadurch einige Vorteile: Vorhersagbare Bereinigung von Ressourcen, niedrige Mehrkosten für Speichermanagement und ein minimales Laufzeitsystem. Diese Eigenschaften ermöglichen es, Rust in beliebige Umgebungen einzubinden, und vereinfachen die [Integration von Rust in Sprachen mit GC](http://calculist.org/blog/2015/12/23/neon-node-rust/).
 
-Das Ownership und Borrowing System ermöglicht nicht nur Speichersicherheit ohne einen GC, sondern ist auch in anderen Zusammenhängen nützlich, zum Beispiel [allgemeines Ressourcenmanagement](http://blog.skylight.io/rust-means-never-having-to-close-a-socket/) und [Nebenläufigkeit](http://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html).
+Das Ownership und Borrowing System ermöglicht nicht nur Speichersicherheit ohne einen GC, sondern ist auch in anderen Zusammenhängen nützlich, zum Beispiel für [allgemeines Ressourcenmanagement](http://blog.skylight.io/rust-means-never-having-to-close-a-socket/) und [Nebenläufigkeit](http://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html).
 
-In Fällen, in denen einfache Ownership nicht genügt, nutzen Rust-Programme den üblichen Referenzzähler/Smart Pointer Typ [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html) und sein Thread-sicheres Gegenstück, [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html).
+In Fällen, in denen einfache Ownership-Semantik nicht genügt, nutzen Rust-Programme den üblichen Referenzzähler/_Smart Pointer_-Typ [`Rc`](https://doc.rust-lang.org/std/rc/struct.Rc.html) und sein Thread-sicheres Gegenstück [`Arc`](https://doc.rust-lang.org/std/sync/struct.Arc.html).
 
-Allerdings wird daran gearbeitet, in Zukunft einen *optionalen* Garbage Collector als Erweiterung anzubieten, um eine gute Integration mit Laufzeitumgebungen wie [Spidermonkey](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey)
+Es wird jedoch daran gearbeitet, in Zukunft einen *optionalen* Garbage Collector als Erweiterung anzubieten, um eine gute Integration mit Laufzeitumgebungen wie [Spidermonkey](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey)
 und [V8](https://developers.google.com/v8/?hl=en) zu ermöglichen, welche Garbage Collection verwenden.
 
 Es gibt auch experimentelle, in [purem Rust implementierte Freispeichersammler](https://manishearth.github.io/blog/2015/09/01/designing-a-gc-in-rust/), welche ohne Unterstützung des Compilers funktionieren.
