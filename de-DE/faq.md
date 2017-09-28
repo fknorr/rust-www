@@ -45,7 +45,7 @@ Wenn dir auffällt, dass hier eine wichtige oder verbreitete Frage fehlt, dann <
 
 <h2 id="project">Das Rust-Projekt</h2>
 
-<h3><a href="#what-is-this-projects-goal" name="Was-ist-das-Ziel-des-Rust-Projektes?">
+<h3><a href="#what-is-this-projects-goal" name="what-is-this-projects-goal">
 Was ist das Ziel des Rust-Projekts?
 </a></h3>
 
@@ -60,7 +60,7 @@ Rust existiert, weil andere, ähnlich abstrakte und effiziente Sprachen folgende
 
 Rust existiert als eine Alternative, welche sowohl effizienten Code als auch ein komfortables Abstraktionsniveau bietet, und dabei für jeden dieser vier Punkte Verbesserungen vorschlägt.
 
-<h3><a href="#is-this-project-controlled-by-mozilla" name="Wird-dieses-Projekt-von-Mozilla-kontrolliert?">
+<h3><a href="#is-this-project-controlled-by-mozilla" name="is-this-project-controlled-by-mozilla">
 Wird dieses Projekt von Mozilla kontrolliert?
 </a></h3>
 
@@ -68,7 +68,7 @@ Nein. Im Jahr 2006 startete Graydon Hoare Rust als Teilzeitprojekt, und so blieb
 
 Die [Führung des Projektes](https://github.com/rust-lang/rfcs/blob/master/text/1068-rust-governance.md) besteht aus einem Kernteam, welches die Vision und die Prioritäten festlegt und das Projekt von einer globalen Perspektive aus leitet. Es gibt auch kleinere Teams, welche sich um die Entwicklung bestimmter Interessenbereiche kümmern. Das können zum Beispiel der Kern der Sprache, der Compiler, Rust-Bibliotheken, Tooling oder die Moderation der offiziellen Rust-Communities sein. Fortschritt in jedem dieser Bereiche wird über einen [RFC-Prozess](https://github.com/rust-lang/rfcs) erreicht. Änderungen, für welche kein RFC notwendig ist, werden normalerweise in einer Pull Request im [`rustc` Repository](https://github.com/rust-lang/rust) diskutiert.
 
-<h3><a href="#what-are-some-non-goals" name="Welche-Ziele-werden-nicht-angestrebt?">
+<h3><a href="#what-are-some-non-goals" name="what-are-some-non-goals">
 Welche Ziele werden nicht angestrebt?
 </a></h3>
 
@@ -78,19 +78,19 @@ Welche Ziele werden nicht angestrebt?
 4. Wir beabsichtigen nicht, 100% statisch, 100% sicher, 100% reflektiv oder zu dogmatisch in irgendeiner anderen Hinsicht zu sein. Es gibt Kompromisse.
 5. Wir zielen nicht darauf ab, dass Rust auf jeder möglichen Plattform läuft. Rust soll ohne unnötige Kompromisse auf üblichen, verbreiteten Hardware- und Softwareplattformen laufen.
 
-<h3><a href="#how-does-mozilla-use-rust" name="Wie-nutzt-Mozilla-Rust?">
+<h3><a href="#how-does-mozilla-use-rust" name="how-does-mozilla-use-rust">
 In welchen Projekten nutzt Mozilla Rust?
 </a></h3>
 
 Hauptsächlich wird Rust in [Servo](https://github.com/servo/servo), einer experimentellen Browser Engine, an welcher Mozilla arbeitet, verwendet. Mozilla arbeitet auch daran, weitere Rust-Komponenten [in Firefox zu integrieren](https://bugzilla.mozilla.org/show_bug.cgi?id=1135640).
 
-<h3><a href="#what-examples-are-there-of-large-rust-projects" name="Welche-großen-Rust-Projekte-gibt-es?">
+<h3><a href="#what-examples-are-there-of-large-rust-projects" name="what-examples-are-there-of-large-rust-projects">
 Welche großen Rust-Projekte gibt es?
 </a></h3>
 
 Die zwei im Moment größten quelloffenen Rust-Projekte sind [Servo](https://github.com/servo/servo) und der [Rust-Compiler](https://github.com/rust-lang/rust) selbst.
 
-<h3><a href="#who-else-is-using-rust" name="Wer-benutzt-sonst-noch-Rust?">
+<h3><a href="#who-else-is-using-rust" name="who-else-is-using-rust">
 Wer benutzt sonst noch Rust?
 </a></h3>
 
@@ -102,13 +102,13 @@ Wer benutzt sonst noch Rust?
 TODO: Write this answer.
 -->
 
-<h3><a href="#how-can-i-try-rust-easily" name="Wie-kann-ich-Rust-einfach-ausprobieren?">
+<h3><a href="#how-can-i-try-rust-easily" name="how-can-i-try-rust-easily">
 Wie kann ich Rust einfach ausprobieren?
 </a></h3>
 
 Der einfachste Weg, Rust auszuprobieren, ist der [Playpen](https://play.rust-lang.org/) - eine Online-Applikation, in welcher man einfach Rust-Code schreiben und Ausführen kann. Wenn du Rust auf deinem eigenen System ausprobieren willst, [installiere es](https://www.rust-lang.org/install.html) und gehe das [Guessing Game](https://doc.rust-lang.org/stable/book/guessing-game.html)-Tutorial im Buch durch.
 
-<h3><a href="#how-do-i-get-help-with-rust-issues" name="Wie-bekomme-ich-bei-Problemen-mit-Rust-Hilfe?">
+<h3><a href="#how-do-i-get-help-with-rust-issues" name="how-do-i-get-help-with-rust-issues">
 Wie bekomme ich bei Problemen mit Rust Hilfe?
 </a></h3>
 
@@ -116,17 +116,17 @@ Es gibt viele Wege. Du kannst:
 
 - Einen Forenpost im offiziellen Rust User Forum [users.rust-lang.org](https://nsers.rust-lang.org/) absetzen.
 - Im offiziellen [Rust-IRC-Kanal](https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust) (#rust on irc.mozilla.org) eine Frage stellen.
-- Auf [Stack Overflow](https://stackoverflow.com/questions/tagged/rust) eine Frage stellen (denke daran, sie mit dem "rust"-Tag zu markieren!).
+- Auf [Stack Overflow](https://stackoverflow.com/questions/tagged/rust) eine Frage stellen (denke daran, sie mit dem „rust“-Tag zu markieren!).
 - Im inoffiziellen Rust-Subreddit [/r/rust](https://www.reddit.com/r/rust) posten.
 
-<h3><a href="#why-has-rust-changed-so-much" name="Warum-hat-sich-Rust-so-stark-verändert?">
+<h3><a href="#why-has-rust-changed-so-much" name="why-has-rust-changed-so-much">
 Warum hat sich Rust über die Zeit so stark verändert?
 </a></h3>
 
 Das ursprüngliche Ziel von Rust war es, eine sichere, aber einfach zu benutzende Systemprogrammiersprache zu erstellen.
 Um dieses Ziel zu erreichen, verfolgte Rust eine Vielzahl von Ideen, von denen es manche behielt (Lifetimes, Traits) und andere wieder verwarf (das Typestate-System oder Green Threading). Außerdem wurde ein großer Teil der Rust-Standardbibliothek vor der Veröffentlichung der Version 1.0 neu geschrieben, um mithilfe der Features von Rust eine qualitativ hochwertige, konsistente, plattformübergreifende API anzubieten. Jetzt, wo Rust die Version 1.0 erreicht hat, wird die Stabilität der Sprache garantiert. Obwohl sich die Sprache weiter entwickelt wird Code, der auf aktuellen Versionen von Rust funktioniert, auch in zukünftigen Versionen des Compilers gültig sein.
 
-<h3><a href="#how-does-rust-language-versioning-work" name="Wie-funktioniert-Versionierung-in-Rust?">
+<h3><a href="#how-does-rust-language-versioning-work" name="how-does-rust-language-versioning-work">
 Wie funktioniert Versionierung in Rust?
 </a></h3>
 
@@ -136,7 +136,7 @@ Es gibt drei Veröffentlichungskanäle für Rust: Stable, Beta, und Nightly. Die
 
 Mehr Details finden sich im Blogpost ["Stability as a Deliverable"](http://blog.rust-lang.org/2014/10/30/Stability.html).
 
-<h3><a href="#can-i-use-unstable-features-on-the-beta-or-stable-channel" name="Kann-ich-auf-dem-Beta-oder-Stable-Channel-Features-aus-dem-Unstable-Channel-verwenden?">
+<h3><a href="#can-i-use-unstable-features-on-the-beta-or-stable-channel" name="can-i-use-unstable-features-on-the-beta-or-stable-channel">
 Kann ich auf dem Beta- oder Stable Channel Features aus dem Unstable Channel verwenden?
 </a></h3>
 
@@ -144,19 +144,19 @@ Nein, das ist unmöglich. An Rust wird hart gearbeitet, um die Stabilität der B
 
 Alle sechs Wochen werden die Beta- und Stable Kanäle mit den stabilisierten Features aktualisiert. Im Nightly-Kanal gibt es häufig stabilisierende Updates, während die anderen Kanäle seltener Fixes akzeptieren. Wenn du darauf wartest, dass ein Feature im Beta- oder Stable Kanal bereitgestellt wird, dann kannst du die zugehörige Issue mit dem Tag [`B-unstable`](https://github.com/rust-lang/rust/issues?q=is%3Aissue+is%3Aopen+tracking+label%3AB-unstable) auf dem Issue Tracker finden.
 
-<h3><a href="#what-are-feature-gates" name="Was-sind-Feature-Gates?">
+<h3><a href="#what-are-feature-gates" name="what-are-feature-gates">
 Was sind Feature Gates?
 </a></h3>
 
 _Feature Gates_ sind der Sprachmechanismus, den Rust verwendet, um Features des Compilers, der Sprache und der Standardbibliotheken zu stabilisieren. Ein Feature hinter einem _Gate_ ist nur im Nightly-Kanal verfügbar, und auch nur dann, wenn es explizit durch ein `#[feature]`-Attribut oder das Kommandozeilenargument `-Z unstable-options` angefordert wurde. Wenn ein Feature stabilisiert und in den Stable-Kanal übernommen wird, muss es nicht mehr explizit angefordert werden. Dann wird dieses Feature als _ungated_ bezeichnet. Feature Gates erlauben es den Entwicklern, zu experimentieren, während sie in der Entwicklung sind. Erst wenn die Entwickler sich auf eine Implementierung festlegen, halten die Features in der stabilen Sprache Einzug.
 
-<h3><a href="#why-a-dual-mit-asl2-license" name="Warum-eine-MIT-ASL2-Doppellizenz?">
+<h3><a href="#why-a-dual-mit-asl2-license" name="why-a-dual-mit-asl2-license">
 Warum eine MIT-ASL2 Doppellizenz?
 </a></h3>
 
 Die Apache-Lizenz enthält wichtigen Schutz gegen Patentaggressoren, aber ist mit der GPLv2 inkompatibel. Um Probleme bei der Verwendung von Rust mit der GPLv2-Lizenz zu vermeiden, ist es alternativ MIT-lizenziert.
 
-<h3><a href="#why-a-permissive-license" name="Warum-eine-permissive-Lizenz?">
+<h3><a href="#why-a-permissive-license" name="why-a-permissive-license">
 Warum eine BSD-artige Freizügige Lizenz anstelle von MPL oder einer dreifachen Lizenz?
 </a></h3>
 
@@ -164,7 +164,7 @@ Das liegt zu einem Teil an einer persönlichen Vorliebe des originalen Entwickle
 
 <h2 id="performance">Performance</h2>
 
-<h3><a href="#how-fast-is-rust" name="Wie-schnell-ist-Rust?">
+<h3><a href="#how-fast-is-rust" name="how-fast-is-rust">
 Wie schnell ist Rust?
 </a></h3>
 
@@ -174,7 +174,7 @@ Eins der wichtigsten Prinzipien in Rust (wie auch in C++) sind [Zero-Cost Abstra
 
 Da Rust auf LLVM aufbaut und deshalb auch versucht, Clang-kompatiblen Code zu generieren, sind Leistungsverbesserungen in LLVM auch für Rust vorteilhaft. Langfristig sollten die detaillierten Informationen des Typsystems Optimierungen ermöglichen, welche in C/C++ unmöglich wären.
 
-<h3><a href="#is-rust-garbage-collected" name="Gibt-es-in-Rust-einen-Garbage-Collector?">
+<h3><a href="#is-rust-garbage-collected" name="is-rust-garbage-collected">
 Gibt es in Rust einen Garbage Collector?
 </a></h3>
 
@@ -191,7 +191,7 @@ und [V8](https://developers.google.com/v8/?hl=en) zu ermöglichen, welche Garbag
 
 Es gibt auch experimentelle, in [purem Rust implementierte Kollektoren](https://manishearth.github.io/blog/2015/09/01/designing-a-gc-in-rust/), welche ohne Unterstützung des Compilers funktionieren.
 
-<h3><a href="#why-is-my-program-slow" name="Warum-ist-mein-Programm-langsam?">
+<h3><a href="#why-is-my-program-slow" name="why-is-my-program-slow">
 Warum ist mein Programm so langsam?
 </a></h3>
 
@@ -199,7 +199,7 @@ Der Rust-Compiler optimiert Programme nur dann, wenn man das explizit anfordert,
 
 Wenn du mit `cargo` kompilierst, nutze die `--release` option. Wenn du dein Program direkt mit `rustc` erstellst, nutze die Option `-O`. Beide Optionen schalten Optimierungen ein.
 
-<h3><a href="#why-is-rustc-slow" name="Warum-ist-Rustc-langsam?">
+<h3><a href="#why-is-rustc-slow" name="why-is-rustc-slow">
 Warum ist die Erstellung meines Programmes so zeitaufwändig?
 </a></h3>
 
@@ -213,13 +213,13 @@ Neben dem Kompilationsmodell gibt es andere Aspekte des Sprachdesigns und der Co
 
 Rust hat zunächst ein relativ komplexes Typsystem, und der Compiler muss einige Zeit darauf verwenden, die Typbedingungen zu überprüfen, welche Rust zur Laufzeit absichern.
 
-Außerdem sind einige Teile des Rust-Compilers ziemlich veraltet. Diese generieren insbesondere LLVM-IR niedriger Qualität, welche LLVM erst "reparieren" muss. Es gibt Hoffnung, dass zukünftige, [MIR-basierte](https://github.com/rust-lang/rfcs/blob/master/text/1211-mir.md) Übersetzungs- und Optimierungsdurchläufe die Arbeit für LLVM leichter machen.
+Außerdem sind einige Teile des Rust-Compilers ziemlich veraltet. Diese generieren insbesondere LLVM-IR niedriger Qualität, welche LLVM erst „reparieren“ muss. Es gibt Hoffnung, dass zukünftige, [MIR-basierte](https://github.com/rust-lang/rfcs/blob/master/text/1211-mir.md) Übersetzungs- und Optimierungsdurchläufe die Arbeit für LLVM leichter machen.
 
 Drittens hat die Nutzung von LLVM auch ihre Kosten: Rust hat dadurch hohe Leistung zur Laufzeit, aber LLVM ist ein großes Framework das nicht auf hohe Leistung zur Überesetzungszeit fokussiert ist, insbesondere bei Eingaben mit mangelhafter Qualität.
 
 Letztlich führt auch die übliche Strategie der Monomorphisierung von Generics (wie in C++) zwar zu schnellem Code zur Laufzeit, aber sie erfordert die Erzeugung von Signifikant mehr Code als andere Strategien. Durch die Verwendung von Trait-Objekten können Rust-Programmierer diese Aufblähung vermeiden, müssen dann aber auf späte Bindung mit ihren bekannten Nachteilen zurückgreifen.
 
-<h3><a href="#why-are-rusts-hashmaps-slow" name="Warum-ist-die-HashMap-in-Rust-so-langsam?">
+<h3><a href="#why-are-rusts-hashmaps-slow" name="why-are-rusts-hashmaps-slow">
 Warum ist die <code>HashMap</code> in Rust so langsam?
 </a></h3>
 
@@ -227,19 +227,19 @@ Standardmäßig nutzt [`HashMap`][HashMap] den [SipHash](https://131002.net/siph
 
 Obwohl SipHash [in vielen Fällen hohe Leistung vorweisen kann](http://cglab.ca/%7Eabeinges/blah/hash-rs/), ist der Algorithmus für Anwendungsfälle mit kurzen Schlüsseln wie Ganzzahlen merklich langsamer. Deshalb wird von Rust-Programmierern häufig niedrige Leistung bei der Verwendung einer [`HashMap`][HashMap] beobachtet. In solchen Fällen wird häufig der [FNV-Hasher](https://crates.io/crates/fnv) empfohlen, der aber nicht die Kollisionsresistenz von SipHash vorweisen kann.
 
-<h3><a href="#why-is-there-no-integrated-benchmarking" name="Warum-gibt-es-kein-integriertes-Benchmarking?">
+<h3><a href="#why-is-there-no-integrated-benchmarking" name="why-is-there-no-integrated-benchmarking">
 Warum gibt es keine integrierte Benchmarking-Infrastruktur?
 </a></h3>
 
 Es gibt eine, welche aber nur im Nightly-Kanal verfügbar ist. Wir planen ein modulares System, welches integrierte Leistungstests ermöglicht. In der Zwischenzeit wird das System als [instabil](https://github.com/rust-lang/rust/issues/29553) eingeschätzt.
 
-<h3><a href="#does-rust-do-tail-call-optimization" name="Unterstützt-Rust-Tail-Call-Elimination?">
+<h3><a href="#does-rust-do-tail-call-optimization" name="does-rust-do-tail-call-optimization">
 Unterstützt Rust Tail Call Elimination?
 </a></h3>
 
 Im Allgemeinen nicht. Optimierung von Endrekursion kann unter [bestimmten Vorraussetzungen](http://llvm.org/docs/CodeGenerator.html#sibling-call-optimization) erfolgen, das ist aber [nicht gewährleistet](https://mail.mozilla.org/pipermail/rust-dev/2013-April/003557.html). Da die Optimierung ein vielfach erwünschtes Sprachmerkmal ist, wurde das Schlüsselwort `become` dafür reserviert, wobei allerdings die technische Umsetzbarkeit noch nicht geklärt ist. Eine [vorgeschlagene Erweiterung](https://github.com/rust-lang/rfcs/pull/81), welche Tail Call Elimination ermöglichen würde, wurde vorgeschlagen, zunächst aber verschoben.
 
-<h3><a href="#does-rust-have-a-runtime" name="Hat-Rust-ein-Laufzeitsystem?">
+<h3><a href="#does-rust-have-a-runtime" name="does-rust-have-a-runtime">
 Hat Rust ein Laufzeitsystem?
 </a></h3>
 
@@ -247,7 +247,7 @@ Nicht im Sinne von gängigen Sprachen wie Java. Teile der Standardbibliotheken k
 
 <h2 id="syntax">Syntax</h2>
 
-<h3><a href="#why-curly-braces" name="Warum-geschwungene-Klammern?">
+<h3><a href="#why-curly-braces" name="why-curly-braces">
 Warum geschwungene Klammern? Warum kann die Syntax von Rust nicht Haskell oder Python ähnlicher sein?
 </a></h3>
 
@@ -255,13 +255,13 @@ Die Benutzung geschweifter Klammern ist eine Entwurfsentscheidung, welche eine V
 
 Geschweifte Klammern ermöglichen dem Programmierer eine flexible Syntax und dem Kompilierer einen einfacheren Parser.
 
-<h3><a href="#why-brackets-around-blocks" name="Warum-Klammern-um-Blöcke?">
+<h3><a href="#why-brackets-around-blocks" name="why-brackets-around-blocks">
 Ich kann die Klammern um <code>if</code>-Bedingungen weglassen, warum muss ich sie dann um einzeilige Blöcke setzen? Warum ist der C-Stil nicht erlaubt?
 </a></h3>
 
 Während C Klammerung um ein `if`-Statement aber keine Klammern für einzeilige Blöcke erfordert, trifft Rust die genau entgegengesetzte Wahl. Das trennt die Bedingung klar vom Block und vermeidet die Gefahren der optionalen Klammern, welche zu leicht übersehbaren Fehlern wie Apples [goto-fail-Bug](https://gotofail.com/) führen können.
 
-<h3><a href="#why-no-literal-syntax-for-dictionaries" name="Warum-gibt-es-keine-Syntax-für-Dictionary-Literale?">
+<h3><a href="#why-no-literal-syntax-for-dictionaries" name="why-no-literal-syntax-for-dictionaries">
 Warum gibt es keine Syntax für Dictionary-Literale?
 </a></h3>
 
@@ -269,7 +269,7 @@ Die bevorzugte Vorgehensweise beim Eintwurf von Rust war es, die *Sprache* selbs
 
 In der Zukunft wird die Design-Entscheidung, Makros zum Initialisieren von Datenstrukturen zu verwenden, wahrscheinlich auf weitere Datentypen erweitert werden. Zusätzlich zu [`HashMap`][HashMap] und [`Vec`][Vec] sollen Typen wie [`BTreeMap`][BTreeMap] unterstützt werden. Wenn du jetzt schon komfortablere Syntax zur Initialisierung von Datenstrukturen benötigst, kannst du dafür [dein eigenes Makro definieren](https://stackoverflow.com/questions/27582739/how-do-i-create-a-hashmap-literal).
 
-<h3><a href="#when-should-i-use-an-implicit-return" name="Wann-sollte-ich-ein-implizites-Return-verwenden?">
+<h3><a href="#when-should-i-use-an-implicit-return" name="when-should-i-use-an-implicit-return">
 Wann sollte ich ein implizites Return verwenden?
 </a></h3>
 [comment]: <> (Ich finde, hier wird zu wenig auf den Unterschied, den ein Semikolon macht (insbesondere im Ggs. zu anderen Sprachen) eingegangen. Allgemein könnte man hier den Unterschied zwischen Ausdruck und Statement erklären. Upstream?)
@@ -293,7 +293,7 @@ In beiden Beispielen ist die letzte Zeile der Rückgabewert der Funktion. Ein wi
 
 Explizite Rückgaben müssen dann benutzt werden, wenn implizite unmöglich sind, zum Beispiel wenn man vor dem Ende des Funktionskörpers einen Wert zurückgeben will. Beide Funktionen im obigen Beispiel hätten mit einem `return` und einem Semikolon geschrieben werden können, aber das wäre unnötig ausführlich und gegen die Konventionen von gutem Rust-Code.
 
-<h3><a href="#why-arent-function-signatures-inferred" name="Warum-werden-Funktionssignaturtypen-nicht-vom-Compiler-hergeleitet?">
+<h3><a href="#why-arent-function-signatures-inferred" name="why-arent-function-signatures-inferred">
 Warum werden Funktionssignaturtypen nicht vom Compiler hergeleitet?
 </a></h3>
 
@@ -303,7 +303,7 @@ Deklarationen in Rust werden normalerweise mit expliziten Typannotationen verseh
 - Signaturtypen erleichtern dem Programmierer das Verständnis des Programms. Dadurch, dass die Signaturtypen immer explizit lokal im Programm definiert sind, muss eine IDE keinen Inferenzalgorithmus über den gesamten Crate laufen lassen, um den Typ eines Argumentes herauszufinden.
 - Da die Argumenttypen auf Funktionsebene festgelegt sind, kann der Inferenzalgorithmus stark vereinfacht werden.
 
-<h3><a href="#why-does-match-have-to-be-exhaustive" name="Warum-muss-ein-match-alle-Fälle-abdecken?">
+<h3><a href="#why-does-match-have-to-be-exhaustive" name="why-does-match-have-to-be-exhaustive">
 Warum muss ein <code>match</code> alle Fälle abdecken?
 </a></h3>
 
@@ -324,7 +324,7 @@ match val.do_something() {
 
 <h2 id="numerics">Arithmetik</h2>
 
-<h3><a href="#which-type-of-float-should-i-use" name="Welchen-Gleitkommazahl-Typ-soll-ich-verwenden?">
+<h3><a href="#which-type-of-float-should-i-use" name="which-type-of-float-should-i-use">
 Soll ich für mathematische Operationen mit Gleitkommazahlen <code>f32</code> oder <code>f64</code> verwenden?
 </a></h3>
 
@@ -334,7 +334,7 @@ Wenn du für deine Gleitkommazahlen die größtmögliche Genauigkeit benötigst,
 
 Wähle im Zweifel [`f64`][f64], um bessere Präzision zu erreichen.
 
-<h3><a href="#why-cant-i-compare-floats" name="Warum-kann-ich-keine-Gleitkommazahlen-vergleichen?">
+<h3><a href="#why-cant-i-compare-floats" name="why-cant-i-compare-floats">
 Warum kann ich keine Gleitkommazahlen vergleichen oder sie als Schlüsseltypen für <code>HashMap</code> oder <code>BTreeMap</code> verwenden?
 </a></h3>
 
@@ -346,14 +346,14 @@ Da Gleitkommazahlen weder [`Eq`][Eq] noch [`Ord`][Ord] implementieren, können s
 
 [Es gibt einen Crate](https://crates.io/crates/ordered-float), welche [`f32`][f32] und [`f64`][f64] um eine Implementierung von [`Ord`][Ord] und [`Eq`][Eq] erweitert, die in manchen Fällen nützlich sein kann.
 
-<h3><a href="#how-can-i-convert-between-numeric-types" name="Wie-kann-ich-zwischen-numerischen-Typen-umwandeln?">
+<h3><a href="#how-can-i-convert-between-numeric-types" name="how-can-i-convert-between-numeric-types">
 Wie kann ich zwischen numerischen Typen umwandeln?
 </a></h3>
 
 [comment]: <> (primitive typen? Was ist das, Java?)
 Es gibt zwei Möglichkeiten: Das `as` Schlüsselwort, welches einfache Typumwandlung für primitive Typen vollzieht, und die Traits [`Into`][Into] und [`From`][From], welche für einige Typkonversionen implementiert sind (und welche du für eigene Typen selbst implementieren kannst). Die [`Into`][Into] und [`From`][From]-Traits sind nur in Fällen implementiert, in denen eine verlustfreie Umwandlung möglich ist. Zum Beispiel wird `f64::from(0f32)` kompilieren, `f32::from(0f64)` aber nicht. Das Schlüsselwort `as` hingegen wandelt alle primitiven Typen untereinander um und schneidet wenn nötig deren Werte ab.
 
-<h3><a href="#why-doesnt-rust-have-increment-and-decrement-operators" name="Warum-kennt-Rust-keine-Inkrement--und-Dekrementoperatoren?">
+<h3><a href="#why-doesnt-rust-have-increment-and-decrement-operators" name="why-doesnt-rust-have-increment-and-decrement-operators">
 Warum kennt Rust keine Inkrement- und Dekrementoperatoren?
 </a></h3>
 [comment]: <> (Unterschied Expression/Statement?)
@@ -361,18 +361,18 @@ Präinkrement und Postinkrement sowie ihre Gegenstücke für Dekrement sind zwar
 
 <h2 id="strings">Strings</h2>
 
-<h3><a href="#how-to-convert-string-or-vec-to-slice" name="Wie-kann-ich-einen-String-oder-Vec-in-einen-Slice-konvertieren?">
+<h3><a href="#how-to-convert-string-or-vec-to-slice" name="how-to-convert-string-or-vec-to-slice">
 Wie kann ich einen <code>String</code> oder <code>Vec&lt;T&gt;</code> in einen Slice konvertieren (<code>&amp;str</code> und <code>&amp;[T]</code>)?
 </a></h3>
 
 Normalerweise kannst du eine Referenz zu einem `String` oder `Vec<T>` immer dort übergeben, wo ein Slice passend wäre.
-Mithilfe von [Deref Coercions](https://doc.rust-lang.org/stable/book/deref-coercions.html) können [`String`s][String] und [`Vec`s][Vec] automatisch in ihren jeweiligen Slice-Typen &ldquot;zerfallen&udquot;, wenn man eine Referenz darauf mit `&` oder `&mut` übergibt.
+Mithilfe von [Deref Coercions](https://doc.rust-lang.org/stable/book/deref-coercions.html) können [`String`s][String] und [`Vec`s][Vec] automatisch in ihren jeweiligen Slice-Typen „zerfallen“, wenn man eine Referenz darauf mit `&` oder `&mut` übergibt.
 
 Methoden, die auf `&str` oder `&[T]` implementiert wurden, können auf `String` und `Vec<T>` direkt aufgerufen werden. Der Aufruf `some_string.char_at(0)` zum Beispiel funktioniert, obwohl `char_at` eine Methode von `&str` und `some_string` ein `String` ist.
 
 Manchmal, zum Beispiel in generischem Code, wird manuelle Konversion notwendig. Diese kann man mit dem _Slicing-Operator_ `&my_vec[..]` erreicht werden.
 
-<h3><a href="#how-to-convert-between-str-and-string" name="Wie-kann-man-str-in-String-und-umgekehrt-umwandeln?">
+<h3><a href="#how-to-convert-between-str-and-string" name="how-to-convert-between-str-and-string">
 Wie kann man <code>&amp;str</code> in <code>String</code> und umgekehrt umwandeln?
 </a></h3>
 
@@ -409,7 +409,7 @@ In Rust sind Strings in UTF-8-kodiert. In ASCII wäre ein einzelnes Zeichen auch
 Obwohl man einfach auf den Bytes eines UTF-8 Strings indizieren könnte, kann man nicht in konstanter Zeit den `i`ten Code Point oder Grapheme Cluster erreichen, da sie alle unterschiedlich lang sein können. Es ist allerdings möglich, einen konkreten Grapheme Cluster oder Code Point zu erreichen, wenn man genau weiß, wo er beginnt.
 Funktionen wie [`str::find()`][str__find] und Regex-Matches geben Byte-Indizes an, wodurch dieser Zugriff auf Byte-Ebene ermöglicht wird.
 
-<h3><a href="#why-are-strings-utf-8" name="Warum-sind-strings-utf-8">
+<h3><a href="#why-are-strings-utf-8" name="why-are-strings-utf-8">
 Warum sind Strings standardmäßig UTF-8-kodiert?
 </a></h3>
 
@@ -419,13 +419,13 @@ Das bedeutet, dass auf einen spezifischen Code Point in einem String nur durch e
 
 Einen [`str`][str] nach ASCII-Codepoints zu durchsuchen kann immernoch sicher Byte für Byte geschehen. Mit [`.as_bytes()`][str__as_bytes] kann man mit O(1)-Kosten einen [`u8`][u8] gewinnen, welcher zu einem ASCII-[`char`][char] umgewandelt oder mit einem ASCII-[`char`][char] verglichen werden kann. Durch das gute Design von UTF-8 kann zum Beispiel ein `'\n'`-Byte weiterhin als Zeilenumbruch interpretiert werden.
 
-Die meisten &ldquot;zeichenorientierten&udquot; Operationen auf Text funktionieren nur bei sehr einschränkenden Annahmen, wie etwa dass der Text nur ASCII-Bytes enthält. Außerhalb des ASCII-Bereiches wird häufig sowieso ein komplexerer (nicht laufzeitkonstanter) Algorithmus zur Ermittlung der linguistischen Einheit (Glyph, Wort, Abschnitt) verwendet. Wir empfehlen, einen &ldquot;ehrlichen&udquot;, linguistisch korrekten, anerkannten Unicode-Algorithmus zu verwenden.
+Die meisten „zeichenorientierten“ Operationen auf Text funktionieren nur bei sehr einschränkenden Annahmen, wie etwa dass der Text nur ASCII-Bytes enthält. Außerhalb des ASCII-Bereiches wird häufig sowieso ein komplexerer (nicht laufzeitkonstanter) Algorithmus zur Ermittlung der linguistischen Einheit (Glyph, Wort, Abschnitt) verwendet. Wir empfehlen, einen „ehrlichen“, linguistisch korrekten, anerkannten Unicode-Algorithmus zu verwenden.
 
 Der [`char`][char]-Typ ist UTF-32-kodiert. Wenn du sicher bist, dass du einen Algorithmus verwenden musst, welcher jeden Codepoint einzeln betrachtet, kannst du einfach einen `type wstr = [char]` definieren. Dann kannst du in einem einen [`str`][str] in ihn entpacken, mit welchem du dann als `wstr` arbeiten kannst. In anderen Worten: Die Tatsache, das die Sprache standardmäßig nicht in UTF-32 enkodiert, soll dich nicht daran hindern, Strings in irgendeinem anderen Enkoding zu verarbeiten.
 
 Eine detailliertere Erklärung, warum UTF-8 üblicherweise UTF-16 oder UTF-32 vorgezogen werden sollte, findet sich im [UTF-8 Everywhere Manifesto](http://utf8everywhere.org/).
 
-<h3><a href="#what-string-type-should-i-use" name="Welchen-String-Typ-sollte-ich-verwenden?">
+<h3><a href="#what-string-type-should-i-use" name="what-string-type-should-i-use">
 Welchen String-Typ sollte ich verwenden?
 </a></h3>
 
@@ -440,7 +440,7 @@ Rust hat vier Paare von Stringtypen, von welchen [jeder einen bestimmten Sinn ha
 
 Jeder String-Typen dient einem anderen Zwecken. `String` und `str` sind UTF-8-kodierte, allgemein verwendbare Strings. `OsString` und `OsStr` sind nach den Vorgaben der jeweiligen Plattform enkodiert und sollten benutzt werden, um mit dem Betriebssystem zu interagieren. `CString` und `CStr` sind Rusts Gegenstück zu C-Strings und werden in FFI (Foreign Function Interface)-Code genutzt. `PathBuf` und `Path` sind bequeme Wrapper um `OsString` und `OsStr`, welche Methoden zur Dateipfadmanipulation anbieten.
 
-<h3><a href="#why-are-there-multiple-types-of-strings" name="warum-gibt-es-verschiedene-string-typen">
+<h3><a href="#why-are-there-multiple-types-of-strings" name="why-are-there-multiple-types-of-strings">
 Wie kann ich eine Funktion schreiben, welche sowohl <code>&str</code> als auch <code>String</code> annimmt?
 </a></h3>
 
@@ -484,7 +484,7 @@ fn accepts_cow(s: Cow<str>) {
 
 <h2 id="collections">Collections</h2>
 
-<h3><a href="#can-i-implement-linked-lists-in-rust" name="kann-man-in-rust-linked-lists-implementieren">
+<h3><a href="#can-i-implement-linked-lists-in-rust" name="can-i-implement-linked-lists-in-rust">
 Ist es möglich, Datenstrukturen wie Vektoren oder verkettete Listen in Rust effizient zu implementieren?
 </a></h3>
 
@@ -494,7 +494,7 @@ Wenn du aber [einfach nur lernen willst](http://cglab.ca/~abeinges/blah/too-many
 
 Doppelt verkettete Listen erfordern zum Beispiel, dass auf jeden Knoten zwei veränderliche Referenzen verweisen. Dies verletzt aber die Aliasing-Regeln für veränderliche Referenzen (es darf nur höchstens eine auf ein Objekt bestehen). Du kannst dieses Problem umgehen, indem du [`Weak<T>`][Weak] nutzt, aber darunter wird die Leistung stark leiden. Mit unsicherem Code kannst du die _Mutable-Aliasing_-Regel umgehen, aber dann musst du manuell sicherstellen, dass dein Code die Speichersicherheit nicht verletzt.
 
-<h3><a href="#how-can-i-iterate-over-a-collection-without-consuming-it" name="wie-kann-ich-über-eine-collection-iterieren-ohne-sie-zu-konsumieren">
+<h3><a href="#how-can-i-iterate-over-a-collection-without-consuming-it" name="how-can-i-iterate-over-a-collection-without-consuming-it">
 Wie kann ich über eine Collection iterieren ohne sie zu konsumieren / zu verschieben?
 </a></h3>
 
@@ -514,7 +514,7 @@ Wenn du einen konsumierenden Iterator benötigst, dann schreibe die `for`-Schlei
 
 Direkten Zugriff auf einen Iterator, welcher Referenzen auf den Inhalt anbietet, erhälst du normalerweise durch den Aufruf der `iter()`-Methode.
 
-<h3><a href="#why-do-i-need-to-type-the-array-size-in-the-array-declaration" name="warum-muss-ich-die-größe-eines-arrays-in-der-deklaration-angeben">
+<h3><a href="#why-do-i-need-to-type-the-array-size-in-the-array-declaration" name="why-do-i-need-to-type-the-array-size-in-the-array-declaration">
 Warum muss ich die Größe eines Arrays in der Deklaration angeben?
 </a></h3>
 
@@ -524,7 +524,7 @@ Anzumerken ist, dass Rust momentan keine Generics für Arrays verschiedener Grö
 
 <h2 id="ownership">Ownership</h2>
 
-<h3><a href="#how-can-i-implement-a-data-structure-that-contains-cycles" name="wie-kann-ich-eine-datenstruktur-mit-zyklen-implementieren">
+<h3><a href="#how-can-i-implement-a-data-structure-that-contains-cycles" name="how-can-i-implement-a-data-structure-that-contains-cycles">
 Wie kann ich eine Datenstruktur mit Zyklen implementieren?
 </a></h3>
 
@@ -537,11 +537,11 @@ Dies wird effizient sein, aber es umgeht die Sicherheitsgarantien.
 - Du kannst Vektoren und Indexe in diese Vektoren benuzten. Hier sind einige Beispiele und Erklärungen für diese Herangehensweise: [several](http://smallcultfollowing.com/babysteps/blog/2015/04/06/modeling-graphs-in-rust-using-vector-indices/) [available](https://featherweightmusings.blogspot.com/2015/04/graphs-in-rust.html).
 - Du kannst 'borrowed' Referenzen mit [`UnsafeCell`][UnsafeCell] nutzen. Es gibt für diese Herangehensweise [Erklärungen und Beispielcode](https://github.com/nrc/r4cppp/blob/master/graphs/README.md#node-and-unsafecell).
 
-<h3><a href="#how-can-i-define-a-struct-that-contains-a-reference-to-one-of-its-own-fields" name="wie-kann-ich-ein-struct-mit-referenzen-zu-eigenen-feldern-definieren">
+<h3><a href="#how-can-i-define-a-struct-that-contains-a-reference-to-one-of-its-own-fields" name="how-can-i-define-a-struct-that-contains-a-reference-to-one-of-its-own-fields">
 Wie kann ich ein Struct mit Referenzen zu seinen eigenen Feldern definieren?
 </a></h3>
 
-Das ist möglich, aber nutzlos. Das Struct ist dann permanent von sich selbst &ldquot;ausgeliehen&udquot; und kann nicht bewegt werden. Hier ein Beispiel:
+Das ist möglich, aber nutzlos. Das Struct ist dann permanent von sich selbst „ausgeliehen“ und kann nicht bewegt werden. Hier ein Beispiel:
 
 ```rust
 use std::cell::Cell;
@@ -561,20 +561,20 @@ fn main() {
 }
 ```
 
-<h3><a href="#what-is-the-difference-between-consuming-and-moving" name="was-ist-der-unterschied-zwischen-consume-und-move">
+<h3><a href="#what-is-the-difference-between-consuming-and-moving" name="what-is-the-difference-between-consuming-and-moving">
 Was ist der Unterschied zwischen Pass-By-Value, Konsumieren, Verschieben (Moving), und der Übertragung von Ownership?
 </a></h3>
 
 Alle diese Begriffe sind äquivalent. In jedem Fall bedeuten sie, dass der Wert zu einem neuen Besitzer übertragen und aus dem Besitz des vorherigen entfernt wurde. Der vorherige Besitzer kann den Wert nicht mehr nutzen. Wenn ein Typ den `Copy`-Trait anbietet, dann wird der Wert des ursprünglichen Besitzers nicht invalidiert und kann weiterhin benutzt werden.
 
-<h3><a href="#why-can-values-of-some-types-by-reused-while-others-are-consumed" name="warum-können-werte-eines-typs-wiederverwendet-werden-während-andere-konsumiert-werden">
+<h3><a href="#why-can-values-of-some-types-by-reused-while-others-are-consumed" name="why-can-values-of-some-types-by-reused-while-others-are-consumed">
 Warum können Werte eines Typs nach dem übergeben an eine Funktion wiederverwendet werden, während die Wiederverwendung von Werten anderen Typs zu einem Fehler führt?
 </a></h3>
 
 Wenn ein Typ den [`Copy`][Copy]-Trait anbietet, dann wird ein Wert dieses Typs bei der Übergabe an eine Funktion kopiert. Alle numerischen Typen in Rust implementieren [`Copy`][Copy], aber Struct-Typen implementieren den Trait nicht standardmäßig. Sie werden also standardmäßig mit _Ownership_ übergeben. Das bedeutet, dass ein Struct nach der Übergabe nicht mehr benutzt werden kann, wenn es nicht (samt Ownership) am Ende der aufgerufenen Funktion wieder zurückgegeben wird. 
 
-<h3><a href="#how-do-you-deal-with-a-use-of-moved-value-error" name="wie-gehe-ich-mit-einem-use-of-moved-value-error-um">
-Wie gehe ich mit einem &ldquot;Use of moved Value&udquot;-Fehler um?
+<h3><a href="#how-do-you-deal-with-a-use-of-moved-value-error" name="how-do-you-deal-with-a-use-of-moved-value-error">
+Wie gehe ich mit einem „Use of moved Value“-Fehler um?
 </a></h3>
 
 Diese Fehlermeldung bedeutet, dass du versuchst auf einen Wert zuzugreifen, der den Besitzer gewechselt hat. Die erste Frage ist, ob die Übergabe des Besitzes nötig war: Wenn der Wert einer Funktion übergeben wurde, dann könnte es möglich sein die Funktion so umzuschreiben, dass sie nur eine Referenz entgegennimmt.
@@ -584,7 +584,7 @@ Wenn der Übergebene Wert dein eigener Typ ist, dann könntest du [`Copy`][Copy]
 
 Wenn diese Möglichkeiten nicht gegeben sind, dann könntest du die Funktion, welche den Besitz des Wertes erfordert so modifizieren, dass sie den Besitz am Ende wieder zurückgibt.
 
-<h3><a href="#what-are-the-rules-for-different-self-types-in-methods" name="was-sind-die-regeln-für-verschiedene-self-typen-in-methodendeklarationen">
+<h3><a href="#what-are-the-rules-for-different-self-types-in-methods" name="what-are-the-rules-for-different-self-types-in-methods">
 Nach welchen Regeln richtet sich die Verwendung von <code>self</code>, <code>&amp;self</code>, oder <code>&amp;mut self</code> in Methodendeklarationen?
 </a></h3>
 
@@ -592,7 +592,7 @@ Nach welchen Regeln richtet sich die Verwendung von <code>self</code>, <code>&am
 - Nutze `&self`, wenn eine Methode lediglich eine Nur-Lese-Referenz auf den Wert benötigt.
 - Nutze `&mut self`, wenn eine Methode den Wert verändern, aber nicht davon Besitz ergreifen soll.
 
-<h3><a href="#how-can-i-understand-the-borrow-checker" name="wie-kann-ich-den-borrow-checker-verstehen">
+<h3><a href="#how-can-i-understand-the-borrow-checker" name="how-can-i-understand-the-borrow-checker">
 Wie kann ich den Borrow-Checker verstehen?
 </a></h3>
 
@@ -613,19 +613,19 @@ Der wichtigste Bestandteil, um den Borrow Checker zu verstehen, ist Übung. Die 
 
 Wenn du dich mit dem Borrow Checker allzu sehr abmühen musst und dir die Geduld ausgeht, ist die [Rust-Community](community.html) jederzeit für dich da.
 
-<h3><a href="#when-is-rc-useful" name="wann-sollte-ich-rc-verwenden">
+<h3><a href="#when-is-rc-useful" name="when-is-rc-useful">
 Wann sollte ich <code>Rc</code> verwenden?
 </a></h3>
 
 Die Funktion des nichtatomaren, referenzzählenden Containers [`Rc`][Rc] wird in der offiziellen Dokumentation erläutert. Kurz gesagt kann man [`Rc`][Rc] und seinen threadsicheren Cousin [`Arc`][Arc] verwenden, um gemeinsamen Besitz einer Ressource auszudrücken und diese Ressource automatisch freizugeben, wenn kein Besitzer mehr Zugriff darauf hat.
 
-<h3><a href="#how-do-i-return-a-closure-from-a-function" name="wie-gebe-ich-aus-einer-funktion-eine-closure-zurück">
+<h3><a href="#how-do-i-return-a-closure-from-a-function" name="how-do-i-return-a-closure-from-a-function">
 Wie gebe ich eine Closure aus einer Funktion zurück?
 </a></h3>
 
 Um eine Closure aus einer Funktion herausreichen zu können, muss sie eine _Move Closure_ sein, welche mit dem Schlüsselwort `move` deklariert wird. Wie [im Buch zu Rust erklärt](https://doc.rust-lang.org/book/closures.html#move-closures), gibt dies der Closure eine eigene Kopie ihrer eingefangenen Variablen, die vom Stack Frame der Elternfunktion unabhängig sind. Eine andere Rückgabe von Closures wäre unsicher, da dies Zugriff auf nicht mehr gültige Variablen gewähren würde. In anderen Worten: Es würde das Auslesen potentiell ungültigen Speichers ermöglichen. Die Closure muss außerdem von einer [`Box`][Box] umgeben werden, damit sie auf dem Heap allokiert wird. [Im Buch](https://doc.rust-lang.org/book/closures.html#returning-closures) kannst du mehr darüber lesen.
 
-<h3><a href="#what-are-deref-coercions" name="was-sind-deref-coercions">
+<h3><a href="#what-are-deref-coercions" name="what-are-deref-coercions">
 Was sind <i>Deref Coercions</i> und wie funktionieren sie?
 </a></h3>
 
@@ -634,7 +634,7 @@ Deref Coercions existieren, um einen ergonomischeren Umgang mit Rust zu ermögli
 
 Eine Implementierung von Deref gibt an, dass der implementierende Typ durch den Aufruf der `deref`-Methode zu einem Zieltyp konvertiert werden kann. Dabei nimmt die Methode eine unveränderliche Referenz zum aufrufenden Typ an und gibt eine Referenz mit derselben Lifetime zum Zieltyp zurück. Der `*`-Präfix ist eine Kurznotation für die `deref`-Methode.
 
-Der Name &ldquot;Coercion&udquot; kommt aus der [hier im Buch erklärten Regel](https://doc.rust-lang.org/stable/book/deref-coercions.html):
+Der Name „Coercion“ kommt aus der [hier im Buch erklärten Regel](https://doc.rust-lang.org/stable/book/deref-coercions.html):
 
 > Wenn du einen Typ `U` hast, welcher `Deref<Target=T>` implementiert, dann können Werte von `&U` automatisch in `&T` konvertiert (_coerced_) werden.
 
@@ -650,19 +650,19 @@ Die häufigsten Arten der Deref Coercion sind:
 
 <h2 id="lifetimes">Lifetimes</h2>
 
-<h3><a href="#why-lifetimes" name="warum-lifetimes">
+<h3><a href="#why-lifetimes" name="why-lifetimes">
 Welchen Zweck haben Lifetimes?
 </a></h3>
 
 Lifetimes sind Rusts Antwort auf die Frage der Speichersicherheit. Sie erlauben es Rust, Speichersicherheit ohne die Laufzeitkosten von Garbage-Collection zu erlangen. Sie basieren auf einer Vielzahl akademischer Arbeiten, welche im [Rust book](https://doc.rust-lang.org/stable/book/bibliography.html#type-system) nachgeschlagen werden können.
 
-<h3><a href="#why-is-the-lifetime-syntax-the-way-it-is" name="warum-sind-lifetime-syntax-so-wie-er-ist">
+<h3><a href="#why-is-the-lifetime-syntax-the-way-it-is" name="why-is-the-lifetime-syntax-the-way-it-is">
 Warum ist die Syntax für Lifetimes so, wie sie ist?
 </a></h3>
 
 Die `'a`-Syntax kommt aus der ML-Familie der Programmiersprachen, wo `'a` benutzt wird, um einen generischen Parameter zu markieren. In Rust sollte der Syntax eindeutig und auffällig sein und neben Traits und Referenzen in eine Typdeklaraion (Signatur) passen. Alternative syntaktische Repräsentationen wurden diskutiert, von denen aber keine eindeutige Vorteile vorwiesen.
 
-<h3><a href="#how-do-i-return-a-borrow-to-something-i-created-from-a-function" name="wie-kann-ich-in-einer-funktion-etwas-allokieren-und-dann-eine-referenz-darauf-zurückgeben">
+<h3><a href="#how-do-i-return-a-borrow-to-something-i-created-from-a-function" name="how-do-i-return-a-borrow-to-something-i-created-from-a-function">
 Wie kann ich in einer Funktion einen Wert alloziieren, um dann eine Referenz darauf zurückzugeben?
 </a></h3>
 
@@ -691,7 +691,7 @@ fn happy_birthday(name: &str, age: i64) -> String {
 
 Diese Vorgehensweise ist einfacher, aber hat oft unnötige Allokationen zufolge.
 
-<h3><a href="#when-are-lifetimes-required-to-be-explicit" name="wann-sind-lifetimes-explizit-erforderlich">
+<h3><a href="#when-are-lifetimes-required-to-be-explicit" name="when-are-lifetimes-required-to-be-explicit">
 Warum haben manche Referenzen Lifetimes, wie <code>&amp;'a T</code>, und manche anderen wie <code>&amp;T</code> nicht?
 </a></h3>
 
@@ -717,13 +717,13 @@ Die Regeln sind wie folgt:
 Wenn diese Regeln nicht anwendbar sind, wird der Rust-Compiler eine Fehlermeldung zusammen mit einer potenziellen Lösung ausgegeben. Diese Lösung hängt vom konkreten Schritt des Inferenzvorganges ab,
 in dem der Fehler aufgetreten ist.
 
-<h3><a href="#how-can-rust-guarantee-no-null-pointers" name="wie-kann-rust-freiheit-von-nullpointern-garantieren">
-Wie kann Rust Freiheit von Nullzeigern und &ldquot;hängenden Zeigern&udquot; garantieren?
+<h3><a href="#how-can-rust-guarantee-no-null-pointers" name="how-can-rust-guarantee-no-null-pointers">
+Wie kann Rust Freiheit von Nullzeigern und „hängenden Zeigern“ garantieren?
 </a></h3>
 
-Der einzige Weg, einen Wert vom Typ `&Foo` oder `&mut Foo` zu konstruieren ist, einen existierenden Wert vom Typ `Foo` anzugeben, auf den die Referenz zeigt. Die Referenz &ldquot;borgt&udquot; sich den originalen Wert für einen gegeben Abschnitt des Codes (nämlich der Lifetime der Referenz) aus. Während der Dauer der &ldquot;Ausborgung&udquot; kann der Wert nicht an einen neuen Besitzer übergeben, verändert oder freigegeben werden.
+Der einzige Weg, einen Wert vom Typ `&Foo` oder `&mut Foo` zu konstruieren ist, einen existierenden Wert vom Typ `Foo` anzugeben, auf den die Referenz zeigt. Die Referenz „borgt“ sich den originalen Wert für einen gegeben Abschnitt des Codes (nämlich der Lifetime der Referenz) aus. Während der Dauer der „Ausborgung“ kann der Wert nicht an einen neuen Besitzer übergeben, verändert oder freigegeben werden.
 
-<h3><a href="#how-do-i-express-the-absense-of-a-value-without-null" name="wie-drücke-ich-die-abwesenheit-eines-wertes-aus-ohne-null-zu-verwenden">
+<h3><a href="#how-do-i-express-the-absense-of-a-value-without-null" name="how-do-i-express-the-absense-of-a-value-without-null">
 Wie drücke ich die Abwesenheit eines Wertes aus, ohne <code>null</code> zu verwenden?
 </a></h3>
 
@@ -731,7 +731,7 @@ Das kannst du mit dem [`Option`][Option]-Typ erreichen, welcher entweder ein `So
 
 <h2 id="generics">Generics</h2>
 
-<h3><a href="#what-is-monomorphisation" name="was-ist-monomorphisation">
+<h3><a href="#what-is-monomorphisation" name="what-is-monomorphisation">
 Was ist Monomorphisation?
 </a></h3>
 
@@ -742,7 +742,7 @@ Für jede einzigartige Menge von Typen, mit welcher eine generische Funktion ins
 
 Für Funktionen, welche anstelle von Typparametern [Trait Objects](https://doc.rust-lang.org/book/trait-objects.html) annehmen, wird keine Monomorphisation durchgeführt. Stattdessen werden Methoden für Trait Objects dynamisch zur Laufzeit entschieden.
 
-<h3><a href="#whats-the-difference-between-a-function-and-a-closure-that-doesnt-capture" name="was-ist-der-unterschied-zwischen-einer-funktion-und-einer-closure-welche-keine-variablen-annimmt">
+<h3><a href="#whats-the-difference-between-a-function-and-a-closure-that-doesnt-capture" name="whats-the-difference-between-a-function-and-a-closure-that-doesnt-capture">
 Was ist der Unterschied zwischen einer Funktion und einer Closure, welche keine Variablen einfängt?
 </a></h3>
 
@@ -754,11 +754,11 @@ Der große Unterschied zwischen diesen Traits ist, wie sie mit dem `self`-Parame
 
 Sogar wenn eine Closure gar keine Umgebungsvariablen entgegennimmt, wird sie zur Laufzeit als zwei Zeiger repräsentiert, genau wie jede andere Closure.
 
-<h3><a href="#what-are-higher-kinded-types" name="was-sind-typen-höherer-art">
+<h3><a href="#what-are-higher-kinded-types" name="what-are-higher-kinded-types">
 Was sind Typen höherer Ordnung, wozu brauche ich sie, und warum hat Rust sie nicht?
 </a></h3>
 
-Typen höherer Ordnung sind Typen mit noch ausstehenden Parametern. Typkonstruktoren wie [`Vec`][Vec], [`Result`][Result], und [`HashMap`][HashMap] sind Beispiele für Typen höherer Ordnung: Sie erfordern einige weitere Typparameter um einen tatsächlichen Typ wie `Vec<u32>` darzustellen. Unterstützung für Typen höherer Ordnung würde bedeuten, dass diese &ldquot;unvollständigen&udquot; Typen überall dort benutzt werden können, wo sonst auch &ldquot;vollständige&udquot; Typen verwendet werden können, also auch als generische Parameter für Funktionen.
+Typen höherer Ordnung sind Typen mit noch ausstehenden Parametern. Typkonstruktoren wie [`Vec`][Vec], [`Result`][Result], und [`HashMap`][HashMap] sind Beispiele für Typen höherer Ordnung: Sie erfordern einige weitere Typparameter um einen tatsächlichen Typ wie `Vec<u32>` darzustellen. Unterstützung für Typen höherer Ordnung würde bedeuten, dass diese „unvollständigen“ Typen überall dort benutzt werden können, wo sonst auch „vollständige“ Typen verwendet werden können, also auch als generische Parameter für Funktionen.
 
 Jeder vollständige Typ wie [`i32`][i32], [`bool`][bool], oder [`char`][char] ist von der Art `*` (diese Notation kommt aus der Typtheorie). Ein Typ mit einem Parameter, wie [`Vec<T>`][Vec] ist von der Art `* -> *`, was bedeutet, dass [`Vec<T>`][Vec] einen vollständigen Typ wie [`i32`][i32] nimmt und einen vollständigen Typ wie `Vec<i32>` zurückgibt.
 Ein Typ mit drei Parametern, wie [`HashMap<K, V, S>`][HashMap] ist von der Art `* -> * -> * -> *`, und nimmt drei vollständige Typen (wie [`i32`][i32], [`String`][String], and [`RandomState`][RandomState]) entgegen, um einen neuen vollständigen Typ `HashMap<i32, String, RandomState>` zu konstruieren.
@@ -771,12 +771,12 @@ Ein weiteres häufiges Beispiel sind Konzepte wie Funktoren oder Monaden. Beide 
 
 Bisher hat Rust keine Typen höherer Ordnung weil ihnen gegenüber anderen Verbesserungen keine Priorität zugewiesen wurde. Weil der Entwurf eine große, querschneidende Veränderung ist, wollen wir auch vorsichtig damit umgehen. Aber es gibt keinen tiefgreifenden Grund, der Typen höherer Ordnung unmöglich machen würde.
 
-<h3><a href="#what-do-named-type-parameters-in-generic-types-mean" name="was-bedeuten-benannte-typ-parameter-in-generischen-typen">
+<h3><a href="#what-do-named-type-parameters-in-generic-types-mean" name="what-do-named-type-parameters-in-generic-types-mean">
 Was bedeuten benannte Parameter wie <code>&lt;T=Foo&gt;</code> in generischen Typen?
 </a></h3>
 
 Diese werden [Assoziierte Typen](https://doc.rust-lang.org/stable/book/associated-types.html) genannt und erlauben es, Trait-Bounds auszudrücken, für die eine `where`-Klausel nicht ausreicht.
-Eine generische Einschränkung `X: Bar<T=Foo>` bedeutet: &ldquot;`X` muss den Trait `Bar` implementieren, und die Implementierung von `Bar` muss für den assoziierten Typ `T` den Typ `Foo` annehmen.&udquot;. Beispiele für Typ-Einschränkungen, welche nicht mit einer `where`-Klausel ausgedrückt werden können, sind zum Beispiel Trait-Objekte wie `Box<Bar<T=Foo>>`.
+Eine generische Einschränkung `X: Bar<T=Foo>` bedeutet: „`X` muss den Trait `Bar` implementieren, und die Implementierung von `Bar` muss für den assoziierten Typ `T` den Typ `Foo` annehmen.“. Beispiele für Typ-Einschränkungen, welche nicht mit einer `where`-Klausel ausgedrückt werden können, sind zum Beispiel Trait-Objekte wie `Box<Bar<T=Foo>>`.
 
 Assoziierte Typen existieren, weil Generics oft mit Familien von Typen umgehen müssen, wobei ein Typ alle anderen in der Familie bestimmt. Ein Trait eines Graphen zum Beispiel könnte als `Self`-Typ den Graphen selber haben, sowie assoziierte Typen für Knoten und Kanten. Jeder Graph-Typ bestimmt dann eindeutig die assoziierten Typen. Die Verwendung von assoziierten Typen vereinfacht die Arbeit mit solchen Typfamilien stark und bietet in vielen Fällen auch bessere Typinferenz.
 
@@ -1502,7 +1502,7 @@ impl Foo {
 }
 ```
 
-<h3><a href="#does-rustCopy-K-have-copy-constructors" name="does-rust-have-copy-constructors">
+<h3><a href="#does-rust-have-copy-constructors" name="does-rust-have-copy-constructors">
 Hat Rust Kopierkonstruktoren?
 </a></h3>
 

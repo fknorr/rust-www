@@ -102,7 +102,7 @@ verwirrt werden.
 Da diese Regel mit Wahrnehmung zu tun hat, ist sie subjektiv und etwas
 schwierig konkret festzulegen. Es gibt ein paar klar ersichtliche Wege,
 Probleme zu vermeiden; zum Beispiel durch die ersichtliche Nutzung des Wortes
-&ldquot;inoffiziell&udquot;. Wenn du Fragen oder Zweifel hast, dann helfen wir dir sehr gerne
+„inoffiziell“. Wenn du Fragen oder Zweifel hast, dann helfen wir dir sehr gerne
 weiter. Sende eine Mail an [trademark@rust-lang.org](mailto:trademark@rust-lang.org).
 
 ### Die Grundlagen: Erwähnung und Bezug auf Rust oder Cargo
