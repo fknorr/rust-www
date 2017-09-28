@@ -19,7 +19,7 @@ Falls du das Gefühl hast von einem anderen Teilnehmer schikaniert oder bedräng
 Die wichtigsten Anlaufpunkte für Einsteiger in Rust:
 
 - [#rust-beginners][beginners_irc], ein IRC-Kanal, der gerne Fragen jeder Komplexität beantwortet.
-- Das [Benutzerforum][users_forum] für alle Diskussionen rund um Rust. 
+- Das [Benutzerforum][users_forum] für alle Diskussionen rund um Rust.
 
 Zu vielen Problemen findest du auch auf der Fragen- und Antwortenseite [Stack Overflow][stack_overflow] Hilfestellung.
 
@@ -156,7 +156,7 @@ Rust entsteht durch einen Community-getriebenen Entwicklungsprozess, in dem die 
 
 * Das [Dokumentationsteam][doc_team] hält die fantastische Dokumentation zu Rust auf dem neuesten Stand.
 
-Zusätzlich zum den offiziellen Aufstellungen können die meisten Teams auch auf eine große Zahl an Reviewern zurückgreifen, die Fachwissen einbringen und Code gegenlesen. Falls du interessiert bist, dich an einem der Teams zu beteiligen, 
+Zusätzlich zum den offiziellen Aufstellungen können die meisten Teams auch auf eine große Zahl an Reviewern zurückgreifen, die Fachwissen einbringen und Code gegenlesen. Falls du interessiert bist, dich an einem der Teams zu beteiligen,
 kontaktiere unverbindlich den Leiter des Teams oder ein anderes Teammitglied, die dir bei den ersten Schritten helfen.
 
 [teams]: team.html
@@ -177,7 +177,7 @@ An Rust haben bisher über [1200 Entwickler mitgewirkt][authors], eine Zahl, die
 
 Wie oben erwähnt, steht das [Rust Internals Forum][internals_forum] für Themen rund um die Entwicklung und Implementierung von Rust zur Verfügung. Ein großer Teil der Diskussionen finden auch auf GitHub statt:
 
-- Das [Haupt-Repository][github] und der [Issue Tracker][issue_tracking] bilden die vorderste Front der Implementierungsarbeit. Unsere Reviewer unterstützen auch Neulinge gerne und freundlich, also zögere nicht ein Pull Request zu stellen, sobald du mit einer Verbesserung beitragen möchtest! 
+- Das [Haupt-Repository][github] und der [Issue Tracker][issue_tracking] bilden die vorderste Front der Implementierungsarbeit. Unsere Reviewer unterstützen auch Neulinge gerne und freundlich, also zögere nicht ein Pull Request zu stellen, sobald du mit einer Verbesserung beitragen möchtest!
 
 - Das [RFC-Repository][rfcs] führt in unserem RFC- (Request for Comments-) Prozess Buch, dem Hauptweg, über den die Community und die Entwicklerteams Konsens finden und Entscheidungen zu neuen Features der Sprache, der Standardbibliothek und dem Tooling treffen.
 

@@ -24,7 +24,7 @@ Dies sind die Richtlinien, um den Verhaltenskodex unserer Community aufrecht zu 
 
 1. Bemerkungen, die gegen den Rust-Verhaltenskodex verstoßen, wie etwa verhasste, verletzende, unterdrückende oder ausschließende Bemerkungen sind verboten (Fluchen und die Benutzung von Schimpfwörtern ist grundsätzlich erlaubt, aber nicht wenn sie andere Personen zum Ziel haben).
 2. Bemerkungen, die Moderatoren als unangemessen einstufen, ob sie Teil des Verhaltenskodex sind oder nicht, sind ebenfalls verboten.
-3. Die Moderatoren werden auf derartige Bemerkungen zunächst mit einer Warnung reagieren. 
+3. Die Moderatoren werden auf derartige Bemerkungen zunächst mit einer Warnung reagieren.
 4. Wird die Warnung nicht berücksichtigt, so wird der Teilnehmer oder die Teilnehmerin aus dem Kommunikationskanal entfernt ("gekickt"), um ihm oder ihr Bedenkzeit zu geben.
 5. Kehrt der Nutzer oder die Nutzerin trotzdem zurück und unterlässt das störende Verhalten nicht, so wird er oder sie permanent von der Kommunikation ausgeschlossen ("gebannt").
 6. Moderatoren haben die Befugnis, nach eigenem Ermessen den Ban eines Nutzers oder einer Nutzerin aufzuheben, falls es sich um den ersten derartigen Verstoß handelt und eine aufrichtige Entschuldigung gegenüber der beleidigten Person erfolgt ist.

@@ -178,7 +178,7 @@ Da Rust auf LLVM aufbaut und deshalb auch versucht, Clang-kompatiblen Code zu ge
 Gibt es in Rust einen Garbage Collector?
 </a></h3>
 
-Nein. Eine der Schlüsselinnovationen von Rust ist es, *ohne* Garbage Collection Speichersicherheit (keine Segfaults) zu garantieren. 
+Nein. Eine der Schlüsselinnovationen von Rust ist es, *ohne* Garbage Collection Speichersicherheit (keine Segfaults) zu garantieren.
 
 Rust erlangt dadurch einige Vorteile: Vorhersagbare Bereinigung von Ressourcen, niedrige Mehrkosten für Speichermanagement und ein minimales Laufzeitsystem. Diese Eigenschaften ermöglichen es, Rust in beliebige Umgebungen einzubinden, und vereinfachen die [Integration von Rust in Sprachen mit GC](http://calculist.org/blog/2015/12/23/neon-node-rust/).
 
@@ -570,7 +570,7 @@ Alle diese Begriffe sind äquivalent. In jedem Fall bedeuten sie, dass der Wert 
 Warum können Werte eines Typs nach dem übergeben an eine Funktion wiederverwendet werden, während die Wiederverwendung von Werten anderen Typs zu einem Fehler führt?
 </a></h3>
 
-Wenn ein Typ den [`Copy`][Copy]-Trait anbietet, dann wird ein Wert dieses Typs bei der Übergabe an eine Funktion kopiert. Alle numerischen Typen in Rust implementieren [`Copy`][Copy], aber Struct-Typen implementieren den Trait nicht standardmäßig. Sie werden also standardmäßig mit _Ownership_ übergeben. Das bedeutet, dass ein Struct nach der Übergabe nicht mehr benutzt werden kann, wenn es nicht (samt Ownership) am Ende der aufgerufenen Funktion wieder zurückgegeben wird. 
+Wenn ein Typ den [`Copy`][Copy]-Trait anbietet, dann wird ein Wert dieses Typs bei der Übergabe an eine Funktion kopiert. Alle numerischen Typen in Rust implementieren [`Copy`][Copy], aber Struct-Typen implementieren den Trait nicht standardmäßig. Sie werden also standardmäßig mit _Ownership_ übergeben. Das bedeutet, dass ein Struct nach der Übergabe nicht mehr benutzt werden kann, wenn es nicht (samt Ownership) am Ende der aufgerufenen Funktion wieder zurückgegeben wird.
 
 <h3><a href="#how-do-you-deal-with-a-use-of-moved-value-error" name="how-do-you-deal-with-a-use-of-moved-value-error">
 Wie gehe ich mit einem „Use of moved Value“-Fehler um?
@@ -606,7 +606,7 @@ Diese Regeln sind zwar einfach, sie konsistent zu befolgen aber nicht, vor allem
 
 Der erste Schritt zum Verständnis des Borrow Checkers ist es, seine Fehlermeldungen zu studieren. Es wurde viel Arbeit investiert, um die Qualität der Hilfestellungen des Borrow Checkers zu erhöhen. Wenn du ein Problem mit dem Borrow Checker hast, ist der erste Schritt, langsam und vorsichtig die Fehlermeldung zu lesen. Verändere deinen Code erst, nachdem du den Fehler verstanden hast.
 
-Der zweite Schritt ist, die Container-Typen der Standardbibliothek, welche mit Ownership und Mutability zu tun haben, kennenzulernen. Dies sind zum Beispiel [`Cell`][Cell], [`RefCell`][RefCell], und [`Cow`][Cow]. Diese Typen sind nützliche und notwendige Werkzeuge, um bestimmte Ownership- und Mutabilityverhältnisse auszudrücken, und wurden für minimale Leistungskosten entworfen. 
+Der zweite Schritt ist, die Container-Typen der Standardbibliothek, welche mit Ownership und Mutability zu tun haben, kennenzulernen. Dies sind zum Beispiel [`Cell`][Cell], [`RefCell`][RefCell], und [`Cow`][Cow]. Diese Typen sind nützliche und notwendige Werkzeuge, um bestimmte Ownership- und Mutabilityverhältnisse auszudrücken, und wurden für minimale Leistungskosten entworfen.
 
 Der wichtigste Bestandteil, um den Borrow Checker zu verstehen, ist Übung. Die starke Garantien der statischen Analyse von Rust sind streng und von anderen Programmiersprachen verschieden. Es wird einige Zeit dauern, mit Allem vollständig zurechtzukommen.
 
@@ -983,7 +983,7 @@ Kann Rust auch ohne Standardbibliothek vernünftig funktionieren?
 Absolut. Rust-Programme können die Standardbibliothek mit dem `#![no_std]`-Attribut abwählen. Damit kann weiterhin die Rust-Core-Bibliothek verwendet werden, die nur die plattformunabhängigen Primitive der Standardbibliothek enthält. Damit enthält sie keine Funktionalität zu I/O, Nebenläufigkeit, Heap-Allokation oder ähnlichem.
 
 <h3><a href="#can-i-write-an-operating-system-in-rust" name="can-i-write-an-operating-system-in-rust">
-Ist es möglich, ein Betriebssystem in Rust schreiben? 
+Ist es möglich, ein Betriebssystem in Rust schreiben?
 </a></h3>
 
 Ja! Es gibt tatsächlich bereits [mehrere Projekte, die genau dieses Ziel verfolgen](http://wiki.osdev.org/Rust).
@@ -1297,7 +1297,7 @@ Rust kennt keine `static`-Attribute wie im obigen Programmausschnitt. Stattdesse
 Wie kann ich einen C-ähnlichen Enum in einen Integer konvertieren und umgekehrt?
 </a></h3>
 
-Ein Enum kann mit einem `as`-Cast in einen Integer überführt werden, wie etwa `e as i64` (wobei `e` ein Enum ist). 
+Ein Enum kann mit einem `as`-Cast in einen Integer überführt werden, wie etwa `e as i64` (wobei `e` ein Enum ist).
 
 Die Gegenrichtung kann mit einem `match`-Statement erreicht werden, das Zahlenwerte auf Enum-Werte abbildet.
 
@@ -1419,7 +1419,7 @@ Ja. Rust wurde so entworfen, dass C-Code genauso effizient aufgerufen kann wie a
 Can C code call Rust code?
 </a></h3>
 
-Ja. 
+Ja.
 Yes. The Rust code has to be exposed via an `extern` declaration, which makes it C-ABI compatible. Such a function can be passed to C code as a function pointer or, if given the `#[no_mangle]` attribute to disable symbol mangling, can be called directly from C code.
 
 <h3><a href="#why-rust-vs-cxx" name="why-rust-vs-cxx">
@@ -1468,7 +1468,7 @@ void caller() {
 }
 ```
 
-C++-Compiler müssen über Ownership nicht Buch führen, sodass der obige Code ohne Warnungen oder Fehler übersetzt. In C++ bleibt der Besitz der Variablen `s` weiterhin bei `caller` (nicht aber der interne Puffer des Strings), sodass trotzdem der Destruktor von `s` ausgeführt wird, sobald `caller` zurückkehrt. In Rust wird `drop` dagegen nur durch den neuen Besitzer des Werts aufgerufen. 
+C++-Compiler müssen über Ownership nicht Buch führen, sodass der obige Code ohne Warnungen oder Fehler übersetzt. In C++ bleibt der Besitz der Variablen `s` weiterhin bei `caller` (nicht aber der interne Puffer des Strings), sodass trotzdem der Destruktor von `s` ausgeführt wird, sobald `caller` zurückkehrt. In Rust wird `drop` dagegen nur durch den neuen Besitzer des Werts aufgerufen.
 
 <h3><a href="#how-to-interoperate-with-cxx" name="how-to-interoperate-with-cxx">
 Wie kann ich aus Rust C++-Funktionen aufrufen und umgekehrt?
