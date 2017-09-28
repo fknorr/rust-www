@@ -1,14 +1,14 @@
 ---
 layout: de-DE/default
-title: Bei Rust mitwirken &mdash; tooling, IDEs und Infrastruktur &middot; Die Rust Programmiersprache
+title: Bei Rust mitwirken &mdash; Tooling, IDEs und Infrastruktur &middot; Die Programmiersprache Rust
 ---
 
 # Bei Rust mitwirken &mdash; Tooling, IDEs und Infrastruktur
 
 Codewerkzeuge spielen im Erfolg einer Sprache eine große Rolle,
 und es gibt in diesem Bereich noch eine Menge Arbeit.
-***Ein großer Schwerpunkt der aktuellen Entwicklung von Rust
-ist, [die IDE-Experience zu verbessern][ides]***.
+**Ein großer Schwerpunkt der aktuellen Entwicklung von Rust
+ist es, [die IDE-Experience zu verbessern][ides]**.
 Dies beinhaltet Arbeit am gesamten Rust-Stack, vom Compiler selbst
 bis zu deiner Lieblings-IDE. Folge dem Link für mehr Information.
 
@@ -16,7 +16,7 @@ Sowohl Cargo, der Paketmanager, als auch der Dokumentationsgenerator rustdoc
 sind zwar voll funktionsfähig, leiden aber an einem Entwicklermangel.
 Rustdoc hat viele offene Probleme, die im Main-Repository unter dem Label
 [A-rustdoc] gelistet sind. Es sind hauptsächlich Bugs, die lediglich einen
-Bugfix und einen Pull-Request erfordern.
+Bugfix und einen Pull Request erfordern.
 Cargo hat [sein eigenes Repository mit Issue-Tracker][Cargo], und
 wer beitragen möchte, kann sich gerne in [#cargo] melden.
 

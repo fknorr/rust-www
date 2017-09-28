@@ -5,9 +5,9 @@ title: Bei Rust mitwirken &mdash; Fehler finden, sichten und beheben &middot; Di
 
 # Bei Rust mitwirken &mdash; Fehler finden, sichten und beheben
 
-Die tägliche Pflege des Projekts dreht sich um den [Issue Tracker][issue tracker] und [Pull Requests][pull requests] - Mithilfe wird immer benötigt! Der einfachste Weg um einzusteigen sind Tickets mit den [E-easy] und [E-mentor]-Labels, die für neue Rust-Programmierer geeignet sind.
+Die tägliche Pflege des Projekts dreht sich um den [Issue Tracker][issue tracker] und [Pull Requests][pull] - Mithilfe wird immer benötigt! Der einfachste Weg um einzusteigen sind Tickets mit den [E-easy] und [E-mentor]-Labels, die für neue Rust-Programmierer geeignet sind.
 
-Bei Issues, die mit `E-mentor` gekennzeichnet sind, hat sich ein erfahrener Entwickler bereiterklärt, dich durch den Lösungsprozess und das [Einsenden eines Pull Request][pull] zu begleiten. Kontaktiere den Mentor auf dem Issue Tracker indem du ihn mit [@mentoring] in einem Kommentar erwähnst, oder ihn per Mail oder IRC direkt anschreibst. Denke daran dass Rust-Entwickler täglich viele Benachrichtigungen erhalten und einzelne Nachrichten übersehen werden können, also scheue dich nicht noch einmal nachzuhaken, falls du einmal keine Antwort erhältst.
+Bei Issues, die mit `E-mentor` gekennzeichnet sind, hat sich ein erfahrener Entwickler bereiterklärt, dich durch den Lösungsprozess und das [Einsenden eines Pull Request][pull] zu begleiten. Kontaktiere den Mentor auf dem Issue Tracker indem du ihn mit [@mentioning] in einem Kommentar erwähnst, oder ihn per Mail oder IRC direkt anschreibst. Denke daran, dass Rust-Entwickler täglich viele Benachrichtigungen erhalten und einzelne Nachrichten übersehen werden können, also scheue dich nicht noch einmal nachzuhaken, falls du einmal keine Antwort erhältst.
 
 Andere Rust-Projekte bieten ähnliche Einsteigeraufgaben, so etwa der Webbrowser [Servo], die HTTP-Bibliothek [hyper], das Code-Formatierungswerkzeug [rustfmt], die Unix-Bindings [nix] oder der Linter [clippy].
 
@@ -15,7 +15,7 @@ Obwohl Rust bereits eine [ansehnliche Test-Suite][test] besitzt, gibt es immer T
 
 Rust braucht immer Freiwillige, die Issues [sichten][triage], also Bugs reproduzieren, Testfälle minimieren, Labels zuweisen und gelöste Tickets schließen. Um Labels zuzuweisen, brauchst du zusätzliche Berechtigungen auf GitHub, die aber leicht zu bekommen sind, sobald du etwas Erfahrung im Projekt gesammelt hast. Frag einfach ein [Teammitglied][team].
 
-Sobald du dich im Projekt zurechtfindest und ein paar Pull Requests zu einem Teilgebiet eingereicht hast, kannst du versuchen Pull Requests anderer Benutzer durchzusehen. Gute Reviewer sind rar und immer gern gesehen. Dazu brauchst du keine besonderen Berechtigungen &mdash; kommentiere einfach Pull Requests, die dich interessieren, konstruktiv und höflich. Wenn du mehr zu guten Code Reviews lernen möchtest, wirf einen Blick in [diese Referenz][reviews].
+Sobald du dich im Projekt zurechtfindest und ein paar Pull Requests zu einem Teilgebiet eingereicht hast, kannst du versuchen Pull Requests anderer Benutzer durchzusehen. Gute Reviewer sind rar und immer gern gesehen. Dazu brauchst du keine besonderen Berechtigungen &mdash; kommentiere einfach Pull Requests die dich interessieren konstruktiv und höflich. Wenn du mehr zu guten Code Reviews lernen möchtest, wirf einen Blick in [diesen Leitfaden][reviews].
 
 <!--
 TODO: weekly triage email?

@@ -939,7 +939,7 @@ Allgemein gesprochen können all die Typen in einer [statischen Variablen benutz
 Kann ich ein Makro schreiben, das neue Bezeichner erzeugt?
 </a></h3>
 
-Momentan nicht. Rust-Makros sind [&ldquot;hygiensich&udquot;](https://en.wikipedia.org/wiki/Hygienic_macro) und vermeiden damit absichtlich das Reservieren oder Erzeugen von Bezeichnern, die unerwartete Kollisionen mit anderem Code auslösen können. Ihre Fähigkeiten unterscheiden sich grundsätzlich von Makros, wie sie vom C-Präprozessor bekannt sind. Makro-Aufrufe können nur an explizit erlaubten Positionen im Code auftauchen: An Stelle von Definitionen (_items_) auf Modulebene, Methodendeklarationen, Statements, Ausdrücken, und Patterns. Sie können nicht benutzt werden, um eine partielle Methodendeklaration oder Variablendeklaration zu vervollständigen.
+Momentan nicht. Rust-Makros sind [&„hygiensich“](https://en.wikipedia.org/wiki/Hygienic_macro) und vermeiden damit absichtlich das Reservieren oder Erzeugen von Bezeichnern, die unerwartete Kollisionen mit anderem Code auslösen können. Ihre Fähigkeiten unterscheiden sich grundsätzlich von Makros, wie sie vom C-Präprozessor bekannt sind. Makro-Aufrufe können nur an explizit erlaubten Positionen im Code auftauchen: An Stelle von Definitionen (_items_) auf Modulebene, Methodendeklarationen, Statements, Ausdrücken, und Patterns. Sie können nicht benutzt werden, um eine partielle Methodendeklaration oder Variablendeklaration zu vervollständigen.
 
 <h2 id="debugging">Fehlersuche und Werkzeuge</h2>
 

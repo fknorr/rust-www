@@ -1,25 +1,26 @@
 ---
 layout: de-DE/default
-title: Das Rust-Team &middot; Die Rust Programmiersprache
+title: Das Rust-Team &middot; Die Programmiersprache Rust
 extra_css:
   - team.css
 ---
 
 # Das Rust-Team
 
-Das Projekt Rust wird von mehreren Teams [verwaltet](https://github.com/rust-lang/rfcs/blob/master/text/1068-rust-governance.md), welche sich auf verschiedene Themengebiete spezialisiert haben.
+Das Rust-Projekt wird von mehreren Teams [verwaltet](https://github.com/rust-lang/rfcs/blob/master/text/1068-rust-governance.md), welche sich auf verschiedene Themengebiete spezialisiert haben.
 Unten werden in alphabetischer Reihenfolge die Teams aufgelistet.
 
 Um ein Team zu kontaktieren, poste deine Frage oder deinen Kommentar im [Internals
 Forum](https://internals.rust-lang.org/) und tagge deinen Post mit der zum Teamnamen korrespondierenden Kategorie.
-Sicherheitsmeldungen sollten dem [Rust security disclosure process](security.html) folgen.
+Sicherheitsmeldungen sollten dem [Veröffentlichungsprozess für Sicherheitslücken](security.html) folgen.
 
 {% for team in site.data.team.teams %}
 <section id="{{ team.name | replace:' ','-' }}">
 <h2> {{ page.localized-teams[team.name].name | default: team.name }} </h2>
 
-<strong>Responsibility</strong>: <em>{{ page.localized-teams[team.name].responsibility | default: team.responsibility }}</em>
+<strong>Responsibility</strong>: {{ page.localized-teams[team.name].responsibility | default: team.responsibility }}
 
+<br />
 <br />
 
 {% if team.email %}
