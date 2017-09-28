@@ -130,7 +130,7 @@ Um dieses Ziel zu erreichen, verfolgte Rust eine Vielzahl von Ideen, von denen e
 Wie funktioniert Versionierung in Rust?
 </a></h3>
 
-Die Sprachversionierung von Rust folgt [SemVer](http://semver.org/). Änderungen an stabilen APIs, welche die Abwärtskompatibilitätnicht gewährleisten, sind in _minor_-Versionen nur erlaubt, wenn sie Fehler oder Sicherheitslücken im Compiler beheben, oder wenn die Änderungen weitere Annotationen für Dispatch oder Typinferenz erforderlich machen. Weitere, detailreichere Richtlinien für _minor_-Versionsänderungen sind als genehmigte RFCs sowohl für die [Sprache](https://github.com/rust-lang/rfcs/blob/master/text/1122-language-semver.md) als auch die [Standardbibliotheken](https://github.com/rust-lang/rfcs/blob/master/text/1105-api-evolution.md) zu finden.
+Die Sprachversionierung von Rust folgt [SemVer](http://semver.org/). Änderungen an stabilen APIs, welche die Abwärtskompatibilität nicht gewährleisten, sind in _minor_-Versionen nur erlaubt, wenn sie Fehler oder Sicherheitslücken im Compiler beheben, oder wenn die Änderungen weitere Annotationen für Dispatch oder Typinferenz erforderlich machen. Weitere, detailreichere Richtlinien für _minor_-Versionsänderungen sind als genehmigte RFCs sowohl für die [Sprache](https://github.com/rust-lang/rfcs/blob/master/text/1122-language-semver.md) als auch die [Standardbibliotheken](https://github.com/rust-lang/rfcs/blob/master/text/1105-api-evolution.md) zu finden.
 
 Es gibt drei Veröffentlichungskanäle für Rust: Stable, Beta, und Nightly. Die Kanäle Stable und Beta werden alle sechs Wochen aktualisiert, wobei der aktuelle Nightly zur neuen Beta und die aktuelle Beta das neue Stable wird. Teile der Standardbibliotheken sind als _unstable_ markiert oder durch _Feature Gates_ abgeschirmt. Diese können ausschließlich im Nightly-Kanal verwendet werden. Neue Features sind solange als _unstable_ markiert, bis das Kernteam und zuständige Unterteams ihre Zustimmung zur Freigabe gegeben haben. Diese Herangehensweise erlaubt es Entwicklern, zu experimentieren, ohne die Garantie auf Abwärtskompatibilität zu gefährden.
 
@@ -215,7 +215,7 @@ Rust hat zunächst ein relativ komplexes Typsystem, und der Compiler muss einige
 
 Außerdem sind einige Teile des Rust-Compilers ziemlich veraltet. Diese generieren insbesondere LLVM-IR niedriger Qualität, welche LLVM erst „reparieren“ muss. Es gibt Hoffnung, dass zukünftige, [MIR-basierte](https://github.com/rust-lang/rfcs/blob/master/text/1211-mir.md) Übersetzungs- und Optimierungsdurchläufe die Arbeit für LLVM leichter machen.
 
-Drittens hat die Nutzung von LLVM auch ihre Kosten: Rust hat dadurch hohe Leistung zur Laufzeit, aber LLVM ist ein großes Framework das nicht auf hohe Leistung zur Überesetzungszeit fokussiert ist, insbesondere bei Eingaben mit mangelhafter Qualität.
+Drittens hat die Nutzung von LLVM auch ihre Kosten: Rust hat dadurch hohe Leistung zur Laufzeit, aber LLVM ist ein großes Framework das nicht auf hohe Leistung zur Übersetzungszeit fokussiert ist, insbesondere bei Eingaben mit mangelhafter Qualität.
 
 Letztlich führt auch die übliche Strategie der Monomorphisierung von Generics (wie in C++) zwar zu schnellem Code zur Laufzeit, aber sie erfordert die Erzeugung von Signifikant mehr Code als andere Strategien. Durch die Verwendung von Trait-Objekten können Rust-Programmierer diese Aufblähung vermeiden, müssen dann aber auf späte Bindung mit ihren bekannten Nachteilen zurückgreifen.
 
@@ -265,7 +265,7 @@ Während C Klammerung um ein `if`-Statement aber keine Klammern für einzeilige 
 Warum gibt es keine Syntax für Dictionary-Literale?
 </a></h3>
 
-Die bevorzugte Vorgehensweise beim Eintwurf von Rust war es, die *Sprache* selbst relativ klein zu halten und dafür mächtige *Bibliotheken* anzubieten. Rust bietet zwar Literale zur Initialisierung von Arrays und Strings an, aber diese sind die einzigen in die Sprache eingebauten Collection-Typen. Andere, in Bibliotheken definierte Typen, wie zum Beispiel der häufig genutzte [`Vec`][Vec] Collection-Typ erlauben die Initialisierung durch Makros wie [`vec!`][VecMacro].
+Die bevorzugte Vorgehensweise beim Entwurf von Rust war es, die *Sprache* selbst relativ klein zu halten und dafür mächtige *Bibliotheken* anzubieten. Rust bietet zwar Literale zur Initialisierung von Arrays und Strings an, aber diese sind die einzigen in die Sprache eingebauten Collection-Typen. Andere, in Bibliotheken definierte Typen, wie zum Beispiel der häufig genutzte [`Vec`][Vec] Collection-Typ erlauben die Initialisierung durch Makros wie [`vec!`][VecMacro].
 
 In der Zukunft wird die Design-Entscheidung, Makros zum Initialisieren von Datenstrukturen zu verwenden, wahrscheinlich auf weitere Datentypen erweitert werden. Zusätzlich zu [`HashMap`][HashMap] und [`Vec`][Vec] sollen Typen wie [`BTreeMap`][BTreeMap] unterstützt werden. Wenn du jetzt schon komfortablere Syntax zur Initialisierung von Datenstrukturen benötigst, kannst du dafür [dein eigenes Makro definieren](https://stackoverflow.com/questions/27582739/how-do-i-create-a-hashmap-literal).
 
@@ -350,7 +350,6 @@ Da Gleitkommazahlen weder [`Eq`][Eq] noch [`Ord`][Ord] implementieren, können s
 Wie kann ich zwischen numerischen Typen umwandeln?
 </a></h3>
 
-[comment]: <> (primitive typen? Was ist das, Java?)
 Es gibt zwei Möglichkeiten: Das `as` Schlüsselwort, welches einfache Typumwandlung für primitive Typen vollzieht, und die Traits [`Into`][Into] und [`From`][From], welche für einige Typkonversionen implementiert sind (und welche du für eigene Typen selbst implementieren kannst). Die [`Into`][Into] und [`From`][From]-Traits sind nur in Fällen implementiert, in denen eine verlustfreie Umwandlung möglich ist. Zum Beispiel wird `f64::from(0f32)` kompilieren, `f32::from(0f64)` aber nicht. Das Schlüsselwort `as` hingegen wandelt alle primitiven Typen untereinander um und schneidet wenn nötig deren Werte ab.
 
 <h3><a href="#why-doesnt-rust-have-increment-and-decrement-operators" name="why-doesnt-rust-have-increment-and-decrement-operators">
@@ -417,7 +416,7 @@ Der [`str`][str]-Typ ist UTF-8-kodiert, weil Text (vor allem in Endian-agnostisc
 
 Das bedeutet, dass auf einen spezifischen Code Point in einem String nur durch eine O(n)-Operation zugegriffen werden kann (wobei ein Byte an bekannter Position natürlich weiterhin nur O(1) kostet). Einerseits ist das ein unerwünschter Nachteil; Andererseits ist dieses Problem voller Abwägungen und Trade-Offs. Ein paar wichtige Merkmale:
 
-Einen [`str`][str] nach ASCII-Codepoints zu durchsuchen kann immernoch sicher Byte für Byte geschehen. Mit [`.as_bytes()`][str__as_bytes] kann man mit O(1)-Kosten einen [`u8`][u8] gewinnen, welcher zu einem ASCII-[`char`][char] umgewandelt oder mit einem ASCII-[`char`][char] verglichen werden kann. Durch das gute Design von UTF-8 kann zum Beispiel ein `'\n'`-Byte weiterhin als Zeilenumbruch interpretiert werden.
+Einen [`str`][str] nach ASCII-Codepoints zu durchsuchen kann immer noch sicher Byte für Byte geschehen. Mit [`.as_bytes()`][str__as_bytes] kann man mit O(1)-Kosten einen [`u8`][u8] gewinnen, welcher zu einem ASCII-[`char`][char] umgewandelt oder mit einem ASCII-[`char`][char] verglichen werden kann. Durch das gute Design von UTF-8 kann zum Beispiel ein `'\n'`-Byte weiterhin als Zeilenumbruch interpretiert werden.
 
 Die meisten „zeichenorientierten“ Operationen auf Text funktionieren nur bei sehr einschränkenden Annahmen, wie etwa dass der Text nur ASCII-Bytes enthält. Außerhalb des ASCII-Bereiches wird häufig sowieso ein komplexerer (nicht laufzeitkonstanter) Algorithmus zur Ermittlung der linguistischen Einheit (Glyph, Wort, Abschnitt) verwendet. Wir empfehlen, einen „ehrlichen“, linguistisch korrekten, anerkannten Unicode-Algorithmus zu verwenden.
 
@@ -438,7 +437,7 @@ Rust hat vier Paare von Stringtypen, von welchen [jeder einen bestimmten Sinn ha
 | C-kompatibel  | `CStr`       | `CString`    |
 | Systempfad   | `Path`       | `PathBuf`    |
 
-Jeder String-Typen dient einem anderen Zweck. `String` und `str` sind UTF-8-kodierte, allgemein verwendbare Strings. `OsString` und `OsStr` sind nach den Vorgaben der jeweiligen Plattform enkodiert und sollten benutzt werden, um mit dem Betriebssystem zu interagieren. `CString` und `CStr` sind Rusts Gegenstück zu C-Strings und werden in FFI (Foreign Function Interface)-Code genutzt. `PathBuf` und `Path` sind bequeme Wrapper um `OsString` und `OsStr`, welche Methoden zur Dateipfadmanipulation anbieten.
+Jeder String-Typen dient einem anderen Zweck. `String` und `str` sind UTF-8-kodierte, allgemein verwendbare Strings. `OsString` und `OsStr` sind nach den Vorgaben der jeweiligen Plattform enkodiert und sollten benutzt werden, um mit dem Betriebssystem zu interagieren. `CString` und `CStr` sind Rusts Gegenstück zu C-Strings und werden in FFI (Foreign Function Interface)-Code genutzt. `PathBuf` und `Path` sind bequeme Wrapper um `OsString` und `OsStr`, welche Methoden zur Dateipfad-Manipulation anbieten.
 
 <h3><a href="#why-are-there-multiple-types-of-strings" name="why-are-there-multiple-types-of-strings">
 Wie kann ich eine Funktion schreiben, welche sowohl <code>&str</code> als auch <code>String</code> annimmt?
@@ -512,7 +511,7 @@ In Rust nutzen die `for`-Schleifen die `into_iter()`-Funktion aus dem [`IntoIter
 
 Wenn du einen konsumierenden Iterator benötigst, dann schreibe die `for`-Schleife ohne `&` oder `&mut` in der Iteration.
 
-Direkten Zugriff auf einen Iterator, welcher Referenzen auf den Inhalt anbietet, erhälst du normalerweise durch den Aufruf der `iter()`-Methode.
+Direkten Zugriff auf einen Iterator, welcher Referenzen auf den Inhalt anbietet, erhältst du normalerweise durch den Aufruf der `iter()`-Methode.
 
 <h3><a href="#why-do-i-need-to-type-the-array-size-in-the-array-declaration" name="why-do-i-need-to-type-the-array-size-in-the-array-declaration">
 Warum muss ich die Größe eines Arrays in der Deklaration angeben?
@@ -534,7 +533,7 @@ Es gibt mindestens vier Möglichkeiten, welche ausführlich in [Too Many Linked 
 Dann musst du die Kosten von Memory Management in Kauf nehmen.
 - Du kannst `unsafe`-Code mit rohen Pointern nutzen.
 Dies wird effizient sein, aber es umgeht die Sicherheitsgarantien.
-- Du kannst Vektoren und Indexe in diese Vektoren benuzten. Hier sind einige Beispiele und Erklärungen für diese Herangehensweise: [several](http://smallcultfollowing.com/babysteps/blog/2015/04/06/modeling-graphs-in-rust-using-vector-indices/) [available](https://featherweightmusings.blogspot.com/2015/04/graphs-in-rust.html).
+- Du kannst Vektoren und Indexe in diesen Vektoren benutzen. Hier sind einige Beispiele und Erklärungen für diese Herangehensweise: [several](http://smallcultfollowing.com/babysteps/blog/2015/04/06/modeling-graphs-in-rust-using-vector-indices/) [available](https://featherweightmusings.blogspot.com/2015/04/graphs-in-rust.html).
 - Du kannst 'borrowed' Referenzen mit [`UnsafeCell`][UnsafeCell] nutzen. Es gibt für diese Herangehensweise [Erklärungen und Beispielcode](https://github.com/nrc/r4cppp/blob/master/graphs/README.md#node-and-unsafecell).
 
 <h3><a href="#how-can-i-define-a-struct-that-contains-a-reference-to-one-of-its-own-fields" name="how-can-i-define-a-struct-that-contains-a-reference-to-one-of-its-own-fields">
@@ -834,7 +833,7 @@ Die folgenden Operatoren können überladen werden:
 Warum gibt es die Unterscheidung zwischen <code>Eq</code>/<code>PartialEq</code> und <code>Ord</code>/<code>PartialOrd</code>?
 </a></h3>
 
-Die Werte mancher Typen in Rust sind nur partiell geordnet oder kennen nur partielle Gleicheit. In einer partiellen Ordnung kann es vorkommen, dass bei zwei verschiedenen Werte eines Typs der eine weder kleiner noch größer als der andere ist. Paritelle Gleichheit bedeutet, dass Werte des Typs ungleich sich selbst sein können.
+Die Werte mancher Typen in Rust sind nur partiell geordnet oder kennen nur partielle Gleichheit. In einer partiellen Ordnung kann es vorkommen, dass bei zwei verschiedenen Werte eines Typs der eine weder kleiner noch größer als der andere ist. Partielle Gleichheit bedeutet, dass Werte des Typs ungleich sich selbst sein können.
 
 Gleitkommazahlen ([`f32`][f32] and [`f64`][f64]) sind gute Beispiele für beide Fälle. Gleitkommatypen können den Wert `NaN` ("Not a Number") annehmen. `NaN` ist ungleich sich selbst (`NaN == NaN` ist `false`) und nicht kleiner oder größer als jeder beliebige Gleitkommawert. Deshalb implementieren sowohl [`f32`][f32] als auch [`f64`][f64] [`PartialOrd`][PartialOrd] und [`PartialEq`][PartialEq], nicht aber [`Ord`][Ord] oder [`Eq`][Eq].
 
@@ -871,7 +870,7 @@ fn main() {
 Wie lese ich effektiv aus einer Datei?
 </a></h3>
 
-Der Typ [`File`][File] implementiert den [`Read`][Read]-Trait, der eine Reihe an Funktionen zum Lesen und Schreiben von Daten bereitstellt, etwa [`read()`][read__read], [`read_to_end()`][read__read_to_end], [`bytes()`][read__bytes], [`chars()`][read__chars], und [`take()`][read__take]. Jede dieser Funktionen liest einen bestimmte Menge an Daten aus der jeweiligen Datei. [`read()`][read__read] liest so viele Daten, wie das Eingabe-Ausgabe-System in einem einzigen Aufruf zur Verfügung stellt. [`read_to_end()`][read__read_to_end] liest den gesamten Puffer in einen Vektor ein und fordert dabei so viel Speicher an wie notwendig. [`bytes()`][read__bytes] und [`chars()`][read__chars] liefern Iteratoren über die Bytes bzw. Zeichen einert Datei. Zu guter Letzt ermöglicht es [`take()`][read__take], eine beliebige Anzahl Bytes aus der Datei zu lesen. Zusammen genommen sollten diese Funktionen ausreichen, um effektiv aus jeder beliebigen Datei zu lesen.
+Der Typ [`File`][File] implementiert den [`Read`][Read]-Trait, der eine Reihe an Funktionen zum Lesen und Schreiben von Daten bereitstellt, etwa [`read()`][read__read], [`read_to_end()`][read__read_to_end], [`bytes()`][read__bytes], [`chars()`][read__chars], und [`take()`][read__take]. Jede dieser Funktionen liest einen bestimmte Menge an Daten aus der jeweiligen Datei. [`read()`][read__read] liest so viele Daten, wie das Eingabe-Ausgabe-System in einem einzigen Aufruf zur Verfügung stellt. [`read_to_end()`][read__read_to_end] liest den gesamten Puffer in einen Vektor ein und fordert dabei so viel Speicher an wie notwendig. [`bytes()`][read__bytes] und [`chars()`][read__chars] liefern Iteratoren über die Bytes bzw. Zeichen einer Datei. Zu guter Letzt ermöglicht es [`take()`][read__take], eine beliebige Anzahl Bytes aus der Datei zu lesen. Zusammen genommen sollten diese Funktionen ausreichen, um effektiv aus jeder beliebigen Datei zu lesen.
 
 Für gepufferte Eingabe gibt es den [`BufReader`][BufReader]-Struct, der hilft, die Anzahl der Systemaufrufe während des Lesens zu verringern.
 
@@ -895,7 +894,7 @@ Wenn du nach etwas mächtigeren suchst, gibt es eine [Reihe an Optionen auf crat
 Warum kennt Rust keine Exceptions?
 </a></h3>
 
-Exception erschweren das Verständnis von Kontrollfluss, drücken Gültigkeit und Ungültigkeit außerhalb des Typsystems aus und spielen schlecht mit Multithreading zusammen (ein wichtiges Ziel von Rust).
+Exceptions erschweren das Verständnis von Kontrollfluss, drücken Gültigkeit und Ungültigkeit außerhalb des Typsystems aus und spielen schlecht mit Multithreading zusammen (ein wichtiges Ziel von Rust).
 
 Rust zieht einen typbasierten Ansatz zur Fehlerbehandlung vor, der [ausführlich im Buch](https://doc.rust-lang.org/stable/book/error-handling.html) beschrieben wird. Dieser passt besser zum Kontrollfluss, der Nebenläufigkeit und dem Rest der Sprache.
 
@@ -910,7 +909,7 @@ Was hat es mit den dauernden <code>unwrap()</code>-Aufrufen auf sich?
 Die Funktion ist auch für Prototypen geeignet, in denen noch keine Fehlerbehandlung implementiert werden soll. Außerdem ist sie für Codebeispiele praktisch, in denen die Fehlerbehandlung vom Ziel des Programms ablenken würde.
 
 <h3><a href="#why-do-i-get-errors-with-try" name="why-do-i-get-errors-with-try">
-Warum bekomme ich einen Compilerfehler in Besipielcode, der das <code>try!</code>-Makro benutzt?
+Warum bekomme ich einen Compilerfehler in Beispielcode, der das <code>try!</code>-Makro benutzt?
 </a></h3>
 
 Das liegt wahrscheinlich am Rückgabetyp der Funktion. Das [`try!`][TryMacro]-Makro entpackt im Erfolgsfall den Wert aus einem [`Result`][Result] oder kehrt aus der aufrufenden Funktion mit dem Fehler zurück, den das [`Result`][Result] beschreibt. Damit funktioniert `try!` nur in Funktionen die ihrerseits ein `Result` zurückgeben. Dessen `Err`-Wert muss außerdem mit `From::from(err)` aus dem Fehlertyp des `try!`-Arguments konstruiert werden können. Insbesondere kann `try!` somit auch nicht in der `main`-Funktion verwendet werden.
@@ -947,7 +946,7 @@ Momentan nicht. Rust-Makros sind [&„hygiensich“](https://en.wikipedia.org/wi
 Wie finde ich Fehler in meinem Rust-Programm?
 </a></h3>
 
-Rust-Programme können mit [gdb](https://sourceware.org/gdb/current/onlinedocs/gdb/) oder [lldb](http://lldb.llvm.org/tutorial.html) debuggt werden - genau wie C und C++. Jede Rust-Installation kommt mit rust-gdb, rust-lldb oder beidem, jenachdem was die Plattform unterstützt. Dabei handelt es sich um Wrapper um gdb und lldb, die Rust-Datenstrukturen lesbar ausgeben können (_pretty printing_).
+Rust-Programme können mit [gdb](https://sourceware.org/gdb/current/onlinedocs/gdb/) oder [lldb](http://lldb.llvm.org/tutorial.html) debuggt werden - genau wie C und C++. Jede Rust-Installation kommt mit rust-gdb, rust-lldb oder beidem, je nachdem was die Plattform unterstützt. Dabei handelt es sich um Wrapper um gdb und lldb, die Rust-Datenstrukturen lesbar ausgeben können (_pretty printing_).
 
 <h3><a href="#how-do-i-locate-a-panic" name="how-do-i-locate-a-panic">
 <code>rustc</code> behauptet, dass eine Panic im Code er Standardbibliothek aufgetreten ist. Wie kann ich den Fehler in meinem Code finden?
@@ -1052,7 +1051,7 @@ Wahrscheinlich. Rust hat [experimentelle Unterstützung][wasm] für [asm.js] und
 Wie funktioniert Cross-Compilation in Rust?
 </a></h3>
 
-Rust kann Code für andere Systeme übersetzen, erfordert dafür aber [etwas Vorbereitsungsarbeit](https://github.com/japaric/rust-cross/blob/master/README.md). Jeder Rust-Compiler kann als Cross-Complier arbeiten, Bibliotheken müssen aber zunächst für die Zielplattform übersetzt werden.
+Rust kann Code für andere Systeme übersetzen, erfordert dafür aber [etwas Vorbereitsungsarbeit](https://github.com/japaric/rust-cross/blob/master/README.md). Jeder Rust-Compiler kann als Cross-Compiler arbeiten, Bibliotheken müssen aber zunächst für die Zielplattform übersetzt werden.
 
 Rust vertreibt [Kopien der Standardbibliothek](https://static.rust-lang.org/dist/index.html) für jede unterstützte Plattform; sie liegen in den `rust-std-*`-Dateien der Distribution für die jeweilige Plattform. Es existiert jedoch noch kein Automatismus, um diese Bibliotheken für Cross-Compilation zu installieren.
 
@@ -1071,9 +1070,9 @@ Wie verhalten sich Crates und Module zueinander?
 Warum kann der Rust-Compiler die Bibliothek nicht finden, die ich eingebunden habe?
 </a></h3>
 
-Hier gibt es eine Reihe von Möglichkeiten, aber ein häufiger Grund ist, dass die `use`-Deklaration nicht relativ zur Crate-Wurzel angegben wurde. Versuche deine Deklarationen so zu schreiben, dass sie den gleichen Pfad haben wie wenn sie in der Wurzeldatei deines Projekts importiert würden.
+Hier gibt es eine Reihe von Möglichkeiten, aber ein häufiger Grund ist, dass die `use`-Deklaration nicht relativ zur Crate-Wurzel angegeben wurde. Versuche deine Deklarationen so zu schreiben, dass sie den gleichen Pfad haben wie wenn sie in der Wurzeldatei deines Projekts importiert würden.
 
-Es gibt außerdem noch die Schlüsselwörter `self` und `super`, die es erlauben, Pfade relativ zum akutellen oder zum Elternmodul anzugeben.
+Es gibt außerdem noch die Schlüsselwörter `self` und `super`, die es erlauben, Pfade relativ zum aktuellen oder zum Elternmodul anzugeben.
 
 Mehr Informationen findest du im Kapitel ["Crates and Modules"](https://doc.rust-lang.org/stable/book/crates-and-modules.html) des Rust Book.
 
@@ -1112,7 +1111,7 @@ pub fn f() {
 
 Im ersten Beispiel wird das Modul in der Datei definiert, in der es auch benutzt wird. Im zweiten Beispiel weist die Moduldeklaration den Compiler darauf hin, die Definition aus `hello.rs` oder `hello/mod.rs` zu laden.
 
-`mod` deklariert also ein neues Modul, wogegen sich `use` auf ein anderswo existierendes Modul bezieht und dessen Inhalte in den aktuellen Gültigkeitsberich übernimmt.
+`mod` deklariert also ein neues Modul, wogegen sich `use` auf ein anderswo existierendes Modul bezieht und dessen Inhalte in den aktuellen Gültigkeitsbereich übernimmt.
 
 <h3><a href="#how-do-i-configure-cargo-to-use-a-proxy" name="how-do-i-configure-cargo-to-use-a-proxy">
 Wie kann ich Cargo dazu bringen, einen Proxy zu verwenden?
@@ -1124,7 +1123,7 @@ Wie in der [Cargo-Dokumentation](http://doc.crates.io/config.html) (englisch) be
 Warum kann der Compiler eine Implementierung nicht finden, obwohl ich das Modul des Typs bereits importiert habe?
 </a></h3>
 
-Für Methoden, die über einen Trait definiert werden, muss die Trait-Deklaration explizit mit importiert werden. Es genügt also nicht, das Modul zu importieren, in dem der Trait für den Struct imlplementiert wird, sondern der Trait selbst muss zusätzlich eingebunden werden.
+Für Methoden, die über einen Trait definiert werden, muss die Trait-Deklaration explizit mit importiert werden. Es genügt also nicht, das Modul zu importieren, in dem der Trait für den Struct implementiert wird, sondern der Trait selbst muss zusätzlich eingebunden werden.
 
 <h3><a href="#why-cant-the-compiler-infer-use-statements" name="why-cant-the-compiler-infer-use-statements">
 Warum kann der Compiler <code>use</code>-Deklarationen nicht einfach herleiten?
@@ -1183,10 +1182,10 @@ Warum hat crates.io keine Namensräume?
 Wie kann ich eine HTTP-Anfrage absetzen?
 </a></h3>
 
-Die Standardbibliothek stellt keine HTTP-Implementierung zur Verfüguing, deshalb musst du dafür einen externen Crate bemühen.
+Die Standardbibliothek stellt keine HTTP-Implementierung zur Verfügung, deshalb musst du dafür einen externen Crate bemühen.
 [reqwest](http://docs.rs/reqwest) ist einer der einfachsten.  Er setzt auf [hyper](https://github.com/hyperium/hyper) auf und ist in Rust geschrieben,
 es gibt jedoch [eine Vielzahl an Alternativen](https://crates.io/keywords/http).
-Der [curl](https://docs.rs/curl)-Crate ist beispielsweise weit verbreitet und bildet eine Anbindung an die curl-Biblitothek.
+Der [curl](https://docs.rs/curl)-Crate ist beispielsweise weit verbreitet und bildet eine Anbindung an die curl-Bibliothek.
 
 <h3><a href="#how-can-i-write-a-gui-application" name="how-can-i-write-a-gui-application">
 Wie kann ich in Rust eine grafische Benutzeroberfläche schreiben?
@@ -1253,7 +1252,7 @@ Rust hat momentan nur eingeschränkte Unterstützung für Compilezeit-Konstanten
 Konstanten, die sich mit diesen Mechanismen nicht beschreiben lassen, können mit dem [`lazy-static`](https://github.com/rust-lang-nursery/lazy-static.rs)-Crate erzeugt werden, der Compilezeit-Berechnung durch Auswertung bei der ersten Benutzung einer globalen Variablen emuliert.
 
 <h3><a href="#can-i-run-code-before-main" name="can-i-run-code-before-main">
-Kann ich vor Bereten der `main`-Funktion Initialisierungscode ausführen?
+Kann ich vor Betreten der `main`-Funktion Initialisierungscode ausführen?
 </a></h3>
 
 Rust kennt keine Programmausführung vor `main`. Am nächsten kommt dem Konzept der [`lazy-static`](https://github.com/Kimundi/lazy-static.rs)-Crate, der dieses Verhalten nachbildet, indem globale Variablen bei ihrer ersten Benutzung initialisiert werden.
@@ -1263,16 +1262,16 @@ Rust kennt keine Programmausführung vor `main`. Am nächsten kommt dem Konzept 
 This answer needs significant work. Let's revise after the initial posting. --aturon
 
 <h3><a href="#why-doesnt-rust-have-inheritance" name="why-doesnt-rust-have-inheritance">
-Why doesn't Rust have inheritance?
+Warum hat Rust keine Vererbung?
 </a></h3>
 
-There are two meanings for the word "inheritance": _subtyping_, and _interface sharing_. Both purposes are already handled by traits.
+Es gibt für das Wort "Vererbung" (eng.: "Inheritance") zwei verschiedene Bedeutungen: _subtyping_ und _interface sharing_. Beide Zwecke werden durch Traits bereits erfüllt.
 
-For the first, subtyping exists for polymorphism, which traits already provide.
+Traits erlauben es, Subtypen zu definieren, was Polymorphismus ermöglicht.
 
-For the second, interface sharing is handled via trait methods, which define a collection of related functions that must be implemented for any implementation of the trait.
+Interface sharing wird durch Trait-Methoden ermöglicht. Diese definieren eine Menge von zusammengehörigen Funktionen, welche für jede Implementierung dieses Traits vorhanden sein müssen.
 
-Rust has consistently worked to avoid having features with overlapping purposes, preferring to keep features orthogonal. For this reason, and given that the two major purposes are already handled by traits, Rust has opted not to include inheritance.
+Rust hat stets daran gearbeitet, keine Features zu haben, deren Zwecke sich überlappen - dadurch bleiben Features orthogonal. Aus diesem Grund, und weil die nützlichen Aspekte von Vererbung durch Traits abgedeckt werden, hat man sich entschieden, Vererbung in Rust nicht zu unterstützen.
 
 -->
 
@@ -1310,7 +1309,7 @@ Mehrere Faktoren tragen dazu bei, dass Rust-Programme standardmäßig größere 
 
 __Monomorphisierung__
 
-Rust monomorphisiert seine Generics, was bedeutet, dass eine generische Funktion oder ein generischer Typ für jeden konkreten Typ, mit dem er instanziiert wird, neu übersetzt wird. Das ist ählich zum Verhalten von Templates in C++. Zum Beispiel werden im folgenden Programm
+Rust monomorphisiert seine Generics, was bedeutet, dass eine generische Funktion oder ein generischer Typ für jeden konkreten Typ, mit dem er instanziiert wird, neu übersetzt wird. Das ist ähnlich zum Verhalten von Templates in C++. Zum Beispiel werden im folgenden Programm
 
 ```rust
 fn foo<T>(t: T) {
@@ -1368,7 +1367,7 @@ fn main() {
 }
 ```
 
-Dieses Programm wird übersetzt ein größeres Binary produzieren und mehr Speicher in Anspruch nehmen als das C-Programm. Es ist aber nicht wirklich gleichwertig zum obigen C-Code. Das äquivalente Rust-Programm würde eher so ausehen:
+Dieses Programm wird übersetzt ein größeres Binary produzieren und mehr Speicher in Anspruch nehmen als das C-Programm. Es ist aber nicht wirklich gleichwertig zum obigen C-Code. Das äquivalente Rust-Programm würde eher so aussehen:
 
 ```rust
 #![feature(lang_items)]
@@ -1420,6 +1419,7 @@ Ja. Rust wurde so entworfen, dass C-Code genauso effizient aufgerufen kann wie a
 Can C code call Rust code?
 </a></h3>
 
+Ja. 
 Yes. The Rust code has to be exposed via an `extern` declaration, which makes it C-ABI compatible. Such a function can be passed to C code as a function pointer or, if given the `#[no_mangle]` attribute to disable symbol mangling, can be called directly from C code.
 
 <h3><a href="#why-rust-vs-cxx" name="why-rust-vs-cxx">
@@ -1428,7 +1428,7 @@ Ich kann bereits perfektes C++ schreiben. Welche Vorteile bietet mir Rust?
 
 Modernes C++ implementiert viele Features, die das Schreiben sicheren und korrekten Codes weniger Fehleranfällig macht. Es ist jedoch immer noch sehr einfach, Speicherfehler zu verursachen. Die C++-Hauptentwickler arbeiten daran die Prävalenz dieser Problematik zu verringern, die Sprache lässt aber durch ihre lange Geschichte und die notwendige Rückwärtskompatibilität nur eingeschränkt Änderungen zu.
 
-Rust wurde vom ersten Tag an mit dem Ziel entworfen, eine sichere Systemprogrammiersprache zu sein. Sie ist damit nicht von historischen Entscheidungen belastet, die das Entwickeln sicheren Codes in C++ so kompliziert machen. In C++ wird Sicherheit durch strenge Selbstdisziplin erreicht und kann leicht verletzt werden. In Rust ist Sicherheit die Vorgabe. Die Sprache eröffnet so die Möglichkeit, mit weniger erfahrenen Entwiklern zusammenzuarbeiten, ohne den Code wieder und wieder auf Sicherheitslücken prüfen zu müssen.
+Rust wurde vom ersten Tag an mit dem Ziel entworfen, eine sichere Systemprogrammiersprache zu sein. Sie ist damit nicht von historischen Entscheidungen belastet, die das Entwickeln sicheren Codes in C++ so kompliziert machen. In C++ wird Sicherheit durch strenge Selbstdisziplin erreicht und kann leicht verletzt werden. In Rust ist Sicherheit die Vorgabe. Die Sprache eröffnet so die Möglichkeit, mit weniger erfahrenen Entwicklern zusammenzuarbeiten, ohne den Code wieder und wieder auf Sicherheitslücken prüfen zu müssen.
 
 <h3><a href="#how-to-get-cxx-style-template-specialization" name="how-to-get-cxx-style-template-specialization">
 Wie lässt sich die Templatespezialisierung aus C++ in Rust umsetzen?
@@ -1456,7 +1456,7 @@ fn caller() {
 
 Wie im Codebeispiel oben zu sehen, überträgt der erste Aufruf an `process` den Besitz an der Variablen `s`. Der Compiler führt über den Besitz von Werten Buch, sodass der zweite Aufruf an `process` einen Fehler zur Folge hat - ein gültiges Programm darf den Besitz eines Werts nicht zweimal aufgeben. Rust wird das Verschieben eines Werts auch verhindern, solange noch eine aktive Referenz darauf existiert.
 
-C++ verfolgt einen anderen Ansatz. In C++ werden Werte per Vorgabe kopiert, in dem ihr Kopierkonstruktor aufgerufen wird. Es ist allerdings möglich, Funktionen zu deklarieren, die ihre Argumente als "rvalue-Referenz", wie etwa `string&&` übernehmen. Dies deutet darauf hin, dass die aufgerufene Funktion den Besitz an Ressourcen des Werts übernimmt. Der Aufrufer muss dazu entweder einen temporären Wert übergeben oder einen gebundenen Wert explizit mit `std::move` verschieben. Das obige Beispiel würde in C++ etwa wie folgt ausssehen:
+C++ verfolgt einen anderen Ansatz. In C++ werden Werte per Vorgabe kopiert, in dem ihr Kopierkonstruktor aufgerufen wird. Es ist allerdings möglich, Funktionen zu deklarieren, die ihre Argumente als "rvalue-Referenz", wie etwa `string&&` übernehmen. Dies deutet darauf hin, dass die aufgerufene Funktion den Besitz an Ressourcen des Werts übernimmt. Der Aufrufer muss dazu entweder einen temporären Wert übergeben oder einen gebundenen Wert explizit mit `std::move` verschieben. Das obige Beispiel würde in C++ etwa wie folgt aussehen:
 
 ```cpp
 void process(string&& s) { }
@@ -1516,10 +1516,10 @@ Nein. Die Werte aller Typen werden Byte für Byte via `memcpy` verschoben. Das m
 Was haben Go und Rust gemeinsam, und wo unterscheiden sich die Sprachen?
 </a></h3>
 
-Rust und Go haben grundsätzlich verschiendene Designziele. Alle Unterschiede aufzuzählen wäre zu umfangreich, im Folgenden werden einige der wichtigsten genannt.
+Rust und Go haben grundsätzlich verschiedene Designziele. Alle Unterschiede aufzuzählen wäre zu umfangreich, im Folgenden werden einige der wichtigsten genannt.
 
-- Rust arbeitet auf einer niedrigeren Ebene als Go. So setzt Rust im Gegensaz zu Go beispielsweise keinen Garbage Collector voraus. Allgemein bietet Rust ähnlich viel Kontrolle über das Verhalten eines Programms wie C oder C++.
-- Der Fokus von Rust liegt darin, Sicherheit und Effizienz zu gewährleisten, gleichzeitig aber für High-Level-Abstraktionen zugänglich zu sein. Go konzentriert sich daruaf, eine kleine, einfache Sprache zu sein, die schnell kompiliert und gut mit einer großen Auswahl an Tools zusammenzuarbeitet.
+- Rust arbeitet auf einer niedrigeren Ebene als Go. So setzt Rust im Gegensatz zu Go beispielsweise keinen Garbage Collector voraus. Allgemein bietet Rust ähnlich viel Kontrolle über das Verhalten eines Programms wie C oder C++.
+- Der Fokus von Rust liegt darin, Sicherheit und Effizienz zu gewährleisten, gleichzeitig aber für High-Level-Abstraktionen zugänglich zu sein. Go konzentriert sich darauf, eine kleine, einfache Sprache zu sein, die schnell kompiliert und gut mit einer großen Auswahl an Tools zusammenzuarbeiten.
 - Rust hat im Gegensatz zu Go gute Unterstützung für Generics.
 - Rust ist stark von der Welt der Funktionalprogrammierung beeinflusst, was sich etwa im Typsystem äußert, das die Typklassen aus Haskell in der Form von Traits übernimmt. Go hat ein einfacheres Typsystem, das mit Interfaces einfache generische Programmierung ermöglicht.
 
@@ -1531,7 +1531,7 @@ Rust-Traits sind ähnlich, aber weniger mächtig als Haskell-Typklassen, da Rust
 
 Einige spezifische Unterschiede zwischen Haskell und Rust:
 
-- Rust-Traits haben einen impliziten ersten Parameter `Self`. `trait Bar` in Rust entspicht damit `class Bar self` in Haskell, und `trait Bar<Foo>` entspricht `class Bar foo self`.
+- Rust-Traits haben einen impliziten ersten Parameter `Self`. `trait Bar` in Rust entspricht damit `class Bar self` in Haskell, und `trait Bar<Foo>` entspricht `class Bar foo self`.
 - "Supertraits" oder "Superklassen-Constraints" werden in Rust `trait Sub: Super` geschrieben, in Haskell `class Super self => Sub self`.
 - Rust erlaubt keine verwaisten Instanzen (orphan instances), d.h. Trait-Implementierungen, die weder im Modul des Traits noch im Modul des Typs liegen. Haskell erlaubt dies, was zu abweichenden Kohärenzregeln führt.
 - Die Auflösung von `impl`-Blöcken berücksichtigt die relevanten `where`-Klauseln, um zwischen `impl`-Instanzen zu wählen oder Überlappungen festzustellen. Haskell berücksichtigt dabei nur die Bedingungen der `instance`-Deklaration und vernachlässigt Einschränkungen, die an anderen Stellen angegeben wurden.
@@ -1545,7 +1545,7 @@ Warum gibt es so viele falsche Antworten zu Rust auf Stack Overflow?
 
 Rust hatte bis zur Veröffentlichung von Version 1.0 im Mai 2015 eine lange Entwicklungsgeschichte hinter sich. Währenddessen hat sich die Sprache signifikant geändert, und einige Antworten auf Stack Overflow beziehen sich auf Sprach- und Bibliothekskonstrukte, die sich mittlerweile geändert haben.
 
-Mit der Zeit werden immer mehr Antworten für die aktuelle Version von Rust enstehen, sodass der Anteil der veralteten Antworten abnehmen wird.
+Mit der Zeit werden immer mehr Antworten für die aktuelle Version von Rust entstehen, sodass der Anteil der veralteten Antworten abnehmen wird.
 
 <h3><a href="#where-do-i-report-issues-in-the-rust-documentation" name="where-do-i-report-issues-in-the-rust-documentation">
 Wie kann ich die Entwickler auf Fehler in der Rust-Dokumentation hinweisen?

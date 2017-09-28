@@ -8,7 +8,7 @@ extra_css:
 # Das Rust-Team
 
 Das Rust-Projekt wird von mehreren Teams [verwaltet](https://github.com/rust-lang/rfcs/blob/master/text/1068-rust-governance.md), welche sich auf verschiedene Themengebiete spezialisiert haben.
-Unten werden in alphabetischer Reihenfolge die Teams aufgelistet.
+Unten werden sie in alphabetischer Reihenfolge aufgelistet.
 
 Um ein Team zu kontaktieren, poste deine Frage oder deinen Kommentar im [Internals
 Forum](https://internals.rust-lang.org/) und tagge deinen Post mit der zum Teamnamen korrespondierenden Kategorie.

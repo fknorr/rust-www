@@ -17,7 +17,7 @@ Es ist oft schwierig, ein Konzept für eine neue Bibliothek zu finden, das Reich
 * Sieh im RFC Issue Tracker nach [Anfragen zu neuen Community-Bibliotheken][requested].
 * Suche auf [GitHub Trending][trending] nach aktiven Rust-Projekten, die deine Hilfe brauchen.
 
-Es ist gut, wenn du als Bibliotheksentwickler mit dem [empfohlenen Vorgehen für Rust-Bibliotheken][lib-prac] vetraut bist.
+Es ist gut, wenn du als Bibliotheksentwickler mit dem [empfohlenen Vorgehen für Rust-Bibliotheken][lib-prac] vertraut bist.
 
 Andere Bibliotheksentwickler triffst du in [#rust-libs].
 

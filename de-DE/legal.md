@@ -61,7 +61,7 @@ irgendeiner Form Befürwortung durch das Rust-Projekt impliziert.
 
 Die Programmiersprache Rust ist eine quelloffenes, von der Gemeinschaft entwickeltes Projekt,
 welches von einem Kernteam verwaltet wird. Es wird auch von der Mozilla Foundation ("Mozilla")
-gesponsort, welche die Markennamen und Logos von Rust und Cargo ("Die Rust-Markenzeichen")
+gesponsert, welche die Markennamen und Logos von Rust und Cargo ("Die Rust-Markenzeichen")
 besitzt und schützt.
 Dieses Dokument bietet Informationen zur Verwendung der Rust-Markenzeichen bezüglich der
 Programmiersprache allgemein sowie Beispiele allgemein häufiger Verwendungsfälle der Rust-Markenzeichen
@@ -92,7 +92,7 @@ Sicherheit des Produktes, welches sie nutzen.
 
 ### Offizielles, durch das Rust-Projekt befürwortetes oder mit ihm verbundenes Erscheinen
 
-Die grundlegenste Regel ist, dass die Rust-Markenzeichen nicht auf eine Weise
+Die grundlegendste Regel ist, dass die Rust-Markenzeichen nicht auf eine Weise
 verwendet werden dürfen, welche für einen oberflächlichen Beobachter erscheinen,
 als wären sie offiziell, durch das Rust-Projekt oder Mozilla befürwortet oder mit ihm in
 irgendeiner Weise verbunden (außer wenn du eine schriftliche Zulassung durch das Rust-Kernteam hast).
@@ -128,14 +128,14 @@ Es gibt eine Vielzahl von Verwendungen, welche keine ausdrückliche Genehmigung 
 * Richtigerweise Aussagen, dass eine Software in der Rust-Programmiersprache geschrieben ist, kompatibel mit der Sprache ist,
   oder dass sie die Sprache enthält, ist erlaubt. In diesen Fällen darfst du die Rust-Markenzeichen
   ohne ausdrückliche Genehmigung verwenden, um dies zu unterstreichen.
-  Dies gilt sowohl für kommerzielle als auch für nichtkommerzielle Zwecke.
+  Dies gilt sowohl für kommerzielle als auch für nicht-kommerzielle Zwecke.
 
-* Verwendung der Rust-Markenzeichens in Namen nichtkommerzieller Produkte wie
+* Verwendung der Rust-Markenzeichens in Namen nicht-kommerzieller Produkte wie
   RustPostgres oder Rustymine, oder in Namen von Code-Repositories innerhalb von
   beispielsweise GitHub, ist erlaubt, wenn die Verwendung sich auf die Nutzung von
   oder Eignung für die Rust-Programmiersprache bezieht. Diese Verwendungen können
   auch das Rust Logo, sogar in modifizierter Form, enthalten.
-  Spreche bitte die Verwendung für kommerzielle Produkte (einschließlich gesponsorte oder durch Crowdfunding
+  Spreche bitte die Verwendung für kommerzielle Produkte (einschließlich gesponserte oder durch Crowdfunding
   finanzierte) mit [trademark@rust-lang.org](mailto:trademark@rust-lang.org) ab, um sicherzustellen,
   dass deine Verwendung nicht offiziell erscheint.
 
@@ -148,7 +148,7 @@ verwandtem Veranstaltung vertreiben willst, dann kontaktiere uns für die Erlaub
 
 * Die Verwendung der Rust-Markenzeichen (auch in abgewandelter Form) für
 soziale Veranstaltungen wie Treffen, Tutorials, und ähnlichem, ist erlaubt, wenn die
-Veranstaltungen kostenfrei zugänglich sind. Für kommerzielle Veranstaltungen (auch gesponsorte),
+Veranstaltungen kostenfrei zugänglich sind. Für kommerzielle Veranstaltungen (auch gesponserte),
 frage bei [trademark@rust-lang.org](mailto:trademark@rust-lang.org) nach. In jedem Fall sind die
 Worte "RustCamp", "RustCon" oder "RustConf" nicht ohne ausdrückliche Erlaubnis zu verwenden.
 Wie mit allen der oben genannten Verwendungen gilt:
@@ -168,7 +168,7 @@ wenn keine offizielle Erlaubnis vorliegt.
   des Cargo Paketmanagers, welche es Rust oder Cargo nennt, erfordert eine
   ausdrückliche, schriftliche Genehmigung des Rust Kernteams.
   Wir werden diese Abwandlungen üblicherweise gestatten, solange die Abwandlungen
-  (1) relativ klein und (2) zu den Endnutzern klar dokumentiert sind.
+  (1) relativ klein und (2) zu den Endbenutzern klar dokumentiert sind.
 
 * Der Verkauf von T-Shirts, Mützen/Hüten, und anderen
   Artikeln oder Waren erfordert die ausdrückliche, schriftliche Genehmigung
@@ -177,8 +177,8 @@ wenn keine offizielle Erlaubnis vorliegt.
   Teil des Rust-Projektes ist, und (2) wenn es klar erkenntlich ist, ob
   der Profit Vorteile für das Rust-Projekt bringt.
 
-* Die Nutzung der Rust-Markenzeichen inerhalb/als Teil eines anderen Markenzeichens
-  erfordert die ausdrückliche schiftliche Genehmigung des Rust Kernteams, wie oben beschrieben.
+* Die Nutzung der Rust-Markenzeichen innerhalb/als Teil eines anderen Markenzeichens
+  erfordert die ausdrückliche schriftliche Genehmigung des Rust Kernteams, wie oben beschrieben.
 
 ## Anmerkungen
 

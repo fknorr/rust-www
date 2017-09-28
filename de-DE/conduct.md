@@ -26,7 +26,7 @@ Dies sind die Richtlinien, um den Verhaltenskodex unserer Community aufrecht zu 
 2. Bemerkungen, die Moderatoren als unangemessen einstufen, ob sie Teil des Verhaltenskodex sind oder nicht, sind ebenfalls verboten.
 3. Die Moderatoren werden auf derartige Bemerkungen zunächst mit einer Warnung reagieren. 
 4. Wird die Warnung nicht berücksichtigt, so wird der Teilnehmer oder die Teilnehmerin aus dem Kommunikationskanal entfernt ("gekickt"), um ihm oder ihr Bedenkzeit zu geben.
-5. Kehrt der Nutzer oder die Nutzerin trotzdem zurück und unterlässt das störende Verahalten nicht, so wird er oder sie permanent von der Kommunikation ausgeschlossen ("gebannt").
+5. Kehrt der Nutzer oder die Nutzerin trotzdem zurück und unterlässt das störende Verhalten nicht, so wird er oder sie permanent von der Kommunikation ausgeschlossen ("gebannt").
 6. Moderatoren haben die Befugnis, nach eigenem Ermessen den Ban eines Nutzers oder einer Nutzerin aufzuheben, falls es sich um den ersten derartigen Verstoß handelt und eine aufrichtige Entschuldigung gegenüber der beleidigten Person erfolgt ist.
 7. Falls du der Meinung bist, dass ein Ban eines Teilnehmers ungerechtfertigt war, suche bitte Kontakt zum betreffenden Moderator oder einem anderen Mitglied des Moderationsteams.
 8. Moderatorinnen und Moderatoren nehmen gegenüber anderen Mitgliedern eine Vorbildfunktion ein. Falls ein Moderator eine unangemessene Situation verursacht, so wird dies strenger geahndet als bei anderen Teilnehmern.

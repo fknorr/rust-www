@@ -27,9 +27,9 @@ Zu vielen Problemen findest du auch auf der Fragen- und Antwortenseite [Stack Ov
 
 ## Neuigkeiten
 
-[This Week in Rust][twir] sammelt die neuesten Veränderungen, anstehende Termine sowie eine wöchentliche Auflistung aller Änderungen in der Sprache und ihren Bibliothekten. Im [Rust-Blog][rust_blog] findest du Ankündigungen wichtiger Entwicklungsschritte; und fast alles, was in der Rust-Welt vor sich geht, wird auch im inoffiziellen Subreddit [/r/rust][reddit] diskutiert.
+[This Week in Rust][twir] sammelt die neuesten Veränderungen, anstehende Termine sowie eine wöchentliche Auflistung aller Änderungen in der Sprache und ihren Bibliotheken. Im [Rust-Blog][rust_blog] findest du Ankündigungen wichtiger Entwicklungsschritte; und fast alles, was in der Rust-Welt vor sich geht, wird auch im inoffiziellen Subreddit [/r/rust][reddit] diskutiert.
 
-Wir pflegen auch einen [Twitter][twitter]-Account und ein [Weibo][weibo] für unsere chinesischsprechenden Benutzer.
+Wir pflegen auch einen [Twitter][twitter]-Account und ein [Weibo][weibo] für unsere chinesischsprachigen Benutzer.
 
 [twir]: https://this-week-in-rust.org/
 [rust_blog]: http://blog.rust-lang.org/
@@ -52,7 +52,7 @@ Das Entwicklerteam von Rust koordiniert sich in [#rust-internals][internals_irc]
 - [#rust-beginners][beginners_irc] für Anfänger in der Sprache, weniger gut besucht als #rust
 - [#rust-internals][internals_irc] für Diskussionen um die Entwicklung der Sprache
 - [#rustc][rustc_irc] ist die Heimat des [Compilerteams][compiler_team]
-- [#rust-libs][libs_irc] ist die Heimat des [Bibilotheksteams][library_team]
+- [#rust-libs][libs_irc] ist die Heimat des [Bibliotheksteams][library_team]
 - [#rust-tools][tools_irc] ist die Heimat des [Tool- und Infrastrukturteams][dev_tools_team]
 - [#rust-lang][lang_irc] ist die Heimat des [Sprachteams][language_team]
 - [#rust-community][community_irc] ist die Heimat des [Community Teams][community_team]
@@ -112,7 +112,7 @@ Das Entwicklerteam von Rust koordiniert sich in [#rust-internals][internals_irc]
 Es gibt zwei Foren für zeitversetze Diskussionen:
 
 - Das [Users Forum][users_forum], um Fragen zu stellen, Codeschnipsel zu posten, über Rust-Projekte zu sprechen, und so weiter.
-- Das [Internals Forum][internals_forum], reserviert für das Design und die Implementierung der Sprache Rust und ihrer Infrastruktur (beispielsweise Cargo, die Standardbibilothek und weitere Interna).
+- Das [Internals Forum][internals_forum], reserviert für das Design und die Implementierung der Sprache Rust und ihrer Infrastruktur (beispielsweise Cargo, die Standardbibliothek und weitere Interna).
 
 [users_forum]: https://users.rust-lang.org/
 [internals_forum]: https://internals.rust-lang.org/
@@ -127,20 +127,20 @@ Rust hat einen [YouTube-Kanal][youtube_channel], wo Präsentationen vor Benutzer
 
 Weltweit gibt es mehr als 90 [Rust-Benutzergruppen][user_group] in über 35 Ländern. Rust-Benutzer treffen sich regelmäßig in den Benutzergruppen. Sie bieten die Möglichkeit einfach Teil der Community zu werden und andere Mitglieder kennenzulernen und Erfahrungen auszutauschen. Die Treffen finden üblicherweise monatlich statt, sind zwanglos gehalten und stets für neue Teilnehmer offen.
 
-Es gibt einen weltweiten [Kalender][calendar], um über Rust-Veranstaltugen auf dem Laufenden zu bleiben. Kontaktiere das [Community Team][community_team] (Englisch), um deine eigenen Veranstaltungen zu veröffentlichen.
+Es gibt einen weltweiten [Kalender][calendar], um über Rust-Veranstaltungen auf dem Laufenden zu bleiben. Kontaktiere das [Community Team][community_team] (Englisch), um deine eigenen Veranstaltungen zu veröffentlichen.
 
 [user_group]: ./user-groups.html
 [calendar]: https://www.google.com/calendar/embed?src=apd9vmbc22egenmtu5l6c5jbfc@group.calendar.google.com
 
 ## Das Rust-Entwicklerteam
 
-Rust entsteht durch einen Community-getriebenen Entwicklungsprozess, in dem die meisten Entscheidungen über offene Diskussionen und Übereinkommen zustande kommen. Die Verantwortung ist dabei auf verschidene [Teams][teams] aufgeteilt:
+Rust entsteht durch einen Community-getriebenen Entwicklungsprozess, in dem die meisten Entscheidungen über offene Diskussionen und Übereinkommen zustande kommen. Die Verantwortung ist dabei auf verschiedene [Teams][teams] aufgeteilt:
 
 * Das [Core Team][core_team] leitet den Design- und Entwicklungsprozess, überwacht die Einführung neuer Features und trifft endgültige Entscheidungen für die kein Konsens gefunden werden kann (was selten vorkommt).
 
 * Das [Language Team][language_team] entwirft neue Sprach-Features.
 
-* Das [Library Team][library_team] ist für die Rust-Standardbibliothek, die Crates aus rust-lang und BibliothekskonventionenaA verantwortlich.
+* Das [Library Team][library_team] ist für die Rust-Standardbibliothek, die Crates aus rust-lang und Bibliothekskonventionen verantwortlich.
 
 * Das [Compiler Team][compiler_team] entwickelt und optimiert Compiler-Interna.
 

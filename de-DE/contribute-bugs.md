@@ -7,7 +7,7 @@ title: Bei Rust mitwirken &mdash; Fehler finden, sichten und beheben &middot; Di
 
 Die tägliche Pflege des Projekts dreht sich um den [Issue Tracker][issue tracker] und [Pull Requests][pull] - Mithilfe wird immer benötigt! Der einfachste Weg um einzusteigen sind Tickets mit den [E-easy] und [E-mentor]-Labels, die für neue Rust-Programmierer geeignet sind.
 
-Bei Issues, die mit `E-mentor` gekennzeichnet sind, hat sich ein erfahrener Entwickler bereiterklärt, dich durch den Lösungsprozess und das [Einsenden eines Pull Request][pull] zu begleiten. Kontaktiere den Mentor auf dem Issue Tracker indem du ihn mit [@mentioning] in einem Kommentar erwähnst, oder ihn per Mail oder IRC direkt anschreibst. Denke daran, dass Rust-Entwickler täglich viele Benachrichtigungen erhalten und einzelne Nachrichten übersehen werden können, also scheue dich nicht noch einmal nachzuhaken, falls du einmal keine Antwort erhältst.
+Bei Issues, die mit `E-mentor` gekennzeichnet sind, hat sich ein erfahrener Entwickler bereit erklärt, dich durch den Lösungsprozess und das [Einsenden eines Pull Request][pull] zu begleiten. Kontaktiere den Mentor auf dem Issue Tracker indem du ihn mit [@mentioning] in einem Kommentar erwähnst, oder ihn per Mail oder IRC direkt anschreibst. Denke daran, dass Rust-Entwickler täglich viele Benachrichtigungen erhalten und einzelne Nachrichten übersehen werden können, also scheue dich nicht noch einmal nachzuhaken, falls du einmal keine Antwort erhältst.
 
 Andere Rust-Projekte bieten ähnliche Einsteigeraufgaben, so etwa der Webbrowser [Servo], die HTTP-Bibliothek [hyper], das Code-Formatierungswerkzeug [rustfmt], die Unix-Bindings [nix] oder der Linter [clippy].
 

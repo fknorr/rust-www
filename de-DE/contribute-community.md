@@ -11,7 +11,7 @@ Behalte [#rust-beginners] im Auge. Auf diesen Channel verweisen wir neue Rust-Pr
 
 Wenn du bereits in einem Gebiet des Projekts erfahren bist, mach dich auf der Suche nach Bugs, die mit [E-easy] gekennzeichnet werden können. Wenn du so einen einfachen Issue findest, dessen Lösung dir offensichtlich erscheint, kommentiere mit einem Lösungsvorschlag und füge den E-easy-Tag an. Denke daran, dass für dich offensichtliche Zusammenhänge für einen Einsteiger nicht genauso klar sein müssen, deshalb ist eine genaue Beschreibung des Problems und seiner Lösung wichtig. Du kannst also auch beitragen, indem du nach schwachen Beschreibungen einfacher Bugs suchst und sie verbesserst.
 
-Erfahrene Entwickler, die Geduld und Erklärungstalent mitbringen, sollten sich überlegen [Mentoren für neue Helfer][mentor] zu werden. Füge zu einfachen Bugs das [E-mentor]-Tag hinzu und poste einen Kommentar, dass du das Mentoring für dieses Issue übernimmst. Erwarte dass dich neue Entwickler wegen des Problems kontaktieren, und bemühe dich ihnen zeitnah zur Seite zu stehen.
+Erfahrene Entwickler, die Geduld und Talent zum Erklären mitbringen, sollten sich überlegen [Mentoren für neue Helfer][mentor] zu werden. Füge zu einfachen Bugs das [E-mentor]-Tag hinzu und poste einen Kommentar, dass du das Mentoring für dieses Issue übernimmst. Erwarte dass dich neue Entwickler wegen des Problems kontaktieren, und bemühe dich ihnen zeitnah zur Seite zu stehen.
 
 Aufgaben auf Einsteigerniveau bereitzuhalten ist nicht nur für Rust, sondern für alle Projekte von Vorteil. Falls dein eigenes Projekt eine konstante Menge an Einsteigerproblemen bietet, hast du die Möglichkeit selbst ein solches Mentoring-Programm ins Leben zu rufen. **Aufgaben für Anfänger bereitzustellen ist eine der effektivsten Möglichkeiten, um neue Programmierer in dein Projekt zu bringen**. Falls du Tipps zum Mentoring neuer Mitglieder brauchst, wirf einen Blick in [diesen Leitfaden][mentor-guide].
 
@@ -21,7 +21,7 @@ Stelle Rust auch deinen Freunden und Kollegen vor. Rust-[Benutzergruppen][user g
 
 Behalte dabei aber im Hinterkopf, stets auf die Ansichten anderer Rücksicht zu nehmen &mdash; nicht jeder wird Gefallen an Rust finden, und das ist in Ordnung.
 
-Andere Interssenten am Community-Building kannst du in [#rust-community] treffen.
+Andere Interessenten am Community-Building kannst du in [#rust-community] treffen.
 
 <!--
 Other ideas:
