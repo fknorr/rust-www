@@ -438,7 +438,7 @@ Rust hat vier Paare von Stringtypen, von welchen [jeder einen bestimmten Sinn ha
 | C-kompatibel  | `CStr`       | `CString`    |
 | Systempfad   | `Path`       | `PathBuf`    |
 
-Jeder String-Typen dient einem anderen Zwecken. `String` und `str` sind UTF-8-kodierte, allgemein verwendbare Strings. `OsString` und `OsStr` sind nach den Vorgaben der jeweiligen Plattform enkodiert und sollten benutzt werden, um mit dem Betriebssystem zu interagieren. `CString` und `CStr` sind Rusts Gegenstück zu C-Strings und werden in FFI (Foreign Function Interface)-Code genutzt. `PathBuf` und `Path` sind bequeme Wrapper um `OsString` und `OsStr`, welche Methoden zur Dateipfadmanipulation anbieten.
+Jeder String-Typen dient einem anderen Zweck. `String` und `str` sind UTF-8-kodierte, allgemein verwendbare Strings. `OsString` und `OsStr` sind nach den Vorgaben der jeweiligen Plattform enkodiert und sollten benutzt werden, um mit dem Betriebssystem zu interagieren. `CString` und `CStr` sind Rusts Gegenstück zu C-Strings und werden in FFI (Foreign Function Interface)-Code genutzt. `PathBuf` und `Path` sind bequeme Wrapper um `OsString` und `OsStr`, welche Methoden zur Dateipfadmanipulation anbieten.
 
 <h3><a href="#why-are-there-multiple-types-of-strings" name="why-are-there-multiple-types-of-strings">
 Wie kann ich eine Funktion schreiben, welche sowohl <code>&str</code> als auch <code>String</code> annimmt?
@@ -732,15 +732,15 @@ Das kannst du mit dem [`Option`][Option]-Typ erreichen, welcher entweder ein `So
 <h2 id="generics">Generics</h2>
 
 <h3><a href="#what-is-monomorphisation" name="what-is-monomorphisation">
-Was ist Monomorphisation?
+Was ist Monomorphisierung?
 </a></h3>
 
-Monomorphisation spezialisiert jeden Aufruf einer generischen Funktion oder Struktur mit einer spezifischen Instanz
+Monomorphisierung spezialisiert jeden Aufruf einer generischen Funktion oder Struktur mit einer spezifischen Instanz
 basierend auf den Parametertypen der Funktionaufrufe (oder Verwendungen der Struktur).
 
 Für jede einzigartige Menge von Typen, mit welcher eine generische Funktion instanziiert wird, erstellt der Compiler eine neue Kopie der Funktion. Diese Strategie wird auch von C++ genutzt und resultiert in schnellem Code, welcher für jeden Aufruf spezialisiert ist und frühe Bindung nutzen kann. Allerdings kann sie bei vielen voneinander verschiedenen Aufruftypen auch dazu führen, dass die Größe der generierten Ausführbaren Datei größer ist als bei anderen Aufrufstrategien.
 
-Für Funktionen, welche anstelle von Typparametern [Trait Objects](https://doc.rust-lang.org/book/trait-objects.html) annehmen, wird keine Monomorphisation durchgeführt. Stattdessen werden Methoden für Trait Objects dynamisch zur Laufzeit entschieden.
+Für Funktionen, welche anstelle von Typparametern [Trait Objects](https://doc.rust-lang.org/book/trait-objects.html) annehmen, wird keine Monomorphisierung durchgeführt. Stattdessen werden Methoden für Trait Objects dynamisch zur Laufzeit entschieden.
 
 <h3><a href="#whats-the-difference-between-a-function-and-a-closure-that-doesnt-capture" name="whats-the-difference-between-a-function-and-a-closure-that-doesnt-capture">
 Was ist der Unterschied zwischen einer Funktion und einer Closure, welche keine Variablen einfängt?
@@ -871,7 +871,7 @@ fn main() {
 Wie lese ich effektiv aus einer Datei?
 </a></h3>
 
-Der Typ [`File`][File] implementiert den [`Read`][Read]-Trait, der eine Reihe an Funktionen zum Lesen und schreiben von Daten bereitstellt, etwa [`read()`][read__read], [`read_to_end()`][read__read_to_end], [`bytes()`][read__bytes], [`chars()`][read__chars], und [`take()`][read__take]. Jede dieser Funktionen liest einen bestimmte Menge an Daten aus der jeweiligen Datei. [`read()`][read__read] liest so viele Daten, wie das Eingabe-Ausgabe-System in einem einzigen Aufruf zur Verfügung stellt. [`read_to_end()`][read__read_to_end] liest den gesamten Puffer in einen Vektor ein und fordert dabei so viel Speicher an wie notwendig. [`bytes()`][read__bytes] und [`chars()`][read__chars] liefern Iteratoren über die Bytes bzw. Zeichen einert Datei. Zu guter Letzt ermöglicht es [`take()`][read__take], eine beliebige Anzahl Bytes aus der Datei zu lesen. Zusammen genommen sollten idese Funktionen ausreichen, um effektiv aus jeder beliebigen Datei zu lesen.
+Der Typ [`File`][File] implementiert den [`Read`][Read]-Trait, der eine Reihe an Funktionen zum Lesen und Schreiben von Daten bereitstellt, etwa [`read()`][read__read], [`read_to_end()`][read__read_to_end], [`bytes()`][read__bytes], [`chars()`][read__chars], und [`take()`][read__take]. Jede dieser Funktionen liest einen bestimmte Menge an Daten aus der jeweiligen Datei. [`read()`][read__read] liest so viele Daten, wie das Eingabe-Ausgabe-System in einem einzigen Aufruf zur Verfügung stellt. [`read_to_end()`][read__read_to_end] liest den gesamten Puffer in einen Vektor ein und fordert dabei so viel Speicher an wie notwendig. [`bytes()`][read__bytes] und [`chars()`][read__chars] liefern Iteratoren über die Bytes bzw. Zeichen einert Datei. Zu guter Letzt ermöglicht es [`take()`][read__take], eine beliebige Anzahl Bytes aus der Datei zu lesen. Zusammen genommen sollten diese Funktionen ausreichen, um effektiv aus jeder beliebigen Datei zu lesen.
 
 Für gepufferte Eingabe gibt es den [`BufReader`][BufReader]-Struct, der hilft, die Anzahl der Systemaufrufe während des Lesens zu verringern.
 
@@ -897,7 +897,7 @@ Warum kennt Rust keine Exceptions?
 
 Exception erschweren das Verständnis von Kontrollfluss, drücken Gültigkeit und Ungültigkeit außerhalb des Typsystems aus und spielen schlecht mit Multithreading zusammen (ein wichtiges Ziel von Rust).
 
-Rust zieht einen typbasierten Ansatz zur Fehlerbehandlung vor, der [ausführlich im Rust Book](https://doc.rust-lang.org/stable/book/error-handling.html) beschrieben wird. Dieser passt besser zum Kontrollfluss, der Nebenläufigkeit und dem Rest der Sprache.
+Rust zieht einen typbasierten Ansatz zur Fehlerbehandlung vor, der [ausführlich im Buch](https://doc.rust-lang.org/stable/book/error-handling.html) beschrieben wird. Dieser passt besser zum Kontrollfluss, der Nebenläufigkeit und dem Rest der Sprache.
 
 <h3><a href="#whats-the-deal-with-unwrap" name="whats-the-deal-with-unwrap">
 Was hat es mit den dauernden <code>unwrap()</code>-Aufrufen auf sich?
@@ -921,7 +921,7 @@ Gibt es einen einfacheren Fehlerbehandlungsmechanismus, als überall <code>Resul
 
 [`Result`s][Result]-Werte wirst du immer mit einem [`unwrap()`][unwrap] los, nur ist das meistens nicht das was du möchtest. [`Result`][Result] ist ein Anzeichen dafür, dass eine Operation möglicherweise fehlschlagen kann. Rust zwingt dich diese Fehlerpfade explizit zu behandeln, um die Robustheit von Programmen gegenüber Fehlersituationen zu fördern. Es gibt Helfer wie das [`try!`-Makro][TryMacro], das das Propagieren von Fehlern angenehmer macht.
 
-Wenn du einen Fehler wirklich nicht behandeln möchtest kannst du auf [`unwrap()`][unwrap] zurückgreifen. Das bedeutet aber, dass dein Code im Fehlerfall eine Panic erzeugt, die im Normalfall den Prozess hart beendet.
+Wenn du einen Fehler wirklich nicht behandeln möchtest kannst du auf [`unwrap()`][unwrap] zurückgreifen. Das bedeutet aber, dass dein Code im Fehlerfall eine Panic erzeugt, die im Normalfall den Prozess sofort beendet.
 
 <h2 id="concurrency">Nebenläufigkeit</h2>
 
@@ -939,7 +939,7 @@ Allgemein gesprochen können all die Typen in einer [statischen Variablen benutz
 Kann ich ein Makro schreiben, das neue Bezeichner erzeugt?
 </a></h3>
 
-Momentan nicht. Rust-Makros sind ["hygiensich"](https://en.wikipedia.org/wiki/Hygienic_macro) und vermeiden damit absichtlich das Reservieren oder Erzeugen von Bezeichnern, die unerwartete Kollisionen mit anderem Code auslösen können. Ihre Fähigkeiten unterscheiden sich grundsätzlich von Makros, wie sie vom C-Präprozessor bekannt sind. Makro-Aufrufe können nur an explizit erlaubten Positionen im Code auftauchen, das sind: An Stelle von Definitionen (_items_) auf Modulebene, Methodendeklarationen, Statements, Ausdrücken, und Pattern. Sie können nicht benutzt werden, um eine partielle Methodendeklaration oder Variablendeklaration zu vevollständigen.
+Momentan nicht. Rust-Makros sind [&ldquot;hygiensich&udquot;](https://en.wikipedia.org/wiki/Hygienic_macro) und vermeiden damit absichtlich das Reservieren oder Erzeugen von Bezeichnern, die unerwartete Kollisionen mit anderem Code auslösen können. Ihre Fähigkeiten unterscheiden sich grundsätzlich von Makros, wie sie vom C-Präprozessor bekannt sind. Makro-Aufrufe können nur an explizit erlaubten Positionen im Code auftauchen: An Stelle von Definitionen (_items_) auf Modulebene, Methodendeklarationen, Statements, Ausdrücken, und Patterns. Sie können nicht benutzt werden, um eine partielle Methodendeklaration oder Variablendeklaration zu vervollständigen.
 
 <h2 id="debugging">Fehlersuche und Werkzeuge</h2>
 
@@ -1242,7 +1242,7 @@ Die einfachste Möglichkeit ist es, den Typ [`Option`][Option] als Parameter fü
 Wie benutze ich globale Variablen in Rust?
 </a></h3>
 
-Globale Konstanten werden mit dem Schlüsselwort `const` deklariert, globale Variablen mit `static`. Beachte, dass das Verändern einer `static mut`-Variablen `unsafe`-Code erfordert, da es Data Races erlaubt, deren Absenz von Safe Rust garantiert wird. Ein wichtiger Unterschied zwischen `const` und `static` ist, dass auf `static`-Variablen Referenzen gebildet werden können - `const`-Werte haben keine definierte Speicheradresse. Für weitere Informationen zum Thema `const` vs. `static` sei auf das [Rust Book](https://doc.rust-lang.org/book/const-and-static.html) verwiesen.
+Globale Konstanten werden mit dem Schlüsselwort `const` deklariert, globale Variablen mit `static`. Beachte, dass das Verändern einer `static mut`-Variablen `unsafe`-Code erfordert, da es Data Races erlaubt, deren Absenz von Safe Rust garantiert wird. Ein wichtiger Unterschied zwischen `const` und `static` ist, dass auf `static`-Variablen Referenzen gebildet werden können - `const`-Werte haben keine definierte Speicheradresse. Für weitere Informationen zum Thema `const` vs. `static` sei auf das [Buch](https://doc.rust-lang.org/book/const-and-static.html) verwiesen.
 
 <h3><a href="#how-can-i-set-compile-time-constants-that-are-defined-procedurally" name="how-can-i-set-compile-time-constants-that-are-defined-procedurally">
 Wie kann ich Compilezeit-Konstanten definieren, die prozedural berechnet werden?
@@ -1408,9 +1408,7 @@ Warum hat Rust keine stabile ABI wie C, und warum muss ich Symbole mit extern an
 
 Das Festlegen einer ABI ist eine große Entscheidung, die zukünftige Änderungen an der Sprache behindern könnte. Da Rust erst im Mai 2015 Version 1.0 erreicht hat, ist es noch zu früh, sich an dieser Stelle festzulegen. Das bedeutet nicht, dass es nie eine stabile ABI geben wird (auch wenn C++ es viele Jahre ohne Spezifikation einer ABI geschafft hat).
 
-Committing to an ABI is a big decision that can limit potentially advantageous language changes in the future. Given that Rust only hit 1.0 in May of 2015, it is still too early to make a commitment as big as a stable ABI. This does not mean that one won't happen in the future, though. (Though C++ has managed to go for many years without specifying a stable ABI.)
-
-The `extern` keyword allows Rust to use specific ABI's, such as the well-defined C ABI, for interop with other languages.
+Über das Rust-Schlüsselwort `extern` kann mit spezifischen ABIs wie der C-ABI interagiert werden.
 
 <h3><a href="#can-rust-code-call-c-code" name="can-rust-code-call-c-code">
 Kann Rust-Code C-Code aufrufen?
@@ -1460,7 +1458,7 @@ Wie im Codebeispiel oben zu sehen, überträgt der erste Aufruf an `process` den
 
 C++ verfolgt einen anderen Ansatz. In C++ werden Werte per Vorgabe kopiert, in dem ihr Kopierkonstruktor aufgerufen wird. Es ist allerdings möglich, Funktionen zu deklarieren, die ihre Argumente als "rvalue-Referenz", wie etwa `string&&` übernehmen. Dies deutet darauf hin, dass die aufgerufene Funktion den Besitz an Ressourcen des Werts übernimmt. Der Aufrufer muss dazu entweder einen temporären Wert übergeben oder einen gebundenen Wert explizit mit `std::move` verschieben. Das obige Beispiel würde in C++ etwa wie folgt ausssehen:
 
-```
+```cpp
 void process(string&& s) { }
 
 void caller() {
