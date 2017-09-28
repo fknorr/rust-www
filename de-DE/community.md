@@ -51,11 +51,6 @@ Das Entwicklerteam von Rust koordiniert sich in [#rust-internals][internals_irc]
 - [#rust][rust_irc] für alles rund um Rust
 - [#rust-beginners][beginners_irc] für Anfänger in der Sprache, weniger gut besucht als #rust
 - [#rust-internals][internals_irc] für Diskussionen um die Entwicklung der Sprache
-- [#rustc][rustc_irc] ist die Heimat des [Compilerteams][compiler_team]
-- [#rust-libs][libs_irc] ist die Heimat des [Bibliotheksteams][library_team]
-- [#rust-tools][tools_irc] ist die Heimat des [Tool- und Infrastrukturteams][dev_tools_team]
-- [#rust-lang][lang_irc] ist die Heimat des [Sprachteams][language_team]
-- [#rust-community][community_irc] ist die Heimat des [Community Teams][community_team]
 
 ### Deutsche und internationale Kanäle
 
@@ -66,19 +61,44 @@ Das Entwicklerteam von Rust koordiniert sich in [#rust-internals][internals_irc]
 - [#rust-ru][ru_irc] для общих дискуссий о Rust на русском языке
 - [Rust中文][cn_org] Rust 语言中文 Chat 社区(非IRC频道)
 
+### Teamkanäle (Englisch)
+
+
+- [#cargo][cargo_irc] für Diskussionen rund um Cargo, den Paketmanager von Rust. Die Heimat des [Cargo-Teams][cargo_team]
+- [#rust-community][community_irc] ist die Heimat des [Community Teams][community_team]
+- [#rustc][rustc_irc] ist die Heimat des [Compilerteams][compiler_team]
+- [#rust-dev-tools][dev_tools_irc] ist die Heimat des [Developer Tools Teams][dev_tools_team]
+- [#rust-docs][docs_irc] ist die Heimat des [Dokumentationsteams][doc_team]
+- [#rust-infra][infra_irc] ist die Heimat des [Infrastruktur-Teams][infra_team]
+- [#rust-lang][lang_irc] ist die Heimat des [Sprachteams][language_team]
+- [#rust-libs][libs_irc] ist die Heimat des [Bibliotheksteams][library_team]
+- [#rust-mods][mod_irc] ist der IRC-Kanal des [Moderationsteams][mod_team]
+- [#rust-style][style_irc] ist die Heimat des [Style-Teams][style_team]
+
 ### Themenkanäle (Englisch)
 
-- [#cargo][cargo_irc] für Diskussionen rund um Cargo, den Paketmanager von Rust
+Diese Kanäle sind für die weiter Rust-Community und nicht vom [Moderationsteam][mod_team] verwaltet.
+
 - [#rust-bots][bots_irc] versendet Benachrichtigungen zu Rust von einer Auswahl an Bots
-- [#rust-docs][docs_irc] ist die Heimat des inoffiziellen Dokumentationsteams
 - [#rust-crypto][crypto_irc] zur Diskussion über Kryptographie in Rust
 - [#rust-embedded][embedded_irc] für Embedded-Entwicklung in Rust
 - [#rust-gamedev][gamedev_irc] für Spieleentwicklung in Rust
+- [#rust-geo][rustgeo_irc] zur Diskussion von GeoRust
+- [#rust-machine-learning][machine_learning_irc] für Machine-Learning-Themen in Rust
 - [#rust-networking][networking_irc] für Netzwerkentwickler und Programmierer in Rust
-- [#rust-offtopic][offtopic_irc] für Ratsch und Tratsch in der Rust-Community
 - [#rust-osdev][osdev_irc] für Diskussionen zur Betriebssystementwicklung in Rust
+- [#rust-sci][sci_irc] für wissenschaftliches Rechnen in Rust
+- [#rust-wasm][wasm_irc] für Diskussionen um die Benutzung von Rust mit WebAssembly
 - [#rust-webdev][webdev_irc] für Themen zur Webentwicklung in Rust
+- [#iron][iron_irc] für die Diskussion zu Iron, dem erweiterbaren Rust-Webframework
+- [#nom][nom_irc] is for discussion on Nom, a Rust parser combinator library
+- [#nom][nom_irc] für Diskussionen zu Nom, einer Rust-Parserkombinatorbibliothek
+- [#redox][redox_irc] für Gespräche über Redox, dem Betriebssystem in Rust
+- [#rocket][rocket_irc] zur Diskussion über Rocket, einem beliebten HTTP-Framework in Rust
+- [#serde][serde_irc] if for discussion on Serde, a popular Rust serialization library
+- [#serde][serde_irc] zur Diskussion zu Serde, einer Serialisierungsbibliothek in Rust
 - [#servo][servo_irc] zur Diskussion über Servo, Mozillas Browserengine in Rust
+- [#xi][xi_irc] für Diskussionen um Xi, den Texteditior in Rust
 
 [IRC]: https://en.wikipedia.org/wiki/Internet_Relay_Chat
 [beginners_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust-beginners
@@ -97,15 +117,30 @@ Das Entwicklerteam von Rust koordiniert sich in [#rust-internals][internals_irc]
 [lang_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust-lang
 [libs_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust-libs
 [networking_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust-networking
-[offtopic_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust-offtopic
 [osdev_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust-osdev
 [ru_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust-ru
 [rust_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust
 [rustc_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rustc
 [servo_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23servo
-[tools_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust-tools
 [webdev_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust-webdev
 [docs_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust-docs
+[xi_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23xi
+[dev_tools_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust-dev-tools
+[style_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23style
+[style_team]: team.html#Style-team
+[mod_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23mods
+[machine_learning_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust-machine-learning
+[hyper_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23hyper
+[iron_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23iron
+[redox_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23redox
+[nom_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23nom
+[infra_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust-infra
+[rustgeo_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust-geo
+[rocket_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rocket
+[serde_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23serde
+[sci_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust-sci
+[wasm_irc]: https://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust-wasm
+
 
 ## Diskussionsforen
 
@@ -173,7 +208,7 @@ kontaktiere unverbindlich den Leiter des Teams oder ein anderes Teammitglied, di
 
 ## Die Entwicklung von Rust
 
-An Rust haben bisher über [1200 Entwickler mitgewirkt][authors], eine Zahl, die jede Woche stetig wächst. [Wir würden uns freuen, wenn du auch bald auf dieser Liste stehst][contribute]!
+An Rust haben bisher über [2000 Entwickler mitgewirkt][authors], eine Zahl, die jede Woche stetig wächst. [Wir würden uns freuen, wenn du auch bald auf dieser Liste stehst][contribute]!
 
 Wie oben erwähnt, steht das [Rust Internals Forum][internals_forum] für Themen rund um die Entwicklung und Implementierung von Rust zur Verfügung. Ein großer Teil der Diskussionen finden auch auf GitHub statt:
 
@@ -181,11 +216,8 @@ Wie oben erwähnt, steht das [Rust Internals Forum][internals_forum] für Themen
 
 - Das [RFC-Repository][rfcs] führt in unserem RFC- (Request for Comments-) Prozess Buch, dem Hauptweg, über den die Community und die Entwicklerteams Konsens finden und Entscheidungen zu neuen Features der Sprache, der Standardbibliothek und dem Tooling treffen.
 
-Etwa einmal wöchentlich veröffentlichen die Entwicklerteams [Team-Reports][team_reports], in denen etwa der Fortschritt neuer Features durch den RFC- und Implementierungsprozess dokumentiert werden.
-
-[authors]: https://github.com/rust-lang/rust/blob/88397e092e01b6043b6f65772710dfe0e59056c5/AUTHORS.txt
+[authors]: https://thanks.rust-lang.org/rust/all-time
 [contribute]: contribute.html
 [github]: https://github.com/rust-lang/rust
 [rfcs]: https://github.com/rust-lang/rfcs
-[team_reports]: https://github.com/rust-lang/subteams
 [issue_tracking]: https://github.com/rust-lang/rust/issues

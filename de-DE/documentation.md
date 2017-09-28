@@ -9,7 +9,7 @@ Wenn du Rust noch nie gesehen hast, solltest du zuerst einen Blick in das Buch [
 
 # Rust lernen
 
-[The Rust Programming Language][book] (englisch). Auch bekannt als "The Book". The Rust Programming Language ist die umfassendste Ressource zu allen Themen im Zusammenhang mit Rust. Es ist das wichtigste offizielle Dokument zur Sprache.
+[The Rust Programming Language][book] (englisch). Auch bekannt als _das Buch_. The Rust Programming Language gibt eine Einführung zu den Themen, die für das Erlernen der Sprache am wichtigsten sind und ermöglicht es dir, produktiv mit Rust zu arbeiten. Es ist das wichtigste offizielle Dokument zur Sprache.
 
 [Rust By Example][rbe] (englisch). Eine Sammlung eigenständiger Beispiele in Rust zu einer Vielzahl an Themen. Die Beispielprogramme können im Browser ausgeführt werden.
 
