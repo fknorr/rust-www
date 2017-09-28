@@ -1416,17 +1416,16 @@ Kann Rust-Code C-Code aufrufen?
 Ja. Rust wurde so entworfen, dass C-Code genauso effizient aufgerufen kann wie aus C++.
 
 <h3><a href="#can-c-code-call-rust-code" name="can-c-code-call-rust-code">
-Can C code call Rust code?
+Kann C-Code Rust-Code Aufrufen?
 </a></h3>
 
-Ja.
-Yes. The Rust code has to be exposed via an `extern` declaration, which makes it C-ABI compatible. Such a function can be passed to C code as a function pointer or, if given the `#[no_mangle]` attribute to disable symbol mangling, can be called directly from C code.
+Ja. Der Rust-Code muss mit einer `extern`-Deklaration versehen werden, die ihn C-ABI-kompatibel macht. Eine solche Funktion kann als Funktionszeiger an C übergeben werden oder sogar direkt aus C aufgerufen werden, wenn sie mit dem `#[no_mangle]`-Attribut erhält, um Symbol-Mangling zu unterdrücken.
 
 <h3><a href="#why-rust-vs-cxx" name="why-rust-vs-cxx">
 Ich kann bereits perfektes C++ schreiben. Welche Vorteile bietet mir Rust?
 </a></h3>
 
-Modernes C++ implementiert viele Features, die das Schreiben sicheren und korrekten Codes weniger Fehleranfällig macht. Es ist jedoch immer noch sehr einfach, Speicherfehler zu verursachen. Die C++-Hauptentwickler arbeiten daran die Prävalenz dieser Problematik zu verringern, die Sprache lässt aber durch ihre lange Geschichte und die notwendige Rückwärtskompatibilität nur eingeschränkt Änderungen zu.
+Modernes C++ implementiert viele Features, die das Schreiben sicheren und korrekten Codes weniger fehleranfällig macht. Es ist jedoch immer noch sehr einfach, Speicherfehler zu verursachen. Die C++-Hauptentwickler arbeiten daran die Prävalenz dieser Problematik zu verringern, die Sprache lässt aber durch ihre lange Geschichte und die notwendige Rückwärtskompatibilität nur eingeschränkt Änderungen zu.
 
 Rust wurde vom ersten Tag an mit dem Ziel entworfen, eine sichere Systemprogrammiersprache zu sein. Sie ist damit nicht von historischen Entscheidungen belastet, die das Entwickeln sicheren Codes in C++ so kompliziert machen. In C++ wird Sicherheit durch strenge Selbstdisziplin erreicht und kann leicht verletzt werden. In Rust ist Sicherheit die Vorgabe. Die Sprache eröffnet so die Möglichkeit, mit weniger erfahrenen Entwicklern zusammenzuarbeiten, ohne den Code wieder und wieder auf Sicherheitslücken prüfen zu müssen.
 
